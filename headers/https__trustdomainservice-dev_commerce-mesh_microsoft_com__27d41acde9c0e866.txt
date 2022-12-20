@@ -1,0 +1,9 @@
+200 OK
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:01:41 GMT
+Set-Cookie: ARRAffinity=762e6ea7c42cc1c109228d46fe4b76bb6f4b2c0525f4ce1ddb378168a163ae33;Path=/;HttpOnly;Secure;Domain=trustdomainservice-dev.commerce-mesh.microsoft.com ARRAffinitySameSite=762e6ea7c42cc1c109228d46fe4b76bb6f4b2c0525f4ce1ddb378168a163ae33;Path=/;HttpOnly;SameSite=None;Secure;Domain=trustdomainservice-dev.commerce-mesh.microsoft.com
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:18a2e3b6-b1bb-4345-bcce-acbee8832c59
+Content-Type: text/yaml;charset=utf-8
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY

@@ -1,0 +1,14 @@
+200 OK
+Ms-Serverid: e-deployment-d5bd6c75f-fqtnz
+Retry-Count: 0
+Content-Type: application/javascript
+Server: Kestrel
+Etag: "1d9054b38e9073d"
+X-Content-Type-Options: nosniff
+Ms-Requestid: ff312b76-e2ce-4db0-ba7e-3577b4628e24
+Ms-Cv: +fYAXAMTaUGi91Fr.0
+Content-Length: 511037
+Date: Mon, 19 Dec 2022 21:00:13 GMT
+Accept-Ranges: bytes
+Last-Modified: Thu, 01 Dec 2022 06:07:42 GMT
+Ms-Correlationid: 9f93743b-0a5e-45e3-adb9-5d4d92a8f871

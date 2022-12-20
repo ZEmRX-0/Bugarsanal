@@ -1,0 +1,16 @@
+200 OK
+X-Servicefabric: NoRetry
+Date: Mon, 19 Dec 2022 21:00:35 GMT
+Accept-Ranges: bytes
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+Server-Timing: x-ms-igw-upstream-headers;dur=25.3,x-ms-igw-req-overhead;dur=0.1
+Retry-Count: 0
+Content-Length: 510964
+X-Ms-Islandgateway: GA0000000
+X-Ms-Service-Request-Id: 85f15e15-1eb5-4ff4-9127-9a40aaf55adc
+X-Ms-Activity-Vector: 00.00.00.00
+Etag: "1d913e8c0ab9f74"
+Last-Modified: Mon, 19 Dec 2022 20:30:37 GMT
+X-Ms-Correlation-Id: 24c0ecbb-df5f-4684-bf60-41cb249cc0d2
+X-Content-Type-Options: nosniff
+Content-Type: application/javascript

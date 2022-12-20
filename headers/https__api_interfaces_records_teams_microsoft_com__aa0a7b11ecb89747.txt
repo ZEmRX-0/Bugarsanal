@@ -1,0 +1,12 @@
+200 OK
+Cache-Control: private, no-cache, max-age=0, s-maxage=0
+Content-Type: text/html
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 20:59:49 GMT
+Content-Length: 7260
+Server: Microsoft-HTTPAPI/2.0
+X-Content-Type-Options: nosniff
+X-Frame-Options: Deny
+X-Ms-Correlation-Id: a26c9bce-104f-4788-8122-bc4e3172cca5

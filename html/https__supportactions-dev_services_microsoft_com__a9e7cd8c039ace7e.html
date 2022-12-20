@@ -1,0 +1,791 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SupportActionService API",
+    "description": "A web API for support actions (If you see this statement, application upgrade with new version of code is successful!!)",
+    "contact": {
+      "name": "Virtual Agent Dev",
+      "email": "msegce_vas_dev@microsoft.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/supportactions/configuration": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Returns a list of all the global configs",
+        "responses": {
+          "200": {
+            "description": "List of global config names fetched"
+          },
+          "401": {
+            "description": "Unauthorized to list global configs"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Creats new a new global configuration version",
+        "responses": {
+          "201": {
+            "description": "New global configuration version created"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized to create global configuration version"
+          },
+          "409": {
+            "description": "The global configuration version is already in the database"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/configuration/{configName}": {
+      "put": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Update currentVersion and enabled flag for a global configuration\r\nBy default, the enabled flag is set to true for all configuration",
+        "parameters": [
+          {
+            "name": "configName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabaseMetadataContent"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabaseMetadataContent"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabaseMetadataContent"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DatabaseMetadataContent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Production version update successful"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized to update version"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Returns a specific verison of a specified configuration, by default returns the current version",
+        "parameters": [
+          {
+            "name": "configName",
+            "in": "path",
+            "description": "Name of the global configuration",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Version of the global configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Configuration version fetched"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized to get configuration"
+          },
+          "404": {
+            "description": "Configuration not found"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/configuration/versions/{configName}": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Returns versions of the given configuration",
+        "parameters": [
+          {
+            "name": "configName",
+            "in": "path",
+            "description": "Name of the global configuration",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of most recent versions to fetch, must be less than 1000. Returns all versions if not supplied",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of versions fetched successfully"
+          },
+          "401": {
+            "description": "Unauthorized to list versions"
+          },
+          "404": {
+            "description": "Configuration not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/configuration/configWithVersions": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Returns All the configs with versions",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of configurations with versions fetched successfully"
+          },
+          "401": {
+            "description": "Unauthorized to list versions"
+          },
+          "404": {
+            "description": "Configuration not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/configuration/ChangeFeed": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Get all Config ChangeFeed",
+        "responses": {
+          "200": {
+            "description": "A list of changefeed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/configuration/ChangeFeedFromBlob": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Get all Config ChangeFeed From Blob",
+        "responses": {
+          "200": {
+            "description": "A list of changefeed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/configuration/syncConfig": {
+      "post": {
+        "tags": [
+          "Configuration"
+        ],
+        "summary": "Synchronize Config using the given ChangeFeed",
+        "responses": {
+          "200": {
+            "description": "A list of changefeed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/servicemetadata": {
+      "get": {
+        "tags": [
+          "ServiceMetadata"
+        ],
+        "summary": "API to fetch the metadata of SAF service",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "summary": "Returns HTTP 200 for status check used by traffic manager",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/regioninfo": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "summary": "Returns the Region Info about the node where the current instance is used by Traffic manager",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions": {
+      "get": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Returns a list of all the support actions",
+        "responses": {
+          "200": {
+            "description": "List of action names fetched"
+          },
+          "401": {
+            "description": "Unauthorized to list actions"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Creates a new action version",
+        "responses": {
+          "201": {
+            "description": "New action versio created"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized to create action version"
+          },
+          "409": {
+            "description": "The action version is already in the database"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/webhooksWithVersions": {
+      "get": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Returns a list of all the support actions including Versions",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of action names fetched"
+          },
+          "401": {
+            "description": "Unauthorized to list actions"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Upload all the support actions including Versions",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SafTableEntity"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SafTableEntity"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SafTableEntity"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SafTableEntity"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "List of action names fetched"
+          },
+          "401": {
+            "description": "Unauthorized to list actions"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/ChangeFeed": {
+      "get": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Get all Webhook ChangeFeed",
+        "responses": {
+          "200": {
+            "description": "A list of changefeed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/ChangeFeedFromBlob": {
+      "get": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Get all Webhook ChangeFeed From Blob",
+        "responses": {
+          "200": {
+            "description": "A list of changefeed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/syncWebhook": {
+      "post": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Synchronize Webhook using the given ChangeFeed",
+        "responses": {
+          "200": {
+            "description": "A list of changefeed"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/clearcache": {
+      "post": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Clears all webhook related cache",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/{actionName}": {
+      "post": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Executes the given action",
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "description": "Name of the SAF action to be executed",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Version of the action, if not provided the default version would be used",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "configVersion",
+            "in": "query",
+            "description": "Version of the global config for the action, if not provided the default version would be used",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Action executed successfully"
+          },
+          "401": {
+            "description": "Unauthorized to execute action"
+          },
+          "404": {
+            "description": "Action not found"
+          },
+          "500": {
+            "description": "Internal error with action container"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Update currentVersion and disabled flag for an action\r\nBy default, the disabled flag is set to false for all actions",
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Production version update successful"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized to update action"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Returns a specific verison of a specified action, by default returns the current version",
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "description": "Name of the action",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Version of the action",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Action version fetched"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized to get action"
+          },
+          "404": {
+            "description": "Action not found"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/{actionName}/execute": {
+      "post": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Executes the given action",
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "description": "Name of the SAF action to be executed",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "Version of the action, if not provided the default version would be used",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "configVersion",
+            "in": "query",
+            "description": "Version of the global config for the action, if not provided the default version would be used",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Action executed successfully"
+          },
+          "401": {
+            "description": "Unauthorized to execute action"
+          },
+          "404": {
+            "description": "Action not found"
+          },
+          "500": {
+            "description": "Internal error with action container"
+          }
+        }
+      }
+    },
+    "/api/v1/supportactions/versions/{actionName}": {
+      "get": {
+        "tags": [
+          "SupportActions"
+        ],
+        "summary": "Returns most recent versions of the given action",
+        "parameters": [
+          {
+            "name": "actionName",
+            "in": "path",
+            "description": "Name of the action",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of most recent versions to fetch. Returns all versions if not supplied",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of versions fetched successfully"
+          },
+          "401": {
+            "description": "Unauthorized to list versions"
+          },
+          "404": {
+            "description": "Action not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DatabaseMetadataContent": {
+        "type": "object",
+        "properties": {
+          "currentVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "disabled": {
+            "type": "boolean"
+          },
+          "adminGroups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SafTableEntity": {
+        "type": "object",
+        "properties": {
+          "partitionKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eTag": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "requestContent": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "disabled": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "adminGroups": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDefaultVersion": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. \\r\\n\\r\\n\r\n                      Enter 'Bearer' [space] and then your token in the text input below.\r\n                      \\r\\n\\r\\nExample: 'Bearer 12345abcdef'",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

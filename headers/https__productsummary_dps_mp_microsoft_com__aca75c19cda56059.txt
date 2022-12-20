@@ -1,0 +1,11 @@
+200 OK
+Server: Kestrel
+Last-Modified: Mon, 12 Dec 2022 22:25:14 GMT
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:c91540b8-ae36-41ca-b7f0-71e426e2d7df
+Date: Mon, 19 Dec 2022 21:01:24 GMT
+Content-Type: application/javascript
+Accept-Ranges: bytes
+Etag: "1d90e789acf5ed2"
+Ms-Correlationid: 60e58bb0-5830-4c12-8b4b-9a3b1074067c
+Retry-Count: 0

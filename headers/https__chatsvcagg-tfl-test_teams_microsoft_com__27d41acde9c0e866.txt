@@ -1,0 +1,8 @@
+200 OK
+X-Content-Type-Options: nosniff
+Timing-Allow-Origin: *
+Retry-Count: 0
+Content-Type: text/yaml;charset=utf-8
+Date: Mon, 19 Dec 2022 21:00:22 GMT
+Server: Kestrel
+Request-Context: appId=cid-v1:4160c19a-4203-4d45-89b3-14d6ffc810d1

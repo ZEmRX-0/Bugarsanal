@@ -1,0 +1,13 @@
+200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+Content-Type: text/html
+Set-Cookie: ARRAffinity=4619ef1ce8158019e5864596cbe36b6303b9264dd4cac3deee6fecae6108cc0c;Path=/;HttpOnly;Secure;Domain=mscuatpvpwrapperapi.microsoft.com
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:00:59 GMT
+Server: Microsoft-IIS/10.0
+X-Aspnet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Expires: -1
+Vary: Accept-Encoding

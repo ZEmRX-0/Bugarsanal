@@ -1,0 +1,12 @@
+200 OK
+Accept-Ranges: bytes
+Retry-Count: 0
+Etag: "1d7c28cf5730b3d"
+Date: Mon, 19 Dec 2022 21:01:15 GMT
+Request-Context: appId=cid-v1:60fd43fc-9852-4d2d-bccc-3d17771fba89
+Server: Kestrel
+Vary: Accept-Encoding
+Content-Type: application/javascript
+Last-Modified: Sat, 16 Oct 2021 12:54:30 GMT
+Set-Cookie: TiPMix=21.11717143673504; path=/; HttpOnly; Domain=partneraccountexperience.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=partneraccountexperience.microsoft.com; Max-Age=3600; Secure; SameSite=None
+X-Powered-By: ASP.NET

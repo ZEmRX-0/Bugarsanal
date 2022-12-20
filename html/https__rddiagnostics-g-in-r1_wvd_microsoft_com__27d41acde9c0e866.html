@@ -1,0 +1,80 @@
+openapi: 3.0.1
+info:
+  title: Azure Virtual Desktop Diagnostics API Client
+  version: v1
+servers:
+  - url: https://rddiagnostics-g-in-r1.wvd.microsoft.com
+paths:
+  /api/DiagnosticsEvents/v1/agent:
+    post:
+      tags:
+        - DiagnosticsEvents
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          description: Success
+  /api/DiagnosticsEvents/v1/EventHubSettings:
+    get:
+      tags:
+        - DiagnosticsEvents
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+  /api/DiagnosticsEvents/v1/GeoEventHubSettings:
+    get:
+      tags:
+        - DiagnosticsEvents
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+  /api/Health:
+    get:
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    Event:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+      additionalProperties: false

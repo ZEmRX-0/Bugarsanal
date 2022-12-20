@@ -1,0 +1,14 @@
+200 OK
+Cache-Control: no-cache
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:f9d8244f-b1ef-4037-8d94-678281644e8a
+Access-Control-Expose-Headers: Request-Context
+Date: Mon, 19 Dec 2022 21:00:56 GMT
+Pragma: no-cache
+Content-Type: text/html
+Expires: -1
+X-Aspnet-Version: 4.0.30319
+Server: Microsoft-IIS/10.0
+Access-Control-Allow-Origin: *
+X-Powered-By: ASP.NET
+Retry-Count: 0

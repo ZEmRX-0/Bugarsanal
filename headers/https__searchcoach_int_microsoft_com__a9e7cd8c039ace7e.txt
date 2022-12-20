@@ -1,0 +1,13 @@
+200 OK
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Pragma: no-cache
+Content-Type: application/json;charset=utf-8
+Expires: 0
+Server: Microsoft-HTTPAPI/2.0
+Ms-Cv: MC4KIX9NaUG5F7e+itxqlQ.0
+X-Content-Type-Options: nosniff
+X-End2endlatencyms: 9
+Date: Mon, 19 Dec 2022 21:01:18 GMT
+Cache-Control: private, no-store, no-cache, max-age=0, s-maxage=0
+Retry-Count: 0

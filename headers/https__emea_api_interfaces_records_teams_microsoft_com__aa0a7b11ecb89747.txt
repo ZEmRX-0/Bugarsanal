@@ -1,0 +1,12 @@
+200 OK
+X-Ms-Correlation-Id: 01b3f1b7-1c2d-4594-88ef-4d0c7df9502d
+Date: Mon, 19 Dec 2022 21:00:03 GMT
+Cache-Control: private, no-cache, max-age=0, s-maxage=0
+Content-Type: text/html
+X-Content-Type-Options: nosniff
+X-Frame-Options: Deny
+Retry-Count: 0
+Content-Length: 7265
+Server: Microsoft-HTTPAPI/2.0
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubDomains

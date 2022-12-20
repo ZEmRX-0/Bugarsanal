@@ -1,0 +1,11 @@
+200 OK
+Set-Cookie: ARRAffinity=d242b40ea4528a228c3a04605b5c50a0f5f963b521218f877ac5ad47b51e02c8;Path=/;HttpOnly;Secure;Domain=mdhvnextapi.microsoft.com ARRAffinitySameSite=d242b40ea4528a228c3a04605b5c50a0f5f963b521218f877ac5ad47b51e02c8;Path=/;HttpOnly;SameSite=None;Secure;Domain=mdhvnextapi.microsoft.com
+Request-Context: appId=cid-v1:a0e11534-4480-4f9a-8e60-82afc0aafd11
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:00:42 GMT
+Server: Kestrel
+X-Powered-By: ASP.NET
+Content-Type: text/yaml;charset=utf-8
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+Correlationid: d5fda7d3-6f9c-43ed-a59c-3ff251f6ab4d

@@ -1,0 +1,12 @@
+200 OK
+Vary: Accept-Encoding
+Content-Type: application/javascript
+Accept-Ranges: bytes
+Set-Cookie: ARRAffinity=2ffed4ff1d0dbe3cc61bcd7a06c75808d14fc1a694139aec2fd1c5a991bc17a3;Path=/;HttpOnly;Secure;Domain=wdatp-threatprotection.microsoft.com ARRAffinitySameSite=2ffed4ff1d0dbe3cc61bcd7a06c75808d14fc1a694139aec2fd1c5a991bc17a3;Path=/;HttpOnly;SameSite=None;Secure;Domain=wdatp-threatprotection.microsoft.com
+Server: Microsoft-IIS/10.0
+Etag: "1d6fbadc493c34e"
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 21:01:32 GMT
+Last-Modified: Fri, 05 Feb 2021 10:58:00 GMT
+Strict-Transport-Security: max-age=2592000
+Retry-Count: 0

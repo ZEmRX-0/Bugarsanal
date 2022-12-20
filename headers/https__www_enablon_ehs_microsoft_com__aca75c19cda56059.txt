@@ -1,0 +1,10 @@
+200 OK
+Accept-Ranges: bytes
+Etag: "1d7c28493b7933d"
+Date: Mon, 19 Dec 2022 21:01:34 GMT
+Content-Type: application/javascript
+Strict-Transport-Security: max-age=2592000
+X-Correlation-Id: 0HMMTLC7HU021:00000002
+Retry-Count: 0
+Content-Length: 511037
+Last-Modified: Sat, 16 Oct 2021 11:54:30 GMT

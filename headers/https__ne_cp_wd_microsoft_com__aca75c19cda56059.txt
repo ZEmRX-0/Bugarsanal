@@ -1,0 +1,9 @@
+200 OK
+Server: Kestrel
+Accept-Ranges: bytes
+Etag: "1d8f92f6166613d"
+Last-Modified: Tue, 15 Nov 2022 20:18:10 GMT
+Content-Length: 511037
+Retry-Count: 0
+Content-Type: application/javascript
+Date: Mon, 19 Dec 2022 21:00:45 GMT

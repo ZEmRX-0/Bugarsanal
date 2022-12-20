@@ -1,0 +1,13 @@
+200 OK
+Content-Type: application/javascript
+Etag: "1d91041f43597f4"
+Last-Modified: Thu, 15 Dec 2022 04:59:04 GMT
+Set-Cookie: TiPMix=46.55316868526606; path=/; HttpOnly; Domain=api.easystartppe.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=api.easystartppe.microsoft.com; Max-Age=3600; Secure; SameSite=None ARRAffinity=86b9f178e0aecfd16dcee1db4e322b95590972f1cd0e1cc072faf2ef6a9e0984;Path=/;HttpOnly;Secure;Domain=api.easystartppe.microsoft.com ARRAffinitySameSite=86b9f178e0aecfd16dcee1db4e322b95590972f1cd0e1cc072faf2ef6a9e0984;Path=/;HttpOnly;SameSite=None;Secure;Domain=api.easystartppe.microsoft.com
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 20:59:48 GMT
+Server: Microsoft-IIS/10.0
+Accept-Ranges: bytes

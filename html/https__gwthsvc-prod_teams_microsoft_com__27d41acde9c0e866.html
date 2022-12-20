@@ -1,0 +1,268 @@
+openapi: 3.0.1
+info:
+  title: Growth.WebApp
+  version: '1.0'
+paths:
+  /api/v1.0/users/engagementprofile:
+    get:
+      tags:
+        - User
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RawUserEngagementProfileDto'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RawUserEngagementProfileDto'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RawUserEngagementProfileDto'
+  /api/v1.0/users/isengaged:
+    get:
+      tags:
+        - User
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+  /api/v1.0/users/hasperformedaction:
+    get:
+      tags:
+        - User
+      parameters:
+        - name: actionDays
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 4
+        - name: searchInLast
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 7
+        - name: action
+          in: query
+          schema:
+            type: string
+            default: All
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+  /api/v1.0/users/hasbeendark:
+    get:
+      tags:
+        - User
+      parameters:
+        - name: darkDays
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 28
+        - name: action
+          in: query
+          schema:
+            type: string
+            default: All
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+  /api/v1.0/users/teamsuggestions:
+    get:
+      tags:
+        - User
+      parameters:
+        - name: teamSuggestionsModelVersion
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 1
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamSuggestionDto'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamSuggestionDto'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamSuggestionDto'
+  /api/v1.0/users/notification:
+    post:
+      tags:
+        - User
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedParams'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedParams'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedParams'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ActivityFeedParams'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+components:
+  schemas:
+    ActivityFeedParams:
+      type: object
+      properties:
+        topic:
+          $ref: '#/components/schemas/TeamworkActivityTopic'
+        activityType:
+          type: string
+          nullable: true
+        templateParameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameValuePair'
+          nullable: true
+        previewText:
+          $ref: '#/components/schemas/ItemBody'
+        recipient:
+          $ref: '#/components/schemas/TeamworkNotificationRecipient'
+      additionalProperties: false
+    ItemBody:
+      type: object
+      properties:
+        content:
+          type: string
+          nullable: true
+      additionalProperties: false
+    NameValuePair:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RawUserActionProfileDto:
+      type: object
+      properties:
+        action:
+          type: string
+          nullable: true
+        updatedAt:
+          type: string
+          nullable: true
+        actionCounts:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RawUserEngagementProfileDto:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/RawUserActionProfileDto'
+          nullable: true
+        churnScore:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TeamSuggestionDto:
+      type: object
+      properties:
+        groupId:
+          type: string
+          nullable: true
+        score:
+          type: number
+          format: double
+        isMember:
+          type: boolean
+        isHealthy:
+          type: boolean
+        topRelevantMembers:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    TeamworkActivityTopic:
+      type: object
+      properties:
+        source:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+        webUrl:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TeamworkNotificationRecipient:
+      type: object
+      properties:
+        oDataType:
+          type: string
+          nullable: true
+        userId:
+          type: string
+          nullable: true
+      additionalProperties: false

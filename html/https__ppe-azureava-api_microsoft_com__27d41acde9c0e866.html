@@ -1,0 +1,5543 @@
+openapi: 3.0.1
+info:
+  title: AvaApi
+  description: API for Ava Bot
+  termsOfService: https://www.microsoft.com/en-us/legal/terms-of-use
+  contact:
+    name: Ava Devs
+    email: avadevs@microsoft.com
+  version: v1
+paths:
+  /api/v1/avakb/actions/search:
+    post:
+      tags:
+        - AvaKb
+      summary: This endpoint returns the search responses for the request.
+      requestBody:
+        description: Ava search request object
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AvaSearchResponseIEnumerableAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaSearchResponseIEnumerableAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AvaSearchResponseIEnumerableAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  /api/v1/avakb/actions/feedback:
+    post:
+      tags:
+        - AvaKb
+      summary: This endpoint submit search response explicit or implicit feedback to Azure KB.
+      requestBody:
+        description: Ava explicit or implicit feedback request object
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchFeedbackRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchFeedbackRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchFeedbackRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AvaSearchFeedbackRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StringAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StringAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StringAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  /api/v1/case:
+    get:
+      tags:
+        - Case
+      summary: Get all cases that matches the given filters
+      parameters:
+        - name: caseNr
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: UserAadObjectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: MyChannels
+          in: path
+          required: true
+          schema:
+            type: boolean
+        - name: Severity
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Offering
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: DaysBack
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+        - name: CaseType
+          in: path
+          required: true
+          schema:
+            $ref: '#/components/schemas/CasesType'
+        - name: TeamsTeamId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: ActiveSchedules
+          in: path
+          required: true
+          schema:
+            type: boolean
+        - name: Url
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsIEnumerableAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsIEnumerableAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsIEnumerableAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+    post:
+      tags:
+        - Case
+      summary: Creates a tracked case in this team and (optionally) in the specified channel.
+      requestBody:
+        description: The request CaseData object.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/case/{caseNumber}':
+    get:
+      tags:
+        - Case
+      summary: Gets the case that's associated with this conversation
+      parameters:
+        - name: caseNumber
+          in: path
+          description: The case number of the case to get
+          required: true
+          schema:
+            type: string
+        - name: teamId
+          in: query
+          description: The id of the team the case belongs to
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+    patch:
+      tags:
+        - Case
+      summary: Logs the specified case activity for the current user.
+      parameters:
+        - name: caseNumber
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/PatchCaseDataRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchCaseDataRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/PatchCaseDataRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/PatchCaseDataRequest'
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/case/{caseNr}/actions/archive':
+    post:
+      tags:
+        - Case
+      summary: Archives the specified case.
+      parameters:
+        - name: caseNr
+          in: path
+          description: The case number.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Information necessary for archiving a case.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/case/{caseNr}/actions/move':
+    post:
+      tags:
+        - Case
+      summary: Moves the specified case to a different channel conversation.
+      parameters:
+        - name: caseNr
+          in: path
+          description: The case number
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The request details.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/MoveCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/MoveCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/MoveCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/MoveCaseResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoveCaseResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/MoveCaseResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/case/{caseNr}/actions/forget':
+    post:
+      tags:
+        - Case
+      summary: Forgets the specified case.
+      parameters:
+        - name: caseNr
+          in: path
+          description: The case number
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The request
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ForgetCaseResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForgetCaseResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ForgetCaseResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/case/{caseNr}/actions/track':
+    post:
+      tags:
+        - Case
+      summary: Tracks the specified case.
+      parameters:
+        - name: caseNr
+          in: path
+          description: The case number
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The request sent to track a given case.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/TrackCaseResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackCaseResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TrackCaseResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/case/{caseNumber}/icms':
+    get:
+      tags:
+        - Case
+      summary: Gets the icms related to the case.
+      parameters:
+        - name: caseNumber
+          in: path
+          description: The case number of the case to get
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AvaIcmResponseICollectionAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvaIcmResponseICollectionAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AvaIcmResponseICollectionAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/case/{caseNumber}/actions/logactivity':
+    post:
+      tags:
+        - Case
+      summary: Logs the specified case activity for the current user.
+      parameters:
+        - name: caseNumber
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/LogCaseActivityRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogCaseActivityRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LogCaseActivityRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LogCaseActivityRequest'
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/channel/{channelId}/experts':
+    get:
+      tags:
+        - Channel
+      summary: This endpoint returns the collection of active TAs on a given channel.
+      parameters:
+        - name: channelId
+          in: path
+          description: The ID of the channel of TAs in question.
+          required: true
+          schema:
+            type: string
+        - name: TeamId
+          in: query
+          schema:
+            type: string
+        - name: Offering
+          in: query
+          schema:
+            type: string
+        - name: UserAadObjectId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ActiveTADetailsIEnumerableAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActiveTADetailsIEnumerableAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ActiveTADetailsIEnumerableAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/channel/{channelId}/schedules':
+    get:
+      tags:
+        - Channel
+      summary: This endpoint returns the collection of all schedules on a given channel.
+      parameters:
+        - name: channelId
+          in: path
+          description: The ID of the channel of TAs in question.
+          required: true
+          schema:
+            type: string
+        - name: offering
+          in: query
+          description: The optional offering to filter by
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ChannelUserScheduleIEnumerableAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChannelUserScheduleIEnumerableAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ChannelUserScheduleIEnumerableAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/channel/{channelId}/actions/notify':
+    post:
+      tags:
+        - Channel
+      summary: This endpoint is to notify all the admins in the team with the message.
+      parameters:
+        - name: channelId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/NotifyRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotifyRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/NotifyRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/NotifyRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UnscheduledTimeRangeAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnscheduledTimeRangeAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UnscheduledTimeRangeAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  /api/v1/channel:
+    get:
+      tags:
+        - Channel
+      summary: This endpoint is to notify all the admins in the team with the message.
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ListChannelsRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListChannelsRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ListChannelsRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ListChannelsRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ListChannelsResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListChannelsResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ListChannelsResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/case':
+    get:
+      tags:
+        - Conversation
+      summary: Gets the case that's associated with this conversation
+      parameters:
+        - name: conversationId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/case/actions/archive':
+    post:
+      tags:
+        - Conversation
+      summary: Archives the case that's associated with this conversation
+      parameters:
+        - name: conversationId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ArchiveCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseDataDetailsAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/case/actions/track':
+    post:
+      tags:
+        - Conversation
+      summary: Tracks the case that's associated with this conversation
+      parameters:
+        - name: conversationId
+          in: path
+          description: The identifies converstation inside the state property.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/TrackCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/TrackCaseResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrackCaseResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/TrackCaseResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/case/actions/forget':
+    post:
+      tags:
+        - Conversation
+      summary: Gets the case that's associated with this conversation
+      parameters:
+        - name: conversationId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ForgetCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ForgetCaseResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForgetCaseResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ForgetCaseResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/actions/checking':
+    post:
+      tags:
+        - Conversation
+      summary: Registers the current user for checking the specified case.
+      parameters:
+        - name: conversationId
+          in: path
+          description: The identifies converstation inside the state property.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AssignCaseResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignCaseResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AssignCaseResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/actions/assign':
+    post:
+      tags:
+        - Conversation
+      summary: Registers the current user for checking the specified case.
+      parameters:
+        - name: conversationId
+          in: path
+          description: The case number
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The request model for assign command.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/AssignCaseRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AssignCaseResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssignCaseResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AssignCaseResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/actions/logmessage':
+    post:
+      tags:
+        - Conversation
+      summary: Logs a conversation message.
+      parameters:
+        - name: conversationId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The request sent to log a given conversation message.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/LogMessageRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogMessageRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LogMessageRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LogMessageRequest'
+      responses:
+        '200':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/conversation/{conversationId}/actions/status':
+    post:
+      tags:
+        - Conversation
+      summary: Shows specified case's status.
+      parameters:
+        - name: conversationId
+          in: path
+          description: The case number.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Information necessary requesting a case's status.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CaseStatusRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CaseStatusRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CaseStatusRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CaseStatusRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CaseStatusResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseStatusResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CaseStatusResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/ConversationOutcome/{conversationOutcomeId}':
+    post:
+      tags:
+        - ConversationOutcome
+      summary: Submit outcome feedback for a conversation and complete the archival
+      parameters:
+        - name: conversationOutcomeId
+          in: path
+          description: The id of the conversation outcome to associate the feedback to.
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: The data to attach as the outcome to the conversation
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/OutcomeFeedbackRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OutcomeFeedbackRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/OutcomeFeedbackRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/OutcomeFeedbackRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ConversationOutcomeAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversationOutcomeAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ConversationOutcomeAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/ConversationOutcome/{conversationOutcomeId}/prompts':
+    post:
+      tags:
+        - ConversationOutcome
+      summary: "Records when a prompt has been sent to ask for outcome feedback.\r\nThis enables ability to track when feedback was asked for and what case feedback belongs to upon being provided."
+      parameters:
+        - name: conversationOutcomeId
+          in: path
+          description: The id of the outcome associated to the case this prompt belongs to
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        description: The prompt tracking details
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RecordOutcomeFeedbackPromptRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecordOutcomeFeedbackPromptRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RecordOutcomeFeedbackPromptRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RecordOutcomeFeedbackPromptRequest'
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/ConversationOutcomePrompt/{promptId}':
+    get:
+      tags:
+        - ConversationOutcomePrompt
+      summary: Gets details of a prompt for outcome feedback and associated case data
+      parameters:
+        - name: promptId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/OutcomeFeedbackPromptResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OutcomeFeedbackPromptResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/OutcomeFeedbackPromptResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/featuretoggle/{featureToggleId}':
+    get:
+      tags:
+        - FeatureToggle
+      summary: Gets feature toggle details
+      parameters:
+        - name: featureToggleId
+          in: path
+          description: The id of the feature toggle to get details for
+          required: true
+          schema:
+            $ref: '#/components/schemas/FeatureToggleId'
+        - name: FeatureToggleId
+          in: query
+          schema:
+            $ref: '#/components/schemas/FeatureToggleId'
+        - name: Scope
+          in: query
+          schema:
+            $ref: '#/components/schemas/FeatureToggleScope'
+        - name: TeamId
+          in: query
+          schema:
+            type: string
+        - name: UserId
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/FeatureToggleDetailsAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureToggleDetailsAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/FeatureToggleDetailsAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+    patch:
+      tags:
+        - FeatureToggle
+      summary: Updates a feature toggle
+      parameters:
+        - name: featureToggleId
+          in: path
+          description: The id of the feature toggle to update
+          required: true
+          schema:
+            $ref: '#/components/schemas/FeatureToggleId'
+      requestBody:
+        description: The update request for the feature toggle
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/FeatureToggleUpdateRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeatureToggleUpdateRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FeatureToggleUpdateRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FeatureToggleUpdateRequest'
+      responses:
+        '204':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  /api/v1/me/settings:
+    get:
+      tags:
+        - Me
+      summary: Get the current user settings.
+      parameters:
+        - name: userAadObjectId
+          in: query
+          description: ''
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserSettingsResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSettingsResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserSettingsResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+    patch:
+      tags:
+        - Me
+      summary: Updates specified user settings.
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UserSettingsRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSettingsRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserSettingsRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserSettingsRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserSettingsResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSettingsResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserSettingsResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/storage/{tableName}/{partitionKey}/{rowKey}':
+    get:
+      tags:
+        - Storage
+      summary: Gets the entity from the specified table using the specified keys.
+      parameters:
+        - name: tableName
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: partitionKey
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+        - name: rowKey
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CardKeyLedgerTableEntityAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CardKeyLedgerTableEntityAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CardKeyLedgerTableEntityAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/storage/{tableName}':
+    post:
+      tags:
+        - Storage
+      summary: Stores the entity in the specified table.
+      parameters:
+        - name: tableName
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CardKeyLedgerTableEntity'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CardKeyLedgerTableEntity'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CardKeyLedgerTableEntity'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CardKeyLedgerTableEntity'
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/survey/{surveyName}':
+    get:
+      tags:
+        - Survey
+      summary: Gets the survey with the specified name.
+      parameters:
+        - name: surveyName
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SurveyAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SurveyAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SurveyAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/survey/{surveyName}/actions/submit':
+    post:
+      tags:
+        - Survey
+      summary: Submits answers to the specified survey to the Elixir survey API.
+      parameters:
+        - name: surveyName
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SubmitSurveyResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitSurveyResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SubmitSurveyResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/team/{teamId}/roles':
+    get:
+      tags:
+        - Team
+      summary: Gets all roles defined for this team.
+      parameters:
+        - name: teamId
+          in: path
+          description: The Teams team ID of the team to query.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/GetRolesResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRolesResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/GetRolesResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/team/{teamId}/users':
+    post:
+      tags:
+        - Team
+      summary: Adds or updates the given users
+      parameters:
+        - name: teamId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UpsertUsersRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpsertUsersRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpsertUsersRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpsertUsersRequest'
+      responses:
+        '202':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/team/{teamId}/actions/involve':
+    post:
+      tags:
+        - Team
+      summary: Involves users with role specified in the details in a case.
+      parameters:
+        - name: teamId
+          in: path
+          description: The ID the role is a
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The details needed to involve a user role in a case
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/InvolveRoleDetails'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InvolveRoleDetails'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/InvolveRoleDetails'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/InvolveRoleDetails'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/InvolveRoleResponseAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvolveRoleResponseAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/InvolveRoleResponseAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/team/{teamId}':
+    delete:
+      tags:
+        - Team
+      summary: Sets team and channels associated as deleted
+      parameters:
+        - name: teamId
+          in: path
+          description: ''
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/team/{teamId}/actions/learn':
+    post:
+      tags:
+        - Team
+      summary: Learns the specified team.
+      parameters:
+        - name: teamId
+          in: path
+          description: The Teams ID of the team to learn
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The WebJob details
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/LearnTeamRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LearnTeamRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LearnTeamRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LearnTeamRequest'
+      responses:
+        '202':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/team/{teamId}/admins':
+    get:
+      tags:
+        - Team
+      summary: This endpoint returns the collection of admins on a given teams team.
+      parameters:
+        - name: teamId
+          in: path
+          description: The ID of the teams team.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: ''
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ListAdminsRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListAdminsRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ListAdminsRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ListAdminsRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/AdminInfoIEnumerableAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminInfoIEnumerableAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/AdminInfoIEnumerableAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+  '/api/v1/team/{teamId}/actions/monitor':
+    post:
+      tags:
+        - Team
+      summary: This endpoint checks to ensure that a team has not been erroneously deleted.
+      parameters:
+        - name: teamId
+          in: path
+          description: The ID of the teams team.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/StringAvaResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StringAvaResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/StringAvaResponse'
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '400':
+          description: Bad Request
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Server Error
+components:
+  schemas:
+    ActiveTADetails:
+      type: object
+      properties:
+        endHour:
+          $ref: '#/components/schemas/TimeSpan'
+        startHour:
+          $ref: '#/components/schemas/TimeSpan'
+        offerings:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        alias:
+          type: string
+          nullable: true
+        scheduleType:
+          $ref: '#/components/schemas/UserScheduleType'
+        endDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+    ActiveTADetailsIEnumerableAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActiveTADetails'
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    ActivityName:
+      enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      type: integer
+      format: int32
+    AdminInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        alias:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AdminInfoIEnumerableAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AdminInfo'
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    ArchiveCaseRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        userAADObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ASCCaseInteraction:
+      type: object
+      properties:
+        createdOn:
+          type: string
+          format: date-time
+        entityType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AssignCaseRequest:
+      type: object
+      properties:
+        channelId:
+          type: string
+          nullable: true
+        teamId:
+          type: string
+          nullable: true
+        teamsUserId:
+          type: string
+          nullable: true
+        userAadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AssignCaseResponse:
+      type: object
+      properties:
+        caseNumber:
+          type: string
+          nullable: true
+        assignedUserName:
+          type: string
+          nullable: true
+        userRoleName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AssignCaseResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/AssignCaseResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    AvaErrorCodes:
+      enum:
+        - 40000
+        - 40001
+        - 40002
+        - 40003
+        - 40004
+        - 40005
+        - 40006
+        - 40007
+        - 40008
+        - 40009
+        - 40010
+        - 40011
+        - 40012
+        - 40013
+        - 40014
+        - 40015
+        - 40400
+        - 50000
+      type: integer
+      format: int32
+    AvaIcm:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        severity:
+          type: integer
+          format: int32
+        state:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        link:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AvaIcmResponse:
+      type: object
+      properties:
+        escalation:
+          $ref: '#/components/schemas/AvaIcm'
+      additionalProperties: false
+    AvaIcmResponseICollectionAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AvaIcmResponse'
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    AvaSearchConfidence:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    AvaSearchFeedbackRequest:
+      type: object
+      properties:
+        resultId:
+          type: string
+          nullable: true
+        resultLink:
+          type: string
+          nullable: true
+        searchType:
+          type: string
+          nullable: true
+        feedbackRating:
+          $ref: '#/components/schemas/FeedbackRating'
+        userId:
+          type: string
+          nullable: true
+        isLinkVisited:
+          type: boolean
+        apiType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    AvaSearchRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        fromUserId:
+          type: string
+          nullable: true
+        fromUserAadObjectId:
+          type: string
+          nullable: true
+        text:
+          type: string
+          nullable: true
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/AvaSearchType'
+          nullable: true
+        topN:
+          type: integer
+          format: int32
+      additionalProperties: false
+    AvaSearchResponse:
+      type: object
+      properties:
+        resultId:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        subTitle:
+          type: string
+          nullable: true
+        content:
+          type: string
+          nullable: true
+        confidence:
+          $ref: '#/components/schemas/AvaSearchConfidence'
+        link:
+          type: string
+          nullable: true
+        searchType:
+          $ref: '#/components/schemas/AvaSearchType'
+        source:
+          type: string
+          nullable: true
+        score:
+          type: number
+          format: double
+        overAllRank:
+          type: number
+          format: double
+      additionalProperties: false
+    AvaSearchResponseIEnumerableAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AvaSearchResponse'
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    AvaSearchType:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    CardKeyLedgerTableEntity:
+      type: object
+      properties:
+        partitionKey:
+          type: string
+          nullable: true
+        rowKey:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+        eTag:
+          type: string
+          nullable: true
+        data:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CardKeyLedgerTableEntityAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CardKeyLedgerTableEntity'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    CaseData:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        channel:
+          $ref: '#/components/schemas/Channel'
+        conversationId:
+          maxLength: 200
+          type: string
+          nullable: true
+        caseNr:
+          maxLength: 20
+          type: string
+          nullable: true
+        severity:
+          maxLength: 6
+          type: string
+          nullable: true
+        offering:
+          maxLength: 20
+          type: string
+          nullable: true
+        originatingSystem:
+          $ref: '#/components/schemas/SupportCaseType'
+        teamsChannelId:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        fromId:
+          type: string
+          nullable: true
+        fromName:
+          type: string
+          nullable: true
+        toId:
+          type: string
+          nullable: true
+        toName:
+          type: string
+          nullable: true
+        serviceUrl:
+          type: string
+          nullable: true
+        tenantId:
+          type: string
+          nullable: true
+        archived:
+          type: boolean
+          readOnly: true
+        archivalStatus:
+          $ref: '#/components/schemas/ConversationArchivalStatus'
+        legacyArchived:
+          type: boolean
+          nullable: true
+        isDeleted:
+          type: boolean
+        userChecking:
+          $ref: '#/components/schemas/User'
+        nextNotificationTime:
+          type: string
+          format: date-time
+          nullable: true
+        timeArchived:
+          type: string
+          format: date-time
+          nullable: true
+        timeCreated:
+          type: string
+          format: date-time
+          nullable: true
+        timeDeleted:
+          type: string
+          format: date-time
+          nullable: true
+        timeFirstChecked:
+          type: string
+          format: date-time
+          nullable: true
+        timeLastChecked:
+          type: string
+          format: date-time
+          nullable: true
+        timeCaseReOpened:
+          type: string
+          format: date-time
+          nullable: true
+        expiredTimerCount:
+          type: integer
+          format: int32
+        customerProgramPriority:
+          type: integer
+          format: int32
+          nullable: true
+        customerProgramType:
+          type: string
+          nullable: true
+        latestConversastionOutcomeId:
+          type: string
+          format: uuid
+          nullable: true
+          readOnly: true
+        userCheckingUserId:
+          type: integer
+          format: int32
+          nullable: true
+        customerType:
+          type: string
+          nullable: true
+        conversationMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationMessage'
+          nullable: true
+        conversationOutcomes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationOutcome'
+          nullable: true
+        involveRoleLogEntries:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvolveRoleLogEntry'
+          nullable: true
+        communityCaseData:
+          $ref: '#/components/schemas/CommunityCaseData'
+        noIDCaseData:
+          $ref: '#/components/schemas/NoIDCaseData'
+        firstMessageId:
+          type: string
+          nullable: true
+        questionTitle:
+          type: string
+          nullable: true
+        questionDetails:
+          type: string
+          nullable: true
+        sourceId:
+          $ref: '#/components/schemas/SourceId'
+        supportTopic:
+          type: string
+          nullable: true
+        ascActiveSystem:
+          type: string
+          nullable: true
+        ascCaseUri:
+          type: string
+          nullable: true
+        notificationDetailsJson:
+          type: string
+          nullable: true
+        notificationDetails:
+          type: object
+          additionalProperties: { }
+          nullable: true
+          readOnly: true
+        lifeAndSafetyProgram:
+          type: string
+          nullable: true
+          readOnly: true
+        timerInfo:
+          type: string
+          nullable: true
+          readOnly: true
+        linkToCase:
+          type: string
+          nullable: true
+          readOnly: true
+        notificationIntervalInSeconds:
+          type: integer
+          format: int64
+          readOnly: true
+        buildCaseDataDetails:
+          $ref: '#/components/schemas/CaseDataDetails'
+        serviceEngineerName:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    CaseDataDetails:
+      type: object
+      properties:
+        caseNumber:
+          type: string
+          nullable: true
+        caseAlreadyBeingTracked:
+          type: boolean
+        severity:
+          type: string
+          nullable: true
+        offering:
+          type: string
+          nullable: true
+        assignedUser:
+          type: string
+          nullable: true
+        timerInfo:
+          type: string
+          nullable: true
+          readOnly: true
+        linkToCase:
+          type: string
+          nullable: true
+        toolsUrls:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+        timeCreated:
+          type: string
+          format: date-time
+          nullable: true
+        timeArchived:
+          type: string
+          format: date-time
+          nullable: true
+        archived:
+          type: boolean
+        archivalStatus:
+          $ref: '#/components/schemas/ConversationArchivalStatus'
+        conversationId:
+          type: string
+          nullable: true
+        tenantId:
+          type: string
+          nullable: true
+        channelName:
+          type: string
+          nullable: true
+        conversationOutcomeId:
+          type: string
+          format: uuid
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        toName:
+          type: string
+          nullable: true
+        toId:
+          type: string
+          nullable: true
+        serviceUrl:
+          type: string
+          nullable: true
+        expiredTimerCount:
+          type: integer
+          format: int32
+        userChecking:
+          $ref: '#/components/schemas/UserCheckingDetails'
+        team:
+          $ref: '#/components/schemas/TeamDetails'
+        nextNotificationTime:
+          type: string
+          format: date-time
+          nullable: true
+        customerProgramPriority:
+          type: integer
+          format: int32
+          nullable: true
+        customerProgramType:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        timeCaseReopened:
+          type: string
+          format: date-time
+          nullable: true
+        timeFirstChecked:
+          type: string
+          format: date-time
+          nullable: true
+        timeLastChecked:
+          type: string
+          format: date-time
+          nullable: true
+        firstMessageId:
+          type: string
+          nullable: true
+        supportEngineer:
+          $ref: '#/components/schemas/UserDetails'
+        lifeAndSafetyProgram:
+          type: string
+          nullable: true
+          readOnly: true
+        originatingSystem:
+          $ref: '#/components/schemas/SupportCaseType'
+        notificationIntervalInSeconds:
+          type: integer
+          format: int64
+        notificationDetails:
+          type: object
+          additionalProperties: { }
+          nullable: true
+        pgStatus:
+          $ref: '#/components/schemas/PGStatusName'
+        customerType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CaseDataDetailsAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CaseDataDetails'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    CaseDataDetailsIEnumerableAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CaseDataDetails'
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    CaseStatusDetails:
+      type: object
+      properties:
+        caseNr:
+          type: string
+          nullable: true
+        timeCreated:
+          type: string
+          format: date-time
+          nullable: true
+        expiredTimerCount:
+          type: integer
+          format: int32
+        archived:
+          type: boolean
+        timerInfo:
+          type: string
+          nullable: true
+        userCheckingName:
+          type: string
+          nullable: true
+        origSysHtml:
+          type: string
+          nullable: true
+        serviceDesk:
+          $ref: '#/components/schemas/ServiceDeskData'
+        icmIncidentDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/IcmIncidentDetails'
+          nullable: true
+        conversationId:
+          type: string
+          nullable: true
+        linkToCase:
+          type: string
+          nullable: true
+        toolsUrls:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CaseStatusRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        channelId:
+          type: string
+          nullable: true
+        caseNumber:
+          type: string
+          nullable: true
+        teamsUserId:
+          type: string
+          nullable: true
+        aadObjectId:
+          type: string
+          nullable: true
+        url:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CaseStatusResponse:
+      type: object
+      properties:
+        caseStatusDetails:
+          $ref: '#/components/schemas/CaseStatusDetails'
+        serviceDeskData:
+          $ref: '#/components/schemas/ServiceDeskData'
+      additionalProperties: false
+    CaseStatusResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/CaseStatusResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    CasesType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    Channel:
+      type: object
+      properties:
+        teamsChannelId:
+          maxLength: 200
+          type: string
+          nullable: true
+        name:
+          maxLength: 200
+          type: string
+          nullable: true
+        isDeleted:
+          type: boolean
+        lastCaseActivityTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        discoveredTimestamp:
+          type: string
+          format: date-time
+        deletedTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        isScheduleNotificationEnabled:
+          type: boolean
+        teamTeamsTeamId:
+          type: string
+          nullable: true
+        team:
+          $ref: '#/components/schemas/Team'
+        userSchedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSchedule'
+          nullable: true
+        userChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserChannels'
+          nullable: true
+      additionalProperties: false
+    ChannelAccount:
+      type: object
+      properties:
+        userPrincipalName:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        aadObjectId:
+          type: string
+          nullable: true
+        role:
+          type: string
+          nullable: true
+        region:
+          type: string
+          nullable: true
+        userType:
+          $ref: '#/components/schemas/UserType'
+        department:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ChannelUserSchedule:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        alias:
+          type: string
+          nullable: true
+        offering:
+          type: string
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        timezone:
+          type: string
+          nullable: true
+        scheduleType:
+          $ref: '#/components/schemas/UserScheduleType'
+      additionalProperties: false
+    ChannelUserScheduleIEnumerableAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelUserSchedule'
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    CommunityCaseData:
+      type: object
+      properties:
+        caseId:
+          type: string
+          format: uuid
+        caseData:
+          $ref: '#/components/schemas/CaseData'
+        url:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/SupportCasePriority'
+      additionalProperties: false
+    ConversationArchivalDetail:
+      required:
+        - archivalSource
+        - archivalStatus
+        - archivalUserAADObjectId
+        - archivalUserAlias
+        - archivalUserId
+        - archivalUserName
+        - conversationArchivalDetailId
+        - pendingOutcomeTimestamp
+      type: object
+      properties:
+        conversationArchivalDetailId:
+          type: string
+          format: uuid
+        archivalUserId:
+          type: integer
+          format: int32
+        archivalUserName:
+          maxLength: 200
+          type: string
+        archivalUserAlias:
+          maxLength: 200
+          type: string
+        archivalUserAADObjectId:
+          maxLength: 200
+          type: string
+        archivalSource:
+          $ref: '#/components/schemas/ConversationArchivalSource'
+        archivalStatus:
+          $ref: '#/components/schemas/ConversationArchivalStatus'
+        pendingOutcomeTimestamp:
+          type: string
+          format: date-time
+        archivedTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        conversationOutcome:
+          $ref: '#/components/schemas/ConversationOutcome'
+      additionalProperties: false
+    ConversationArchivalSource:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    ConversationArchivalStatus:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    ConversationMessage:
+      required:
+        - conversationCaseId
+        - notifyType
+        - roleId
+        - roleName
+        - teamsChannelId
+        - teamsConversationId
+        - teamsMessageId
+        - teamsTeamId
+        - teamsUserId
+        - timestamp
+        - userAADObjectId
+        - userAlias
+        - userId
+        - userName
+      type: object
+      properties:
+        conversationMessageId:
+          type: string
+          format: uuid
+          nullable: true
+        conversationCaseId:
+          type: string
+          format: uuid
+        userId:
+          type: integer
+          format: int32
+        userName:
+          maxLength: 200
+          type: string
+        userAlias:
+          maxLength: 200
+          type: string
+        userAADObjectId:
+          maxLength: 200
+          type: string
+        roleId:
+          type: integer
+          format: int32
+        roleName:
+          maxLength: 200
+          type: string
+        notifyType:
+          $ref: '#/components/schemas/NOTIFICATION_TYPE'
+        timestamp:
+          type: string
+          format: date-time
+        teamsUserId:
+          type: string
+        teamsTeamId:
+          type: string
+        teamsChannelId:
+          type: string
+        teamsConversationId:
+          type: string
+        teamsMessageId:
+          type: string
+        conversationCase:
+          $ref: '#/components/schemas/CaseData'
+        user:
+          $ref: '#/components/schemas/User'
+        role:
+          $ref: '#/components/schemas/UserRole'
+      additionalProperties: false
+    ConversationMessageDetails:
+      type: object
+      properties:
+        teamsTeamId:
+          type: string
+          nullable: true
+        teamsChannelId:
+          type: string
+          nullable: true
+        conversationId:
+          type: string
+          nullable: true
+        messageId:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+          nullable: true
+        teamsUserId:
+          type: string
+          nullable: true
+        aadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ConversationOutcome:
+      required:
+        - channelId
+        - channelName
+        - conversationCaseId
+        - initiatingUserAADObjectId
+        - initiatingUserAlias
+        - initiatingUserId
+        - initiatingUserName
+        - initiationTimestamp
+        - outcomeStatus
+        - teamId
+      type: object
+      properties:
+        conversationOutcomeId:
+          type: string
+          format: uuid
+          nullable: true
+        outcomeStatus:
+          $ref: '#/components/schemas/ConversationOutcomeStatus'
+        outcomeData:
+          type: string
+          nullable: true
+        initiationTimestamp:
+          type: string
+          format: date-time
+        submissionTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        conversationCaseId:
+          type: string
+          format: uuid
+        initiatingUserId:
+          type: integer
+          format: int32
+        initiatingUserName:
+          maxLength: 200
+          type: string
+        initiatingUserAlias:
+          maxLength: 200
+          type: string
+        initiatingUserAADObjectId:
+          maxLength: 200
+          type: string
+        teamId:
+          maxLength: 200
+          type: string
+        channelId:
+          maxLength: 200
+          type: string
+        channelName:
+          maxLength: 200
+          type: string
+        initiatingUser:
+          $ref: '#/components/schemas/User'
+        conversationCase:
+          $ref: '#/components/schemas/CaseData'
+        team:
+          $ref: '#/components/schemas/Team'
+        channel:
+          $ref: '#/components/schemas/Channel'
+        archivalDetail:
+          $ref: '#/components/schemas/ConversationArchivalDetail'
+        outcomePrompts:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConversationOutcomePrompt'
+          nullable: true
+      additionalProperties: false
+    ConversationOutcomeAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/ConversationOutcome'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    ConversationOutcomePrompt:
+      required:
+        - conversationOutcomeId
+        - timestamp
+      type: object
+      properties:
+        conversationOutcomePromptId:
+          type: integer
+          format: int32
+          nullable: true
+        conversationOutcomeId:
+          type: string
+          format: uuid
+        timestamp:
+          type: string
+          format: date-time
+        promptId:
+          type: string
+          format: uuid
+        messageId:
+          type: string
+          nullable: true
+        isPromptMessageDeleted:
+          type: boolean
+        sentSuccessfully:
+          type: boolean
+          nullable: true
+        conversationOutcome:
+          $ref: '#/components/schemas/ConversationOutcome'
+      additionalProperties: false
+    ConversationOutcomeStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+        - -2
+        - -1
+      type: integer
+      format: int32
+    CreateCaseRequest:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          nullable: true
+        teamId:
+          type: string
+          nullable: true
+        channelId:
+          type: string
+          nullable: true
+        tenantId:
+          type: string
+          nullable: true
+        originatingSystem:
+          $ref: '#/components/schemas/SupportCaseType'
+        supportCaseData:
+          $ref: '#/components/schemas/SupportCaseDataRequest'
+        userAadObjectId:
+          type: string
+          nullable: true
+        botChannelAccount:
+          $ref: '#/components/schemas/ChannelAccount'
+        questionTitle:
+          type: string
+          nullable: true
+        questionDetails:
+          type: string
+          nullable: true
+        sourceId:
+          $ref: '#/components/schemas/SourceId'
+      additionalProperties: false
+    ErrorDetails:
+      type: object
+      properties:
+        code:
+          $ref: '#/components/schemas/AvaErrorCodes'
+        message:
+          type: string
+          nullable: true
+        source:
+          type: string
+          nullable: true
+        details:
+          type: string
+          nullable: true
+        isClientError:
+          type: boolean
+          readOnly: true
+        isServerError:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    FeatureToggleDetails:
+      type: object
+      properties:
+        featureToggleId:
+          $ref: '#/components/schemas/FeatureToggleId'
+        scope:
+          $ref: '#/components/schemas/FeatureToggleScope'
+        teamId:
+          type: string
+          nullable: true
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+        isEnabled:
+          type: boolean
+        isHidden:
+          type: boolean
+        isEditable:
+          type: boolean
+        isEnrolled:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    FeatureToggleDetailsAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/FeatureToggleDetails'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    FeatureToggleId:
+      enum:
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    FeatureToggleScope:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    FeatureToggleUpdateRequest:
+      type: object
+      properties:
+        featureToggleId:
+          $ref: '#/components/schemas/FeatureToggleId'
+        scope:
+          $ref: '#/components/schemas/FeatureToggleScope'
+        teamId:
+          type: string
+          nullable: true
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+        isEnabled:
+          type: boolean
+          nullable: true
+        isHidden:
+          type: boolean
+          nullable: true
+        isEditable:
+          type: boolean
+          nullable: true
+        autoEnroll:
+          type: boolean
+          nullable: true
+        isEnrolled:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    FeedbackRating:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    ForgetCaseRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        userAadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ForgetCaseResponse:
+      type: object
+      properties:
+        wasDeleted:
+          type: boolean
+      additionalProperties: false
+    ForgetCaseResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/ForgetCaseResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    GetRolesResponse:
+      type: object
+      properties:
+        userRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRoleDetails'
+          nullable: true
+      additionalProperties: false
+    GetRolesResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/GetRolesResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    IcmIncidentDetails:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        severity:
+          type: integer
+          format: int32
+        link:
+          type: string
+          nullable: true
+      additionalProperties: false
+    IcmOnCallPosition:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    IcmOnCallSchedule:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        contactId:
+          type: integer
+          format: int32
+        teamId:
+          type: integer
+          format: int32
+        teamName:
+          type: string
+          nullable: true
+        serviceName:
+          type: string
+          nullable: true
+        position:
+          $ref: '#/components/schemas/IcmOnCallPosition'
+        lastRefreshUtc:
+          type: string
+          format: date-time
+        onCallShifts:
+          type: array
+          items:
+            $ref: '#/components/schemas/IcmOnCallShift'
+          nullable: true
+        userSchedule:
+          $ref: '#/components/schemas/UserSchedule'
+      additionalProperties: false
+    IcmOnCallShift:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+      additionalProperties: false
+    InvolveCaseDetails:
+      type: object
+      properties:
+        fromId:
+          type: string
+          nullable: true
+        fromName:
+          type: string
+          nullable: true
+        tenantId:
+          type: string
+          nullable: true
+        caseNumber:
+          type: string
+          nullable: true
+        channelName:
+          type: string
+          nullable: true
+        teamName:
+          type: string
+          nullable: true
+        offering:
+          type: string
+          nullable: true
+        severity:
+          type: string
+          nullable: true
+        linkToCase:
+          type: string
+          nullable: true
+      additionalProperties: false
+    InvolveRoleDetails:
+      type: object
+      properties:
+        conversationId:
+          type: string
+          nullable: true
+        channelId:
+          type: string
+          nullable: true
+        roleName:
+          type: string
+          nullable: true
+        invokedByTeamsUserId:
+          type: string
+          nullable: true
+        userAadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    InvolveRoleLogEntry:
+      required:
+        - caseId
+        - invokedTimestamp
+      type: object
+      properties:
+        involveRoleLogId:
+          type: integer
+          format: int32
+        caseId:
+          type: string
+          format: uuid
+        invokedTimestamp:
+          type: string
+          format: date-time
+        checkingTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        nextNotificationTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        caseData:
+          $ref: '#/components/schemas/CaseData'
+        invokedByUser:
+          $ref: '#/components/schemas/User'
+        checkingUser:
+          $ref: '#/components/schemas/User'
+        involvedRole:
+          $ref: '#/components/schemas/UserRole'
+      additionalProperties: false
+    InvolveRoleResponse:
+      type: object
+      properties:
+        usersNotified:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotifiedUserDetails'
+          nullable: true
+        caseData:
+          $ref: '#/components/schemas/InvolveCaseDetails'
+      additionalProperties: false
+    InvolveRoleResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/InvolveRoleResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    LearnTeamRequest:
+      type: object
+      properties:
+        teamsTeamId:
+          type: string
+          nullable: true
+        serviceUrl:
+          type: string
+          nullable: true
+        botChannelAccount:
+          $ref: '#/components/schemas/ChannelAccount'
+        teamsConversationId:
+          type: string
+          nullable: true
+        teamsActivityId:
+          type: string
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    LinkDetails:
+      type: object
+      properties:
+        method:
+          type: string
+          nullable: true
+        rel:
+          type: string
+          nullable: true
+        link:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ListAdminsRequest:
+      type: object
+      properties:
+        userAadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ListChannelsRequest:
+      type: object
+      additionalProperties: false
+    ListChannelsResponse:
+      type: object
+      additionalProperties: false
+    ListChannelsResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/ListChannelsResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    LogCaseActivityRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        userAadObjectId:
+          type: string
+          nullable: true
+        activityName:
+          $ref: '#/components/schemas/ActivityName'
+      additionalProperties: false
+    LogMessageRequest:
+      type: object
+      properties:
+        message:
+          $ref: '#/components/schemas/ConversationMessageDetails'
+      additionalProperties: false
+    MoveCaseRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        conversationId:
+          type: string
+          nullable: true
+        channelId:
+          type: string
+          nullable: true
+        userAadObjectId:
+          type: string
+          nullable: true
+        firstMessageId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MoveCaseResponse:
+      type: object
+      properties:
+        caseNumber:
+          type: string
+          nullable: true
+        toName:
+          type: string
+          nullable: true
+        fromName:
+          type: string
+          nullable: true
+        toId:
+          type: string
+          nullable: true
+        fromId:
+          type: string
+          nullable: true
+        sourceServiceUrl:
+          type: string
+          nullable: true
+        sourceChannelId:
+          type: string
+          nullable: true
+        sourceConversationId:
+          type: string
+          nullable: true
+        targetConversationId:
+          type: string
+          nullable: true
+        sourceConversationLink:
+          type: string
+          nullable: true
+        targetConversationLink:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MoveCaseResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/MoveCaseResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    NoIDCaseData:
+      type: object
+      properties:
+        caseId:
+          type: string
+          format: uuid
+        caseData:
+          $ref: '#/components/schemas/CaseData'
+        priority:
+          $ref: '#/components/schemas/SupportCasePriority'
+      additionalProperties: false
+    NOTIFICATION_TYPE:
+      enum:
+        - 0
+        - 1
+        - 4
+      type: integer
+      format: int32
+    NotifiedUserDetails:
+      type: object
+      properties:
+        teamsUserId:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        aadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    NotifyRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        offering:
+          type: string
+          nullable: true
+        serviceUrl:
+          type: string
+          nullable: true
+      additionalProperties: false
+    OutcomeFeedbackPromptResponse:
+      type: object
+      properties:
+        promptId:
+          type: string
+          format: uuid
+        messageId:
+          type: string
+          nullable: true
+        caseData:
+          $ref: '#/components/schemas/CaseDataDetails'
+      additionalProperties: false
+    OutcomeFeedbackPromptResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/OutcomeFeedbackPromptResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    OutcomeFeedbackRequest:
+      type: object
+      properties:
+        outcomeStatus:
+          $ref: '#/components/schemas/ConversationOutcomeStatus'
+        outcomeData:
+          nullable: true
+      additionalProperties: false
+    PatchCaseDataRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        newCaseDataDetails:
+          $ref: '#/components/schemas/CaseDataDetails'
+      additionalProperties: false
+    PGStatusName:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    PrioritySettings:
+      type: object
+      properties:
+        high:
+          type: integer
+          format: int32
+        normal:
+          type: integer
+          format: int32
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: { }
+    RecordOutcomeFeedbackPromptRequest:
+      type: object
+      properties:
+        promptId:
+          type: string
+          format: uuid
+        messageId:
+          type: string
+          nullable: true
+        sentSuccessfully:
+          type: boolean
+        failureOutcomeStatus:
+          $ref: '#/components/schemas/ConversationOutcomeStatus'
+      additionalProperties: false
+    RoleDetails:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        notifyType:
+          type: integer
+          format: int32
+          nullable: true
+        isDefaultRole:
+          type: boolean
+          nullable: true
+        viewPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamPermissionsDetails'
+          nullable: true
+        isDeleted:
+          type: boolean
+      additionalProperties: false
+    ServiceDeskData:
+      type: object
+      properties:
+        isPrivateCloud:
+          type: boolean
+        cloudName:
+          type: string
+          nullable: true
+        severity:
+          type: string
+          nullable: true
+        offering:
+          type: string
+          nullable: true
+        caseCreatedTime:
+          type: string
+          format: date-time
+          nullable: true
+        isSLAMet:
+          type: boolean
+          nullable: true
+        routingProduct:
+          type: string
+          nullable: true
+        supportTopic:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        waitState:
+          type: string
+          nullable: true
+        owner:
+          type: string
+          nullable: true
+        queue:
+          type: string
+          nullable: true
+        ascViewed:
+          type: boolean
+          nullable: true
+        customerProgramPriority:
+          type: integer
+          format: int32
+          nullable: true
+        customerProgramType:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        interactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ASCCaseInteraction'
+          nullable: true
+        activeSystem:
+          type: string
+          nullable: true
+        caseUri:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SeveritySettings:
+      type: object
+      properties:
+        sev1:
+          type: integer
+          format: int32
+        sevA:
+          type: integer
+          format: int32
+        sevB:
+          type: integer
+          format: int32
+        sevC:
+          type: integer
+          format: int32
+      additionalProperties: false
+    SourceId:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    StringAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          type: string
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    SubmitSurveyResponse:
+      type: object
+      properties:
+        submissionSucceeded:
+          type: boolean
+      additionalProperties: false
+    SubmitSurveyResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/SubmitSurveyResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    SupportCaseDataRequest:
+      type: object
+      additionalProperties: false
+    SupportCasePriority:
+      enum:
+        - 1
+        - 2
+      type: integer
+      format: int32
+    SupportCaseType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      type: integer
+      format: int32
+    Survey:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        elixirId:
+          type: string
+          format: uuid
+        data:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    SurveyAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/Survey'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    Team:
+      type: object
+      properties:
+        teamsTeamId:
+          maxLength: 200
+          type: string
+          nullable: true
+        name:
+          maxLength: 200
+          type: string
+          nullable: true
+        aadGroupId:
+          maxLength: 200
+          type: string
+          nullable: true
+        isDeleted:
+          type: boolean
+        isDevTeam:
+          type: boolean
+        channels:
+          type: array
+          items:
+            $ref: '#/components/schemas/Channel'
+          nullable: true
+        teamUsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamUser'
+          nullable: true
+        userRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+          nullable: true
+        autoArchiveEnabled:
+          type: boolean
+        autoArchiveHours:
+          type: integer
+          format: int32
+        notificationDelayEnabled:
+          type: boolean
+        notificationDelayMinutes:
+          type: integer
+          format: int32
+        lastCaseActivityTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        onboardedTimestamp:
+          type: string
+          format: date-time
+        deletedTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        lastLearnedTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        caseNotificationTimesJson:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TeamDetails:
+      type: object
+      properties:
+        teamsTeamId:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        caseNotificationTimes:
+          $ref: '#/components/schemas/TeamSettingsCaseNotificationTimes'
+        usersScheduled:
+          type: integer
+          format: int32
+          nullable: true
+        openCases:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+    TeamPermissionsDetails:
+      type: object
+      properties:
+        permission:
+          type: integer
+          format: int32
+        userRoleId:
+          type: integer
+          format: int32
+        isEnabled:
+          type: boolean
+        roleName:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TeamSettingsCaseNotificationTimes:
+      type: object
+      properties:
+        premier:
+          $ref: '#/components/schemas/SeveritySettings'
+        bc:
+          $ref: '#/components/schemas/SeveritySettings'
+        arr:
+          $ref: '#/components/schemas/SeveritySettings'
+        chat:
+          $ref: '#/components/schemas/SeveritySettings'
+        community:
+          $ref: '#/components/schemas/PrioritySettings'
+        noID:
+          $ref: '#/components/schemas/PrioritySettings'
+      additionalProperties: false
+    TeamsPermission:
+      type: object
+      properties:
+        userRole_RoleId:
+          type: integer
+          format: int32
+        userRole:
+          $ref: '#/components/schemas/UserRole'
+        permissionId:
+          type: integer
+          format: int32
+      additionalProperties: false
+    TeamUser:
+      type: object
+      properties:
+        user_UserId:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/User'
+        team_TeamsTeamId:
+          maxLength: 200
+          type: string
+          nullable: true
+        team:
+          $ref: '#/components/schemas/Team'
+        userRole_RoleId:
+          type: integer
+          format: int32
+        userRole:
+          $ref: '#/components/schemas/UserRole'
+        isTeamOwner:
+          type: boolean
+        isAdmin:
+          type: boolean
+        isDeleted:
+          type: boolean
+        welcomeEmailSent:
+          type: boolean
+      additionalProperties: false
+    TimeSpan:
+      type: object
+      properties:
+        hours:
+          type: integer
+          format: int32
+        minutes:
+          type: integer
+          format: int32
+        seconds:
+          type: integer
+          format: int32
+        milliseconds:
+          type: integer
+          format: int32
+        ticks:
+          type: integer
+          format: int64
+        days:
+          type: integer
+          format: int32
+        totalDays:
+          type: number
+          format: double
+          readOnly: true
+        totalHours:
+          type: number
+          format: double
+          readOnly: true
+        totalMilliseconds:
+          type: number
+          format: double
+          readOnly: true
+        totalMinutes:
+          type: number
+          format: double
+          readOnly: true
+        totalSeconds:
+          type: number
+          format: double
+          readOnly: true
+      additionalProperties: false
+    TrackCaseRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        userAADObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    TrackCaseResponse:
+      type: object
+      properties:
+        caseAlreadyTracked:
+          type: boolean
+        caseData:
+          $ref: '#/components/schemas/CaseDataDetails'
+      additionalProperties: false
+    TrackCaseResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/TrackCaseResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    UnscheduledTimeRange:
+      type: object
+      properties:
+        endHour:
+          $ref: '#/components/schemas/TimeSpan'
+        startHour:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    UnscheduledTimeRangeAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/UnscheduledTimeRange'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    UpsertUsersRequest:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserDetails'
+          nullable: true
+        serviceUrl:
+          type: string
+          nullable: true
+      additionalProperties: false
+    User:
+      required:
+        - userGroup
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int32
+        teamsUserId:
+          maxLength: 200
+          type: string
+          nullable: true
+        name:
+          maxLength: 200
+          type: string
+          nullable: true
+        alias:
+          maxLength: 200
+          type: string
+          nullable: true
+        aadObjectId:
+          maxLength: 200
+          type: string
+          nullable: true
+        isOutOfOffice:
+          type: boolean
+        userGroup:
+          $ref: '#/components/schemas/UserGroup'
+        userGroupSetFromUser:
+          type: integer
+          format: int32
+          nullable: true
+        userGroupUpdateTimestamp:
+          type: string
+          format: date-time
+          nullable: true
+        region:
+          maxLength: 2
+          type: string
+          nullable: true
+        department:
+          maxLength: 200
+          type: string
+          nullable: true
+        isExternal:
+          type: boolean
+        userGroupName:
+          type: string
+          nullable: true
+          readOnly: true
+        userSchedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSchedule'
+          nullable: true
+        userChannels:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserChannels'
+          nullable: true
+        teamUsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamUser'
+          nullable: true
+        isBulkNotifyEnabled:
+          type: boolean
+        nextNotificationTime:
+          type: string
+          format: date-time
+          nullable: true
+        lastNotificationTime:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    UserChannels:
+      required:
+        - channel_TeamsChannelId
+        - user_UserId
+      type: object
+      properties:
+        user_UserId:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/User'
+        channel_TeamsChannelId:
+          maxLength: 200
+          type: string
+        channel:
+          $ref: '#/components/schemas/Channel'
+      additionalProperties: false
+    UserCheckingDetails:
+      type: object
+      properties:
+        aadObjectId:
+          type: string
+          nullable: true
+        teamsUserId:
+          type: string
+          nullable: true
+        name:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UserDetails:
+      type: object
+      properties:
+        teamsUserId:
+          type: string
+          nullable: true
+        userId:
+          type: integer
+          format: int32
+          nullable: true
+        role:
+          $ref: '#/components/schemas/RoleDetails'
+        name:
+          type: string
+          nullable: true
+        alias:
+          type: string
+          nullable: true
+        isOutOfOffice:
+          type: boolean
+          nullable: true
+        isAdmin:
+          type: boolean
+          nullable: true
+        userGroupId:
+          type: integer
+          format: int32
+        userGroupName:
+          type: string
+          nullable: true
+        aadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UserGroup:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    UserRole:
+      type: object
+      properties:
+        roleId:
+          type: integer
+          format: int32
+        name:
+          maxLength: 200
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        notifyType:
+          type: integer
+          format: int32
+        team:
+          $ref: '#/components/schemas/Team'
+        isDefaultMemberRole:
+          type: boolean
+        isDeleted:
+          type: boolean
+        teamUsers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamUser'
+          nullable: true
+        teamPermissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamsPermission'
+          nullable: true
+      additionalProperties: false
+    UserRoleDetails:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UserSchedule:
+      required:
+        - channel_TeamsChannelId
+        - offering
+        - scheduleType
+        - user_UserId
+      type: object
+      properties:
+        idSchedule:
+          type: integer
+          format: int32
+        scheduleType:
+          $ref: '#/components/schemas/UserScheduleType'
+        user_UserId:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/User'
+        channel_TeamsChannelId:
+          type: string
+        channel:
+          $ref: '#/components/schemas/Channel'
+        startHour:
+          type: string
+          format: date-time
+        endHour:
+          type: string
+          format: date-time
+        daysOfWeek:
+          type: integer
+          format: int32
+        timezone:
+          maxLength: 100
+          type: string
+          nullable: true
+        offering:
+          maxLength: 50
+          type: string
+        roleId:
+          type: integer
+          format: int32
+          nullable: true
+        role:
+          $ref: '#/components/schemas/UserRole'
+        onCallSchedule:
+          $ref: '#/components/schemas/IcmOnCallSchedule'
+      additionalProperties: false
+    UserScheduleType:
+      enum:
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    UserSettingsRequest:
+      type: object
+      properties:
+        teamId:
+          type: string
+          nullable: true
+        isOof:
+          type: boolean
+          nullable: true
+        isBulkNotifyEnabled:
+          type: boolean
+          nullable: true
+        userAadObjectId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UserSettingsResponse:
+      type: object
+      properties:
+        isOof:
+          type: boolean
+        isBulkNotifyEnabled:
+          type: boolean
+      additionalProperties: false
+    UserSettingsResponseAvaResponse:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+        data:
+          $ref: '#/components/schemas/UserSettingsResponse'
+        message:
+          type: string
+          nullable: true
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkDetails'
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorDetails'
+          nullable: true
+        correlationId:
+          type: string
+          nullable: true
+        isSuccessStatusCode:
+          type: boolean
+          readOnly: true
+        isClientErrorStatusCode:
+          type: boolean
+          readOnly: true
+        isServerErrorStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    UserType:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+  securitySchemes:
+    bearerAuth:
+      type: http
+      description: "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter enter your token in the text input below.\r\n\r\nExample: \"1safsfsdfdfd\""
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: [ ]

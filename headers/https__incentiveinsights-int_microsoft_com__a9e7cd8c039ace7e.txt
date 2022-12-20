@@ -1,0 +1,13 @@
+200 OK
+Server: Kestrel
+X-Powered-By: ASP.NET
+Ms-Correlationid: 9fbd504b-f31d-43ae-bb13-97dd21792a64
+Ms-Requestid: 3e98e88a-84e9-4ac6-b706-d7b9e640b782
+Content-Type: application/json;charset=utf-8
+Date: Mon, 19 Dec 2022 21:00:53 GMT
+Vary: Accept-Encoding
+Ms-Cv: 6F7/NRpVdUy1Z4lo.0
+X-Server: INT-pd0ldwk0000AG
+Retry-Count: 0
+Request-Context: appId=cid-v1:189285a2-0276-439e-a304-a345af4757fe
+X-Assemblyversion: 1.0.0.0

@@ -1,0 +1,80 @@
+openapi: 3.0.1
+info:
+  title: FrontEndServiceHost
+  version: '1.0'
+paths:
+  /Api/CloudEngineProxy/Evaluate:
+    post:
+      tags:
+        - EngineProxyApi
+      responses:
+        '200':
+          description: Success
+  /:
+    get:
+      tags:
+        - FrontEndApi
+      responses:
+        '200':
+          description: Success
+  /wdcp.svc/Heartbeat:
+    get:
+      tags:
+        - FrontEndApi
+      responses:
+        '200':
+          description: Success
+  /wdcp.svc/SubmitReport:
+    post:
+      tags:
+        - FrontEndApi
+      responses:
+        '200':
+          description: Success
+  /wdcp.svc/Bond/SubmitReport:
+    post:
+      tags:
+        - FrontEndApi
+      responses:
+        '200':
+          description: Success
+  /wdcp.svc/Fresno/SubmitReport:
+    post:
+      tags:
+        - FrontEndApi
+      responses:
+        '200':
+          description: Success
+  /wdcp.svc/Fresno/Bond/SubmitReport:
+    post:
+      tags:
+        - FrontEndApi
+      responses:
+        '200':
+          description: Success
+  '/wdcp.svc/EvaluateSimulation/{ruleId}':
+    post:
+      tags:
+        - FrontEndApi
+      parameters:
+        - name: ruleId
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: ruleId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /wdcp.svc/ExecuteLuaCode:
+    post:
+      tags:
+        - FrontEndApi
+      responses:
+        '200':
+          description: Success
+components: { }

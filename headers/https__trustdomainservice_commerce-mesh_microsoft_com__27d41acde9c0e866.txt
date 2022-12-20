@@ -1,0 +1,9 @@
+200 OK
+Vary: Accept-Encoding
+Content-Type: text/yaml;charset=utf-8
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:01:37 GMT
+Set-Cookie: ARRAffinity=7e876610dabe19354478fdcc045250c088bbb72cf17241454070114cee906262;Path=/;HttpOnly;Secure;Domain=trustdomainservice.commerce-mesh.microsoft.com ARRAffinitySameSite=7e876610dabe19354478fdcc045250c088bbb72cf17241454070114cee906262;Path=/;HttpOnly;SameSite=None;Secure;Domain=trustdomainservice.commerce-mesh.microsoft.com
+Request-Context: appId=cid-v1:fda47e86-77e9-4da6-b129-61b3251c184f

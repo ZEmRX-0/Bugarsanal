@@ -1,0 +1,11 @@
+200 OK
+Content-Length: 286674
+Etag: "1d908dbe65b68d2"
+Last-Modified: Mon, 05 Dec 2022 19:00:54 GMT
+Request-Context: appId=cid-v1:cb95ac2b-8591-4e27-90d7-42c30ba35d0a
+Ms-Correlationid: 804c8d91-2129-482e-b738-54f70cbe04e0
+Retry-Count: 0
+Content-Type: application/javascript
+Date: Mon, 19 Dec 2022 21:01:35 GMT
+Server: Kestrel
+Accept-Ranges: bytes

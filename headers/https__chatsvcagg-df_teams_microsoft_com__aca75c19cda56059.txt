@@ -1,0 +1,12 @@
+200 OK
+Content-Type: application/javascript
+Date: Mon, 19 Dec 2022 21:00:23 GMT
+Accept-Ranges: bytes
+Last-Modified: Fri, 16 Dec 2022 23:04:33 GMT
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+Retry-Count: 0
+Timing-Allow-Origin: *
+Etag: "1d911a2c2831d74"
+Request-Context: appId=
+Server: Kestrel

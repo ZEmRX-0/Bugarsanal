@@ -1,0 +1,23 @@
+200 OK
+Retry-Count: 0
+Content-Security-Policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+Expect-Ct: max-age=0
+X-Content-Type-Options: nosniff
+X-Permitted-Cross-Domain-Policies: none
+Ms-Cv: WLJxlMi0jwPymyIa.0
+Date: Mon, 19 Dec 2022 21:00:13 GMT
+Request-Id: 0b7c64e040bbd7e4122d92d022139a77
+Traceparent: 00-78d1c2dc3eab40c1876618cf06b6c6e7-b6d6c96376f64ba2-00
+X-Download-Options: noopen
+Access-Control-Allow-Methods: OPTIONS,GET
+Access-Control-Allow-Headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization
+Content-Type: text/html; charset=utf-8
+X-Dns-Prefetch-Control: off
+X-Xss-Protection: 0
+Server-Timing: total;dur=1.3931
+Vary: Origin Accept-Encoding
+Strict-Transport-Security: max-age=15724800; includeSubDomains max-age=31536000; includeSubDomains
+X-Frame-Options: SAMEORIGIN
+Referrer-Policy: no-referrer
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true

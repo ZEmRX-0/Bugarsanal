@@ -1,0 +1,1352 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "PIX Content Isolation service API",
+    "contact": {
+      "url": "https://osgwiki.com/wiki/PIX_ContentIsolation_service"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/sandboxes/{sandboxId}/permissions": {
+      "get": {
+        "tags": [
+          "Permissions"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Permissions"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxAccessPermissionRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxAccessPermissionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxAccessPermissionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SandboxAccessPermissionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sandboxes/{sandboxId}/permissions/{permissionId}": {
+      "get": {
+        "tags": [
+          "Permissions"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Permissions"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "permissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sandboxes": {
+      "post": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "global",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sandboxes/migratefromxdp": {
+      "post": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "XdpMigration_Write",
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sandboxes/{sandboxId}": {
+      "get": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Sandboxes"
+        ],
+        "summary": "Update a sandbox",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-authContext",
+            "in": "header",
+            "description": "AuthContext (user or service) is used for granular permission check.\r\nPermission check is required for user and bypassed for service.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-pcsProductId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-productId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "appid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sandboxId",
+            "in": "path",
+            "description": "The unique [sandbox] identifier",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The sandbox object",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sandbox"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sandbox"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sandbox"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sandbox"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - response will indicate the invalid field(s)",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/ModelStateEntry"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/ModelStateEntry"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/ModelStateEntry"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found"
+          },
+          "405": {
+            "description": "Method not allowed - system sandboxes are unsupported"
+          },
+          "412": {
+            "description": "Precondition failed - ETag mismatch"
+          },
+          "428": {
+            "description": "Precondition required - ETag must be specified in the response to prevent the 'lost update' problem"
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ModelError": {
+        "type": "object",
+        "properties": {
+          "exception": {
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModelStateEntry": {
+        "type": "object",
+        "properties": {
+          "rawValue": {
+            "nullable": true
+          },
+          "attemptedValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelError"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "validationState": {
+            "$ref": "#/components/schemas/ModelValidationState"
+          },
+          "isContainerNode": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModelStateEntry"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModelValidationState": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Resource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Sandbox": {
+        "required": [
+          "ownerId",
+          "sandboxId"
+        ],
+        "type": "object",
+        "properties": {
+          "sandboxId": {
+            "minLength": 1,
+            "pattern": "^([^\\.]{4,})\\.(0|[1-9][0-9]{0,2})$",
+            "type": "string"
+          },
+          "permissionModel": {
+            "type": "string",
+            "nullable": true
+          },
+          "sandboxSigningType": {
+            "type": "string",
+            "nullable": true
+          },
+          "sandboxName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ownerId": {
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64"
+          },
+          "pcsId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "eTag": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SandboxAccessPermissionRequest": {
+        "type": "object",
+        "properties": {
+          "sandboxId": {
+            "type": "string",
+            "nullable": true
+          },
+          "permittedResources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            },
+            "nullable": true
+          },
+          "updateType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "apiKey",
+        "description": "Standard \"Authorization\" header using the Bearer scheme, i.e. \"bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
+}

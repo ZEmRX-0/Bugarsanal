@@ -1,0 +1,23 @@
+200 OK
+Request-Id: dd5ddf5dfb29018b92cfa417bf9a44fe
+X-Frame-Options: SAMEORIGIN
+X-Download-Options: noopen
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization
+X-Xss-Protection: 0
+Server-Timing: total;dur=32.5527
+Content-Type: text/html; charset=utf-8
+Content-Security-Policy: default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests
+X-Dns-Prefetch-Control: off
+Expect-Ct: max-age=0
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: no-referrer
+Ms-Cv: AHFi1LGFOJcXk6uO.0
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: OPTIONS,GET,POST
+Vary: Origin Accept-Encoding
+Traceparent: 00-a98dbd85bd3544dd8aee29c60902d42b-fc06c5e14a1c43a6-00
+X-Content-Type-Options: nosniff
+Date: Mon, 19 Dec 2022 21:00:14 GMT
+Strict-Transport-Security: max-age=15724800; includeSubDomains max-age=31536000; includeSubDomains
+Retry-Count: 0

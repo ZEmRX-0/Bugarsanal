@@ -1,0 +1,16 @@
+200 OK
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Ms-Correlation-Id: c96307a6-b759-4d14-9dba-8264def26f97
+Retry-Count: 0
+Accept-Ranges: bytes
+Last-Modified: Tue, 13 Dec 2022 19:55:46 GMT
+X-Servicefabric: NoRetry
+Server-Timing: x-ms-igw-upstream-headers;dur=8.3,x-ms-igw-req-overhead;dur=0.2
+X-Content-Type-Options: nosniff
+Content-Length: 510964
+X-Ms-Islandgateway: GA0000000
+X-Ms-Activity-Vector: 00.00.00.00
+Content-Type: application/javascript
+Date: Mon, 19 Dec 2022 21:00:32 GMT
+Etag: "1d90f2ce3db46f4"
+X-Ms-Service-Request-Id: 91513c35-39a3-4f20-af0b-a244bff0dc53

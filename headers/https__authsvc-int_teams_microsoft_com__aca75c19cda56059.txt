@@ -1,0 +1,10 @@
+200 OK
+Content-Length: 424485
+Accept-Ranges: bytes
+Retry-Count: 0
+Content-Type: application/javascript
+Last-Modified: Thu, 15 Dec 2022 19:10:15 GMT
+Etag: "1d910b8dce4ffa5"
+X-Cache: CONFIG_NOCACHE
+X-Msedge-Ref: Ref A: D76C2B3170E042C3AF6D9075EBDB7606 Ref B: FRAEDGE1919 Ref C: 2022-12-19T21:00:10Z
+Date: Mon, 19 Dec 2022 21:00:10 GMT

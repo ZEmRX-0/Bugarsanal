@@ -1,0 +1,9 @@
+200 OK
+Server: Microsoft-IIS/10.0
+X-Content-Type-Options: nosniff
+Set-Cookie: ARRAffinity=fd224cefc0a80485f27150ad33a308baa997487e2e20723d8b8ff0b7d54d8eb5;Path=/;HttpOnly;Secure;Domain=rdbroker-g-eu-r1.wvdselfhost.microsoft.com ARRAffinitySameSite=fd224cefc0a80485f27150ad33a308baa997487e2e20723d8b8ff0b7d54d8eb5;Path=/;HttpOnly;SameSite=None;Secure;Domain=rdbroker-g-eu-r1.wvdselfhost.microsoft.com
+Date: Mon, 19 Dec 2022 21:00:39 GMT
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+Vary: Accept-Encoding

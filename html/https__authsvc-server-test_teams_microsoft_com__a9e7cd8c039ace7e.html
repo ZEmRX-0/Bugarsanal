@@ -1,0 +1,1315 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AuthSvc",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://authsvc-server-test.teams.microsoft.com"
+    }
+  ],
+  "paths": {
+    "/v1.0/about": {
+      "get": {
+        "tags": [
+          "About"
+        ],
+        "operationId": "About_Get_GET",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/authz": {
+      "post": {
+        "tags": [
+          "Authz"
+        ],
+        "operationId": "Authz_Authz_POST",
+        "parameters": [
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthzSuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/authz/acs": {
+      "post": {
+        "tags": [
+          "Authz"
+        ],
+        "operationId": "Authz_ACSAuthz_POST",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACSAuthzSuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/authz/skypetoken": {
+      "post": {
+        "tags": [
+          "Authz"
+        ],
+        "operationId": "Authz_SkypeToken_POST",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationTokens"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/authz/visitor": {
+      "post": {
+        "tags": [
+          "Authz"
+        ],
+        "operationId": "Authz_AuthzVisitor_POST",
+        "parameters": [
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthzSuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/authz/signuptrial": {
+      "post": {
+        "tags": [
+          "Authz"
+        ],
+        "operationId": "Authz_SignupTrialLicense_POST",
+        "parameters": [
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignUpTrialSuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/authz/audioconfpromoeligibility": {
+      "post": {
+        "tags": [
+          "Authz"
+        ],
+        "operationId": "Authz_GetAudioConfPromoEligibility_POST",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioConfPromoProviderEligibilityResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/authz/signupaudioconfpromo": {
+      "post": {
+        "tags": [
+          "Authz"
+        ],
+        "operationId": "Authz_SignupAudioConfPromoLicense_POST",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "operationId": "Health_Get_GET",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/health/machine": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "operationId": "Health_MachineLevelHealthProbe_GET",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/health/liveness": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "operationId": "Health_LivelinessProbe_GET",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/health/readiness": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "operationId": "Health_ReadinessProbe_GET",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/health/startup": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "operationId": "Health_StartupProbe_GET",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/tenants/region": {
+      "post": {
+        "tags": [
+          "Tenant"
+        ],
+        "operationId": "Tenant_GetOrStampTenantRegion_POST",
+        "parameters": [
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Tenant"
+        ],
+        "operationId": "Tenant_GetTenantRegion_GET",
+        "parameters": [
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/users/{userId}/region": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetOrStampUserRegion_POST",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetUserRegion_GET",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/users/region": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetOrStampUserRegion_POST",
+        "parameters": [
+          {
+            "name": "region_gtms_env",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer Token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BuildMetadata": {
+        "type": "object",
+        "properties": {
+          "buildId": {
+            "type": "string",
+            "nullable": true
+          },
+          "buildNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceBranch": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AzureComputeMetadata": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "offer": {
+            "type": "string",
+            "nullable": true
+          },
+          "osType": {
+            "type": "string",
+            "nullable": true
+          },
+          "platformFaultDomain": {
+            "type": "string",
+            "nullable": true
+          },
+          "platformUpdateDomain": {
+            "type": "string",
+            "nullable": true
+          },
+          "publisher": {
+            "type": "string",
+            "nullable": true
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "vmId": {
+            "type": "string",
+            "nullable": true
+          },
+          "vmSize": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceFabricInfo": {
+        "type": "object",
+        "properties": {
+          "applicationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "serviceName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HealthInfo": {
+        "type": "object",
+        "properties": {
+          "serviceRoleType": {
+            "type": "string",
+            "nullable": true
+          },
+          "build": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BuildMetadata"
+              }
+            ],
+            "nullable": true
+          },
+          "azureCompute": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AzureComputeMetadata"
+              }
+            ],
+            "nullable": true
+          },
+          "serviceFabric": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ServiceFabricInfo"
+              }
+            ]
+          },
+          "environmentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "deploymentName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TokenType": {
+        "enum": [
+          "SkypeToken",
+          "APSkypeToken",
+          "ACSSkypeToken"
+        ],
+        "type": "string"
+      },
+      "AuthenticationTokens": {
+        "type": "object",
+        "properties": {
+          "skypeToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiresIn": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tokenType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TokenType"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionGtms": {
+        "type": "object",
+        "properties": {
+          "ams": {
+            "type": "string",
+            "nullable": true
+          },
+          "amsV2": {
+            "type": "string",
+            "nullable": true
+          },
+          "amsS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "appsDataLayerService": {
+            "type": "string",
+            "nullable": true
+          },
+          "appsDataLayerServiceS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "appMonetizationService": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_callControllerServiceUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_callStoreUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_conversationServiceUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_keyDistributionUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_potentialCallRequestUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_registrarUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_sharedLineOptionsUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_slimCoreAriaCollectorUri": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_trouterUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_udpTransportUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "calling_uploadLogRequestUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_Broker": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_CallController": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_CallStore": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_ContentSharing": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_ConversationService": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_EnterpriseProxy": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_LyncGateway2": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_MediaController": {
+            "type": "string",
+            "nullable": true
+          },
+          "callingS2S_PlatformMediaAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "chatService": {
+            "type": "string",
+            "nullable": true
+          },
+          "chatServiceAfd": {
+            "type": "string",
+            "nullable": true
+          },
+          "chatServiceS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "fassEnterprise": {
+            "type": "string",
+            "nullable": true
+          },
+          "drad": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailhookS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleTier": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleTierS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "appService": {
+            "type": "string",
+            "nullable": true
+          },
+          "appServiceS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "mtImageService": {
+            "type": "string",
+            "nullable": true
+          },
+          "powerPointStateService": {
+            "type": "string",
+            "nullable": true
+          },
+          "search": {
+            "type": "string",
+            "nullable": true
+          },
+          "searchTelemetry": {
+            "type": "string",
+            "nullable": true
+          },
+          "settingsStoreS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsAndChannelsService": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsAndChannelsProvisioningService": {
+            "type": "string",
+            "nullable": true
+          },
+          "urlp": {
+            "type": "string",
+            "nullable": true
+          },
+          "urlpV2": {
+            "type": "string",
+            "nullable": true
+          },
+          "unifiedPresence": {
+            "type": "string",
+            "nullable": true
+          },
+          "userEntitlementService": {
+            "type": "string",
+            "nullable": true
+          },
+          "userIntelligenceService": {
+            "type": "string",
+            "nullable": true
+          },
+          "userProfileService": {
+            "type": "string",
+            "nullable": true
+          },
+          "userProfileServiceS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "amdS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "chatServiceAggregator": {
+            "type": "string",
+            "nullable": true
+          },
+          "chatSvcAggS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "chatSvcAggAfd": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsPushServiceAfd": {
+            "type": "string",
+            "nullable": true
+          },
+          "ehrConnector": {
+            "type": "string",
+            "nullable": true
+          },
+          "deviceManagementS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "tacBootstrapService": {
+            "type": "string",
+            "nullable": true
+          },
+          "tamsS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsDevPortal": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualVisitsMeetingUpdatesService": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipPolicyService": {
+            "type": "string",
+            "nullable": true
+          },
+          "substrateSyncS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "auditServiceS2S": {
+            "type": "string",
+            "nullable": true
+          },
+          "notificationFilteringService": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsAnalyticsSvc": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsAdminGatewaySvc": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsEventsIntegration": {
+            "type": "string",
+            "nullable": true
+          },
+          "appsSuggestionService": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualEventsService": {
+            "type": "string",
+            "nullable": true
+          },
+          "cmdArtifactsService": {
+            "type": "string",
+            "nullable": true
+          },
+          "mwtEntitlement": {
+            "type": "string",
+            "nullable": true
+          },
+          "frontlineWorkerOrchestratorService": {
+            "type": "string",
+            "nullable": true
+          },
+          "mwtUserEngagementService": {
+            "type": "string",
+            "nullable": true
+          },
+          "virtualVisitsBookings": {
+            "type": "string",
+            "nullable": true
+          },
+          "acmInsightsSvc": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionSettings": {
+        "type": "object",
+        "properties": {
+          "isUnifiedPresenceEnabled": {
+            "type": "boolean"
+          },
+          "isOutOfOfficeIntegrationEnabled": {
+            "type": "boolean"
+          },
+          "isContactMigrationEnabled": {
+            "type": "boolean"
+          },
+          "isAppsDiscoveryEnabled": {
+            "type": "boolean"
+          },
+          "isFederationEnabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LicenseDetails": {
+        "type": "object",
+        "properties": {
+          "isFreemium": {
+            "type": "boolean"
+          },
+          "isBasicLiveEventsEnabled": {
+            "type": "boolean"
+          },
+          "isTrial": {
+            "type": "boolean"
+          },
+          "isAudioConf": {
+            "type": "boolean"
+          },
+          "isAdvComms": {
+            "type": "boolean"
+          },
+          "isTranscriptEnabled": {
+            "type": "boolean"
+          },
+          "isWebinarEnabled": {
+            "type": "boolean"
+          },
+          "eduLicenseSkuAndCategory": {
+            "type": "string",
+            "nullable": true
+          },
+          "isTPProtection": {
+            "type": "boolean"
+          },
+          "isTPCustomization": {
+            "type": "boolean"
+          },
+          "isTPManagement": {
+            "type": "boolean"
+          },
+          "isTPWebinar": {
+            "type": "boolean"
+          },
+          "isTPVirtualAppointments": {
+            "type": "boolean"
+          },
+          "isInfoProtectionPremium": {
+            "type": "boolean"
+          },
+          "isFreemiumTenantMixedMode": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthzSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "tokens": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuthenticationTokens"
+              }
+            ],
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "partition": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionGtms": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RegionGtms"
+              }
+            ],
+            "nullable": true
+          },
+          "regionSettings": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RegionSettings"
+              }
+            ],
+            "nullable": true
+          },
+          "licenseDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LicenseDetails"
+              }
+            ],
+            "nullable": true
+          },
+          "userRegion": {
+            "type": "string",
+            "nullable": true
+          },
+          "userPartition": {
+            "type": "string",
+            "nullable": true
+          },
+          "teamsDataBoundary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ACSAuthzSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "tokens": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuthenticationTokens"
+              }
+            ],
+            "nullable": true
+          },
+          "licenseDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LicenseDetails"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignUpTrialSuccessResponse": {
+        "type": "object",
+        "properties": {
+          "tokens": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuthenticationTokens"
+              }
+            ],
+            "nullable": true
+          },
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "partition": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionGtms": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RegionGtms"
+              }
+            ],
+            "nullable": true
+          },
+          "regionSettings": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RegionSettings"
+              }
+            ],
+            "nullable": true
+          },
+          "licenseDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LicenseDetails"
+              }
+            ],
+            "nullable": true
+          },
+          "assignedSkuId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AudioConfPromoProviderEligibilityResult": {
+        "type": "object",
+        "properties": {
+          "isEligible": {
+            "type": "boolean"
+          },
+          "responseCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegionResponse": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "nullable": true
+          },
+          "partition": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionGtms": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RegionGtms"
+              }
+            ],
+            "nullable": true
+          },
+          "teamsDataBoundary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": [ ]
+    }
+  ]
+}

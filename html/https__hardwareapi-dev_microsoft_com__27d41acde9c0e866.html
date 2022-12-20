@@ -1,0 +1,3054 @@
+openapi: 3.0.1
+info:
+  title: Hardware API
+  version: v1
+paths:
+  /api/v1/hardware/audiences:
+    get:
+      tags:
+        - Audiences
+      summary: Returns collection of audience.
+      operationId: Audiences_GetAudienceCollectionAsync
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 51ee0446-42e0-490b-9e25-8c2715d0cb44
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 9ec9e250-7c3e-4c0f-951c-0c8ca0210c0e
+      responses:
+        '200':
+          description: Returns a list of Audience.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<Audience>'
+  /api/v2/hardware/audiences:
+    get:
+      tags:
+        - Audiences
+      summary: Returns collection of audience.
+      operationId: Audiences_GetAudienceCollectionAsync
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 6f242823-ddc3-4634-9365-5db3c3a2451f
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: f7e7073a-8bd9-46e9-92b5-ce9585136fa3
+      responses:
+        '200':
+          description: Returns a list of Audience.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<Audience>'
+  /api/v1/hardware/domainData/operatingSystems:
+    get:
+      tags:
+        - DomainData
+      summary: Get Operating Systems Collection
+      operationId: DomainData_GetOperatingSystemsCollectionAsync
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 94596412-d16d-407b-8857-f7d63de8d6a3
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: fb1e94a6-7606-45ce-83a5-0a2ed08a86d3
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>'
+  /api/v2/hardware/domainData/operatingSystems:
+    get:
+      tags:
+        - DomainData
+      summary: Get Operating Systems Collection
+      operationId: DomainData_GetOperatingSystemsCollectionAsync
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 7dfa5366-ad85-4384-bd36-5b197a3e4196
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 5e20e244-798c-400a-bddf-2effbece7fce
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>'
+  '/api/v1/hardware/products/{productId}':
+    get:
+      tags:
+        - Products
+      summary: GET Products Using Product-ID
+      operationId: Products_GetProductByIdAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 816fbde4-5c74-46b1-9791-78e0dc1cffa0
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 7384f46f-c5db-411a-8312-b4bb9ed36af9
+      responses:
+        '200':
+          description: Returns the product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    patch:
+      tags:
+        - Products
+      summary: Patches/Updates only given properties of a product
+      operationId: Products_PatchProductAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: d9b400e0-7072-4de5-b561-b3ef01ada10b
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 606ec30a-9242-4420-902c-883577c7b73e
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForUpdationProduct Properties to Patch
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductForUpdation'
+      responses:
+        '204':
+          description: Success
+        '200':
+          description: Returns JSON response body returned by successful request
+  '/api/v2/hardware/products/{productId}':
+    get:
+      tags:
+        - Products
+      summary: GET Products Using Product-ID
+      operationId: Products_GetProductByIdAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: d253d2ce-fdea-48df-80be-d8af7fa21d65
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 0703b532-0410-4eaa-bb86-b75f01ebbc52
+      responses:
+        '200':
+          description: Returns the product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    patch:
+      tags:
+        - Products
+      summary: Patches/Updates only given properties of a product
+      operationId: Products_PatchProductAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: a94aa866-e110-4ced-a1de-394c21d27576
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 48dea5b6-2b95-4970-aaaa-3940b868761c
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForUpdationProduct Properties to Patch
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductForUpdation'
+      responses:
+        '204':
+          description: Success
+        '200':
+          description: Returns JSON response body returned by successful request
+  /api/v1/hardware/products:
+    get:
+      tags:
+        - Products
+      summary: Returns Collection of Products For Current User.
+      operationId: Products_GetProductsCollectionAsync
+      parameters:
+        - name: pageSize
+          in: query
+          description: The page size.
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          description: The continuationToken.
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: d7a0d3a9-eb3b-4bdf-b3f4-6c2fa7b998f8
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 8e6f44ae-f824-44bd-ba60-5cb662e73e4f
+      responses:
+        '200':
+          description: Returns a list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<Product>'
+    post:
+      tags:
+        - Products
+      summary: Create a product.
+      operationId: Products_CreateProduct
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 44a4dbb1-6fff-40b0-85ae-92c5984c2b3a
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 895b3d7b-580e-4d06-a77d-cd8878360f46
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForCreationProduct To Be Created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductForCreation'
+      responses:
+        '201':
+          description: 201 When Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /api/v2/hardware/products:
+    get:
+      tags:
+        - Products
+      summary: Returns Collection of Products For Current User.
+      operationId: Products_GetProductsCollectionAsync
+      parameters:
+        - name: pageSize
+          in: query
+          description: The page size.
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          description: The continuationToken.
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 97702cb9-5d15-40fc-a1af-597e757d48d6
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: f14a8510-6afc-4c52-bb46-b40b66a69e26
+      responses:
+        '200':
+          description: Returns a list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<Product>'
+    post:
+      tags:
+        - Products
+      summary: Create a product.
+      operationId: Products_CreateProduct
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 01e9b210-62ee-482a-b910-2e6db4a4a192
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 737a9f86-4100-4613-8f71-d8b185e0ee36
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForCreationProduct To Be Created
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductForCreation'
+      responses:
+        '201':
+          description: 201 When Successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /api/v1/hardware/products/ping:
+    get:
+      tags:
+        - Products
+      summary: Ping endpoint.
+      operationId: Products_Ping
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 7fab2c04-a1bd-4bce-830b-8a186cd29122
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 9cf17789-99b2-4626-9aa5-35276aab988d
+      responses:
+        '200':
+          description: Success
+  /api/v2/hardware/products/ping:
+    get:
+      tags:
+        - Products
+      summary: Ping endpoint.
+      operationId: Products_Ping
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: d14090ca-0474-48df-a4b3-946b10637070
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: f2c5804b-5be5-4913-b054-79118ecb6840
+      responses:
+        '200':
+          description: Success
+  '/api/v1/hardware/products/relationships/sourcepubliherid/{sourcePublisherId}/sourceproductid/{sourceProductId}/sourcesubmissionid/{sourceSubmissionId}':
+    get:
+      tags:
+        - Relationships
+      summary: Get submission by source submission ID and source product ID and source publisher id.
+      operationId: Relationships_GetSubmissionBySourceIdsAsync
+      parameters:
+        - name: sourcePublisherId
+          in: path
+          description: The source publisher ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sourceProductId
+          in: path
+          description: The source product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sourceSubmissionId
+          in: path
+          description: The source submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 0faed034-87e0-4c3b-b349-5996ef89ebba
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: ad12e02b-17d2-4aca-b1c4-e58271a0933f
+      responses:
+        '200':
+          description: Returns a submission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submission'
+  '/api/v2/hardware/products/relationships/sourcepubliherid/{sourcePublisherId}/sourceproductid/{sourceProductId}/sourcesubmissionid/{sourceSubmissionId}':
+    get:
+      tags:
+        - Relationships
+      summary: Get submission by source submission ID and source product ID and source publisher id.
+      operationId: Relationships_GetSubmissionBySourceIdsAsync
+      parameters:
+        - name: sourcePublisherId
+          in: path
+          description: The source publisher ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sourceProductId
+          in: path
+          description: The source product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: sourceSubmissionId
+          in: path
+          description: The source submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 42910bc1-3030-4e1f-8b71-61832a1bf9b1
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 820bcce2-b085-4aca-ac27-0f8b2fabb54f
+      responses:
+        '200':
+          description: Returns a submission.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submission'
+  /api/Search/IngestionData:
+    post:
+      tags:
+        - Search
+      summary: Search for Submission Result.
+      operationId: Search_GetIngestionDataSearchResultAsync
+      parameters:
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 28280313-687f-4b45-a6a0-7db08571f522
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: fb15b71d-00b3-4078-ba72-aa07680dfccf
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.IngestionDataSearchCriteriaSearch Criteria
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IngestionDataSearchCriteria'
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.IngestionDataSearchResultSubmission Search Result
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}':
+    get:
+      tags:
+        - ShippingLabels
+      summary: Get shipping label by ID.
+      operationId: ShippingLabels_GetShippingLabelByIdAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: The shipping label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: includeTargetingInfo
+          in: query
+          description: A flag indicating whether targeting info has to be included.
+          schema:
+            type: boolean
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: d2311459-fc62-4b69-9fd0-0b3f39866562
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 3b577457-4508-4ec4-b43d-b5b0ffe4f93a
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductJSON response body returned by a successful request for a specific shipping label
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingLabel'
+    patch:
+      tags:
+        - ShippingLabels
+      summary: Patches/Updates only given properties of a shippingLabel
+      operationId: ShippingLabels_PatchShippingLabelAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 72067602-70bc-432e-a155-e08be8c3d48b
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 6fed71af-e523-4124-ac9a-21c2a4286885
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ShippingLabelForUpdationShipping label Properties to Patch
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelForUpdation'
+      responses:
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}':
+    get:
+      tags:
+        - ShippingLabels
+      summary: Get shipping label by ID.
+      operationId: ShippingLabels_GetShippingLabelByIdAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: The shipping label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: includeTargetingInfo
+          in: query
+          description: A flag indicating whether targeting info has to be included.
+          schema:
+            type: boolean
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 5cf8a554-505f-46ee-96c0-9fb95129758a
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 6105ab3a-0680-412d-9dcf-3918c7bbc880
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductJSON response body returned by a successful request for a specific shipping label
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingLabel'
+    patch:
+      tags:
+        - ShippingLabels
+      summary: Patches/Updates only given properties of a shippingLabel
+      operationId: ShippingLabels_PatchShippingLabelAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 28442119-0ae6-420a-be26-91fce85da67f
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: a16a78cb-fef5-484a-8702-e8b0fe9a3474
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ShippingLabelForUpdationShipping label Properties to Patch
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelForUpdation'
+      responses:
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels':
+    get:
+      tags:
+        - ShippingLabels
+      summary: Get all shipping labels.
+      operationId: ShippingLabels_GetShippingLabelsCollectionAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: pageSize
+          in: query
+          description: The page size.
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          description: The continuationToken.
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: c2f2dd96-fcc7-45ea-87d5-d2c9528551ff
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: ac9de884-a158-4f02-aafc-83bbab6d9194
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductReturns a list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<ShippingLabel>'
+    post:
+      tags:
+        - ShippingLabels
+      summary: Create a shippingLabel.
+      operationId: ShippingLabels_CreateShippingLabelAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 6404eeb6-5891-43a1-b876-7f1d094c75cf
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: abd3906b-4ced-43db-bbf7-27336e150805
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ShippingLabelForCreationShipping Label Request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelForCreation'
+      responses:
+        '201':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ShippingLabelJSON request body for creating a new shipping label.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShippingLabel'
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels':
+    get:
+      tags:
+        - ShippingLabels
+      summary: Get all shipping labels.
+      operationId: ShippingLabels_GetShippingLabelsCollectionAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: pageSize
+          in: query
+          description: The page size.
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          description: The continuationToken.
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: a5dbea6a-4abd-4a0a-ae42-d5e5d42abd35
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 402b985a-d741-4e6f-8d28-4de6f29d651f
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductReturns a list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<ShippingLabel>'
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/recover':
+    patch:
+      tags:
+        - ShippingLabels
+      summary: Recovers HWIDs of a shippingLabel
+      operationId: ShippingLabels_ShippingLabelRecoverAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: dd09131f-5975-4f20-8c72-2d3c695fde8d
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: b945e67a-ecb1-4aa3-843b-1635f98350c7
+      requestBody:
+        description: Shipping label to recover
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelForRecovery'
+      responses:
+        '204':
+          description: Success
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/recover':
+    patch:
+      tags:
+        - ShippingLabels
+      summary: Recovers HWIDs of a shippingLabel
+      operationId: ShippingLabels_ShippingLabelRecoverAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 34835c73-9197-4cd0-b224-7b61e800d5bc
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 26107478-d6dc-4e47-8a4f-176a1fb872a7
+      requestBody:
+        description: Shipping label to recover
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelForRecovery'
+      responses:
+        '204':
+          description: Success
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/expire':
+    patch:
+      tags:
+        - ShippingLabels
+      summary: Expires HWIDs of a shippingLabel
+      operationId: ShippingLabels_ShippingLabelExpireAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 0fb6b045-b521-4e4b-909d-7505ed9365f6
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 56f8ee0e-7508-4a33-9634-69652a2bfbda
+      requestBody:
+        description: Shipping label to expire
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelForExpire'
+      responses:
+        '204':
+          description: Success
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/expire':
+    patch:
+      tags:
+        - ShippingLabels
+      summary: Expires HWIDs of a shippingLabel
+      operationId: ShippingLabels_ShippingLabelExpireAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: c98d21c8-1997-439c-ad5e-904443d971ed
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: be1b2b23-de5c-449a-8cea-c40b6de56d6d
+      requestBody:
+        description: Shipping label to expire
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShippingLabelForExpire'
+      responses:
+        '204':
+          description: Success
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/cancel':
+    put:
+      tags:
+        - ShippingLabels
+      summary: Request cancellation of a shippingLabel in Microsoft Approval or Gradual Rollout
+      operationId: ShippingLabels_ShippingLabelCancelAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 0c5a3e30-53c0-41f6-9913-710df78e6c56
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 96b9cb12-967f-435b-9a6e-12bea6cd62ea
+      responses:
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/cancel':
+    put:
+      tags:
+        - ShippingLabels
+      summary: Request cancellation of a shippingLabel in Microsoft Approval or Gradual Rollout
+      operationId: ShippingLabels_ShippingLabelCancelAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: shippingLabelId
+          in: path
+          description: Shipping Label ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: abe80720-19a3-4461-b5d3-0e6a176cc228
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: ad2b9167-b3de-4187-956d-c0503cd35266
+      responses:
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/ping':
+    get:
+      tags:
+        - ShippingLabels
+      summary: Ping endpoint.
+      operationId: ShippingLabels_Ping
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: submissionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 5443a8c0-6806-40da-af2f-3776d9b56f84
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 537c8e5d-73ff-476f-9204-01f5b359ad5f
+      responses:
+        '200':
+          description: Success
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/ping':
+    get:
+      tags:
+        - ShippingLabels
+      summary: Ping endpoint.
+      operationId: ShippingLabels_Ping
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: submissionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: d91cd490-86ce-4575-95de-9d20e885b6f9
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 2b57ac2e-a1ec-46cf-9ad6-b0534b53800c
+      responses:
+        '200':
+          description: Success
+  '/api/v1/hardware/products/{productId}/submissions':
+    post:
+      tags:
+        - Submission
+      summary: Create a submission.
+      operationId: Submission_CreateSubmission
+      parameters:
+        - name: productId
+          in: path
+          description: The product id.
+          required: true
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: e2d3d183-8bf4-46e3-9df2-8b6d00187b10
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 7cb4a365-4d06-4fbd-acf6-95c331cce40d
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForCreationJSON request body for creating a new submission
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionForCreation'
+      responses:
+        '201':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for creating a new submission for a product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submission'
+    get:
+      tags:
+        - Submission
+      summary: Get all submissions for a product.
+      operationId: Submission_GetSubmissionsForProductAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: pageSize
+          in: query
+          description: The page size.
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          description: The continuationToken.
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 6317e0c9-fa8d-409e-9e47-a6f8111b4227
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 37bc45bc-a5d1-45eb-b176-5a863eb98aee
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for all the submissions of a product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<Submission>'
+  '/api/v2/hardware/products/{productId}/submissions':
+    post:
+      tags:
+        - Submission
+      summary: Create a submission.
+      operationId: Submission_CreateSubmission
+      parameters:
+        - name: productId
+          in: path
+          description: The product id.
+          required: true
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 926e30fe-2ce9-4247-aa22-55d60d8d29bd
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: b0297e73-647d-4f0a-8059-ce7e5fe46661
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForCreationJSON request body for creating a new submission
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionForCreation'
+      responses:
+        '201':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for creating a new submission for a product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submission'
+    get:
+      tags:
+        - Submission
+      summary: Get all submissions for a product.
+      operationId: Submission_GetSubmissionsForProductAsync
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: pageSize
+          in: query
+          description: The page size.
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          description: The continuationToken.
+          schema:
+            type: string
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: ed0f9874-578e-4574-b3a3-d74fbcc6e59d
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: b0eae057-5ee1-4103-bc4e-aa67328c18f8
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for all the submissions of a product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinkedCollectionResourceWrapper<Submission>'
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}':
+    get:
+      tags:
+        - Submission
+      summary: Get submission by submission ID and product ID.
+      operationId: Submission_GetSubmissionByIdAsync
+      parameters:
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 2f6d933d-c068-4398-bfc4-a6b6d17c9098
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 106fa1ac-a68d-4024-be49-ddfabc1c3239
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for a specific submission of a product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submission'
+    patch:
+      tags:
+        - Submission
+      summary: Update a submission.
+      operationId: Submission_UpdateSubmission
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 28e14ff2-0fd0-4174-b033-8cbdad8a775a
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: eeda907c-a0b5-4d31-bb92-4ba600cd652d
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForUpdationJSON request body for updating a product.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionForUpdation'
+      responses:
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}':
+    get:
+      tags:
+        - Submission
+      summary: Get submission by submission ID and product ID.
+      operationId: Submission_GetSubmissionByIdAsync
+      parameters:
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 67843b28-5fb9-4765-95a8-7216143c6246
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: b290dd78-7cdc-4935-a77b-02e2146404e8
+      responses:
+        '200':
+          description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for a specific submission of a product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Submission'
+    patch:
+      tags:
+        - Submission
+      summary: Update a submission.
+      operationId: Submission_UpdateSubmission
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 7c1864c5-0d5a-4b9a-8e43-88f5785e98d0
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: fb5c73bd-5e40-4ae9-98a6-1921ab0d7854
+      requestBody:
+        description: Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForUpdationJSON request body for updating a product.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionForUpdation'
+      responses:
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/commit':
+    post:
+      tags:
+        - Submission
+      summary: Commit a submission.
+      operationId: Submission_CommitSubmission
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 39553a45-c46f-4014-b149-916ecce8d790
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 4c57f474-3390-4b79-a7a6-96b832bae2ac
+      responses:
+        '202':
+          description: Success
+        '204':
+          description: System.VoidReturns 204 on success
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/commit':
+    post:
+      tags:
+        - Submission
+      summary: Commit a submission.
+      operationId: Submission_CommitSubmission
+      parameters:
+        - name: productId
+          in: path
+          description: The product ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: The submission ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: ebbc5217-c05d-44d9-94f6-eedaf2233d1c
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: b071a085-d4d3-4f82-b68d-8837ccd62bd6
+      responses:
+        '202':
+          description: Success
+        '204':
+          description: System.VoidReturns 204 on success
+  '/api/v1/hardware/products/{productId}/submissions/{submissionId}/createpublishermetadata':
+    post:
+      tags:
+        - Submission
+      summary: Triggers the WF to generate driver metadata for a publisher
+      operationId: Submission_CreatePublisherMetadataAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product Id
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission Id
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: afc14a51-4afd-4fe4-ac32-efdb0447dede
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 34162717-d964-47ea-bf49-d8e076875bdc
+      responses:
+        '202':
+          description: Success
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+  '/api/v2/hardware/products/{productId}/submissions/{submissionId}/createpublishermetadata':
+    post:
+      tags:
+        - Submission
+      summary: Triggers the WF to generate driver metadata for a publisher
+      operationId: Submission_CreatePublisherMetadataAsync
+      parameters:
+        - name: productId
+          in: path
+          description: Product Id
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: submissionId
+          in: path
+          description: Submission Id
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: MS-CorrelationId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: e52ba269-6079-40d7-a12c-a22f0cfa0a3a
+        - name: MS-RequestId
+          in: header
+          required: true
+          schema:
+            type: string
+            default: 038047ba-b2ac-4681-a321-2c9fa09c2551
+      responses:
+        '202':
+          description: Success
+        '204':
+          description: The response will be empty with a HTTP status of 204.
+components:
+  schemas:
+    AdditionalAttributes:
+      type: object
+      properties:
+        StorageController:
+          $ref: '#/components/schemas/StorageControllerAttributes'
+        RaidController:
+          $ref: '#/components/schemas/RaidControllerAttributes'
+        Svvp:
+          $ref: '#/components/schemas/SvvpAttributes'
+        Hdd:
+          $ref: '#/components/schemas/HddAttributes'
+        Ssd:
+          $ref: '#/components/schemas/SsdAttributes'
+        Nic:
+          $ref: '#/components/schemas/NicAttributes'
+        Nvme:
+          $ref: '#/components/schemas/NvmeAttributes'
+      additionalProperties: false
+      description: The additional attributes for a product.
+    AdditionalInfoForMSApproval:
+      type: object
+      properties:
+        MicrosoftContact:
+          type: string
+          description: Gets or sets Microsoft contact
+          nullable: true
+        ValidationsPerformed:
+          type: string
+          description: Gets or sets list of validations performed
+          nullable: true
+        AffectedOems:
+          type: array
+          items:
+            type: string
+          description: Gets or sets list of affected OEMs
+          nullable: true
+        IsCoEngineered:
+          type: boolean
+          description: Gets or sets a value indicating whether it is a co-engineered driver
+        IsForUnreleasedHardware:
+          type: boolean
+          description: Gets or sets a value indicating whether it is driver for unreleased hardware
+        HasUiSoftware:
+          type: boolean
+          description: Gets or sets a value indicating whether driver has a relevant UI
+        BusinessJustification:
+          type: string
+          description: Gets or sets business justification text
+          nullable: true
+      additionalProperties: false
+      description: Flighing information
+    Audience:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: Gets or sets the ID.
+          format: uuid
+        Name:
+          type: string
+          description: Gets or sets the name.
+          nullable: true
+        Description:
+          type: string
+          description: Gets or sets the description.
+          nullable: true
+        AudienceName:
+          type: string
+          description: Gets or sets the audience name.
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: Audience.
+    CoEngPublishRestriction:
+      type: object
+      properties:
+        CeilingBuildNumber:
+          type: integer
+          description: Gets or sets Build number for ceiling OS
+          format: int32
+          nullable: true
+        FlooringBuildNumber:
+          type: integer
+          description: Gets or sets Build number for flooring OS
+          format: int32
+          nullable: true
+      additionalProperties: false
+      description: Driver restriction information for CoEngineered Drivers
+    CommitState:
+      enum:
+        - CommitPending
+        - CommitReceived
+        - CommitFailed
+        - CommitComplete
+      type: string
+      description: Commit state
+      x-ms-enum:
+        name: CommitState
+        modelAsString: false
+    DeviceType:
+      enum:
+        - NotSet
+        - Internal
+        - External
+        - InternalExternal
+      type: string
+      description: Device type
+      x-ms-enum:
+        name: DeviceType
+        modelAsString: false
+    DistributionChid:
+      type: object
+      properties:
+        Chid:
+          type: string
+          description: Gets or sets the Computer Hardware ID.
+          format: uuid
+        DistributionState:
+          $ref: '#/components/schemas/ShippingLabelDistributionState'
+      additionalProperties: false
+      description: Represents a PNP.
+    DistributionChidForUpdation:
+      type: object
+      properties:
+        Chid:
+          type: string
+          description: Gets or sets the Computer Hardware ID.
+          format: uuid
+        Action:
+          $ref: '#/components/schemas/ShippingLabelDistributionAction'
+      additionalProperties: false
+      description: Update a distribution chid.
+    DownloadEntity:
+      type: object
+      properties:
+        Type:
+          $ref: '#/components/schemas/DownloadEntityType'
+        Url:
+          type: string
+          description: Gets or sets url.
+          nullable: true
+      additionalProperties: false
+      description: Download entity.
+    DownloadEntityContainer:
+      type: object
+      properties:
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/DownloadEntity'
+          description: Gets or sets list of items available for download.
+          nullable: true
+        Messages:
+          type: array
+          items:
+            type: string
+          description: Gets or sets error messages.
+          nullable: true
+      additionalProperties: false
+      description: Download entity container.
+    DownloadEntityType:
+      enum:
+        - InitialPackage
+        - SignedPackage
+        - CertificationReport
+        - DerivedPackage
+        - DriverMetadata
+        - ExternalNotes
+        - Unknown
+      type: string
+      description: Download entity types.
+      x-ms-enum:
+        name: DownloadEntityType
+        modelAsString: false
+    DriverType:
+      enum:
+        - Desktop
+        - Windows
+        - Unknown
+      type: string
+      description: Type of driver
+      x-ms-enum:
+        name: DriverType
+        modelAsString: false
+    DriverWorkflowStepName:
+      enum:
+        - PackageAcceptance
+        - Preparation
+        - Validation
+        - ManualReview
+        - CatalogCreation
+        - Signing
+        - FinalizeIngestion
+        - DriverMetadataExtraction
+        - CabCreation
+        - FinalizePrePublishing
+        - SystemValidation
+        - SystemReleasePublishing
+        - SystemCompDbCreation
+        - SystemCabCreation
+        - SystemSigning
+        - Scanning
+        - SystemAudiencePublishing
+        - SystemExpiration
+        - DistributionCatalogRecreation
+        - DriverMetaDataRecreation
+        - DCatReleaseInfoGeneration
+        - SystemMicrosoftApproval
+        - PackageInfoValidation
+      type: string
+      description: Possible steps in hardware workflow.
+      x-ms-enum:
+        name: DriverWorkflowStepName
+        modelAsString: false
+    HardwareId:
+      type: object
+      properties:
+        BundleId:
+          type: string
+          description: Gets or sets the bundle ID.
+          nullable: true
+        InfId:
+          type: string
+          description: Gets or sets the inf from which the pnp was chosen.
+          nullable: true
+        OperatingSystemCode:
+          type: string
+          description: Gets or sets the OS code.
+          nullable: true
+        PnpString:
+          type: string
+          description: Gets or sets the pnp string.
+          nullable: true
+        DistributionState:
+          $ref: '#/components/schemas/ShippingLabelDistributionState'
+      additionalProperties: false
+      description: Represents a PNP.
+    HardwareIdForRecovery:
+      type: object
+      properties:
+        BundleId:
+          type: string
+          description: Gets or sets the bundle ID.
+          nullable: true
+        InfId:
+          type: string
+          description: Gets or sets the inf from which the pnp was chosen.
+          nullable: true
+        OperatingSystemCode:
+          type: string
+          description: Gets or sets the OS code.
+          nullable: true
+        PnpString:
+          type: string
+          description: Gets or sets the pnp string.
+          nullable: true
+      additionalProperties: false
+      description: Hardware Id model(non-abstract) for Recovery
+    HardwareIdForUpdation:
+      type: object
+      properties:
+        BundleId:
+          type: string
+          description: Gets or sets the bundle ID.
+          nullable: true
+        InfId:
+          type: string
+          description: Gets or sets the inf from which the pnp was chosen.
+          nullable: true
+        OperatingSystemCode:
+          type: string
+          description: Gets or sets the OS code.
+          nullable: true
+        PnpString:
+          type: string
+          description: Gets or sets the pnp string.
+          nullable: true
+        Action:
+          $ref: '#/components/schemas/ShippingLabelDistributionAction'
+      additionalProperties: false
+      description: Represents updates to Hardware ID.
+    HddAttributes:
+      type: object
+      properties:
+        FirmwareVersion:
+          type: string
+          description: Gets or sets firmware version
+          nullable: true
+        Smart:
+          type: string
+          description: Gets or sets SMART option
+          nullable: true
+        SCSIReliabilityCounters:
+          type: string
+          description: Gets or sets SCSI reliability counters
+          nullable: true
+        SATAStatistics:
+          type: string
+          description: Gets or sets SATA statistics option
+          nullable: true
+      additionalProperties: false
+      description: HDD attributes
+    IngestionDataSearchCriteria:
+      type: object
+      properties:
+        Select:
+          type: array
+          items:
+            type: string
+          description: Gets or sets select columns
+          nullable: true
+        SearchAttributes:
+          type: object
+          additionalProperties:
+            type: string
+          description: Gets or sets SearchAttributes
+          nullable: true
+        SortBy:
+          $ref: '#/components/schemas/SortCriteria'
+        FreeTextSearchTerms:
+          type: string
+          description: Gets or sets FreeTextSearchTerms
+          nullable: true
+        Top:
+          type: integer
+          description: Gets or sets top row count criteria
+          format: int32
+        IncludeCount:
+          type: boolean
+          description: Gets or sets a value indicating whether gets or sets IncludeCount to indicate whether result should contain total count of records
+        RowsToSkip:
+          type: integer
+          description: Gets or sets a value specifying the number of rows to skip during pagination implementation
+          format: int32
+      additionalProperties: false
+      description: SubmissionSearchCriteria
+    InServicePublishRestriction:
+      type: object
+      properties:
+        Ceiling:
+          $ref: '#/components/schemas/RestrictionOS'
+        Flooring:
+          $ref: '#/components/schemas/RestrictionOS'
+      additionalProperties: false
+      description: Publishing restrictions for in-service drivers
+    Link:
+      type: object
+      properties:
+        Href:
+          type: string
+          description: Gets url.
+          nullable: true
+          readOnly: true
+        Rel:
+          type: string
+          description: Gets rel.
+          nullable: true
+          readOnly: true
+        Method:
+          type: string
+          description: Gets http method.
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+      description: Hateoas link.
+    LinkedCollectionResourceWrapper<Audience>:
+      type: object
+      properties:
+        Value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Audience'
+          description: Gets or sets values in the collection.
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: Linked collection resource wrapper.
+    LinkedCollectionResourceWrapper<OperatingSystem>:
+      type: object
+      properties:
+        Value:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperatingSystem'
+          description: Gets or sets values in the collection.
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: Linked collection resource wrapper.
+    LinkedCollectionResourceWrapper<Product>:
+      type: object
+      properties:
+        Value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+          description: Gets or sets values in the collection.
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: Linked collection resource wrapper.
+    LinkedCollectionResourceWrapper<ShippingLabel>:
+      type: object
+      properties:
+        Value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ShippingLabel'
+          description: Gets or sets values in the collection.
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: Linked collection resource wrapper.
+    LinkedCollectionResourceWrapper<Submission>:
+      type: object
+      properties:
+        Value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Submission'
+          description: Gets or sets values in the collection.
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: Linked collection resource wrapper.
+    NicAttributes:
+      type: object
+      properties:
+        FirmwareVersion:
+          type: string
+          description: Gets or sets firmware version
+          nullable: true
+        DriverVersion:
+          type: string
+          description: Gets or sets driver version
+          nullable: true
+        DriverDate:
+          type: string
+          description: Gets or sets driver date
+          nullable: true
+        DriverFileName:
+          type: string
+          description: Gets or sets driver filename
+          nullable: true
+      additionalProperties: false
+      description: NIC attributes
+    NvmeAttributes:
+      type: object
+      properties:
+        FirmwareVersion:
+          type: string
+          description: Gets or sets firmware version
+          nullable: true
+        SmartHealth:
+          type: string
+          description: Gets or sets smart health option
+          nullable: true
+        CryptographicErase:
+          type: string
+          description: Gets or sets cryptographic erase option
+          nullable: true
+        EnduranceInformation:
+          type: string
+          description: Gets or sets endurance information option
+          nullable: true
+      additionalProperties: false
+      description: NVMe attributes
+    OperatingSystem:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Gets or sets the friendly name of the operating system.
+          nullable: true
+        Family:
+          type: string
+          description: Gets or sets OS family.
+          nullable: true
+        Code:
+          type: string
+          description: Gets or sets the code that uniquely identifies this operating system.
+          nullable: true
+        Version:
+          type: string
+          description: Gets or sets gets the version of the operating system.
+          nullable: true
+        Architecture:
+          type: string
+          description: Gets or sets the architecture of the operating system.
+          nullable: true
+        ProductLine:
+          type: string
+          description: Gets or sets the product line of the operating system.
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: OperatingSystem
+    Product:
+      type: object
+      properties:
+        AnnouncementDate:
+          type: string
+          description: Gets or sets announcement date.
+          format: date-time
+          nullable: true
+        DeviceMetadataCategory:
+          type: string
+          description: Gets or sets device metadata category.
+          nullable: true
+        DeviceMetadataIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Gets or sets device metadata ids.
+          nullable: true
+        FirmwareVersion:
+          type: string
+          description: Gets or sets firmware version.
+          nullable: true
+        DeviceType:
+          $ref: '#/components/schemas/DeviceType'
+        IsTestSign:
+          type: boolean
+          description: Gets or sets a value indicating whether the driver must  be test signed.
+        IsFlightSign:
+          type: boolean
+          description: 'Gets or sets a value indicating whether is flight sign, This capability is only available for Co engineering partners'
+        MarketingNames:
+          type: array
+          items:
+            type: string
+          description: Gets or sets marketing names.
+          nullable: true
+        ProductName:
+          type: string
+          description: Gets or sets product name.
+          nullable: true
+        SelectedProductTypes:
+          type: object
+          additionalProperties:
+            type: string
+          description: Gets or sets the selected product types.
+          nullable: true
+        RequestedSignatures:
+          type: array
+          items:
+            type: string
+          description: Gets or sets requested signatures
+          nullable: true
+        AdditionalAttributes:
+          $ref: '#/components/schemas/AdditionalAttributes'
+        TestHarness:
+          $ref: '#/components/schemas/TestHarness'
+        Id:
+          type: integer
+          description: Gets or sets product ID.
+          format: int64
+        SharedProductId:
+          type: integer
+          description: Gets or sets shared product ID.
+          format: int64
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets links.
+          nullable: true
+        IsCommitted:
+          type: boolean
+          description: "Gets or sets a value indicating whether product is committed\r\nIf Null Or True - UI can display it.\r\nIf False - UI must hide it."
+        IsExtensionInf:
+          type: boolean
+          description: Gets or sets a value indicating whether product is Extension Inf
+          deprecated: true
+        OriginType:
+          $ref: '#/components/schemas/ProductOriginType'
+        SourceProductId:
+          type: integer
+          description: Gets or sets Source product ID.
+          format: int64
+        SourcePublisherId:
+          type: integer
+          description: Gets or sets Source publisher ID.
+          format: int64
+        IsRetpolineCompiled:
+          type: boolean
+          description: Gets or sets a value indicating whether IsRetpolineCompiled.
+        Message:
+          type: string
+          description: Gets or sets a value Message.
+          nullable: true
+        DriverType:
+          $ref: '#/components/schemas/DriverType'
+      additionalProperties: false
+      description: Base Class for other outbound product entities
+    ProductForCreation:
+      type: object
+      properties:
+        AnnouncementDate:
+          type: string
+          description: Gets or sets announcement date.
+          format: date-time
+          nullable: true
+        DeviceMetadataIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Gets or sets device metadata ids.
+          nullable: true
+        DeviceType:
+          $ref: '#/components/schemas/DeviceType'
+        IsTestSign:
+          type: boolean
+          description: Gets or sets a value indicating whether the driver must  be test signed.
+        IsFlightSign:
+          type: boolean
+          description: 'Gets or sets a value indicating whether is flight sign, This capability is only available for Co engineering partners'
+        SelectedProductTypes:
+          type: object
+          additionalProperties:
+            type: string
+          description: Gets or sets the selected product types.
+          nullable: true
+        RequestedSignatures:
+          type: array
+          items:
+            type: string
+          description: Gets or sets requested signatures
+          nullable: true
+        AdditionalAttributes:
+          $ref: '#/components/schemas/AdditionalAttributes'
+        TestHarness:
+          $ref: '#/components/schemas/TestHarness'
+        ProductName:
+          type: string
+          description: Gets or sets product name.
+          nullable: true
+        MarketingNames:
+          type: array
+          items:
+            type: string
+          description: Gets or sets marketing names.
+          nullable: true
+        DeviceMetadataCategory:
+          type: string
+          description: Gets or sets device metadata category.
+          nullable: true
+        FirmwareVersion:
+          type: string
+          description: Gets or sets firmware version.
+          nullable: true
+      additionalProperties: false
+      description: Body of product creation request
+    ProductForUpdation:
+      type: object
+      properties:
+        AnnouncementDate:
+          type: string
+          description: Gets or sets announcement date.
+          format: date-time
+          nullable: true
+        MarketingNames:
+          type: array
+          items:
+            type: string
+          description: Gets or sets marketing names.
+          nullable: true
+        ProductName:
+          type: string
+          description: Gets or sets product name.
+          nullable: true
+      additionalProperties: false
+      description: Product Patch
+    ProductOriginType:
+      enum:
+        - NotSet
+        - Author
+        - Publisher
+        - ReadOnly
+      type: string
+      description: ProductOriginType
+      x-ms-enum:
+        name: ProductOriginType
+        modelAsString: false
+    PublishingSpecifications:
+      type: object
+      properties:
+        GoLiveDate:
+          type: string
+          description: Gets or sets Go Live Date for WU distribution
+          format: date-time
+          nullable: true
+        VisibleToAccounts:
+          type: array
+          items:
+            type: integer
+            format: int64
+          description: Gets or sets list of publisherIDs who can just view this shipping label
+          nullable: true
+        IsAutoInstallDuringOSUpgrade:
+          type: boolean
+          description: Gets or sets a value indicating whether driver has to be auto delivered during windows upgrade.
+        IsAutoInstallOnApplicableSystems:
+          type: boolean
+          description: Gets or sets a value indicating whether driver has to be auto installed on all systems.
+        IsDisclosureRestricted:
+          type: boolean
+          description: Gets or sets a value indicating whether disclosure of this shipping label is restricted
+        PublishToWindows10s:
+          type: boolean
+          description: Gets or sets a value indicating whether to publish to windows10s (PublishToCloudSku in web input model)
+        AdditionalInfoForMsApproval:
+          $ref: '#/components/schemas/AdditionalInfoForMSApproval'
+        ManualAcquisition:
+          type: boolean
+          description: Gets or sets a value indicating whether this publication is acquired automatically or manually.
+      additionalProperties: false
+      description: Shipping label WU distribution information
+    RaidControllerAttributes:
+      type: object
+      properties:
+        FirmwareVersion:
+          type: string
+          description: Gets or sets the raid firmware version.
+          nullable: true
+        FilterVersion:
+          type: string
+          description: Gets or sets raid filter version.
+          nullable: true
+        DriverVersion:
+          type: string
+          description: Gets or sets raid driver version.
+          nullable: true
+        UsedProprietary:
+          type: boolean
+          description: Gets or sets a value indicating whether multi-pathing is supported through proprietary driver
+        ProprietaryName:
+          type: string
+          description: Gets or sets raid proprietary name.
+          nullable: true
+        ProprietaryVersion:
+          type: string
+          description: Gets or sets raid ProprietaryVersion
+          nullable: true
+        UsedMicrosoft:
+          type: boolean
+          description: "Gets or sets a value indicating whether true if a\r\nMicrosoft MPIO supported through device specific module"
+        MicrosoftName:
+          type: string
+          description: Gets or sets raid microsoft name.
+          nullable: true
+        MicrosoftVersion:
+          type: string
+          description: Gets or sets raid MicrosoftVersion
+          nullable: true
+        IsThirdPartyNeeded:
+          type: boolean
+          description: Gets or sets a value indicating whether true if Third party non-Microsoft driver needed for connectivity
+        IsSES:
+          type: boolean
+          description: Gets or sets a value indicating whether true if SES (SCSI Enclosure services)
+        IsSAFTE:
+          type: boolean
+          description: Gets or sets a value indicating whether true if SAF-TE (ANSII Specifications)
+        AdditionalInfo:
+          type: string
+          description: Gets or sets additional Questionnaire information
+          nullable: true
+      additionalProperties: false
+      description: Raid questionnaire dto.
+    RecipientSpecifications:
+      type: object
+      properties:
+        ReceiverPublisherId:
+          type: string
+          description: Gets or sets publisher who is going to receive the shared shipping label
+          nullable: true
+        EnforceChidTargeting:
+          type: boolean
+          description: Gets or sets a value indicating whether to enforce CHID targetting
+      additionalProperties: false
+      description: Shipping label distribution information
+    RestrictionOS:
+      enum:
+        - None
+        - TH
+        - RS1
+        - RS2
+        - RS3
+        - RS4
+        - RS5
+        - NineteenH1
+        - VB
+        - MN
+        - FE
+        - CO
+        - NI
+      type: string
+      description: Ceiling And Flooring Restriction OS list
+      x-ms-enum:
+        name: RestrictionOS
+        modelAsString: false
+    ShippingLabel:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Gets or sets Name of shipping label
+          nullable: true
+        Destination:
+          $ref: '#/components/schemas/ShippingLabelDestination'
+        Id:
+          type: integer
+          description: Gets or sets the ID.
+          format: int64
+        ProductId:
+          type: integer
+          description: Gets or sets the product ID.
+          format: int64
+        SubmissionId:
+          type: integer
+          description: Gets or sets SubmissionId of shipping label
+          format: int64
+        PublishingSpecifications:
+          $ref: '#/components/schemas/PublishingSpecifications'
+        RecipientSpecifications:
+          $ref: '#/components/schemas/RecipientSpecifications'
+        Targeting:
+          $ref: '#/components/schemas/ShippingLabelTargetingInfo'
+        WorkflowStatus:
+          $ref: '#/components/schemas/WorkflowStep<ShippingLabelWorkflowStepName>'
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+      additionalProperties: false
+      description: Shipping Label.
+    ShippingLabelDestination:
+      enum:
+        - NotSet
+        - WindowsUpdate
+        - AnotherPartner
+      type: string
+      description: Shipping label type
+      x-ms-enum:
+        name: ShippingLabelDestination
+        modelAsString: false
+    ShippingLabelDistributionAction:
+      enum:
+        - None
+        - Add
+        - Remove
+        - Recover
+      type: string
+      description: Denotes the distribution of a PNP or a CHID.
+      x-ms-enum:
+        name: ShippingLabelDistributionAction
+        modelAsString: false
+    ShippingLabelDistributionState:
+      enum:
+        - Unknown
+        - PendingAdd
+        - Added
+        - PendingRemove
+        - PendingRecovery
+        - Recovered
+      type: string
+      description: Denotes the distribution of a PNP or a CHID.
+      x-ms-enum:
+        name: ShippingLabelDistributionState
+        modelAsString: false
+    ShippingLabelForCreation:
+      type: object
+      properties:
+        Destination:
+          $ref: '#/components/schemas/ShippingLabelDestination'
+        Name:
+          type: string
+          description: Gets or sets Name of the shipping label
+          nullable: true
+        RecipientSpecifications:
+          $ref: '#/components/schemas/RecipientSpecifications'
+        PublishingSpecifications:
+          $ref: '#/components/schemas/PublishingSpecifications'
+        Targeting:
+          $ref: '#/components/schemas/ShippingLabelTargetingInfo'
+      additionalProperties: false
+      description: Shipping label creation model
+    ShippingLabelForExpire:
+      type: object
+      properties:
+        HardwareIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/HardwareIdForRecovery'
+          description: Gets or sets list of Hardware IDs to expire
+          nullable: true
+      additionalProperties: false
+      description: Input model for Shipping Label Expire - /Expire operation.
+    ShippingLabelForRecovery:
+      type: object
+      properties:
+        HardwareIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/HardwareIdForRecovery'
+          description: Gets or sets list of Hardware IDs to recover
+          nullable: true
+      additionalProperties: false
+      description: Input model for Shipping Label Patch - Recovery operation.
+    ShippingLabelForUpdation:
+      type: object
+      properties:
+        Targeting:
+          $ref: '#/components/schemas/ShippingLabelTargetingInfoForUpdation'
+        BusinessJustification:
+          type: string
+          description: Gets or sets business justification text
+          nullable: true
+      additionalProperties: false
+      description: Shipping Label Patch
+    ShippingLabelTargetingInfo:
+      type: object
+      properties:
+        InServicePublishInfo:
+          $ref: '#/components/schemas/InServicePublishRestriction'
+        CoEngDriverPublishInfo:
+          $ref: '#/components/schemas/CoEngPublishRestriction'
+        HardwareIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/HardwareId'
+          description: Gets or sets list of Hardware IDs to target
+          nullable: true
+        Chids:
+          type: array
+          items:
+            $ref: '#/components/schemas/DistributionChid'
+          description: Gets or sets list of CHIDs to target
+          nullable: true
+        RestrictedToAudiences:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Gets or sets RestrictedToAudiences
+          nullable: true
+      additionalProperties: false
+      description: Shipping label targeting information
+    ShippingLabelTargetingInfoForUpdation:
+      type: object
+      properties:
+        InServicePublishInfo:
+          $ref: '#/components/schemas/InServicePublishRestriction'
+        CoEngDriverPublishInfo:
+          $ref: '#/components/schemas/CoEngPublishRestriction'
+        HardwareIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/HardwareIdForUpdation'
+          description: Gets or sets list of Hardware IDs to target
+          nullable: true
+        Chids:
+          type: array
+          items:
+            $ref: '#/components/schemas/DistributionChidForUpdation'
+          description: Gets or sets list of CHIDs to target
+          nullable: true
+        RestrictedToAudiences:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: Gets or sets RestrictedToAudiences
+          nullable: true
+      additionalProperties: false
+      description: Targeting Info updation model.
+    ShippingLabelWorkflowStepName:
+      enum:
+        - Created
+        - PreProcessShippingLabel
+        - FinalizePreProcessing
+        - PublishJobValidation
+        - UpdateGeneration
+        - Publishing
+        - FinalizePublishing
+        - FinalizeSharing
+        - ProcessSharing
+        - SharingExpiration
+        - MicrosoftApproval
+      type: string
+      description: Possible steps in shipping label workflow.
+      x-ms-enum:
+        name: ShippingLabelWorkflowStepName
+        modelAsString: false
+    SortCriteria:
+      type: object
+      properties:
+        SortFieldName:
+          type: string
+          description: Gets or sets SortFieldName
+          nullable: true
+        SortType:
+          $ref: '#/components/schemas/SortingType'
+      additionalProperties: false
+      description: IngestionDataSortCriteria
+    SortingType:
+      enum:
+        - Asc
+        - Desc
+      type: string
+      description: enum for SortingType
+      x-ms-enum:
+        name: SortingType
+        modelAsString: false
+    SsdAttributes:
+      type: object
+      properties:
+        FirmwareVersion:
+          type: string
+          description: Gets or sets firmware version
+          nullable: true
+        Smart:
+          type: string
+          description: Gets or sets SMART option
+          nullable: true
+        SCSIReliabilityCounters:
+          type: string
+          description: Gets or sets SCSI reliability counters
+          nullable: true
+        SATAStatistics:
+          type: string
+          description: Gets or sets SATA statistics option
+          nullable: true
+      additionalProperties: false
+      description: SSD attributes
+    StorageControllerAttributes:
+      type: object
+      properties:
+        BiosVersion:
+          type: string
+          description: Gets or sets storage Controller BiosVersion
+          nullable: true
+        FirmwareVersion:
+          type: string
+          description: Gets or sets storage Controller FirmwareVersion
+          nullable: true
+        DriverVersion:
+          type: string
+          description: Gets or sets storage Controller DriverVersion
+          nullable: true
+        DriverName:
+          type: string
+          description: Gets or sets storage Controller DriverName
+          nullable: true
+        DeviceVersion:
+          type: string
+          description: Gets or sets storage Controller DeviceVersion
+          nullable: true
+        ChipsetName:
+          type: string
+          description: Gets or sets storage Controller ChipsetName
+          nullable: true
+        UsedProprietary:
+          type: boolean
+          description: Gets or sets a value indicating whether true if Multi-pathing supported through proprietary driver
+        ProprietaryName:
+          type: string
+          description: Gets or sets raid ProprietaryName
+          nullable: true
+        ProprietaryVersion:
+          type: string
+          description: Gets or sets raid ProprietaryVersion
+          nullable: true
+        UsedMicrosoft:
+          type: boolean
+          description: Gets or sets a value indicating whether true if a Microsoft MPIO supported through device specific module
+        MicrosoftName:
+          type: string
+          description: Gets or sets storage Controller MicrosoftName
+          nullable: true
+        MicrosoftVersion:
+          type: string
+          description: Gets or sets storage Controller MicrosoftVersion
+          nullable: true
+        UsedBootSupport:
+          type: boolean
+          description: Gets or sets a value indicating whether true if Boot Support
+        UsedBetterBoot:
+          type: boolean
+          description: Gets or sets a value indicating whether true if Boot >2.2TB support
+        UefiVersion:
+          type: string
+          description: Gets or sets UEFI version supported
+          nullable: true
+        AcpiVersion:
+          type: string
+          description: Gets or sets ACPI version supported
+          nullable: true
+        SupportsSector4K512E:
+          type: boolean
+          description: Gets or sets a value indicating whether support sector size of 4K/512e
+        SupportsSector4K4K:
+          type: boolean
+          description: Gets or sets a value indicating whether support sector size of 4K/4K
+        SupportsDifferential:
+          type: boolean
+          description: Gets or sets a value indicating whether differential (High-voltage differential)
+      additionalProperties: false
+      description: Storage questionnaire.
+    Submission:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Gets or sets submission name.
+          nullable: true
+        Type:
+          $ref: '#/components/schemas/SubmissionTypes'
+        Id:
+          type: integer
+          description: Gets or sets submission ID.
+          format: int64
+        ProductId:
+          type: integer
+          description: Gets or sets product ID.
+          format: int64
+        WorkflowStatus:
+          $ref: '#/components/schemas/WorkflowStep<DriverWorkflowStepName>'
+        Downloads:
+          $ref: '#/components/schemas/DownloadEntityContainer'
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          description: Gets or sets the links.
+          nullable: true
+        CommitStatus:
+          $ref: '#/components/schemas/CommitState'
+        IsExtensionInf:
+          type: boolean
+          description: Gets or sets a value indicating whether driver has Extension Inf
+        IsUniversal:
+          type: boolean
+          description: Gets or sets a value indicating whether driver is Universal
+        IsDeclarativeInf:
+          type: boolean
+          description: Gets or sets a value indicating whether driver has declarative inf (if its universal)
+        IsInbox:
+          type: boolean
+          description: Gets or sets a value indicating whether driver is an inbox driver
+        IsSystem:
+          type: boolean
+          description: Gets or sets a value indicating whether driver is a sytem driver
+      additionalProperties: false
+      description: Submission.
+    SubmissionForCreation:
+      type: object
+      properties:
+        Type:
+          $ref: '#/components/schemas/SubmissionTypes'
+        Name:
+          type: string
+          description: Gets or sets submission name.
+          nullable: true
+      additionalProperties: false
+      description: Submission for creation.
+    SubmissionForUpdation:
+      type: object
+      properties:
+        Name:
+          type: string
+          description: Gets or sets submission name.
+          nullable: true
+      additionalProperties: false
+      description: Submission for updation.
+    SubmissionTypes:
+      enum:
+        - Initial
+        - Derived
+      type: string
+      description: Sumission types
+      x-ms-enum:
+        name: SubmissionTypes
+        modelAsString: false
+    SvvpAttributes:
+      type: object
+      properties:
+        ProductVersion:
+          type: string
+          description: Gets or sets product Version
+          nullable: true
+        SupportLink:
+          type: string
+          description: Gets or sets support Link
+          nullable: true
+        GuestOs:
+          type: string
+          description: Gets or sets guest OS
+          nullable: true
+        ProcessorArchitecture:
+          type: string
+          description: Gets or sets processorArchitecture
+          nullable: true
+        MaxProcessors:
+          type: integer
+          description: Gets or sets max Processors in VM
+          format: int32
+        MaxMemory:
+          type: integer
+          description: Gets or sets max Memory in VM in GB
+          format: int32
+      additionalProperties: false
+      description: Svvp attributes.
+    TestHarness:
+      enum:
+        - NotSet
+        - Hlk
+        - Hck
+        - Attestation
+        - Wlk
+      type: string
+      description: Test Harness Type
+      x-ms-enum:
+        name: TestHarness
+        modelAsString: false
+    WorkflowStep<DriverWorkflowStepName>:
+      type: object
+      properties:
+        CurrentStep:
+          $ref: '#/components/schemas/DriverWorkflowStepName'
+        State:
+          $ref: '#/components/schemas/WorkflowStepState'
+        Messages:
+          type: array
+          items:
+            type: string
+          description: Gets or sets error messages.
+          nullable: true
+        ErrorReport:
+          type: string
+          description: Gets or sets the error report.
+          nullable: true
+      additionalProperties: false
+      description: Workflow step.
+    WorkflowStep<ShippingLabelWorkflowStepName>:
+      type: object
+      properties:
+        CurrentStep:
+          $ref: '#/components/schemas/ShippingLabelWorkflowStepName'
+        State:
+          $ref: '#/components/schemas/WorkflowStepState'
+        Messages:
+          type: array
+          items:
+            type: string
+          description: Gets or sets error messages.
+          nullable: true
+        ErrorReport:
+          type: string
+          description: Gets or sets the error report.
+          nullable: true
+      additionalProperties: false
+      description: Workflow step.
+    WorkflowStepState:
+      enum:
+        - NotStarted
+        - Started
+        - Failed
+        - Completed
+      type: string
+      description: Workflow step states
+      x-ms-enum:
+        name: WorkflowStepState
+        modelAsString: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: Enter JWT Bearer token **_ONLY_**
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - Bearer: [ ]

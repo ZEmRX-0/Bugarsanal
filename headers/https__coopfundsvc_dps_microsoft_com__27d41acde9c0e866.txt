@@ -1,0 +1,10 @@
+200 OK
+Request-Context: appId=cid-v1:44e82f5d-4f1c-4751-b3b0-7d5b4e087318
+Strict-Transport-Security: max-age=5184000; includeSubDomains; preload
+Retry-Count: 0
+Content-Type: text/yaml;charset=utf-8
+Set-Cookie: ARRAffinity=245bdfab37cc2f69fd51af24bc0353647cbd6292325d12efbfeecb56d3d6e2f2;Path=/;HttpOnly;Secure;Domain=coopfundsvc.dps.microsoft.com
+Vary: Accept-Encoding
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 20:59:54 GMT
+Server: Microsoft-IIS/10.0

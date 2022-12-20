@@ -1,0 +1,13 @@
+200 OK
+Content-Type: application/javascript
+Accept-Ranges: bytes
+X-Powered-By: ASP.NET
+Server: Microsoft-IIS/10.0
+Etag: "1d905f132b4e1f4"
+Set-Cookie: ARRAffinity=04d070722a7dab702e982c53053337ac61e1f9e814aa5fd99fdbf6754e7c2485;Path=/;HttpOnly;Secure;Domain=api.easystart.microsoft.com ARRAffinitySameSite=04d070722a7dab702e982c53053337ac61e1f9e814aa5fd99fdbf6754e7c2485;Path=/;HttpOnly;SameSite=None;Secure;Domain=api.easystart.microsoft.com
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+Date: Mon, 19 Dec 2022 20:59:52 GMT
+Last-Modified: Fri, 02 Dec 2022 01:55:48 GMT
+Retry-Count: 0
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

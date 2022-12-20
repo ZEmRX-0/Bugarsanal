@@ -1,0 +1,18 @@
+200 OK
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+Content-Security-Policy: default-src 'self';
+Content-Type: text/html
+Cache-Control: no-cache
+Pragma: no-cache
+X-Aspnet-Version: 4.0.30319
+Date: Mon, 19 Dec 2022 21:01:09 GMT
+Retry-Count: 0
+Vary: Accept-Encoding
+Correlationid: 8000b82d-0001-f700-b63f-84710c7967bb
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000
+Expires: -1
+Set-Cookie: ARRAffinity=c015407f2340ab83319171108305fa1072c8452284bc5ef903dfd906b4fd7902;Path=/;HttpOnly;Secure;Domain=spocktestapi.microsoft.com ARRAffinitySameSite=c015407f2340ab83319171108305fa1072c8452284bc5ef903dfd906b4fd7902;Path=/;HttpOnly;SameSite=None;Secure;Domain=spocktestapi.microsoft.com

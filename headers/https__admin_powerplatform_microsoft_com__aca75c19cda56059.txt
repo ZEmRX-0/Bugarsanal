@@ -1,0 +1,16 @@
+200 OK
+Etag: "1d909b987683993"
+X-Content-Type-Options: nosniff
+Content-Length: 513555
+Accept-Ranges: bytes
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Ms-Islandgateway: GA0000002
+X-Ms-Service-Request-Id: 6a9d1047-9068-498d-bec2-68a0376a881d
+X-Ms-Correlation-Id: 9238fd2a-eb40-49bc-aa63-7a5f3b18ebd5
+X-Ms-Activity-Vector: 00.00.00.00
+Server-Timing: x-ms-igw-upstream-headers;dur=13.8,x-ms-igw-req-overhead;dur=0.3
+Retry-Count: 0
+Last-Modified: Tue, 06 Dec 2022 21:27:23 GMT
+Date: Mon, 19 Dec 2022 20:59:47 GMT
+X-Servicefabric: NoRetry
+Content-Type: application/javascript

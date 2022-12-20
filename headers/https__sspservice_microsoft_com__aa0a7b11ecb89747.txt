@@ -1,0 +1,13 @@
+200 OK
+Server: Microsoft-IIS/10.0
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Content-Type: text/html
+Pragma: no-cache
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Vary: Accept-Encoding
+Date: Mon, 19 Dec 2022 21:01:14 GMT
+Cache-Control: no-cache
+Expires: -1
+Set-Cookie: ARRAffinity=d0d64072d06b83af5a5a48361f3d844fac1b03f4bf99277dea2d108b03937d15;Path=/;HttpOnly;Secure;Domain=sspservice.microsoft.com ARRAffinitySameSite=d0d64072d06b83af5a5a48361f3d844fac1b03f4bf99277dea2d108b03937d15;Path=/;HttpOnly;SameSite=None;Secure;Domain=sspservice.microsoft.com
+X-Aspnet-Version: 4.0.30319

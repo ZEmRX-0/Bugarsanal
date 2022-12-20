@@ -1,0 +1,14 @@
+200 OK
+Vary: Accept-Encoding
+Correlationid: fef2d0fa-6d5c-41d5-ae1f-9d837d5a8ac6
+Retry-Count: 0
+Set-Cookie: ARRAffinity=0ff46fa6d58b00f2d44b7073721903c0eace480139d8ecfc38f61130af5e1587;Path=/;HttpOnly;Secure;Domain=mdhvnextapi.microsoft.com ARRAffinitySameSite=0ff46fa6d58b00f2d44b7073721903c0eace480139d8ecfc38f61130af5e1587;Path=/;HttpOnly;SameSite=None;Secure;Domain=mdhvnextapi.microsoft.com
+X-Content-Type-Options: nosniff
+Request-Context: appId=cid-v1:a0e11534-4480-4f9a-8e60-82afc0aafd11
+Content-Type: application/javascript
+Date: Mon, 19 Dec 2022 21:00:56 GMT
+Server: Kestrel
+Accept-Ranges: bytes
+Etag: "1d89b8342263ed2"
+Last-Modified: Tue, 19 Jul 2022 15:21:46 GMT
+X-Powered-By: ASP.NET

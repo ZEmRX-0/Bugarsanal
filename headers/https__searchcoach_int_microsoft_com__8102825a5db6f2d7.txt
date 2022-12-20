@@ -1,0 +1,15 @@
+200 OK
+Expires: 0
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-End2endlatencyms: 220
+Date: Mon, 19 Dec 2022 21:01:16 GMT
+Content-Length: 1347
+Cache-Control: private, no-store, no-cache, max-age=0, s-maxage=0
+Content-Type: text/html; charset=utf-8
+X-Xss-Protection: 1; mode=block
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+Retry-Count: 0
+Server: Microsoft-HTTPAPI/2.0
+Ms-Cv: CAOgpa25LUi3n0GoxjNS0g.0
+Content-Security-Policy: base-uri 'self' https://educdnppe.azureedge.net/searchcoach-int/client/; object-src 'none'; script-src 'self' 'report-sample' 'nonce-jnR4+g3HXvwqPnKH/4Pf0JobJpqjFAN6JkMcKCJoNlo=' https://educdnppe.azureedge.net/searchcoach-int/client/; style-src 'self' 'report-sample' 'nonce-jnR4+g3HXvwqPnKH/4Pf0JobJpqjFAN6JkMcKCJoNlo=' https://educdnppe.azureedge.net/searchcoach-int/client/; default-src 'none'; connect-src 'self' data: https://login.microsoftonline.com https://searchcoach.int.microsoft.com https://*.pipe.aria.microsoft.com https://sts.windows.net/; font-src https://static2.sharepointonline.com https://spoprod-a.akamaihd.net https://spoppe-b.azureedge.net; form-action 'none'; frame-src 'self' https://login.microsoftonline.com https://login.windows.net; media-src 'self' blob: ; img-src https://educdnppe.azureedge.net/searchcoach-int/client/ data:; block-all-mixed-content; frame-ancestors https://assignments.onenote.com https://teams.microsoft.com;

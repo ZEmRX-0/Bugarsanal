@@ -1,0 +1,13 @@
+200 OK
+X-Powered-By: ASP.NET
+Vary: Accept-Encoding
+Date: Mon, 19 Dec 2022 21:01:03 GMT
+Cache-Control: no-cache
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Aspnet-Version: 4.0.30319
+Content-Type: text/html
+Server: Microsoft-IIS/10.0
+Expires: -1
+Pragma: no-cache
+Retry-Count: 0

@@ -1,0 +1,15 @@
+200 OK
+Content-Length: 7052
+Retry-Count: 0
+Server-Timing: x-ms-igw-upstream-headers;dur=6.0,x-ms-igw-req-overhead;dur=0.2
+Cache-Control: public,max-age=10
+X-Ms-Service-Request-Id: 932593a0-5162-4a28-b3e7-1c767345132c
+X-Ms-Correlation-Id: ebb6b1e8-45c1-41c1-b07c-56b2cee3cdd3
+X-Ms-Activity-Vector: 00.00.00.00
+Content-Type: text/html
+Vary: User-Agent, Accept-Encoding, Accept-Language
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Ms-Islandgateway: GA0000002
+X-Content-Type-Options: nosniff
+X-Servicefabric: NoRetry
+Date: Mon, 19 Dec 2022 20:59:47 GMT

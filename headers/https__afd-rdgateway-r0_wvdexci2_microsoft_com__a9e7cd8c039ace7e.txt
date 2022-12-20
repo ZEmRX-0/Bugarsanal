@@ -1,0 +1,14 @@
+200 OK
+Vary: Accept-Encoding
+X-Ms-Request-Id: 5f6a6261-247f-49f9-a32c-4efc414a406b
+X-Azure-Ref: 0xtCgYwAAAAA8kU2ZvogRS7eq17WYIRL+RlJBMzFFREdFMDkxMQBmN2Y5MTU2NS1iYmRkLTQ5ZjktYWJiZC01MWFjOTIwMmFkMjQ=
+X-Content-Type-Options: nosniff
+X-Cache: CONFIG_NOCACHE
+Date: Mon, 19 Dec 2022 20:59:50 GMT
+Retry-Count: 0
+Content-Type: application/json;charset=utf-8
+Set-Cookie: TiPMix=13.649101543467633; path=/; HttpOnly; Domain=RDGateway-WEU-R0.wvdexci2.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=RDGateway-WEU-R0.wvdexci2.microsoft.com; Max-Age=3600; Secure; SameSite=None ARRAffinity=2b9cac51eb6a1567067565b04f8a5bd4099bade54e2e92fb5e8031f0fa69065b;Path=/;HttpOnly;Secure;Domain=RDGateway-WEU-R0.wvdexci2.microsoft.com ARRAffinitySameSite=2b9cac51eb6a1567067565b04f8a5bd4099bade54e2e92fb5e8031f0fa69065b;Path=/;HttpOnly;SameSite=None;Secure;Domain=RDGateway-WEU-R0.wvdexci2.microsoft.com
+X-Ms-Correlation-Id: ce9e09c9-56b4-41a5-b051-0a6882dde938
+X-Ms-Wvd-Service-Region: WEU
+X-Ms-Lamport-Ts: 42083190
+X-Powered-By: ASP.NET

@@ -1,0 +1,11 @@
+200 OK
+Server: Kestrel
+Content-Length: 286674
+Etag: "1d90a82016ff452"
+Request-Context: appId=cid-v1:ed859abf-7b9d-4d2e-adc5-b025a6642626
+Ms-Correlationid: 73891fea-31e4-403c-a2a7-e5a955741ae7
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:01:26 GMT
+Content-Type: application/javascript
+Last-Modified: Wed, 07 Dec 2022 21:22:27 GMT
+Accept-Ranges: bytes

@@ -1,0 +1,14 @@
+200 OK
+Content-Type: text/yaml;charset=utf-8
+X-Ms-Wvd-Service-Region: WEU
+X-Powered-By: ASP.NET
+X-Azure-Ref: 0x9CgYwAAAABJlDM3SRnkRZyUxBLTTb3URlJBMzFFREdFMDkxNgA3OGI2MjQ2Mi0zMDdmLTRmZmMtYjYyZC1lZTQ0OGJiNGI3MGU=
+Date: Mon, 19 Dec 2022 20:59:50 GMT
+Retry-Count: 0
+X-Ms-Lamport-Ts: 9275
+X-Content-Type-Options: nosniff
+Vary: Accept-Encoding
+X-Ms-Correlation-Id: 023362f4-e8c8-4e41-814d-aef967580d7e
+Set-Cookie: TiPMix=80.3507344705755; path=/; HttpOnly; Domain=RDGateway-WEU-R0.wvdselfhost.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=RDGateway-WEU-R0.wvdselfhost.microsoft.com; Max-Age=3600; Secure; SameSite=None ARRAffinity=f0ee6f21aa7c58c32dab1b39eddd97e2640f8772649e883d33a25aaa012e3a21;Path=/;HttpOnly;Secure;Domain=RDGateway-WEU-R0.wvdselfhost.microsoft.com ARRAffinitySameSite=f0ee6f21aa7c58c32dab1b39eddd97e2640f8772649e883d33a25aaa012e3a21;Path=/;HttpOnly;SameSite=None;Secure;Domain=RDGateway-WEU-R0.wvdselfhost.microsoft.com
+X-Ms-Request-Id: 4bccd68e-30c5-4f57-b7d2-669f0a9ed1d5
+X-Cache: CONFIG_NOCACHE

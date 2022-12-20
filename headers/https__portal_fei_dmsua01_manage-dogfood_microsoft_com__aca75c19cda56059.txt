@@ -1,0 +1,13 @@
+200 OK
+Strict-Transport-Security: max-age=31536000
+Client-Session-Id: 
+Content-Length: 424485
+Last-Modified: Mon, 14 Sep 2020 22:06:48 GMT
+Etag: "1d68ae35739f625"
+X-Content-Type-Options: nosniff
+Client-Request-Id: 2d9b46b8-1a0e-4d4e-8774-4b57d97837d5
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 21:01:09 GMT
+Retry-Count: 0
+Content-Type: application/javascript
+Accept-Ranges: bytes

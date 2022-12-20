@@ -1,0 +1,11 @@
+200 OK
+Content-Type: application/javascript
+Etag: "1d904eba53e2e3d"
+Last-Modified: Wed, 30 Nov 2022 18:43:32 GMT
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:01:24 GMT
+Accept-Ranges: bytes
+Set-Cookie: ARRAffinity=ba963dc4cba17b143c87f8bc47d9e7666b76f94272bd00b436d22f42d8eee2f5;Path=/;HttpOnly;Secure;Domain=ppe-azureava-api.microsoft.com ARRAffinitySameSite=ba963dc4cba17b143c87f8bc47d9e7666b76f94272bd00b436d22f42d8eee2f5;Path=/;HttpOnly;SameSite=None;Secure;Domain=ppe-azureava-api.microsoft.com
+Vary: Accept-Encoding

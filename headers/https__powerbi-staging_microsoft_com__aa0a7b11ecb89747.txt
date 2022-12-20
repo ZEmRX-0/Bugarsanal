@@ -1,0 +1,18 @@
+200 OK
+Request-Context: appId=cid-v1:1f251d94-3af9-4d8a-a093-9ff033f925f6
+X-Content-Type-Options: nosniff
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000
+Retry-Count: 0
+Pragma: no-cache
+Access-Control-Allow-Headers: X-PowerBI-User-GroupId
+Date: Mon, 19 Dec 2022 21:01:21 GMT
+Access-Control-Allow-Methods: GET,HEAD,OPTIONS
+Vary: Accept-Encoding
+X-Cache: CONFIG_NOCACHE
+Cache-Control: no-cache
+Content-Type: text/html
+Arr-Disable-Session-Affinity: true
+X-Azure-Ref: 0IdGgYwAAAAD2uQd3oKZQSKmFJVLi34XfRlJBMzFFREdFMDkxMgBkZDUwNmVlMS0yYjFlLTRhNWUtYjIyYy03NWYyOTM5ODc5Y2I=
+Expires: -1
+Access-Control-Expose-Headers: Request-Context

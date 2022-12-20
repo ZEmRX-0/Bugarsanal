@@ -1,0 +1,12 @@
+200 OK
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=2592000
+X-Html-Minification-Powered-By: WebMarkupMin
+Correlationid: 5f974ef0-c7b3-4945-9945-69b27fb51909
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+Set-Cookie: ARRAffinity=eb75feaf04090cdf75b87632b47b6e660bae57dbbd7c0cb9e2b3949b0b744a28;Path=/;HttpOnly;Secure;Domain=msonboardinguat.microsoft.com ARRAffinitySameSite=eb75feaf04090cdf75b87632b47b6e660bae57dbbd7c0cb9e2b3949b0b744a28;Path=/;HttpOnly;SameSite=None;Secure;Domain=msonboardinguat.microsoft.com
+Vary: Accept-Encoding
+Date: Mon, 19 Dec 2022 21:00:52 GMT
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET

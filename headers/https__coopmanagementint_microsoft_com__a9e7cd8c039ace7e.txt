@@ -1,0 +1,10 @@
+200 OK
+Content-Type: application/json;charset=utf-8
+Vary: Accept-Encoding
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 20:59:58 GMT
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=59b43760de47bcf28ecd82a1064881929d7984c43b967c80eca5c3370a854bed;Path=/;HttpOnly;Secure;Domain=coopmanagementint.microsoft.com ARRAffinitySameSite=59b43760de47bcf28ecd82a1064881929d7984c43b967c80eca5c3370a854bed;Path=/;HttpOnly;SameSite=None;Secure;Domain=coopmanagementint.microsoft.com
+Request-Context: appId=cid-v1:0d169374-605d-4507-a47f-fc973da096ec
+Strict-Transport-Security: max-age=5184000; includeSubDomains; preload

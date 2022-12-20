@@ -1,0 +1,14 @@
+200 OK
+Cache-Control: no-cache
+Arr-Disable-Session-Affinity: true
+Strict-Transport-Security: max-age=31536000
+Content-Type: text/html
+Access-Control-Allow-Methods: GET,HEAD,OPTIONS
+Pragma: no-cache
+X-Xss-Protection: 1; mode=block
+Date: Mon, 19 Dec 2022 21:01:14 GMT
+Retry-Count: 0
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+Server: 
+Expires: -1

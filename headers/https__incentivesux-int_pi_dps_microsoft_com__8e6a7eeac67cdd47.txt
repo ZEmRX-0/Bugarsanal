@@ -1,0 +1,14 @@
+200 OK
+Vary: Accept-Encoding
+Ms-Correlationid: 5816d1a7-6cd0-4263-8657-663f620d72de
+X-Server: INT-RD0003FF867AA7
+Content-Type: text/html;charset=utf-8
+X-Assemblyversion: 0.0.0.0
+Server: Kestrel
+Ms-Cv: fZ6EjuEeeUCcDj8A.0
+Request-Context: appId=cid-v1:25daa885-2f12-4298-93f7-882200a64d6b
+Ms-Requestid: b8fc47f8-ac2f-452e-b365-0c0e6424e44d
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:00:33 GMT
+Set-Cookie: TiPMix=18.184895604583005; path=/; HttpOnly; Domain=incentivesux-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=incentivesux-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None

@@ -1,0 +1,8 @@
+200 OK
+Content-Type: text/html;charset=utf-8
+Set-Cookie: ARRAffinity=0b9b1edeb328e1afb24ff0228d69533a988970302a7849a31c264f65c1bf93b7;Path=/;HttpOnly;Secure;Domain=dev-azureava-api.microsoft.com ARRAffinitySameSite=0b9b1edeb328e1afb24ff0228d69533a988970302a7849a31c264f65c1bf93b7;Path=/;HttpOnly;SameSite=None;Secure;Domain=dev-azureava-api.microsoft.com
+Retry-Count: 0
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=31536000
+Date: Mon, 19 Dec 2022 20:59:56 GMT
+X-Content-Type-Options: nosniff

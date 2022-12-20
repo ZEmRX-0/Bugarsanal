@@ -1,0 +1,15 @@
+200 OK
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:a84117ee-429a-442e-9fc0-049ae2d04da5
+Date: Mon, 19 Dec 2022 21:01:04 GMT
+X-Aspnet-Version: 4.0.30319
+Server: Microsoft-IIS/10.0
+Access-Control-Expose-Headers: Request-Context
+Cache-Control: no-cache
+Retry-Count: 0
+Expires: -1
+Pragma: no-cache
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Content-Type: text/html
+X-Content-Type-Options: nosniff

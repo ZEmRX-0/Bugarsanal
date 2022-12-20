@@ -1,0 +1,35 @@
+openapi: 3.0.1
+info:
+  title: MS.Internal.Office.Ocv.Octane.Service
+  version: '1.0'
+servers:
+  - url: https://sas3.office.microsoft.com
+paths:
+  /upload.ashx:
+    post:
+      tags:
+        - Feedback
+      responses:
+        '200':
+          description: Success
+    options:
+      tags:
+        - Feedback
+      responses:
+        '200':
+          description: Success
+  /ssluploadfile/uploadfile.aspx:
+    post:
+      tags:
+        - Feedback
+      responses:
+        '200':
+          description: Success
+  /status:
+    get:
+      tags:
+        - Status
+      responses:
+        '200':
+          description: Success
+components: { }

@@ -1,0 +1,10 @@
+200 OK
+Date: Mon, 19 Dec 2022 21:00:02 GMT
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=04d070722a7dab702e982c53053337ac61e1f9e814aa5fd99fdbf6754e7c2485;Path=/;HttpOnly;Secure;Domain=api.easystart.microsoft.com ARRAffinitySameSite=04d070722a7dab702e982c53053337ac61e1f9e814aa5fd99fdbf6754e7c2485;Path=/;HttpOnly;SameSite=None;Secure;Domain=api.easystart.microsoft.com
+Vary: Accept-Encoding
+X-Content-Type-Options: nosniff
+X-Powered-By: ASP.NET

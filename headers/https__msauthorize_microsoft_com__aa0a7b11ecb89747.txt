@@ -1,0 +1,17 @@
+200 OK
+X-Content-Type-Options: nosniff
+Expires: -1
+Set-Cookie: ARRAffinity=a0dea432e345625c76f9724312f6053b8d5645b4364d6168f1359543a6c88f0c;Path=/;HttpOnly;Secure;Domain=msauthorize.microsoft.com ARRAffinitySameSite=a0dea432e345625c76f9724312f6053b8d5645b4364d6168f1359543a6c88f0c;Path=/;HttpOnly;SameSite=None;Secure;Domain=msauthorize.microsoft.com
+Request-Context: appId=cid-v1:5238a6dc-6ed8-46b7-9d97-d67b00f75681
+Access-Control-Expose-Headers: Request-Context
+X-Aspnet-Version: 4.0.30319
+X-Azure-Ref: 0CdGgYwAAAAAyebbjHVS4T5Hx5MR5GkhZRlJBMzFFREdFMDMwOAA1ZTU1YzhkYS0zNGQ3LTRlZmYtOWUyOS04ZmRiOWRjNjdlNTc=
+X-Powered-By: ASP.NET
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: text/html
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Cache: CONFIG_NOCACHE
+Date: Mon, 19 Dec 2022 21:00:57 GMT
+Retry-Count: 0

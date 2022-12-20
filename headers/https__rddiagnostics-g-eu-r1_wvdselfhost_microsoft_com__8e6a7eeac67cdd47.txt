@@ -1,0 +1,13 @@
+200 OK
+Server: Microsoft-IIS/10.0
+X-Ms-Lamport-Ts: 6
+Arr-Disable-Session-Affinity: true
+X-Ms-Correlation-Id: a4b9cac3-0508-4011-a30c-8aa9debfc5c1
+X-Ms-Request-Id: dc19c1d6-7507-420a-b1d2-85480fd38b07
+Date: Mon, 19 Dec 2022 21:00:42 GMT
+Vary: Accept-Encoding
+X-Powered-By: ASP.NET
+X-Ms-Wvd-Service-Region: WEU
+Retry-Count: 0
+X-Content-Type-Options: nosniff
+Content-Type: text/html;charset=utf-8

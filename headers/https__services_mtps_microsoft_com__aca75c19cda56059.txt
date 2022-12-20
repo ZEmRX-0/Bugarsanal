@@ -1,0 +1,10 @@
+200 OK
+Retry-Count: 0
+Content-Type: application/javascript
+X-Azure-Ref: 0CNGgYwAAAAATLyIg+n4bTpgy2YeEGv8oRlJBMzFFREdFMDMwNwAxYmY5OGUxZS1iM2FiLTQwNmQtOTg5Yi00M2VlYjc3YzViZDg=
+Date: Mon, 19 Dec 2022 21:00:56 GMT
+X-Cache: CONFIG_NOCACHE
+Last-Modified: Fri, 29 Jul 2022 08:19:04 GMT
+Etag: "1d8a323dd520af4"
+Vary: Accept-Encoding
+X-Frame-Options: SAMEORIGIN

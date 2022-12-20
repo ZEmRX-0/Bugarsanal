@@ -1,0 +1,10 @@
+200 OK
+Server: Kestrel
+Last-Modified: Fri, 26 Aug 2022 00:26:26 GMT
+Accept-Ranges: bytes
+Strict-Transport-Security: max-age=2592000
+Date: Mon, 19 Dec 2022 21:01:30 GMT
+Content-Type: application/javascript
+Content-Length: 509463
+Etag: "1d8b8e27a30a317"
+Retry-Count: 0

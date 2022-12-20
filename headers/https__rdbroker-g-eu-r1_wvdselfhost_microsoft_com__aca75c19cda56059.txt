@@ -1,0 +1,12 @@
+200 OK
+Retry-Count: 0
+Accept-Ranges: bytes
+Date: Mon, 19 Dec 2022 21:00:38 GMT
+Content-Type: application/javascript
+Last-Modified: Tue, 13 Dec 2022 02:45:24 GMT
+X-Powered-By: ASP.NET
+Set-Cookie: ARRAffinity=b34b3aa3b73c20633be4db36b45b4eabb1f2f2707b98216dd9e344acdede2909;Path=/;HttpOnly;Secure;Domain=rdbroker-g-eu-r1.wvdselfhost.microsoft.com ARRAffinitySameSite=b34b3aa3b73c20633be4db36b45b4eabb1f2f2707b98216dd9e344acdede2909;Path=/;HttpOnly;SameSite=None;Secure;Domain=rdbroker-g-eu-r1.wvdselfhost.microsoft.com
+Etag: "1d90e9cf314363d"
+Vary: Accept-Encoding
+Server: Microsoft-IIS/10.0
+X-Content-Type-Options: nosniff

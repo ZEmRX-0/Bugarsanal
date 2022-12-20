@@ -1,0 +1,14 @@
+200 OK
+Content-Type: text/html;charset=utf-8
+Ms-Correlationid: 6945d6f8-404a-4b6b-b233-fdcd87d2c498
+X-Server: INT.EastUS2-dw0sdwk0009WB
+Request-Context: appId=cid-v1:de2100a0-7cf8-4005-ab62-dce8bf3d50c9
+Ms-Cv: dA3FzOi+wUO5o0W5.0
+Ms-Requestid: 0f5eb5d8-8204-4c3e-bd02-a66de9b3fc8c
+X-Assemblyversion: 0.0.0.0
+Date: Mon, 19 Dec 2022 21:01:06 GMT
+Server: Kestrel
+Set-Cookie: TiPMix=21.449760442451126; path=/; HttpOnly; Domain=metadata-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=metadata-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None
+Vary: Accept-Encoding
+X-Powered-By: ASP.NET
+Retry-Count: 0

@@ -1,0 +1,10 @@
+200 OK
+Ms-Serverid: e-deployment-d5bd6c75f-q5jxj
+Content-Type: text/yaml;charset=utf-8
+Server: Kestrel
+Ms-Cv: vzTHkY9MUkqaX1JP.0
+Date: Mon, 19 Dec 2022 21:00:22 GMT
+Ms-Correlationid: 7b00b910-e7a1-4f18-8ec4-56870886695a
+Ms-Requestid: 12ad157d-7f83-419e-8575-510673540f49
+X-Content-Type-Options: nosniff
+Retry-Count: 0

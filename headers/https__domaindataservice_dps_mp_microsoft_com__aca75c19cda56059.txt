@@ -1,0 +1,13 @@
+200 OK
+Accept-Ranges: bytes
+Request-Context: appId=cid-v1:f1e9ece6-da6f-4245-87bd-0b70d6e93c94
+Correlationid: 55ff9278-2765-4c96-8614-54b130624ce8
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:00:02 GMT
+Vary: Accept-Encoding
+Content-Type: application/javascript
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=f9d45100e4e145eefd367848587fd91a9e4ae0df8914d10d94e750a3914a908f;Path=/;HttpOnly;Secure;Domain=domaindataservice.dps.mp.microsoft.com ARRAffinitySameSite=f9d45100e4e145eefd367848587fd91a9e4ae0df8914d10d94e750a3914a908f;Path=/;HttpOnly;SameSite=None;Secure;Domain=domaindataservice.dps.mp.microsoft.com
+Etag: "1d90b27bc9e0fd2"
+Last-Modified: Thu, 08 Dec 2022 17:08:48 GMT
+X-Powered-By: ASP.NET

@@ -1,0 +1,12 @@
+200 OK
+Content-Type: text/html;charset=utf-8
+Date: Mon, 19 Dec 2022 21:00:33 GMT
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Ms-Islandgateway: GA0000002
+X-Servicefabric: NoRetry
+X-Ms-Activity-Vector: 00.00.00.00
+X-Ms-Service-Request-Id: b68f5c2f-d6b0-4be2-af89-e578f4de0a77
+X-Ms-Correlation-Id: 6a4f5799-e1b6-4384-99f5-f4c71054a5ca
+Server-Timing: x-ms-igw-upstream-headers;dur=4.1,x-ms-igw-req-overhead;dur=0.2
+X-Content-Type-Options: nosniff
+Retry-Count: 0

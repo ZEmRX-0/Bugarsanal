@@ -1,0 +1,9 @@
+200 OK
+Request-Context: appId=cid-v1:fda47e86-77e9-4da6-b129-61b3251c184f
+X-Content-Type-Options: nosniff
+Date: Mon, 19 Dec 2022 21:01:46 GMT
+Content-Type: text/html;charset=utf-8
+Set-Cookie: ARRAffinity=0a5599131386bd06137c30b9271579b40a5fa65ddacfc72b3d6358d040377f18;Path=/;HttpOnly;Secure;Domain=trustdomainservice.commerce-mesh.microsoft.com ARRAffinitySameSite=0a5599131386bd06137c30b9271579b40a5fa65ddacfc72b3d6358d040377f18;Path=/;HttpOnly;SameSite=None;Secure;Domain=trustdomainservice.commerce-mesh.microsoft.com
+Vary: Accept-Encoding
+X-Frame-Options: DENY
+Retry-Count: 0

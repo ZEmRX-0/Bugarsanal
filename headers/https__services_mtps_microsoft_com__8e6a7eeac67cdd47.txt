@@ -1,0 +1,8 @@
+200 OK
+Content-Type: text/html; charset=utf-8
+X-Frame-Options: SAMEORIGIN
+X-Azure-Ref: 0DNGgYwAAAAB83KgmC3C0R70Vik/fOkGPRlJBMzFFREdFMDkxNgAxYmY5OGUxZS1iM2FiLTQwNmQtOTg5Yi00M2VlYjc3YzViZDg=
+Date: Mon, 19 Dec 2022 21:00:59 GMT
+Retry-Count: 0
+Vary: Accept-Encoding
+X-Cache: CONFIG_NOCACHE

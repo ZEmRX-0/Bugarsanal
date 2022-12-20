@@ -1,0 +1,1203 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Schema Service API",
+    "description": "Swagger documentation of Schema Service API",
+    "version": "1.0.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://schema.mp.microsoft.com"
+    }
+  ],
+  "paths": {
+    "/v1.0/authoringSchemas/{layoutId}": {
+      "get": {
+        "tags": [
+          "AuthoringSchemasControllerV1"
+        ],
+        "summary": "Gets a layout Authoring Schemas document based on layoutId.",
+        "operationId": "AuthoringSchemasControllerV1GetAsync",
+        "parameters": [
+          {
+            "name": "layoutId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/dataschemas/{dataSchemaId}": {
+      "get": {
+        "tags": [
+          "DataSchemasControllerV1"
+        ],
+        "summary": "Gets a data schema, given the ID.",
+        "parameters": [
+          {
+            "name": "dataSchemaId",
+            "in": "path",
+            "description": "Data Schema Id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "DataSchemasControllerV1"
+        ],
+        "summary": "Updates a data schema.",
+        "parameters": [
+          {
+            "name": "dataSchemaId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/dataschemas": {
+      "get": {
+        "tags": [
+          "DataSchemasControllerV1"
+        ],
+        "summary": "Gets a data schemas, given the modules.",
+        "parameters": [
+          {
+            "name": "module",
+            "in": "query",
+            "description": "Data SchemaModule.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "DataSchemasControllerV1"
+        ],
+        "summary": "Creates a data schema.",
+        "parameters": [
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/dataschemas/validate": {
+      "post": {
+        "tags": [
+          "DataSchemasControllerV1"
+        ],
+        "summary": "Validates a given layout template document.",
+        "parameters": [
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataSchemaV1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/layouts/{layoutId}": {
+      "get": {
+        "tags": [
+          "LayoutsControllerV1"
+        ],
+        "summary": "Gets a layout document based on ModuleSet (PackageSet, ListingSet etc) contract type and locale.",
+        "operationId": "LayoutsControllerV1GetAsync",
+        "parameters": [
+          {
+            "name": "layoutId",
+            "in": "path",
+            "description": "The Id of the Layout. This is same as ModuleSet Type\r\n            (e.g. PackageSet type or ListingSet type etc.)",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/schema/{resourceName}/{schemaVersion}": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Gets a data schema, given the ID.",
+        "parameters": [
+          {
+            "name": "resourceName",
+            "in": "path",
+            "description": "Data Schema Id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaVersion",
+            "in": "path",
+            "description": "Schema date-based version.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/schema": {
+      "post": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Creates a data schema.",
+        "parameters": [
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/JToken"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/schema/archive": {
+      "post": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Accepts zip file with schemas to be uploaded.",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/schema/validate": {
+      "post": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Validates a given layout template document.",
+        "parameters": [
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaV3"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaV3"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaV3"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaV3"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/schemas/{id}": {
+      "get": {
+        "tags": [
+          "SchemasControllerV1"
+        ],
+        "summary": "Get schemas by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of the schema",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "locale",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/schemas": {
+      "get": {
+        "tags": [
+          "SchemasControllerV1"
+        ],
+        "summary": "Retrieves schemas.",
+        "parameters": [
+          {
+            "name": "module",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/templates/{layoutId}": {
+      "get": {
+        "tags": [
+          "TemplatesControllerV1"
+        ],
+        "summary": "Gets a layout template document based on layoutId.",
+        "operationId": "TemplatesControllerV1GetAsync",
+        "parameters": [
+          {
+            "name": "layoutId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TemplatesControllerV1"
+        ],
+        "summary": "Updates a given layout template document.",
+        "operationId": "TemplatesControllerV1PutAsync",
+        "parameters": [
+          {
+            "name": "layoutId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/templates/{layoutId}/audit": {
+      "get": {
+        "tags": [
+          "TemplatesControllerV1"
+        ],
+        "summary": "Returns audit logs for the templates",
+        "operationId": "TemplatesControllerV1GetAuditAsync",
+        "parameters": [
+          {
+            "name": "layoutId",
+            "in": "path",
+            "description": "Layout id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "Continuation token",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/templates": {
+      "get": {
+        "tags": [
+          "TemplatesControllerV1"
+        ],
+        "summary": "Retrieves layout templates.",
+        "parameters": [
+          {
+            "name": "module",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TemplatesControllerV1"
+        ],
+        "summary": "Creates a given layout template document.",
+        "operationId": "TemplatesControllerV1PostAsync",
+        "parameters": [
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/templates/validate": {
+      "post": {
+        "tags": [
+          "TemplatesControllerV1"
+        ],
+        "summary": "Validates a given layout template document.",
+        "operationId": "TemplatesControllerV1ValidateAsync",
+        "parameters": [
+          {
+            "name": "ignoreErrors",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LayoutEntity"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/v1.0/templates/{layoutId}/purge": {
+      "post": {
+        "tags": [
+          "TemplatesControllerV1"
+        ],
+        "summary": "Purges CDN for a given template document.",
+        "operationId": "TemplatesControllerV1PurgeAsync",
+        "parameters": [
+          {
+            "name": "layoutId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DataSchemaV1": {
+        "type": "object",
+        "properties": {
+          "SchemaUri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "DataSchemaId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Module": {
+            "type": "string",
+            "nullable": true
+          },
+          "JsonSchema": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "Etag": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FormlyFieldConfig": {
+        "type": "object",
+        "properties": {
+          "ClassName": {
+            "type": "string",
+            "nullable": true
+          },
+          "HideExpression": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JSchema": {
+        "type": "object",
+        "properties": {
+          "SchemaVersion": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "Valid": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Reference": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "Ref": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "RecursiveReference": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "RecursiveAnchor": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "Anchor": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "$ref": "#/components/schemas/JSchemaType"
+          },
+          "Default": {
+            "$ref": "#/components/schemas/JToken"
+          },
+          "Properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JSchema"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JSchema"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "ItemsPositionValidation": {
+            "type": "boolean"
+          },
+          "Required": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "AllOf": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JSchema"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "AnyOf": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JSchema"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "OneOf": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JSchema"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "If": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "Then": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "Else": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "Not": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "Contains": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "PropertyNames": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "Enum": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "Const": {
+            "$ref": "#/components/schemas/JToken"
+          },
+          "UniqueItems": {
+            "type": "boolean"
+          },
+          "MinimumLength": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "MaximumLength": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "Minimum": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "Maximum": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ExclusiveMinimum": {
+            "type": "boolean"
+          },
+          "ExclusiveMaximum": {
+            "type": "boolean"
+          },
+          "MinimumItems": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "MaximumItems": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "MinimumProperties": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "MaximumProperties": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "MinimumContains": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "MaximumContains": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "ContentEncoding": {
+            "type": "string",
+            "nullable": true
+          },
+          "ContentMediaType": {
+            "type": "string",
+            "nullable": true
+          },
+          "WriteOnly": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ReadOnly": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ExtensionData": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "MultipleOf": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "Pattern": {
+            "type": "string",
+            "nullable": true
+          },
+          "Dependencies": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true,
+            "readOnly": true
+          },
+          "DependentRequired": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "DependentSchemas": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JSchema"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "PatternProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JSchema"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "AdditionalProperties": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "AllowAdditionalProperties": {
+            "type": "boolean"
+          },
+          "AllowAdditionalPropertiesSpecified": {
+            "type": "boolean"
+          },
+          "UnevaluatedProperties": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "AllowUnevaluatedProperties": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "AdditionalItems": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "AllowAdditionalItems": {
+            "type": "boolean"
+          },
+          "AllowAdditionalItemsSpecified": {
+            "type": "boolean"
+          },
+          "UnevaluatedItems": {
+            "$ref": "#/components/schemas/JSchema"
+          },
+          "AllowUnevaluatedItems": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "Format": {
+            "type": "string",
+            "nullable": true
+          },
+          "Validators": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JsonValidator"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JSchemaType": {
+        "enum": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "JToken": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/JToken"
+        }
+      },
+      "JsonValidator": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "LayoutEntity": {
+        "type": "object",
+        "properties": {
+          "StorageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IndexedId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartitionKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "ETag": {
+            "type": "string",
+            "nullable": true
+          },
+          "CreatedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "CreatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserCreatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "ModifiedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ModifiedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserModifiedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDeleted": {
+            "type": "boolean"
+          },
+          "DeletedDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "AgentName": {
+            "type": "string",
+            "nullable": true
+          },
+          "EntityVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "JsonSchema": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "LayoutId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Module": {
+            "type": "string",
+            "nullable": true
+          },
+          "Fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FormlyFieldConfig"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SchemaV3": {
+        "type": "object",
+        "properties": {
+          "SchemaUri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "DataSchemaId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "SchemaContent": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

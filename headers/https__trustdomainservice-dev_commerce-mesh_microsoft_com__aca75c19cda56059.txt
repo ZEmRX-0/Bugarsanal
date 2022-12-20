@@ -1,0 +1,12 @@
+200 OK
+Content-Type: application/javascript
+Date: Mon, 19 Dec 2022 21:01:40 GMT
+Accept-Ranges: bytes
+Last-Modified: Tue, 16 Mar 2021 18:05:14 GMT
+Request-Context: appId=cid-v1:18a2e3b6-b1bb-4345-bcce-acbee8832c59
+Set-Cookie: ARRAffinity=a957b1fb4938d30a3ee41af4427270dddd2cfc2e4a10a87a41b2b76c3bd31fc7;Path=/;HttpOnly;Secure;Domain=trustdomainservice-dev.commerce-mesh.microsoft.com ARRAffinitySameSite=a957b1fb4938d30a3ee41af4427270dddd2cfc2e4a10a87a41b2b76c3bd31fc7;Path=/;HttpOnly;SameSite=None;Secure;Domain=trustdomainservice-dev.commerce-mesh.microsoft.com
+X-Frame-Options: DENY
+Vary: Accept-Encoding
+Retry-Count: 0
+Etag: "1d71a8ee9b96b73"
+X-Content-Type-Options: nosniff

@@ -1,0 +1,440 @@
+openapi: 3.0.1
+info:
+  title: Commerce Mesh Trust Domain Service
+  description: Manages and controls access to Trust Domains for use in Commerce Mesh.
+  contact:
+    name: Commerce Service Mesh Admins
+    email: commerce-mesh-admins@microsoft.com
+  version: v1
+servers:
+  - url: https://trustdomainservice.commerce-mesh.microsoft.com/
+paths:
+  /clusterevents:
+    put:
+      tags:
+        - ClusterEvent
+      summary: Registers cluster event sent by TDS agent on CM clusters.
+      requestBody:
+        description: instance of type CCP.PTT.TrustDomainService.Models.ClusterEvent.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClusterEvent'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClusterEvent'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClusterEvent'
+      responses:
+        '200':
+          description: Success
+  /errortest:
+    get:
+      tags:
+        - ErrorTest
+      summary: 'Produces a test exception, which is surfaced as an internal server error.'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Returns 200 OK.
+      responses:
+        '200':
+          description: Success
+  '/roots/{rootName}/certificates':
+    get:
+      tags:
+        - RootCertificates
+      summary: The collection of certificates in the Root.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root.
+          required: true
+          schema:
+            type: string
+        - name: maxPageSize
+          in: query
+          description: The max number of items to return in a page.
+          schema:
+            type: integer
+            format: int32
+            default: 25
+        - name: continuationToken
+          in: query
+          description: A token to continue a previous query starting after the last page received.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CertificatePageResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificatePageResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CertificatePageResult'
+    post:
+      tags:
+        - RootCertificates
+      summary: Creates a new certificate for the given Root.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+  '/roots/{rootName}/certificates/{thumbprint}':
+    get:
+      tags:
+        - RootCertificates
+      summary: Gets a Root certificate.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root.
+          required: true
+          schema:
+            type: string
+        - name: thumbprint
+          in: path
+          description: The thumbprint of the certificate to retrieve.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Certificate'
+  /roots:
+    get:
+      tags:
+        - Roots
+      summary: The collection of Roots.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RootPageResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RootPageResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RootPageResult'
+  '/roots/{rootName}':
+    get:
+      tags:
+        - Roots
+      summary: Gets a Root.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Root'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Root'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Root'
+    put:
+      tags:
+        - Roots
+      summary: Creates or updates a Root with the given name. This will also create a new Root certificate.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root.
+          required: true
+          schema:
+            type: string
+        - name: schedule
+          in: query
+          description: The desired agent cronjob schedule.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Root'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Root'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Root'
+    delete:
+      tags:
+        - Roots
+      summary: Deletes the Root with the given name.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root to delete.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/roots/{rootName}/schedule':
+    get:
+      tags:
+        - Roots
+      summary: Gets the desired agent cronjob schedule for the root.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+    put:
+      tags:
+        - Roots
+      summary: Creates or updates the schedule for a root with the given name.
+      parameters:
+        - name: rootName
+          in: path
+          description: The name of the Root.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The desired agent cronjob schedule.
+        content:
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+components:
+  schemas:
+    Certificate:
+      type: object
+      properties:
+        thumbprint:
+          type: string
+          nullable: true
+        pemCertificate:
+          type: string
+          nullable: true
+        pemCertificateChain:
+          type: string
+          nullable: true
+        pemKey:
+          type: string
+          nullable: true
+        creationDate:
+          type: string
+          format: date-time
+        expirationDate:
+          type: string
+          format: date-time
+      additionalProperties: false
+    CertificatePageResult:
+      type: object
+      properties:
+        nextPageLink:
+          type: string
+          format: uri
+          nullable: true
+        count:
+          type: integer
+          format: int64
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Certificate'
+          nullable: true
+      additionalProperties: false
+    ClusterEvent:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ClusterEventType'
+        severity:
+          $ref: '#/components/schemas/EventSeverity'
+        message:
+          type: string
+          nullable: true
+        clusterName:
+          type: string
+          nullable: true
+        agentVersion:
+          type: string
+          nullable: true
+        istioVersion:
+          type: string
+          nullable: true
+        root:
+          type: string
+          nullable: true
+        lastRenewalDate:
+          type: string
+          nullable: true
+        currentRootThumbprint:
+          type: string
+          nullable: true
+        currentAgentJobSchedule:
+          type: string
+          nullable: true
+        serviceTreeID:
+          type: string
+          nullable: true
+        environment:
+          type: string
+          nullable: true
+        isRotating:
+          type: string
+          nullable: true
+        scheduledRenewalDate:
+          type: string
+          nullable: true
+        additionalInformation:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+      additionalProperties: false
+    ClusterEventType:
+      enum:
+        - RootRotationSuccess
+        - RootRotationFailure
+        - AgentSuccess
+        - AgentFailure
+      type: string
+    EventSeverity:
+      enum:
+        - Information
+        - Warning
+        - Exception
+      type: string
+    Root:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        currentThumbprint:
+          type: string
+          nullable: true
+        creationDate:
+          type: string
+          format: date-time
+        cronjobSchedule:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RootPageResult:
+      type: object
+      properties:
+        nextPageLink:
+          type: string
+          format: uri
+          nullable: true
+        count:
+          type: integer
+          format: int64
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Root'
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: 'JWT Bearer Token Authorization header. Example: Authorization: Bearer {token}'
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - Bearer: [ ]

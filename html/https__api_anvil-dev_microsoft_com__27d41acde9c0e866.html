@@ -1,0 +1,3132 @@
+openapi: 3.0.1
+info:
+  title: Web API using Graph API
+  version: v1
+paths:
+  /api/v1.0/AdoRisks:
+    get:
+      tags:
+        - AdoRisks
+      parameters:
+        - name: serviceTreeId
+          in: query
+          schema:
+            type: string
+        - name: areaPath
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+            default: AdoId
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 100
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+    post:
+      tags:
+        - AdoRisks
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Risk'
+    patch:
+      tags:
+        - AdoRisks
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Risk'
+  /api/v1.0/AdoRisks/search:
+    get:
+      tags:
+        - AdoRisks
+      parameters:
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: orderByClause
+          in: query
+          schema:
+            type: string
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+  '/api/v1.0/AdoRisks/GetByAdoId/{id}':
+    get:
+      tags:
+        - AdoRisks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/v1.0/AdoRisks/{id}':
+    get:
+      tags:
+        - AdoRisks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - AdoRisks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - AdoRisks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/Risks/Recommendations:
+    get:
+      tags:
+        - RiskRecommendations
+      parameters:
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 50
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+  /api/v1.0/Risks/Recommendations/Dismissals:
+    get:
+      tags:
+        - RiskRecommendations
+      parameters:
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 50
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+  /api/v1.0/Risks/Recommendations/Selections:
+    get:
+      tags:
+        - RiskRecommendations
+      parameters:
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 50
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedRisk'
+  /api/v1.0/Risks/Recommendations/Feedbacks:
+    get:
+      tags:
+        - RiskRecommendations
+      parameters:
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: riskId
+          in: query
+          schema:
+            type: string
+        - name: feedbackType
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+            default: Id
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: -1
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendationFeedback'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendationFeedback'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendationFeedback'
+  '/api/v1.0/Risks/Recommendations/Feedbacks/{serviceId}/Selections':
+    post:
+      tags:
+        - RiskRecommendations
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+      responses:
+        '200':
+          description: Success
+  '/api/v1.0/Risks/Recommendations/Feedbacks/{serviceId}/Dismissals':
+    post:
+      tags:
+        - RiskRecommendations
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+      responses:
+        '200':
+          description: Success
+  '/api/v1.0/Risks/Recommendations/Feedbacks/{id}':
+    delete:
+      tags:
+        - RiskRecommendations
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/Risks/Recommendations/Feedbacks/BulkDeleteById:
+    post:
+      tags:
+        - RiskRecommendations
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                type: string
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+          text/json:
+            schema:
+              type: array
+              items:
+                type: string
+          application/*+json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/Risks:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+        - name: agingRisks
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: pastDueRisks
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+            default: CreatedDate desc
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: -1
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+    post:
+      tags:
+        - Risks
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/Risks/rtm:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+        - name: assignedToMe
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+  /api/v1.0/Risks/search:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: keyword
+          in: query
+          schema:
+            type: string
+        - name: orderByClause
+          in: query
+          schema:
+            type: string
+            default: Id
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 50
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+  /api/v1.0/Risks/assignedToMe:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+        - name: agingRisks
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: pastDueRisks
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+            default: Id
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 50
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+  /api/v1.0/Risks/favorites:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+            default: Id
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 50
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Risk'
+  /api/v1.0/Risks/favorites/count:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/Risks/trends:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RiskAggregate'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskAggregate'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RiskAggregate'
+  /api/v1.0/Risks/assignedToMe/trends:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RiskAggregate'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RiskAggregate'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RiskAggregate'
+  /api/v1.0/Risks/deleted:
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: divisionId
+          in: query
+          schema:
+            type: string
+        - name: organizationId
+          in: query
+          schema:
+            type: string
+        - name: serviceGroupId
+          in: query
+          schema:
+            type: string
+        - name: serviceId
+          in: query
+          schema:
+            type: string
+        - name: componentId
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: string
+            default: Id
+        - name: maxItemCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+            default: 50
+      responses:
+        '200':
+          description: Success
+  '/api/v1.0/Risks/GetByAdoId/{id}':
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Success
+  '/api/v1.0/Risks/{id}':
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - Risks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      responses:
+        '200':
+          description: Success
+    put:
+      tags:
+        - Risks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Risk'
+      responses:
+        '200':
+          description: Success
+    delete:
+      tags:
+        - Risks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/Risks/BulkDeleteById:
+    post:
+      tags:
+        - Risks
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                type: string
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+          text/json:
+            schema:
+              type: array
+              items:
+                type: string
+          application/*+json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/Risks/RecoverById:
+    post:
+      tags:
+        - Risks
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                type: string
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+          text/json:
+            schema:
+              type: array
+              items:
+                type: string
+          application/*+json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '200':
+          description: Success
+  '/api/v1.0/Risks/{id}/WorkItems':
+    post:
+      tags:
+        - Risks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AdoTask'
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AdoTask'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AdoTask'
+          application/*+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AdoTask'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdoTask'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdoTask'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdoTask'
+    get:
+      tags:
+        - Risks
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/ServiceTree/Divisions:
+    get:
+      tags:
+        - ServiceTree
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+  '/api/v1.0/ServiceTree/Divisions/{divisionId}/Organizations':
+    get:
+      tags:
+        - ServiceTree
+      parameters:
+        - name: divisionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+  '/api/v1.0/ServiceTree/Organizations/{organizationId}/ServiceGroups':
+    get:
+      tags:
+        - ServiceTree
+      parameters:
+        - name: organizationId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+  '/api/v1.0/ServiceTree/ServiceGroups/{serviceGroupId}/Services':
+    get:
+      tags:
+        - ServiceTree
+      parameters:
+        - name: serviceGroupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+  '/api/v1.0/ServiceTree/Services/{serviceId}/Components':
+    get:
+      tags:
+        - ServiceTree
+      parameters:
+        - name: serviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceTree'
+  /api/v1.0/UserPreferences:
+    get:
+      tags:
+        - UserPreferences
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+        - UserPreferences
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+      responses:
+        '200':
+          description: Success
+    patch:
+      tags:
+        - UserPreferences
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserPreferences'
+      responses:
+        '200':
+          description: Success
+  /api/v1.0/UserPreferences/favoriteRiskIds:
+    get:
+      tags:
+        - UserPreferences
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+    post:
+      tags:
+        - UserPreferences
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Success
+  '/api/v1.0/UserPreferences/favoriteRiskIds/{riskId}':
+    delete:
+      tags:
+        - UserPreferences
+      parameters:
+        - name: riskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    AdoTask:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        partitionKey:
+          type: string
+          nullable: true
+          readOnly: true
+        rid:
+          type: string
+          nullable: true
+          readOnly: true
+        self:
+          type: string
+          nullable: true
+          readOnly: true
+        etag:
+          type: string
+          nullable: true
+          readOnly: true
+        lastUpdatedTimeRaw:
+          type: integer
+          format: int64
+          readOnly: true
+        lastUpdatedTimeUtc:
+          type: string
+          format: date-time
+          readOnly: true
+        createdTimeUtc:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        createdBy:
+          $ref: '#/components/schemas/UserIdentity'
+        createdDate:
+          type: string
+          format: date-time
+          nullable: true
+        authorizedAs:
+          $ref: '#/components/schemas/UserIdentity'
+        authorizedDate:
+          type: string
+          format: date-time
+          nullable: true
+        changedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        changedDate:
+          type: string
+          format: date-time
+          nullable: true
+        assignedTo:
+          $ref: '#/components/schemas/UserIdentity'
+        closedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        closedDate:
+          type: string
+          format: date-time
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        stateChangeDate:
+          type: string
+          format: date-time
+          nullable: true
+        reason:
+          type: string
+          nullable: true
+        targetDate:
+          type: string
+          format: date-time
+          nullable: true
+        finishDate:
+          type: string
+          format: date-time
+          nullable: true
+        expirationDate:
+          type: string
+          format: date-time
+          nullable: true
+        revisedDate:
+          type: string
+          format: date-time
+          nullable: true
+        stageChangedDate:
+          type: string
+          format: date-time
+          nullable: true
+        tags:
+          type: array
+          items:
+            type: string
+          nullable: true
+        adoId:
+          type: integer
+          format: int32
+          nullable: true
+        adoUrl:
+          type: string
+          nullable: true
+        mitigationEffectiveness:
+          type: string
+          nullable: true
+        hasMitigationPlan:
+          type: boolean
+          nullable: true
+        finalMitigationPlan:
+          type: string
+          nullable: true
+        interimMitigationPlan:
+          type: string
+          nullable: true
+        interimMitigationETA:
+          type: string
+          format: date-time
+          nullable: true
+        interimMitigationFinishDate:
+          type: string
+          format: date-time
+          nullable: true
+        mitigationEtaVariance:
+          type: integer
+          format: int32
+          nullable: true
+        mitigationLimitations:
+          type: string
+          nullable: true
+        riskMitigationPlan:
+          type: string
+          nullable: true
+        externalLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        parent:
+          type: integer
+          format: int32
+          nullable: true
+        remoteLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        hyperlinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        attachedFileCount:
+          type: integer
+          format: int32
+          nullable: true
+        relatedLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        riskReductionWorkStatus:
+          type: string
+          nullable: true
+        mitigationType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    FeedbackRequest:
+      type: object
+      properties:
+        riskId:
+          type: string
+          nullable: true
+        adoId:
+          type: integer
+          format: int32
+          nullable: true
+        category:
+          $ref: '#/components/schemas/RiskCategory'
+        feedBacks:
+          type: array
+          items:
+            type: string
+          nullable: true
+        customFeedBack:
+          type: string
+          nullable: true
+      additionalProperties: false
+    MitigationItemRef:
+      type: object
+      properties:
+        adoId:
+          type: integer
+          format: int32
+          nullable: true
+        mitigationItemType:
+          $ref: '#/components/schemas/MitigationItemType'
+      additionalProperties: false
+    MitigationItemType:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    RecommendationFeedback:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        partitionKey:
+          type: string
+          nullable: true
+          readOnly: true
+        rid:
+          type: string
+          nullable: true
+          readOnly: true
+        self:
+          type: string
+          nullable: true
+          readOnly: true
+        etag:
+          type: string
+          nullable: true
+          readOnly: true
+        lastUpdatedTimeRaw:
+          type: integer
+          format: int64
+          readOnly: true
+        lastUpdatedTimeUtc:
+          type: string
+          format: date-time
+          readOnly: true
+        createdTimeUtc:
+          type: string
+          format: date-time
+          nullable: true
+        serviceId:
+          type: string
+          nullable: true
+        riskId:
+          type: string
+          nullable: true
+        adoId:
+          type: integer
+          format: int32
+          nullable: true
+        category:
+          $ref: '#/components/schemas/RiskCategory'
+        version:
+          type: string
+          nullable: true
+        createdBy:
+          $ref: '#/components/schemas/UserIdentity'
+        createdDate:
+          type: string
+          format: date-time
+          nullable: true
+        changedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        changedDate:
+          type: string
+          format: date-time
+          nullable: true
+        feedBacks:
+          type: array
+          items:
+            type: string
+          nullable: true
+        customFeedBack:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RecommendedRisk:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        partitionKey:
+          type: string
+          nullable: true
+          readOnly: true
+        rid:
+          type: string
+          nullable: true
+          readOnly: true
+        self:
+          type: string
+          nullable: true
+          readOnly: true
+        etag:
+          type: string
+          nullable: true
+          readOnly: true
+        lastUpdatedTimeRaw:
+          type: integer
+          format: int64
+          readOnly: true
+        lastUpdatedTimeUtc:
+          type: string
+          format: date-time
+          readOnly: true
+        createdTimeUtc:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        riskStage:
+          type: string
+          nullable: true
+        createdBy:
+          $ref: '#/components/schemas/UserIdentity'
+        createdDate:
+          type: string
+          format: date-time
+          nullable: true
+        targetDate:
+          type: string
+          format: date-time
+          nullable: true
+        authorizedAs:
+          $ref: '#/components/schemas/UserIdentity'
+        authorizedDate:
+          type: string
+          format: date-time
+          nullable: true
+        changedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        changedDate:
+          type: string
+          format: date-time
+          nullable: true
+        resolvedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        resolvedDate:
+          type: string
+          format: date-time
+          nullable: true
+        assignedTo:
+          $ref: '#/components/schemas/UserIdentity'
+        closedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        closedDate:
+          type: string
+          format: date-time
+          nullable: true
+        activatedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        activatedDate:
+          type: string
+          format: date-time
+          nullable: true
+        acceptedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        acceptedDate:
+          type: string
+          format: date-time
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        stateChangeDate:
+          type: string
+          format: date-time
+          nullable: true
+        reason:
+          type: string
+          nullable: true
+        finishDate:
+          type: string
+          format: date-time
+          nullable: true
+        expirationDate:
+          type: string
+          format: date-time
+          nullable: true
+        revisedDate:
+          type: string
+          format: date-time
+          nullable: true
+        stageChangedDate:
+          type: string
+          format: date-time
+          nullable: true
+        tags:
+          type: array
+          items:
+            type: string
+          nullable: true
+        adoId:
+          type: integer
+          format: int32
+          nullable: true
+        adoRevision:
+          type: integer
+          format: int32
+          nullable: true
+        teamProject:
+          type: string
+          nullable: true
+        areaId:
+          type: integer
+          format: int32
+          nullable: true
+        areaPath:
+          type: string
+          nullable: true
+        iterationId:
+          type: integer
+          format: int32
+          nullable: true
+        iterationPath:
+          type: string
+          nullable: true
+        nodeName:
+          type: string
+          nullable: true
+        personId:
+          type: integer
+          format: int32
+          nullable: true
+        watermark:
+          type: integer
+          format: int32
+          nullable: true
+        commentCount:
+          type: integer
+          format: int32
+          nullable: true
+        adoUrl:
+          type: string
+          nullable: true
+        serviceTree:
+          $ref: '#/components/schemas/ServiceHierarchy'
+        dependencyServiceTree:
+          $ref: '#/components/schemas/ServiceHierarchy'
+        divisionId:
+          type: string
+          nullable: true
+          deprecated: true
+        divisionName:
+          type: string
+          nullable: true
+          deprecated: true
+        organizationName:
+          type: string
+          nullable: true
+          deprecated: true
+        organizationId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceTreeId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceTreeName:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceName:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceGroupName:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceGroupId:
+          type: string
+          nullable: true
+          deprecated: true
+        componentId:
+          type: string
+          nullable: true
+          deprecated: true
+        componentName:
+          type: string
+          nullable: true
+          deprecated: true
+        dependencyServiceTreeId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceType:
+          type: string
+          nullable: true
+        valueArea:
+          type: string
+          nullable: true
+        impact:
+          type: string
+          nullable: true
+        impactText:
+          type: string
+          nullable: true
+        functionalImpact:
+          type: string
+          nullable: true
+        impactBudget:
+          type: boolean
+          nullable: true
+        impactSchedule:
+          type: boolean
+          nullable: true
+        impactScope:
+          type: boolean
+          nullable: true
+        impactDescription:
+          type: string
+          nullable: true
+        plannedResolutionDate:
+          type: string
+          format: date-time
+          nullable: true
+        actualResolutionDate:
+          type: string
+          format: date-time
+          nullable: true
+        resolution:
+          type: string
+          nullable: true
+        requestedUpdates:
+          type: string
+          nullable: true
+        hasMitigationPlan:
+          type: boolean
+          nullable: true
+        finalMitigationPlan:
+          type: string
+          nullable: true
+        interimMitigationPlan:
+          type: string
+          nullable: true
+        interimMitigationETA:
+          type: string
+          format: date-time
+          nullable: true
+        interimMitigationFinishDate:
+          type: string
+          format: date-time
+          nullable: true
+        mitigationEtaVariance:
+          type: integer
+          format: int32
+          nullable: true
+        mitigationLimitations:
+          type: string
+          nullable: true
+        riskMitigationPlan:
+          type: string
+          nullable: true
+        casServices:
+          type: boolean
+          nullable: true
+        sourceChannel:
+          type: string
+          nullable: true
+        themes:
+          type: array
+          items:
+            type: string
+          nullable: true
+        riskIdentifiedDuring:
+          type: string
+          nullable: true
+        contingencyPlan:
+          type: string
+          nullable: true
+        impactRating:
+          type: string
+          nullable: true
+        likelihoodRating:
+          type: string
+          nullable: true
+        mitigationEffectiveness:
+          type: string
+          nullable: true
+        riskIndex:
+          type: integer
+          format: int32
+          nullable: true
+        interimPlanImpactRating:
+          type: string
+          nullable: true
+        interimPlanLikelihoodRating:
+          type: string
+          nullable: true
+        interimPlanMitigationEffectiveness:
+          type: string
+          nullable: true
+        interimRiskIndex:
+          type: integer
+          format: int32
+          nullable: true
+        longTermPlanImpactRating:
+          type: string
+          nullable: true
+        longTermPlanLikelihoodRating:
+          type: string
+          nullable: true
+        longTermPlanMitigationEffectiveness:
+          type: string
+          nullable: true
+        longTermRiskIndex:
+          type: integer
+          format: int32
+          nullable: true
+        riskQuadrantOriginal:
+          type: string
+          nullable: true
+        latestRiskQuadrant:
+          type: string
+          nullable: true
+        targetedFinalRiskQuadrant:
+          type: string
+          nullable: true
+        originalRiskRating:
+          type: string
+          nullable: true
+        adjustedRiskRating:
+          type: string
+          nullable: true
+        interimRating:
+          type: string
+          nullable: true
+        finalRating:
+          type: string
+          nullable: true
+        riskReductionWorkStatus:
+          type: string
+          nullable: true
+        rpnQuad:
+          type: string
+          nullable: true
+        estimatedMaxBlastRadius:
+          type: string
+          nullable: true
+        severity:
+          type: string
+          nullable: true
+        riskProbability:
+          type: string
+          nullable: true
+        probability:
+          type: integer
+          format: int32
+          nullable: true
+        priority:
+          type: integer
+          format: int32
+          nullable: true
+        triggerEventDescription:
+          type: string
+          nullable: true
+        forecastedTriggerEventDate:
+          type: string
+          format: date-time
+          nullable: true
+        actualTriggerEventDate:
+          type: string
+          format: date-time
+          nullable: true
+        workCostEstimate:
+          type: string
+          nullable: true
+        platformGap:
+          type: string
+          nullable: true
+        revertReason:
+          type: string
+          nullable: true
+        acceptRisk:
+          type: string
+          nullable: true
+        nextStep:
+          type: string
+          nullable: true
+        nextStepDate:
+          type: string
+          format: date-time
+          nullable: true
+        stackRank:
+          type: string
+          nullable: true
+        outageIds:
+          type: string
+          nullable: true
+        isException:
+          type: boolean
+          nullable: true
+        exceptionApproved:
+          type: string
+          nullable: true
+        exceptionJustification:
+          type: string
+          nullable: true
+        exceptionOwner:
+          type: string
+          nullable: true
+        exceptionApprover:
+          type: string
+          nullable: true
+        contributingFactorsArchitecture:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsAuthoring:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDatacenter:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDependency:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDeployment:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsAuth:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDetection:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsLoad:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsPerformance:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsProcess:
+          type: array
+          items:
+            type: string
+          nullable: true
+        otherFactors:
+          type: array
+          items:
+            type: string
+          nullable: true
+        reasonForStateChange:
+          type: string
+          nullable: true
+        controlEffectiveness:
+          type: string
+          nullable: true
+        controlLimitations:
+          type: string
+          nullable: true
+        stageModifiedDate:
+          type: string
+          format: date-time
+          nullable: true
+        escalationAlias:
+          $ref: '#/components/schemas/UserIdentity'
+        escalationPath:
+          type: string
+          nullable: true
+        riskContingencyPlan:
+          type: string
+          nullable: true
+        riskAssessment:
+          type: string
+          nullable: true
+        riskReductionSteps:
+          type: string
+          nullable: true
+        riskArea:
+          type: string
+          nullable: true
+        identifiedDuring:
+          type: string
+          nullable: true
+        channel:
+          type: string
+          nullable: true
+        history:
+          type: string
+          nullable: true
+        icMIncidentCount:
+          type: integer
+          format: int32
+          nullable: true
+        icMRepairItemType:
+          type: string
+          nullable: true
+        icMDeliveryType:
+          type: string
+          nullable: true
+        icMIncidentSeverity:
+          type: integer
+          format: int32
+          nullable: true
+        icmIncidentIds:
+          type: string
+          nullable: true
+        shiproomApproval:
+          type: string
+          nullable: true
+        reproSteps:
+          type: string
+          nullable: true
+        securityRating:
+          type: string
+          nullable: true
+        isDeleted:
+          type: boolean
+          nullable: true
+        externalLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        parent:
+          type: integer
+          format: int32
+          nullable: true
+        remoteLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        hyperlinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        attachedFileCount:
+          type: integer
+          format: int32
+          nullable: true
+        relatedLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        mitigationItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/MitigationItemRef'
+          nullable: true
+        mitigationType:
+          type: string
+          nullable: true
+        category:
+          $ref: '#/components/schemas/RiskCategory'
+        feedBackId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Risk:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        partitionKey:
+          type: string
+          nullable: true
+          readOnly: true
+        rid:
+          type: string
+          nullable: true
+          readOnly: true
+        self:
+          type: string
+          nullable: true
+          readOnly: true
+        etag:
+          type: string
+          nullable: true
+          readOnly: true
+        lastUpdatedTimeRaw:
+          type: integer
+          format: int64
+          readOnly: true
+        lastUpdatedTimeUtc:
+          type: string
+          format: date-time
+          readOnly: true
+        createdTimeUtc:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        assignedTo:
+          $ref: '#/components/schemas/UserIdentity'
+        divisionId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceTree:
+          $ref: '#/components/schemas/ServiceHierarchy'
+        organizationId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceGroupId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceId:
+          type: string
+          nullable: true
+          deprecated: true
+        riskStage:
+          type: string
+          nullable: true
+        createdDate:
+          type: string
+          format: date-time
+          nullable: true
+        plannedResolutionDate:
+          type: string
+          format: date-time
+          nullable: true
+        interimMitigationETA:
+          type: string
+          format: date-time
+          nullable: true
+        version:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        createdBy:
+          $ref: '#/components/schemas/UserIdentity'
+        targetDate:
+          type: string
+          format: date-time
+          nullable: true
+        authorizedAs:
+          $ref: '#/components/schemas/UserIdentity'
+        authorizedDate:
+          type: string
+          format: date-time
+          nullable: true
+        changedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        changedDate:
+          type: string
+          format: date-time
+          nullable: true
+        resolvedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        resolvedDate:
+          type: string
+          format: date-time
+          nullable: true
+        closedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        closedDate:
+          type: string
+          format: date-time
+          nullable: true
+        activatedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        activatedDate:
+          type: string
+          format: date-time
+          nullable: true
+        acceptedBy:
+          $ref: '#/components/schemas/UserIdentity'
+        acceptedDate:
+          type: string
+          format: date-time
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        stateChangeDate:
+          type: string
+          format: date-time
+          nullable: true
+        reason:
+          type: string
+          nullable: true
+        finishDate:
+          type: string
+          format: date-time
+          nullable: true
+        expirationDate:
+          type: string
+          format: date-time
+          nullable: true
+        revisedDate:
+          type: string
+          format: date-time
+          nullable: true
+        stageChangedDate:
+          type: string
+          format: date-time
+          nullable: true
+        tags:
+          type: array
+          items:
+            type: string
+          nullable: true
+        adoId:
+          type: integer
+          format: int32
+          nullable: true
+        adoRevision:
+          type: integer
+          format: int32
+          nullable: true
+        teamProject:
+          type: string
+          nullable: true
+        areaId:
+          type: integer
+          format: int32
+          nullable: true
+        areaPath:
+          type: string
+          nullable: true
+        iterationId:
+          type: integer
+          format: int32
+          nullable: true
+        iterationPath:
+          type: string
+          nullable: true
+        nodeName:
+          type: string
+          nullable: true
+        personId:
+          type: integer
+          format: int32
+          nullable: true
+        watermark:
+          type: integer
+          format: int32
+          nullable: true
+        commentCount:
+          type: integer
+          format: int32
+          nullable: true
+        adoUrl:
+          type: string
+          nullable: true
+        dependencyServiceTree:
+          $ref: '#/components/schemas/ServiceHierarchy'
+        divisionName:
+          type: string
+          nullable: true
+          deprecated: true
+        organizationName:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceTreeId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceTreeName:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceName:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceGroupName:
+          type: string
+          nullable: true
+          deprecated: true
+        componentId:
+          type: string
+          nullable: true
+          deprecated: true
+        componentName:
+          type: string
+          nullable: true
+          deprecated: true
+        dependencyServiceTreeId:
+          type: string
+          nullable: true
+          deprecated: true
+        serviceType:
+          type: string
+          nullable: true
+        valueArea:
+          type: string
+          nullable: true
+        impact:
+          type: string
+          nullable: true
+        impactText:
+          type: string
+          nullable: true
+        functionalImpact:
+          type: string
+          nullable: true
+        impactBudget:
+          type: boolean
+          nullable: true
+        impactSchedule:
+          type: boolean
+          nullable: true
+        impactScope:
+          type: boolean
+          nullable: true
+        impactDescription:
+          type: string
+          nullable: true
+        actualResolutionDate:
+          type: string
+          format: date-time
+          nullable: true
+        resolution:
+          type: string
+          nullable: true
+        requestedUpdates:
+          type: string
+          nullable: true
+        hasMitigationPlan:
+          type: boolean
+          nullable: true
+        finalMitigationPlan:
+          type: string
+          nullable: true
+        interimMitigationPlan:
+          type: string
+          nullable: true
+        interimMitigationFinishDate:
+          type: string
+          format: date-time
+          nullable: true
+        mitigationEtaVariance:
+          type: integer
+          format: int32
+          nullable: true
+        mitigationLimitations:
+          type: string
+          nullable: true
+        riskMitigationPlan:
+          type: string
+          nullable: true
+        casServices:
+          type: boolean
+          nullable: true
+        sourceChannel:
+          type: string
+          nullable: true
+        themes:
+          type: array
+          items:
+            type: string
+          nullable: true
+        riskIdentifiedDuring:
+          type: string
+          nullable: true
+        contingencyPlan:
+          type: string
+          nullable: true
+        impactRating:
+          type: string
+          nullable: true
+        likelihoodRating:
+          type: string
+          nullable: true
+        mitigationEffectiveness:
+          type: string
+          nullable: true
+        riskIndex:
+          type: integer
+          format: int32
+          nullable: true
+        interimPlanImpactRating:
+          type: string
+          nullable: true
+        interimPlanLikelihoodRating:
+          type: string
+          nullable: true
+        interimPlanMitigationEffectiveness:
+          type: string
+          nullable: true
+        interimRiskIndex:
+          type: integer
+          format: int32
+          nullable: true
+        longTermPlanImpactRating:
+          type: string
+          nullable: true
+        longTermPlanLikelihoodRating:
+          type: string
+          nullable: true
+        longTermPlanMitigationEffectiveness:
+          type: string
+          nullable: true
+        longTermRiskIndex:
+          type: integer
+          format: int32
+          nullable: true
+        riskQuadrantOriginal:
+          type: string
+          nullable: true
+        latestRiskQuadrant:
+          type: string
+          nullable: true
+        targetedFinalRiskQuadrant:
+          type: string
+          nullable: true
+        originalRiskRating:
+          type: string
+          nullable: true
+        adjustedRiskRating:
+          type: string
+          nullable: true
+        interimRating:
+          type: string
+          nullable: true
+        finalRating:
+          type: string
+          nullable: true
+        riskReductionWorkStatus:
+          type: string
+          nullable: true
+        rpnQuad:
+          type: string
+          nullable: true
+        estimatedMaxBlastRadius:
+          type: string
+          nullable: true
+        severity:
+          type: string
+          nullable: true
+        riskProbability:
+          type: string
+          nullable: true
+        probability:
+          type: integer
+          format: int32
+          nullable: true
+        priority:
+          type: integer
+          format: int32
+          nullable: true
+        triggerEventDescription:
+          type: string
+          nullable: true
+        forecastedTriggerEventDate:
+          type: string
+          format: date-time
+          nullable: true
+        actualTriggerEventDate:
+          type: string
+          format: date-time
+          nullable: true
+        workCostEstimate:
+          type: string
+          nullable: true
+        platformGap:
+          type: string
+          nullable: true
+        revertReason:
+          type: string
+          nullable: true
+        acceptRisk:
+          type: string
+          nullable: true
+        nextStep:
+          type: string
+          nullable: true
+        nextStepDate:
+          type: string
+          format: date-time
+          nullable: true
+        stackRank:
+          type: string
+          nullable: true
+        outageIds:
+          type: string
+          nullable: true
+        isException:
+          type: boolean
+          nullable: true
+        exceptionApproved:
+          type: string
+          nullable: true
+        exceptionJustification:
+          type: string
+          nullable: true
+        exceptionOwner:
+          type: string
+          nullable: true
+        exceptionApprover:
+          type: string
+          nullable: true
+        contributingFactorsArchitecture:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsAuthoring:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDatacenter:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDependency:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDeployment:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsAuth:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsDetection:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsLoad:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsPerformance:
+          type: array
+          items:
+            type: string
+          nullable: true
+        contributingFactorsProcess:
+          type: array
+          items:
+            type: string
+          nullable: true
+        otherFactors:
+          type: array
+          items:
+            type: string
+          nullable: true
+        reasonForStateChange:
+          type: string
+          nullable: true
+        controlEffectiveness:
+          type: string
+          nullable: true
+        controlLimitations:
+          type: string
+          nullable: true
+        stageModifiedDate:
+          type: string
+          format: date-time
+          nullable: true
+        escalationAlias:
+          $ref: '#/components/schemas/UserIdentity'
+        escalationPath:
+          type: string
+          nullable: true
+        riskContingencyPlan:
+          type: string
+          nullable: true
+        riskAssessment:
+          type: string
+          nullable: true
+        riskReductionSteps:
+          type: string
+          nullable: true
+        riskArea:
+          type: string
+          nullable: true
+        identifiedDuring:
+          type: string
+          nullable: true
+        channel:
+          type: string
+          nullable: true
+        history:
+          type: string
+          nullable: true
+        icMIncidentCount:
+          type: integer
+          format: int32
+          nullable: true
+        icMRepairItemType:
+          type: string
+          nullable: true
+        icMDeliveryType:
+          type: string
+          nullable: true
+        icMIncidentSeverity:
+          type: integer
+          format: int32
+          nullable: true
+        icmIncidentIds:
+          type: string
+          nullable: true
+        shiproomApproval:
+          type: string
+          nullable: true
+        reproSteps:
+          type: string
+          nullable: true
+        securityRating:
+          type: string
+          nullable: true
+        isDeleted:
+          type: boolean
+          nullable: true
+        externalLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        parent:
+          type: integer
+          format: int32
+          nullable: true
+        remoteLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        hyperlinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        attachedFileCount:
+          type: integer
+          format: int32
+          nullable: true
+        relatedLinkCount:
+          type: integer
+          format: int32
+          nullable: true
+        mitigationItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/MitigationItemRef'
+          nullable: true
+        mitigationType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RiskAggregate:
+      type: object
+      properties:
+        totalRisks:
+          type: integer
+          format: int32
+        totalRisksLastMonth:
+          type: integer
+          format: int32
+        monthlyTotalDifference:
+          type: integer
+          format: int32
+        totalTrend:
+          type: string
+          nullable: true
+        agingRisks:
+          type: integer
+          format: int32
+        agingRisksLastMonth:
+          type: integer
+          format: int32
+        monthlyAgingDifference:
+          type: integer
+          format: int32
+        agingTrend:
+          type: string
+          nullable: true
+        pastDueRisks:
+          type: integer
+          format: int32
+        pastDueRisksLastMonth:
+          type: integer
+          format: int32
+        monthlyRiskPastDueDifference:
+          type: integer
+          format: int32
+        risksPastDueInterimDate:
+          type: integer
+          format: int32
+        risksPastDueLongTermDate:
+          type: integer
+          format: int32
+        pastDueTrend:
+          type: string
+          nullable: true
+        deletedRisks:
+          type: integer
+          format: int32
+          nullable: true
+      additionalProperties: false
+    RiskCategory:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    ServiceHierarchy:
+      type: object
+      properties:
+        divisionId:
+          type: string
+          nullable: true
+        divisionName:
+          type: string
+          nullable: true
+        organizationName:
+          type: string
+          nullable: true
+        organizationId:
+          type: string
+          nullable: true
+        serviceGroupName:
+          type: string
+          nullable: true
+        serviceGroupId:
+          type: string
+          nullable: true
+        serviceId:
+          type: string
+          nullable: true
+        serviceName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ServiceTree:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        partitionKey:
+          type: string
+          nullable: true
+          readOnly: true
+        type:
+          type: string
+          nullable: true
+        rid:
+          type: string
+          nullable: true
+          readOnly: true
+        self:
+          type: string
+          nullable: true
+          readOnly: true
+        etag:
+          type: string
+          nullable: true
+          readOnly: true
+        lastUpdatedTimeRaw:
+          type: integer
+          format: int64
+          readOnly: true
+        lastUpdatedTimeUtc:
+          type: string
+          format: date-time
+          readOnly: true
+        createdTimeUtc:
+          type: string
+          format: date-time
+          nullable: true
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        tags:
+          type: array
+          items:
+            type: string
+          nullable: true
+        companyId:
+          type: string
+          nullable: true
+        businessOwners:
+          type: string
+          nullable: true
+        status:
+          $ref: '#/components/schemas/ServiceTreeStatus'
+        createdDate:
+          type: string
+          format: date-time
+          nullable: true
+        createdBy:
+          type: string
+          nullable: true
+        modifiedDate:
+          type: string
+          format: date-time
+          nullable: true
+        modifiedBy:
+          type: string
+          nullable: true
+        divisionId:
+          type: string
+          nullable: true
+        divisionName:
+          type: string
+          nullable: true
+        organizationId:
+          type: string
+          nullable: true
+        organizationName:
+          type: string
+          nullable: true
+        serviceGroupId:
+          type: string
+          nullable: true
+        serviceGroupName:
+          type: string
+          nullable: true
+        externalFacing:
+          type: boolean
+          nullable: true
+        ownedByMicrosoft:
+          type: boolean
+          nullable: true
+        developerOwner:
+          type: string
+          nullable: true
+        programManagerOwner:
+          type: string
+          nullable: true
+        featureTeam:
+          type: string
+          nullable: true
+        comments:
+          type: string
+          nullable: true
+        serviceId:
+          type: string
+          nullable: true
+        serviceName:
+          type: string
+          nullable: true
+        componentId:
+          type: string
+          nullable: true
+        componentName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ServiceTreeStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    UserIdentity:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        uniqueName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    UserPreferences:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        partitionKey:
+          type: string
+          nullable: true
+          readOnly: true
+        rid:
+          type: string
+          nullable: true
+          readOnly: true
+        self:
+          type: string
+          nullable: true
+          readOnly: true
+        etag:
+          type: string
+          nullable: true
+          readOnly: true
+        lastUpdatedTimeRaw:
+          type: integer
+          format: int64
+          readOnly: true
+        lastUpdatedTimeUtc:
+          type: string
+          format: date-time
+          readOnly: true
+        createdTimeUtc:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        defaultHierarchy:
+          $ref: '#/components/schemas/ServiceTree'
+        favoriteHierarchies:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceTree'
+          nullable: true
+        favoriteRiskIds:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: Enter JWT Bearer token **_only_**
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - Bearer: [ ]

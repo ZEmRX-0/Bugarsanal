@@ -1,0 +1,14 @@
+200 OK
+Content-Type: text/html
+Access-Control-Expose-Headers: Request-Context
+Set-Cookie: TiPMix=7.384920323309741; path=/; HttpOnly; Domain=mquery.ust.microsoft.com; Max-Age=3600 x-ms-routing-name=self; path=/; HttpOnly; Domain=mquery.ust.microsoft.com; Max-Age=3600
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:a670e53e-20ca-42d8-87ce-3692a787ddc8
+X-Powered-By: ASP.NET
+Server: Microsoft-IIS/10.0
+Cache-Control: no-cache
+Retry-Count: 0
+Pragma: no-cache
+X-Aspnet-Version: 4.0.30319
+Date: Mon, 19 Dec 2022 20:59:47 GMT
+Expires: -1

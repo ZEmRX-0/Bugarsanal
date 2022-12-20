@@ -1,0 +1,16 @@
+200 OK
+Date: Mon, 19 Dec 2022 20:59:57 GMT
+Pragma: no-cache
+Content-Type: text/html
+Cache-Control: no-cache
+Ms-Cv: FSS8xA/BiEWd8ERVHZhVPg.0
+X-Powered-By: ASP.NET
+X-Content-Type-Options: nosniff
+X-Aspnet-Version: 4.0.30319
+Request-Context: appId=cid-v1:86ab4bff-018c-4d09-a495-311c72c1ca37
+Retry-Count: 0
+Server: Microsoft-IIS/10.0
+Expires: -1
+Set-Cookie: ARRAffinity=a42f45623c970528b8181f7c9703b33ceddfb6bc954f36256b96edca01c69f46;Path=/;HttpOnly;Secure;Domain=devicedrillservice.microsoft.com ARRAffinitySameSite=a42f45623c970528b8181f7c9703b33ceddfb6bc954f36256b96edca01c69f46;Path=/;HttpOnly;SameSite=None;Secure;Domain=devicedrillservice.microsoft.com
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=31536000; includeSubDomains

@@ -1,0 +1,10 @@
+200 OK
+X-Powered-By: ASP.NET
+Content-Type: application/json;charset=utf-8
+Server: Kestrel
+Set-Cookie: ARRAffinity=b235189dc76b52d1f6232c1396747a8a985eda9a1bf6a33d246a126564f36fe3;Path=/;HttpOnly;Secure;Domain=riker-int.dps.mp.microsoft.com ARRAffinitySameSite=b235189dc76b52d1f6232c1396747a8a985eda9a1bf6a33d246a126564f36fe3;Path=/;HttpOnly;SameSite=None;Secure;Domain=riker-int.dps.mp.microsoft.com
+Request-Context: appId=cid-v1:2e56bae5-f480-4eb5-b76a-e0b73cc3faf7
+Ms-Correlationid: de5cb2dd-69f8-4cc1-8082-f7413fb438ea
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:01:11 GMT
+Vary: Accept-Encoding

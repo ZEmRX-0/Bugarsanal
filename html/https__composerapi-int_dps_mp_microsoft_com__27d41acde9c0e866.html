@@ -1,0 +1,2198 @@
+openapi: 3.0.1
+info:
+  title: Composer API
+  version: v1
+servers:
+  - url: https://composerapi-int.dps.mp.microsoft.com
+paths:
+  /api/Admin:
+    get:
+      tags:
+        - Admin
+      summary: This is currently used as an Application Insights URL ping test.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/Jobs/sync:
+    post:
+      tags:
+        - Jobs
+      summary: Runs the request immediately.
+      requestBody:
+        description: The CreateWorkflowRequest
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+  /api/Jobs/async:
+    post:
+      tags:
+        - Jobs
+      summary: Adds the request to queue.  The request is run in the future.
+      requestBody:
+        description: The CreateWorkflowRequest.
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkflowRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+  '/api/Jobs/create/products/{productId}/submissions/{submissionId}/workflows/{workflowId}/environments/{environment}/operations/{operation}':
+    post:
+      tags:
+        - Jobs
+      summary: This is API submission uses to queue a request.  The request is run in the future.
+      parameters:
+        - name: productId
+          in: path
+          description: The productId.
+          required: true
+          schema:
+            type: string
+        - name: submissionId
+          in: path
+          description: The submissionId.
+          required: true
+          schema:
+            type: string
+        - name: workflowId
+          in: path
+          description: The workflowId.
+          required: true
+          schema:
+            type: string
+        - name: environment
+          in: path
+          description: The environment.
+          required: true
+          schema:
+            type: string
+        - name: operation
+          in: path
+          description: The operation.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The additionalData
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+  '/api/Jobs/create/products/{productId}/submissions/{submissionId}/workflows/{workflowId}/environments/{environment}/operations/{operation}/itoe':
+    post:
+      tags:
+        - Jobs
+      summary: This is API submission uses to queue a request.  The request is run in the future.
+      parameters:
+        - name: productId
+          in: path
+          description: The productId.
+          required: true
+          schema:
+            type: string
+        - name: submissionId
+          in: path
+          description: The submissionId.
+          required: true
+          schema:
+            type: string
+        - name: workflowId
+          in: path
+          description: The workflowId.
+          required: true
+          schema:
+            type: string
+        - name: environment
+          in: path
+          description: The environment.
+          required: true
+          schema:
+            type: string
+        - name: operation
+          in: path
+          description: The operation.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The additionalData
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/SubmissionWorkflowCreateRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CreateWorkflowResult'
+  '/api/Jobs/{jobId}':
+    delete:
+      tags:
+        - Jobs
+      summary: API for canceling a request.
+      parameters:
+        - name: jobId
+          in: path
+          description: The jobId.
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+  /api/Jobs:
+    get:
+      tags:
+        - Jobs
+      summary: Simple ping endpoint.
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  '/api/Jobs/restdetails/{jobId}':
+    get:
+      tags:
+        - Jobs
+      summary: Get the rest details associated with a jobId.
+      parameters:
+        - name: jobId
+          in: path
+          description: The jobId.
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RestDetails'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RestDetails'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RestDetails'
+  '/api/Jobs/staticinput/{jobId}':
+    get:
+      tags:
+        - Jobs
+      summary: Get the static data associated with a jobId.
+      parameters:
+        - name: jobId
+          in: path
+          description: The jobId.
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkflowStaticData'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkflowStaticData'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkflowStaticData'
+  '/api/Jobs/jobentity/{jobId}':
+    get:
+      tags:
+        - Jobs
+      summary: Get the job entity associated with a jobId.
+      parameters:
+        - name: jobId
+          in: path
+          description: The jobId.
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/WorkflowJob'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowJob'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowJob'
+  /api/TestService:
+    get:
+      tags:
+        - TestService
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/TestService/scan:
+    post:
+      tags:
+        - TestService
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+  /api/TestService/sign:
+    post:
+      tags:
+        - TestService
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+  /api/TestService/publish:
+    post:
+      tags:
+        - TestService
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+  /api/TestService/register:
+    post:
+      tags:
+        - TestService
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+  /api/TestService/testdrive:
+    post:
+      tags:
+        - TestService
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RestRequestModel'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseModel'
+  '/api/TestService/status/{operationId}':
+    get:
+      tags:
+        - TestService
+      parameters:
+        - name: operationId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RestResponseStatusModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseStatusModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RestResponseStatusModel'
+  '/api/migration/cppAccounts/{cppAccountId}/offers/{cppOfferId}/validate':
+    post:
+      tags:
+        - WorkflowDataMigration
+      parameters:
+        - name: cppAccountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: cppOfferId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CppValidationError'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CppValidationError'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CppValidationError'
+  '/api/migration/cppAccounts/{cppAccountId}/offers/{cppOfferId}/pcaccounts/{accountId}':
+    post:
+      tags:
+        - WorkflowDataMigration
+      parameters:
+        - name: cppAccountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: cppOfferId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+  '/api/migration/cppAccounts/{cppAccountId}/offers/{cppOfferId}/offerType/{offerType}/publishVersion/{publishVersion}/offerVersion/{offerVersion}':
+    get:
+      tags:
+        - WorkflowDataMigration
+      parameters:
+        - name: cppAccountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: cppOfferId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: offerType
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: publishVersion
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: offerVersion
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+  '/api/migration/workflows/{workflowId}/offerTypes/{offerTypeId}/operations/{operationId}/environments/{environmentId}':
+    put:
+      tags:
+        - WorkflowDataMigration
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: offerTypeId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: operationId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: environmentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/StringUriIDictionaryStringTuple'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StringUriIDictionaryStringTuple'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/StringUriIDictionaryStringTuple'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/StringUriIDictionaryStringTuple'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+  '/api/workflows/{workflowId}':
+    get:
+      tags:
+        - WorkflowStatus
+      summary: Get the display data associated with a workflow jobId.
+      parameters:
+        - name: workflowId
+          in: path
+          description: The workflow jobId.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+  '/api/display/offerTypes/{offerTypeId}/operations/{operationId}/environments/{environmentId}':
+    get:
+      tags:
+        - WorkflowStatus
+      summary: 'Get the default display data associated with an offerTypeId, operationId, and environmentId.'
+      parameters:
+        - name: offerTypeId
+          in: path
+          description: The offerTypeId.
+          required: true
+          schema:
+            type: string
+        - name: operationId
+          in: path
+          description: The operationId.
+          required: true
+          schema:
+            type: string
+        - name: environmentId
+          in: path
+          description: The envirionmentId.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+  '/api/workflows/{workflowId}/offerTypes/{offerTypeId}/operations/{operationId}/environments/{environmentId}':
+    get:
+      tags:
+        - WorkflowStatus
+      summary: "Try to get the display data associated with the workflow jobId.\r\nIf this is not found, get the default data associated with the offerTypeId, operationId, and environmentId."
+      parameters:
+        - name: workflowId
+          in: path
+          description: The workflow jobId.
+          required: true
+          schema:
+            type: string
+        - name: offerTypeId
+          in: path
+          description: The offerTypeId.
+          required: true
+          schema:
+            type: string
+        - name: operationId
+          in: path
+          description: The operationId.
+          required: true
+          schema:
+            type: string
+        - name: environmentId
+          in: path
+          description: The envirionmentId.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDisplayData'
+  '/api/storefrontlinks/{workflowId}':
+    get:
+      tags:
+        - WorkflowStatus
+      summary: Try to get the storefront link data associated with the workflow jobId.
+      parameters:
+        - name: workflowId
+          in: path
+          description: The workflow jobId.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreLink'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreLink'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreLink'
+    put:
+      tags:
+        - WorkflowStatus
+      summary: "Takes in a list of StoreLinks from the body and for each link, checks the isEnabled boolean and updates the CosmosDb data for that link to match.\r\nThis method will return BadRequest if a link is included in the request which is not present in CosmosDb. \r\nThe only data that is affected by this method is the isEnabled boolean."
+      parameters:
+        - name: workflowId
+          in: path
+          description: The workflow jobId.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The links with updated isEnabled information. List of type StoreLink is read from the body of the request
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StoreLink'
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StoreLink'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StoreLink'
+          application/*+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StoreLink'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreLink'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreLink'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StoreLink'
+components:
+  schemas:
+    CertificationReport:
+      type: object
+      properties:
+        JobId:
+          type: string
+          nullable: true
+        ReportGenerationTime:
+          type: string
+          format: date-time
+        Status:
+          $ref: '#/components/schemas/CertificationStatus'
+        FileId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CertificationStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      type: integer
+      format: int32
+    ComposerLogKey:
+      type: object
+      properties:
+        Ordinal:
+          type: integer
+          format: int32
+        Partition:
+          type: string
+          nullable: true
+        Row:
+          type: string
+          nullable: true
+        MessageId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    ComposerState:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      type: integer
+      format: int32
+    CppValidationError:
+      type: object
+      properties:
+        Code:
+          type: string
+          nullable: true
+        Message:
+          type: string
+          nullable: true
+        Target:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CreateWorkflowRequest:
+      type: object
+      properties:
+        AccountId:
+          type: integer
+          format: int64
+        ContentType:
+          type: string
+          nullable: true
+        JobType:
+          type: string
+          nullable: true
+        ResourceId:
+          type: string
+          nullable: true
+        JobId:
+          type: string
+          format: uuid
+        Rerun:
+          type: boolean
+        AdditionalData:
+          type: string
+          nullable: true
+      additionalProperties: false
+    CreateWorkflowResult:
+      type: object
+      properties:
+        IsCreated:
+          type: boolean
+        DisplayData:
+          $ref: '#/components/schemas/WorkflowDisplayData'
+      additionalProperties: false
+    Fault:
+      required:
+        - ErrorCode
+        - ErrorMessage
+      type: object
+      properties:
+        Resource:
+          $ref: '#/components/schemas/Resource'
+        Type:
+          $ref: '#/components/schemas/FaultType'
+        ErrorCode:
+          maxLength: 50
+          minLength: 0
+          type: string
+        ErrorMessage:
+          maxLength: 1024
+          minLength: 0
+          type: string
+      additionalProperties: false
+    FaultType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    Feature:
+      type: object
+      properties:
+        FeatureName:
+          $ref: '#/components/schemas/FeatureName'
+        IsEnabled:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    FeatureName:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - -1
+      type: integer
+      format: int32
+    ILinkStorage:
+      type: object
+      properties:
+        Rel:
+          type: string
+          nullable: true
+          readOnly: true
+        Type:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    JToken:
+      type: array
+      items:
+        $ref: '#/components/schemas/JToken'
+    Link:
+      type: object
+      properties:
+        Href:
+          type: string
+          nullable: true
+        Rel:
+          type: string
+          nullable: true
+        Method:
+          type: string
+          nullable: true
+        ResourceId:
+          type: string
+          nullable: true
+        HashCode:
+          type: string
+          nullable: true
+        CertHashCode:
+          type: string
+          nullable: true
+        IsExpanded:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    PendingUpdateInfo:
+      type: object
+      properties:
+        UpdateType:
+          $ref: '#/components/schemas/PendingUpdateType'
+        ShouldRetry:
+          type: boolean
+        CreatedAt:
+          type: string
+          format: date-time
+        UpdatedAt:
+          type: string
+          format: date-time
+        Status:
+          $ref: '#/components/schemas/PendingUpdateStatus'
+        Rel:
+          type: string
+          nullable: true
+        Href:
+          type: string
+          nullable: true
+        Token:
+          type: string
+          nullable: true
+        FailedReason:
+          type: string
+          nullable: true
+          deprecated: true
+        StatusMessage:
+          type: string
+          nullable: true
+      additionalProperties: false
+    PendingUpdateStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - -1
+      type: integer
+      format: int32
+    PendingUpdateType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      type: integer
+      format: int32
+    ProcessorInfo:
+      type: object
+      properties:
+        ProcessorName:
+          type: string
+          nullable: true
+        ProcessorFriendlyName:
+          type: string
+          nullable: true
+        ProcessorOrdinal:
+          type: integer
+          format: int32
+      additionalProperties: false
+    Resource:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+      type: integer
+      format: int32
+    RestBasicOperation:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+      type: integer
+      format: int32
+    RestDetails:
+      type: object
+      properties:
+        Id:
+          type: string
+          nullable: true
+        JobId:
+          type: string
+          format: uuid
+        InstanceId:
+          type: string
+          format: uuid
+        OperationId:
+          type: string
+          nullable: true
+        InProgressUri:
+          type: string
+          format: uri
+          nullable: true
+        ProcessorStatusMessage:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RestErrorCodeDetails:
+      type: object
+      properties:
+        Code:
+          type: string
+          nullable: true
+        Params:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    RestErrorCodeResponse:
+      type: object
+      properties:
+        ErrorCodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/RestErrorCodeDetails'
+          nullable: true
+      additionalProperties: false
+    RestOperationMode:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    RestOperationType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      type: integer
+      format: int32
+    RestRequestModel:
+      type: object
+      properties:
+        IngestionWorkflowId:
+          type: string
+          nullable: true
+        PublisherId:
+          type: string
+          nullable: true
+        AmsAccountId:
+          type: string
+          nullable: true
+        ProductId:
+          type: string
+          nullable: true
+        SubmissionId:
+          type: string
+          nullable: true
+        Type:
+          type: string
+          nullable: true
+        BasicOperation:
+          $ref: '#/components/schemas/RestBasicOperation'
+        TargetEnvironment:
+          $ref: '#/components/schemas/RestTargetEnvironment'
+        TargetCloud:
+          $ref: '#/components/schemas/RestTargetCloud'
+        MethodId:
+          type: string
+          nullable: true
+        SubStepNames:
+          type: array
+          items:
+            type: string
+          nullable: true
+        AssetId:
+          type: string
+          nullable: true
+        AssetVersion:
+          type: integer
+          format: int64
+        PublishVersion:
+          type: integer
+          format: int64
+        PlanId:
+          type: string
+          nullable: true
+        Operation:
+          $ref: '#/components/schemas/RestOperationType'
+        OperationMode:
+          $ref: '#/components/schemas/RestOperationMode'
+        PublisherDisplayName:
+          type: string
+          nullable: true
+        PublisherPartnerNetworkId:
+          type: string
+          nullable: true
+        PublisherEmails:
+          type: array
+          items:
+            type: string
+          nullable: true
+        CustomerSupportEmail:
+          type: string
+          nullable: true
+        CustomerSupportPhoneNumber:
+          type: string
+          nullable: true
+        IntegrationContactEmail:
+          type: string
+          nullable: true
+        IntegrationContactPhoneNumber:
+          type: string
+          nullable: true
+        AssetDetails:
+          $ref: '#/components/schemas/JToken'
+        PreviousAssetDetails:
+          $ref: '#/components/schemas/JToken'
+        PreviousPreviewAssetDetails:
+          $ref: '#/components/schemas/JToken'
+        SubmissionDetails:
+          $ref: '#/components/schemas/Submission'
+        PreviousOperationDetails:
+          $ref: '#/components/schemas/JToken'
+        PassThroughPairs:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+        InstanceId:
+          type: string
+          nullable: true
+        IsWorkflowRestarted:
+          type: boolean
+      additionalProperties: false
+    RestResponseModel:
+      type: object
+      properties:
+        IngestionWorkflowId:
+          type: string
+          nullable: true
+        PublisherId:
+          type: string
+          nullable: true
+        AmsAccountId:
+          type: string
+          nullable: true
+        ProductId:
+          type: string
+          nullable: true
+        SubmissionId:
+          type: string
+          nullable: true
+        Type:
+          type: string
+          nullable: true
+        BasicOperation:
+          $ref: '#/components/schemas/RestBasicOperation'
+        TargetEnvironment:
+          $ref: '#/components/schemas/RestTargetEnvironment'
+        TargetCloud:
+          $ref: '#/components/schemas/RestTargetCloud'
+        MethodId:
+          type: string
+          nullable: true
+        SubStepNames:
+          type: array
+          items:
+            type: string
+          nullable: true
+        AssetId:
+          type: string
+          nullable: true
+        AssetVersion:
+          type: integer
+          format: int64
+        PublishVersion:
+          type: integer
+          format: int64
+        PlanId:
+          type: string
+          nullable: true
+        Operation:
+          $ref: '#/components/schemas/RestOperationType'
+        OperationMode:
+          $ref: '#/components/schemas/RestOperationMode'
+        PublisherDisplayName:
+          type: string
+          nullable: true
+        PublisherPartnerNetworkId:
+          type: string
+          nullable: true
+        PublisherEmails:
+          type: array
+          items:
+            type: string
+          nullable: true
+        CustomerSupportEmail:
+          type: string
+          nullable: true
+        CustomerSupportPhoneNumber:
+          type: string
+          nullable: true
+        IntegrationContactEmail:
+          type: string
+          nullable: true
+        IntegrationContactPhoneNumber:
+          type: string
+          nullable: true
+        AssetDetails:
+          $ref: '#/components/schemas/JToken'
+        PreviousAssetDetails:
+          $ref: '#/components/schemas/JToken'
+        PreviousPreviewAssetDetails:
+          $ref: '#/components/schemas/JToken'
+        SubmissionDetails:
+          $ref: '#/components/schemas/Submission'
+        PreviousOperationDetails:
+          $ref: '#/components/schemas/JToken'
+        PassThroughPairs:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+        InstanceId:
+          type: string
+          nullable: true
+        IsWorkflowRestarted:
+          type: boolean
+        OperationStatus:
+          $ref: '#/components/schemas/RestResponseStatusModel'
+      additionalProperties: false
+    RestResponseStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      type: integer
+      format: int32
+    RestResponseStatusModel:
+      type: object
+      properties:
+        OperationId:
+          type: string
+          nullable: true
+        Status:
+          $ref: '#/components/schemas/RestResponseStatus'
+        StatusMessage:
+          type: string
+          nullable: true
+        AdditionalStatusMessages:
+          type: array
+          items:
+            type: string
+          nullable: true
+        PercentageCompleted:
+          type: integer
+          format: int32
+        OperationDetails:
+          $ref: '#/components/schemas/JToken'
+        DisplayLinks:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+          nullable: true
+        ErrorCodeDetails:
+          $ref: '#/components/schemas/RestErrorCodeResponse'
+        StoreLinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoreLink'
+          nullable: true
+      additionalProperties: false
+    RestTargetCloud:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      type: integer
+      format: int32
+    RestTargetEnvironment:
+      enum:
+        - 0
+        - 1
+        - 2
+      type: integer
+      format: int32
+    StoreLink:
+      type: object
+      properties:
+        StoreKey:
+          type: string
+          nullable: true
+        CloudKey:
+          type: string
+          nullable: true
+        Uri:
+          type: string
+          nullable: true
+        PlanId:
+          type: string
+          nullable: true
+        IsEnabled:
+          type: boolean
+        AssetId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    StringUriIDictionaryStringTuple:
+      type: object
+      properties:
+        Item1:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+          nullable: true
+          readOnly: true
+        Item2:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    Submission:
+      type: object
+      properties:
+        Id:
+          type: string
+          nullable: true
+        RevisionToken:
+          type: string
+          nullable: true
+          readOnly: true
+        UpdatedBy:
+          type: string
+          nullable: true
+        CreatedBy:
+          type: string
+          nullable: true
+        CreatedDateTime:
+          type: string
+          format: date-time
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          nullable: true
+        ProductId:
+          type: string
+          nullable: true
+        BaseId:
+          type: string
+          nullable: true
+        ProductType:
+          type: string
+          nullable: true
+        SandboxId:
+          type: string
+          nullable: true
+        FlightId:
+          type: string
+          nullable: true
+          deprecated: true
+        TrainId:
+          type: string
+          nullable: true
+        IsFlight:
+          type: boolean
+        SubmissionState:
+          $ref: '#/components/schemas/SubmissionState'
+        WorkflowStatus:
+          $ref: '#/components/schemas/WorkflowStatus'
+        SubmissionType:
+          $ref: '#/components/schemas/SubmissionType'
+        FriendlyName:
+          type: string
+          nullable: true
+        PublishedDateTime:
+          type: string
+          format: date-time
+        IsPublished:
+          type: boolean
+        ReleaseNumber:
+          type: integer
+          format: int32
+        ReleaseRank:
+          type: integer
+          format: int32
+        Version:
+          type: string
+          nullable: true
+        IsEditable:
+          type: boolean
+        CanDelete:
+          type: boolean
+        UpdatedDateTime:
+          type: string
+          format: date-time
+        CanUpdate:
+          type: boolean
+        CertificationReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/CertificationReport'
+          nullable: true
+        LockedXblServiceConfigVersion:
+          type: string
+          nullable: true
+        Features:
+          type: array
+          items:
+            $ref: '#/components/schemas/Feature'
+          nullable: true
+        PendingUpdate:
+          $ref: '#/components/schemas/PendingUpdateInfo'
+        AreResourcesLinked:
+          type: boolean
+        FailureExitCodes:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+          nullable: true
+        Faults:
+          type: array
+          items:
+            $ref: '#/components/schemas/Fault'
+          nullable: true
+        IsLateBound:
+          type: boolean
+        VariantLinkCollection:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariantLink'
+          nullable: true
+      additionalProperties: false
+    SubmissionState:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      type: integer
+      format: int32
+    SubmissionType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - -1
+      type: integer
+      format: int32
+    SubmissionWorkflowCreateRequest:
+      required:
+        - Environment
+        - OperationType
+      type: object
+      properties:
+        OperationType:
+          $ref: '#/components/schemas/WorkflowOperationType'
+        Environment:
+          $ref: '#/components/schemas/WorkflowOperationTargetEnvironment'
+        StorageLinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ILinkStorage'
+          nullable: true
+        ExtensionData:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/JToken'
+          nullable: true
+        ExtensionDataSize:
+          maximum: 10
+          minimum: 0
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    TimeSpan:
+      type: object
+      properties:
+        Ticks:
+          type: integer
+          format: int64
+          readOnly: true
+        Days:
+          type: integer
+          format: int32
+          readOnly: true
+        Hours:
+          type: integer
+          format: int32
+          readOnly: true
+        Milliseconds:
+          type: integer
+          format: int32
+          readOnly: true
+        Minutes:
+          type: integer
+          format: int32
+          readOnly: true
+        Seconds:
+          type: integer
+          format: int32
+          readOnly: true
+        TotalDays:
+          type: number
+          format: double
+          readOnly: true
+        TotalHours:
+          type: number
+          format: double
+          readOnly: true
+        TotalMilliseconds:
+          type: number
+          format: double
+          readOnly: true
+        TotalMinutes:
+          type: number
+          format: double
+          readOnly: true
+        TotalSeconds:
+          type: number
+          format: double
+          readOnly: true
+      additionalProperties: false
+    VariantLink:
+      type: object
+      properties:
+        VariantId:
+          type: string
+          nullable: true
+        Links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          nullable: true
+      additionalProperties: false
+    Version:
+      type: object
+      properties:
+        Major:
+          type: integer
+          format: int32
+          readOnly: true
+        Minor:
+          type: integer
+          format: int32
+          readOnly: true
+        Build:
+          type: integer
+          format: int32
+          readOnly: true
+        Revision:
+          type: integer
+          format: int32
+          readOnly: true
+        MajorRevision:
+          type: integer
+          format: int32
+          readOnly: true
+        MinorRevision:
+          type: integer
+          format: int32
+          readOnly: true
+      additionalProperties: false
+    WorkflowDisplayData:
+      type: object
+      properties:
+        JobId:
+          type: string
+          format: uuid
+        StartedDateTime:
+          type: string
+          format: date-time
+        CompletedDateTime:
+          type: string
+          format: date-time
+        DisplaySteps:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowDisplayStep'
+          nullable: true
+        CreatedBy:
+          type: string
+          nullable: true
+        OfferType:
+          type: string
+          nullable: true
+        OperationType:
+          type: string
+          nullable: true
+        TargetEnvironment:
+          type: string
+          nullable: true
+        DisplayRank:
+          type: integer
+          format: int32
+        IsVisible:
+          type: boolean
+        IsCancelAllowed:
+          type: boolean
+        WorkflowState:
+          type: string
+          nullable: true
+      additionalProperties: false
+    WorkflowDisplayStep:
+      type: object
+      properties:
+        DisplayName:
+          type: string
+          nullable: true
+        Description:
+          type: string
+          nullable: true
+        LocalizationCode:
+          type: string
+          nullable: true
+        DisplayState:
+          type: string
+          nullable: true
+        StartedDateTime:
+          type: string
+          format: date-time
+        CompletedDateTime:
+          type: string
+          format: date-time
+        EstimatedSla:
+          $ref: '#/components/schemas/TimeSpan'
+        SlaDisplayText:
+          type: string
+          nullable: true
+        DisplayLinks:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+          nullable: true
+        StoreLinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoreLink'
+          nullable: true
+        DisplayStepSteps:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowStep'
+          nullable: true
+        ActionLink:
+          type: string
+          nullable: true
+      additionalProperties: false
+    WorkflowError:
+      type: object
+      properties:
+        Code:
+          type: string
+          nullable: true
+        Arguments:
+          type: array
+          items:
+            type: string
+          nullable: true
+        Message:
+          type: string
+          nullable: true
+      additionalProperties: false
+    WorkflowJob:
+      type: object
+      properties:
+        ETag:
+          type: string
+          nullable: true
+        CreatedDateTime:
+          type: string
+          format: date-time
+        UpdatedDatetime:
+          type: string
+          format: date-time
+        PartitionKey:
+          type: string
+          nullable: true
+        DocumentId:
+          type: string
+          nullable: true
+        WorkflowDefinitionVersion:
+          $ref: '#/components/schemas/Version'
+        ComposerState:
+          $ref: '#/components/schemas/ComposerState'
+        ComposerLogs:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComposerLogKey'
+          nullable: true
+        JobId:
+          type: string
+          format: uuid
+        MessageId:
+          type: string
+          format: uuid
+        IsLocked:
+          type: boolean
+        IsCanceled:
+          type: boolean
+        ProcessorInfo:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProcessorInfo'
+          nullable: true
+        InstanceIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+          nullable: true
+        CurrentInstanceId:
+          type: string
+          format: uuid
+        AccountId:
+          type: integer
+          format: int64
+        ResourceId:
+          type: string
+          nullable: true
+        ContentType:
+          type: string
+          nullable: true
+        JobType:
+          type: string
+          nullable: true
+        WorkflowType:
+          type: string
+          nullable: true
+        IsDynamic:
+          type: boolean
+        CorrelationId:
+          type: string
+          format: uuid
+        ExtendedData:
+          type: string
+          nullable: true
+        CvBase:
+          type: string
+          nullable: true
+        CvExtension:
+          type: integer
+          format: int32
+        Status:
+          type: string
+          nullable: true
+        WorkflowDefinitionDetails:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/JToken'
+          nullable: true
+      additionalProperties: false
+    WorkflowOperationTargetEnvironment:
+      enum:
+        - 0
+        - 1
+        - 2
+        - -1
+      type: integer
+      format: int32
+    WorkflowOperationType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - -1
+      type: integer
+      format: int32
+    WorkflowStaticData:
+      type: object
+      properties:
+        ETag:
+          type: string
+          nullable: true
+        CreatedDateTime:
+          type: string
+          format: date-time
+        UpdatedDatetime:
+          type: string
+          format: date-time
+        PartitionKey:
+          type: string
+          nullable: true
+        DocumentId:
+          type: string
+          nullable: true
+        Data:
+          type: string
+          nullable: true
+        JobId:
+          type: string
+          format: uuid
+      additionalProperties: false
+    WorkflowStatus:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - -1
+      type: integer
+      format: int32
+    WorkflowStep:
+      type: object
+      properties:
+        DisplayName:
+          type: string
+          nullable: true
+        Description:
+          type: string
+          nullable: true
+        LocalizationCode:
+          type: string
+          nullable: true
+        FailureMessage:
+          type: string
+          nullable: true
+        SlaDisplayText:
+          type: string
+          nullable: true
+        StepState:
+          type: string
+          nullable: true
+        CompletionPercentage:
+          type: string
+          nullable: true
+        StatusMessage:
+          type: string
+          nullable: true
+        StartedDateTime:
+          type: string
+          format: date-time
+        CompletedDateTime:
+          type: string
+          format: date-time
+        EstimatedSla:
+          $ref: '#/components/schemas/TimeSpan'
+        DisplayLinks:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+          nullable: true
+        WorkflowErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowError'
+          nullable: true
+        StoreLinks:
+          type: array
+          items:
+            $ref: '#/components/schemas/StoreLink'
+          nullable: true
+        StatusMessages:
+          type: array
+          items:
+            type: string
+          nullable: true
+        AdditionalStepInformationCodes:
+          type: array
+          items:
+            type: string
+          nullable: true
+        ActionLink:
+          type: string
+          nullable: true
+        LegacyApiStepName:
+          type: string
+          nullable: true
+      additionalProperties: false

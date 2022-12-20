@@ -1,0 +1,17 @@
+200 OK
+Etag: "1d89b8342263ed2"
+Ms-Cv: eZ905B6bz0aZ+U0t.0
+Ms-Correlationid: f2fe78ec-2256-41d6-b257-b5724dc07ef3
+X-Powered-By: ASP.NET
+Ms-Requestid: 3df88158-0f87-43a5-abbb-f6811a4ff577
+Content-Type: application/javascript
+Last-Modified: Tue, 19 Jul 2022 15:21:46 GMT
+Set-Cookie: TiPMix=60.65407119085159; path=/; HttpOnly; Domain=identitymapping-prod.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=identitymapping-prod.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None
+Request-Context: appId=cid-v1:3d87110b-857f-4068-833a-b8eb8e030ed5
+X-Assemblyversion: 2022.11.1.1
+Date: Mon, 19 Dec 2022 21:00:28 GMT
+Server: Microsoft-IIS/10.0
+Accept-Ranges: bytes
+Retry-Count: 0
+Vary: Accept-Encoding
+X-Server: PROD.CentralUS-RD0003FF9ACFB3

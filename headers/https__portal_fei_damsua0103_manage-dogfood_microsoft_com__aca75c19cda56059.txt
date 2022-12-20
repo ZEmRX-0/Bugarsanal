@@ -1,0 +1,13 @@
+200 OK
+Accept-Ranges: bytes
+Etag: "1d68ae35739f625"
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 21:01:07 GMT
+Content-Length: 424485
+Content-Type: application/javascript
+Last-Modified: Mon, 14 Sep 2020 22:06:48 GMT
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000
+Client-Request-Id: c16c48b4-8f52-430d-a73c-94de32b2f377
+Client-Session-Id: 
+Retry-Count: 0

@@ -1,0 +1,14 @@
+200 OK
+Accept-Ranges: bytes
+Etag: "1d90ffd3a111a4c"
+Ms-Serverid: 92
+Date: Mon, 19 Dec 2022 21:00:00 GMT
+Content-Length: 531276
+Last-Modified: Wed, 14 Dec 2022 20:47:06 GMT
+Ms-Correlationid: ddfcf6ce-3e99-45e0-9598-c7059169f3b1
+Ms-Requestid: 54e8851b-2022-4166-a00b-8e97e2e51f13
+Ms-Cv: hQqnflqx2EOHFho6.0
+X-Content-Type-Options: nosniff
+Retry-Count: 0
+Content-Type: application/javascript
+Server: Kestrel

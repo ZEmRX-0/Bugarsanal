@@ -1,0 +1,2799 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MDH",
+    "description": "MDH VNext",
+    "contact": {
+      "name": "mdh vnext",
+      "url": "https://mdhvnext.microsoft.com/",
+      "email": "mdhdevsg@microsoft.com"
+    },
+    "license": {
+      "name": "Microsoft Corporation"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/v1.0/metadata": {
+      "get": {
+        "tags": [
+          "Entity"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Config"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes": {
+      "get": {
+        "tags": [
+          "Entity"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/issueTypes": {
+      "get": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/issueTypes/{issueType}/issueCount": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/filterTypes/{filterName}": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "param",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Filter"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Filter"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Filter"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/issueType/{issueType}/issues/{provider}": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueStatus",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          },
+          {
+            "name": "issueStatusGroup",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "defectType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sortType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": { }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GridResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GridResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GridResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/issueType/{issueType}/userAction/{userAction}/{provider}": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userAction",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": { }
+            },
+            "application/json": {
+              "schema": { }
+            },
+            "text/json": {
+              "schema": { }
+            },
+            "application/*+json": {
+              "schema": { }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/userRole": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRole"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRole"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRole"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/issueType/{issueType}/queryAction/{queryAction}/{provider}": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "queryAction",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveQueryData"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveQueryData"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveQueryData"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveQueryData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/issueType/{issueType}/additionalInsights/{provider}": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mssid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recommendedTPID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/entityTypes/{entityType}/issueType/{issueType}/recommendationProvider/{provider}": {
+      "post": {
+        "tags": [
+          "Entity"
+        ],
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "issueType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": { }
+            },
+            "application/json": {
+              "schema": { }
+            },
+            "text/json": {
+              "schema": { }
+            },
+            "application/*+json": {
+              "schema": { }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccessDenied": {
+        "type": "object",
+        "properties": {
+          "ImagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "HeaderTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "HeaderBody": {
+            "type": "string",
+            "nullable": true
+          },
+          "Controls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleControl"
+            },
+            "nullable": true
+          },
+          "FooterHead": {
+            "type": "string",
+            "nullable": true
+          },
+          "FooterBody": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnnoucementDetails": {
+        "type": "object",
+        "properties": {
+          "ShowAnnouncement": {
+            "type": "boolean"
+          },
+          "AnnouncementText": {
+            "type": "string",
+            "nullable": true
+          },
+          "ShowMaintenance": {
+            "type": "boolean"
+          },
+          "MaintenanceText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AreaSecurityGroups": {
+        "type": "object",
+        "properties": {
+          "SecurityGroupMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SecurityGroupMappings"
+            },
+            "nullable": true
+          },
+          "RoleMetrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RoleMetrics"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BasicSearchOptions": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ComparisonTabs": {
+        "type": "object",
+        "properties": {
+          "SourceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TabName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssuePanelHeaderDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendationPanelHeaderDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ComparisonFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UIFieldDetails"
+            },
+            "nullable": true
+          },
+          "HtmlField": {
+            "type": "string",
+            "nullable": true
+          },
+          "ScenarioId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Config": {
+        "type": "object",
+        "properties": {
+          "Project": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProjectDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "EntityMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntityMetadata"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CountsSection": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "CountSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DashboardSection"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateResult": {
+        "type": "object",
+        "properties": {
+          "RecommendationSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendedFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TierDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendationScore": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalLink": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalLink"
+            },
+            "nullable": true
+          },
+          "ComparisonTabs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComparisonTabs"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateTab": {
+        "type": "object",
+        "properties": {
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ResultsLabel": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsVisible": {
+            "type": "boolean"
+          },
+          "CreateResult": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CreateResult"
+            },
+            "nullable": true
+          },
+          "UserActions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserActions"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dashboard": {
+        "type": "object",
+        "properties": {
+          "CountSourceColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusIdColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "DashboardMetrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Metric"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardMetadata": {
+        "type": "object",
+        "properties": {
+          "CountsSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountsSection"
+            },
+            "nullable": true
+          },
+          "OthersSection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DashboardOtherSection"
+            },
+            "nullable": true
+          },
+          "LegendIcons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LegendSection"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardMetricsSource": {
+        "type": "object",
+        "properties": {
+          "CountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "ColumnName": {
+            "type": "string",
+            "nullable": true
+          },
+          "StatusId": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssueStatusCategory": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardOtherSection": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "otherSectionResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DashboardSection"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DashboardSection": {
+        "type": "object",
+        "properties": {
+          "CountName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountLabel": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountSequence": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CountImageForZero": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountImageForDisable": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountImageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CountImageForDisableNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsCountable": {
+            "type": "boolean"
+          },
+          "IsCompanyClickable": {
+            "type": "boolean"
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "IssueStatusCategory": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeclineTab": {
+        "type": "object",
+        "properties": {
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Reasons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reasons"
+            },
+            "nullable": true
+          },
+          "IsVisible": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmailBody": {
+        "type": "object",
+        "properties": {
+          "DefectType": {
+            "type": "string",
+            "nullable": true
+          },
+          "HtmlField": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntityFields": {
+        "type": "object",
+        "properties": {
+          "IssueFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssueFeilds"
+            },
+            "nullable": true
+          },
+          "ReferenceIssueFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssueFeilds"
+            },
+            "nullable": true
+          },
+          "RecommendationFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecommendedFields"
+            },
+            "nullable": true
+          },
+          "RecommendationPanelFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecommendedFields"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntityMetadata": {
+        "type": "object",
+        "properties": {
+          "Entity": {
+            "type": "string",
+            "nullable": true
+          },
+          "EntityId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EntityDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubHeaderDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "BasicSearchText": {
+            "type": "string",
+            "nullable": true
+          },
+          "GridHeaderText": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "KeyField": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsSGroupCheckRequired": {
+            "type": "boolean"
+          },
+          "SecurityFilterName": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "AreaSecurityGroups": {
+            "$ref": "#/components/schemas/AreaSecurityGroups"
+          },
+          "Filters": {
+            "$ref": "#/components/schemas/Filters"
+          },
+          "Dashboard": {
+            "$ref": "#/components/schemas/Dashboard"
+          },
+          "Issues": {
+            "$ref": "#/components/schemas/Issue"
+          },
+          "Queries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IRProvider"
+            },
+            "nullable": true
+          },
+          "Recommendations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Recommendation"
+            },
+            "nullable": true
+          },
+          "EntityFields": {
+            "$ref": "#/components/schemas/EntityFields"
+          },
+          "UI": {
+            "$ref": "#/components/schemas/UI"
+          },
+          "SegmentTaxonomy": {
+            "$ref": "#/components/schemas/SegmentTaxonomy"
+          },
+          "ShowForbidden": {
+            "type": "boolean"
+          },
+          "IsSuperAdminCheck": {
+            "type": "boolean"
+          },
+          "IsPrincipalCheck": {
+            "type": "boolean"
+          },
+          "IsEnabled": {
+            "type": "boolean"
+          },
+          "IsFilterConfigFromDB": {
+            "type": "boolean"
+          },
+          "Sensitive": {
+            "$ref": "#/components/schemas/Sensitive"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExternalLink": {
+        "type": "object",
+        "properties": {
+          "TabName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsVisible": {
+            "type": "boolean"
+          },
+          "LinkDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Link": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldDetails": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldDataColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "IssueFieldValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendationFieldValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsRevenue": {
+            "type": "boolean"
+          },
+          "CalculateFromCountriesJson": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Filter": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "DependentOnFilterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TabName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterMetadata": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SourceType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProviderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "KeyvaluePair": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BasicSearchOptions"
+            },
+            "nullable": true
+          },
+          "TabName": {
+            "type": "string",
+            "nullable": true
+          },
+          "issueType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterMetadataTabs": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterSource": {
+        "type": "object",
+        "properties": {
+          "FilterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProviderColumns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProviderColumns"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterValues": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Filters": {
+        "type": "object",
+        "properties": {
+          "FilterSource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterSource"
+            },
+            "nullable": true
+          },
+          "FilterMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterMetadata"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FiltersMetadata": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldControlType": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldSequence": {
+            "type": "string",
+            "nullable": true
+          },
+          "DependentFilterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "FilterTab": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsMultiple": {
+            "type": "boolean"
+          },
+          "issueType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GridActionButton": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssueStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsPopupVisibile": {
+            "type": "boolean"
+          },
+          "InfoText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GridInputType": {
+        "type": "object",
+        "properties": {
+          "InputType": {
+            "type": "string",
+            "nullable": true
+          },
+          "CanAccept": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendationType": {
+            "type": "string",
+            "nullable": true
+          },
+          "InputElement": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GridMetadata": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "GridColumns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UIFieldDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GridResponse": {
+        "type": "object",
+        "properties": {
+          "IssueData": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "ReferenceIssueData": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "TopRecommendation": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "OtherRecommendations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "OnHold": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          },
+          "OnHoldHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/JToken"
+            },
+            "nullable": true
+          },
+          "BasicSearchOptions": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "DashboardCount": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HeaderField": {
+        "type": "object",
+        "properties": {
+          "FieldDisplayName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IRProvider": {
+        "type": "object",
+        "properties": {
+          "ProviderName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDefault": {
+            "type": "boolean"
+          },
+          "isRootNodeCollection": {
+            "type": "boolean"
+          },
+          "RootNode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProviderColumns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProviderColumns"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Issue": {
+        "type": "object",
+        "properties": {
+          "IssueTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssueType"
+            },
+            "nullable": true
+          },
+          "IssueProviders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IssueTypeProviders"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IssueFeilds": {
+        "type": "object",
+        "properties": {
+          "IssueFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IssueType": {
+        "type": "object",
+        "properties": {
+          "IssueID": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssueDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "IssueSubType": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsReferenceAvailable": {
+            "type": "boolean"
+          },
+          "IssueSubTypeDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "PermissionRequiredText": {
+            "type": "string",
+            "nullable": true
+          },
+          "AuditRuleID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsEnabled": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "IssueTypeProviders": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Providers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IRProvider"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JToken": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/JToken"
+        }
+      },
+      "LegendSection": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "LegendSectionResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DashboardSection"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ListOptions": {
+        "type": "object",
+        "properties": {
+          "IsEditable": {
+            "type": "boolean"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Metric": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DashboardMetricsSource"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Metrics": {
+        "type": "object",
+        "properties": {
+          "SecurityFilterName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Role": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Group": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsCALCCheck": {
+            "type": "boolean"
+          },
+          "Value": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsAdmin": {
+            "type": "boolean"
+          },
+          "IssueType": {
+            "type": "string",
+            "nullable": true
+          },
+          "EntityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsTCM": {
+            "type": "boolean"
+          },
+          "IsPCD": {
+            "type": "boolean"
+          },
+          "IsBSO": {
+            "type": "boolean"
+          },
+          "IsDHS": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OnHoldTab": {
+        "type": "object",
+        "properties": {
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsVisible": {
+            "type": "boolean"
+          },
+          "MaxCharacterCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MaxDescriptionLength": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "EnabledDealTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "PossibleNextActions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListOptions"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Options": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "string",
+            "nullable": true
+          },
+          "NextControl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProviderColumns": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldSourceType": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldKeyName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "QueryResponse": {
+        "type": "object",
+        "properties": {
+          "SaveQueryData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SaveQueryData"
+            },
+            "nullable": true
+          },
+          "QueryActionResponse": {
+            "$ref": "#/components/schemas/UserActionResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Reasons": {
+        "type": "object",
+        "properties": {
+          "IsEditable": {
+            "type": "boolean"
+          },
+          "Reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerArea": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Recommendation": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "RecommendationProviders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IRProvider"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecommendationPanelMetadata": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IssueFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "HeaderField": {
+            "$ref": "#/components/schemas/HeaderField"
+          },
+          "SubHeaderField": {
+            "$ref": "#/components/schemas/SubHeaderField"
+          },
+          "RecommendationsTab": {
+            "$ref": "#/components/schemas/RecommendationsTab"
+          },
+          "CreateTab": {
+            "$ref": "#/components/schemas/CreateTab"
+          },
+          "SearchTab": {
+            "$ref": "#/components/schemas/SearchTab"
+          },
+          "OnHoldTab": {
+            "$ref": "#/components/schemas/OnHoldTab"
+          },
+          "DeclineTab": {
+            "$ref": "#/components/schemas/DeclineTab"
+          },
+          "EmailBody": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmailBody"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecommendationResult": {
+        "type": "object",
+        "properties": {
+          "RecommendationSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendedFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TierDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendationScore": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalLink": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalLink"
+            },
+            "nullable": true
+          },
+          "ComparisonTabs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ComparisonTabs"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecommendationsTab": {
+        "type": "object",
+        "properties": {
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ResultsLabel": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsVisible": {
+            "type": "boolean"
+          },
+          "RecommendationResult": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecommendationResult"
+            },
+            "nullable": true
+          },
+          "UserActions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserActions"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecommendedFields": {
+        "type": "object",
+        "properties": {
+          "IssueFieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TierRecommendationPanel": {
+            "type": "string",
+            "nullable": true
+          },
+          "TierGrid": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendationScore": {
+            "type": "string",
+            "nullable": true
+          },
+          "Columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RoleControl": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "InnerHtml": {
+            "type": "string",
+            "nullable": true
+          },
+          "Options": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Options"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RoleMetrics": {
+        "type": "object",
+        "properties": {
+          "IssueName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Metrics": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Metrics"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SaveQuery": {
+        "type": "object",
+        "properties": {
+          "Control": {
+            "type": "string",
+            "nullable": true
+          },
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelectedControlValues"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SaveQueryData": {
+        "type": "object",
+        "properties": {
+          "QueryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsLastSelectedQuery": {
+            "type": "string",
+            "nullable": true
+          },
+          "Queries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SaveQuery"
+            },
+            "nullable": true
+          },
+          "Filters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterValues"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchTab": {
+        "type": "object",
+        "properties": {
+          "DisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SearchOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UIFieldDetails"
+            },
+            "nullable": true
+          },
+          "IsVisible": {
+            "type": "boolean"
+          },
+          "ProviderName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SecurityGroupMappings": {
+        "type": "object",
+        "properties": {
+          "AreaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "SecurityGroupName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "Role": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SegmentData": {
+        "type": "object",
+        "properties": {
+          "Subsegment": {
+            "type": "string",
+            "nullable": true
+          },
+          "MalEligible": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SegmentTaxonomy": {
+        "type": "object",
+        "properties": {
+          "SegmentData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SegmentData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SelectedControlValues": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "nullable": true
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Sensitive": {
+        "type": "object",
+        "properties": {
+          "IsSensitiveCheck": {
+            "type": "boolean"
+          },
+          "Filter": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "IssueStatus": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "SgGroup": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StatusImage": {
+        "type": "object",
+        "properties": {
+          "StatusName": {
+            "type": "string",
+            "nullable": true
+          },
+          "Status": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartnerLedImgPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "SharedImgPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsCheckboxDisable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubHeaderField": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldDisplayName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UI": {
+        "type": "object",
+        "properties": {
+          "IssueIdField": {
+            "type": "string",
+            "nullable": true
+          },
+          "RecommendationIdField": {
+            "type": "string",
+            "nullable": true
+          },
+          "HelpTextInfoForGrid": {
+            "type": "string",
+            "nullable": true
+          },
+          "filtersMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FiltersMetadata"
+            },
+            "nullable": true
+          },
+          "dashboardMetadata": {
+            "$ref": "#/components/schemas/DashboardMetadata"
+          },
+          "GridMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GridMetadata"
+            },
+            "nullable": true
+          },
+          "RecommendationPanelMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RecommendationPanelMetadata"
+            },
+            "nullable": true
+          },
+          "StatusImages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StatusImage"
+            },
+            "nullable": true
+          },
+          "AccessDenied": {
+            "$ref": "#/components/schemas/AccessDenied"
+          },
+          "FilterMetadataTabs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterMetadataTabs"
+            },
+            "nullable": true
+          },
+          "GridActionButtons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GridActionButton"
+            },
+            "nullable": true
+          },
+          "GridInputTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GridInputType"
+            },
+            "nullable": true
+          },
+          "BasicSearchOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BasicSearchOptions"
+            },
+            "nullable": true
+          },
+          "AnnoucementDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AnnoucementDetails"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UIFieldDetails": {
+        "type": "object",
+        "properties": {
+          "FieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldType": {
+            "type": "string",
+            "nullable": true
+          },
+          "FieldDisplayOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FieldDisplayColumnWidth": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "IsSortable": {
+            "type": "boolean"
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "IsVisible": {
+            "type": "boolean"
+          },
+          "IsScrollable": {
+            "type": "boolean"
+          },
+          "IsClickable": {
+            "type": "boolean"
+          },
+          "IsRequired": {
+            "type": "boolean"
+          },
+          "ControlType": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsReadOnly": {
+            "type": "boolean"
+          },
+          "ValueofDays": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DependantColumn": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "assignment": {
+            "type": "string",
+            "nullable": true
+          },
+          "isRightAligned": {
+            "type": "boolean"
+          },
+          "MaxCharacter": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MinWidth": {
+            "type": "boolean"
+          },
+          "IsFrozen": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserActionResponse": {
+        "type": "object",
+        "properties": {
+          "IsSuccess": {
+            "type": "string",
+            "nullable": true
+          },
+          "ErrorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserActions": {
+        "type": "object",
+        "properties": {
+          "ActionName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ActionDisplayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsEnabledSourceField": {
+            "type": "string",
+            "nullable": true
+          },
+          "HelpInfoText": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          },
+          "Role": {
+            "type": "string",
+            "nullable": true
+          },
+          "issueStatus": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRole": {
+        "type": "object",
+        "properties": {
+          "RoleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsOtherUser": {
+            "type": "boolean"
+          },
+          "SGGroupName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/authorize",
+            "scopes": { }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

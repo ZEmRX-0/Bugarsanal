@@ -1,0 +1,4387 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Hardware API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/hardware/audiences": {
+      "get": {
+        "tags": [
+          "Audiences"
+        ],
+        "summary": "Returns collection of audience.",
+        "operationId": "Audiences_GetAudienceCollectionAsync",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "3c806a57-c792-42ab-a848-36e9eccde6de"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "663a2fba-9810-42b4-9317-59f8b74bec3d"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of Audience.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<Audience>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/audiences": {
+      "get": {
+        "tags": [
+          "Audiences"
+        ],
+        "summary": "Returns collection of audience.",
+        "operationId": "Audiences_GetAudienceCollectionAsync",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "ada98bc5-809a-43e0-ac17-ba2c3196c470"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "ddc9f4dd-aa6c-4148-bab3-66da3b20aa0f"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of Audience.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<Audience>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/domainData/operatingSystems": {
+      "get": {
+        "tags": [
+          "DomainData"
+        ],
+        "summary": "Get Operating Systems Collection",
+        "operationId": "DomainData_GetOperatingSystemsCollectionAsync",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "00c3b1f4-32a1-422b-a816-c287c667d1ad"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "cccf36a5-8e1f-485a-afe4-1eef7532c0a8"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/domainData/operatingSystems": {
+      "get": {
+        "tags": [
+          "DomainData"
+        ],
+        "summary": "Get Operating Systems Collection",
+        "operationId": "DomainData_GetOperatingSystemsCollectionAsync",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "23083ac6-b933-40a0-8b36-7b2c80ecab25"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "ad4b1f37-921d-4cfc-aee8-d7de1339b998"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<OperatingSystem>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "GET Products Using Product-ID",
+        "operationId": "Products_GetProductByIdAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "50e938cb-c8fd-4992-9cbb-3b41b69b1919"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1eb93a97-b43e-4112-93de-697dd025f8be"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Patches/Updates only given properties of a product",
+        "operationId": "Products_PatchProductAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "f06e8161-89ff-4243-8825-4c3c12ba7f7b"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "8c8cc359-9072-402a-80ed-2c726afc4334"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForUpdationProduct Properties to Patch",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductForUpdation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "200": {
+            "description": "Returns JSON response body returned by successful request"
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "GET Products Using Product-ID",
+        "operationId": "Products_GetProductByIdAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "67c45203-8846-4a92-9713-9ab7b5291f37"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "07dcea15-3ed3-4143-a743-cde04faa6ef5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Patches/Updates only given properties of a product",
+        "operationId": "Products_PatchProductAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "b335cd82-dc44-4d1f-bd2e-49037ab98353"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0735ae44-6ba1-4149-8489-26bf4b20638a"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForUpdationProduct Properties to Patch",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductForUpdation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "200": {
+            "description": "Returns JSON response body returned by successful request"
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Returns Collection of Products For Current User.",
+        "operationId": "Products_GetProductsCollectionAsync",
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The page size.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "The continuationToken.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "633d4f3c-ebd4-4cce-8fa2-1ce89a301b2c"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "b0cbabb3-971f-4a86-8465-fe744da0f591"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of products.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<Product>"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create a product.",
+        "operationId": "Products_CreateProduct",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "658ab0a0-fcef-4d2f-b4ea-b03d67f4651c"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "62ba7d71-322d-41eb-a618-ed518b1666e3"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForCreationProduct To Be Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductForCreation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "201 When Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Returns Collection of Products For Current User.",
+        "operationId": "Products_GetProductsCollectionAsync",
+        "parameters": [
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The page size.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "The continuationToken.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "bb418b13-e65a-40ce-81ef-1b52506bcebd"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "61871087-7d39-4a03-a90f-108b216b5f7e"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of products.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<Product>"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Create a product.",
+        "operationId": "Products_CreateProduct",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "4773dad6-c209-4971-9da2-98be017d12ec"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "721376f0-9ebe-4c58-97bd-c9b043b6035e"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ProductForCreationProduct To Be Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductForCreation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "201 When Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/ping": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Ping endpoint.",
+        "operationId": "Products_Ping",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "81d82b8c-c874-4248-8fc6-21fd9d700c5f"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "7df2673c-825f-4418-ab3e-3ea588446fae"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/ping": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Ping endpoint.",
+        "operationId": "Products_Ping",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "381e3411-3622-43e3-a8a4-61fe1f50a377"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "8cbbfb59-6aee-484f-b732-723c02bf465e"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/relationships/sourcepubliherid/{sourcePublisherId}/sourceproductid/{sourceProductId}/sourcesubmissionid/{sourceSubmissionId}": {
+      "get": {
+        "tags": [
+          "Relationships"
+        ],
+        "summary": "Get submission by source submission ID and source product ID and source publisher id.",
+        "operationId": "Relationships_GetSubmissionBySourceIdsAsync",
+        "parameters": [
+          {
+            "name": "sourcePublisherId",
+            "in": "path",
+            "description": "The source publisher ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sourceProductId",
+            "in": "path",
+            "description": "The source product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sourceSubmissionId",
+            "in": "path",
+            "description": "The source submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "620f83c7-22f2-4d66-86fd-12f1271e8fd9"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "6fa82519-a42a-4629-bb02-121b5cb99af8"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a submission.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Submission"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/relationships/sourcepubliherid/{sourcePublisherId}/sourceproductid/{sourceProductId}/sourcesubmissionid/{sourceSubmissionId}": {
+      "get": {
+        "tags": [
+          "Relationships"
+        ],
+        "summary": "Get submission by source submission ID and source product ID and source publisher id.",
+        "operationId": "Relationships_GetSubmissionBySourceIdsAsync",
+        "parameters": [
+          {
+            "name": "sourcePublisherId",
+            "in": "path",
+            "description": "The source publisher ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sourceProductId",
+            "in": "path",
+            "description": "The source product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "sourceSubmissionId",
+            "in": "path",
+            "description": "The source submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "fdf61906-6837-4e87-95bd-543ccfc11369"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "de45a40d-e168-4ce3-b276-febec9b9abc6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a submission.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Submission"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Search/IngestionData": {
+      "post": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Search for Submission Result.",
+        "operationId": "Search_GetIngestionDataSearchResultAsync",
+        "parameters": [
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "78e3fdd5-ec5c-4142-8afd-a79afb848cf1"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "2f7273c2-feba-4689-b5b7-01fdd2ea1368"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.IngestionDataSearchCriteriaSearch Criteria",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IngestionDataSearchCriteria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.IngestionDataSearchResultSubmission Search Result"
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}": {
+      "get": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Get shipping label by ID.",
+        "operationId": "ShippingLabels_GetShippingLabelByIdAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "The shipping label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "includeTargetingInfo",
+            "in": "query",
+            "description": "A flag indicating whether targeting info has to be included.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "b668791c-6d2a-449b-95de-1fecfc739e00"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "17b74506-b971-45a2-a5fe-28b4cd160537"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductJSON response body returned by a successful request for a specific shipping label",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingLabel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Patches/Updates only given properties of a shippingLabel",
+        "operationId": "ShippingLabels_PatchShippingLabelAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "af5544b7-df92-4669-99b6-27d7c941626a"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "dffb77a3-66b0-4875-862a-f712aa791e76"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ShippingLabelForUpdationShipping label Properties to Patch",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingLabelForUpdation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}": {
+      "get": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Get shipping label by ID.",
+        "operationId": "ShippingLabels_GetShippingLabelByIdAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "The shipping label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "includeTargetingInfo",
+            "in": "query",
+            "description": "A flag indicating whether targeting info has to be included.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "f09333a7-cd0b-4eff-83c4-2250770630df"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "22d95c1f-69b6-433a-bbe6-d7d3137ed32d"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductJSON response body returned by a successful request for a specific shipping label",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingLabel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Patches/Updates only given properties of a shippingLabel",
+        "operationId": "ShippingLabels_PatchShippingLabelAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "d57d0d04-d15a-4c46-9e8d-83b589f7ce34"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "d3fc462d-0a25-4642-bb72-1c7f8d2060af"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ShippingLabelForUpdationShipping label Properties to Patch",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingLabelForUpdation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels": {
+      "get": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Get all shipping labels.",
+        "operationId": "ShippingLabels_GetShippingLabelsCollectionAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The page size.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "The continuationToken.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "52428eb3-7e6a-46a8-8e52-49cc6003ac2a"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "fdd90b04-b9d5-4d0a-abc8-c8148e22cceb"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductReturns a list of products.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<ShippingLabel>"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Create a shippingLabel.",
+        "operationId": "ShippingLabels_CreateShippingLabelAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "ffd9a0ca-9dca-4da7-b55e-03b5e204112a"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "2683f580-4d02-4f1b-8636-ef771dd4007d"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.ShippingLabelForCreationShipping Label Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingLabelForCreation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ShippingLabelJSON request body for creating a new shipping label.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShippingLabel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels": {
+      "get": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Get all shipping labels.",
+        "operationId": "ShippingLabels_GetShippingLabelsCollectionAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The page size.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "The continuationToken.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0bfa54bf-c8e4-43ad-aa04-ac0c66a9a362"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "5f0c9f10-4fa2-4599-aa63-8e9295c3191f"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.ProductReturns a list of products.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<ShippingLabel>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/recover": {
+      "patch": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Recovers HWIDs of a shippingLabel",
+        "operationId": "ShippingLabels_ShippingLabelRecoverAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1658a257-786a-422e-a6af-0fcb419b2263"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "33437fe9-7a47-43f5-b36f-31a96344e9b8"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Shipping label to recover",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingLabelForRecovery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/recover": {
+      "patch": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Recovers HWIDs of a shippingLabel",
+        "operationId": "ShippingLabels_ShippingLabelRecoverAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "fdbcf092-8a78-4eaf-bd3f-8355794481ef"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "e0fd33cc-bef5-43be-a960-08d6c9cfbae6"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Shipping label to recover",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingLabelForRecovery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/expire": {
+      "patch": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Expires HWIDs of a shippingLabel",
+        "operationId": "ShippingLabels_ShippingLabelExpireAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "40aafb46-3a49-4553-89ab-7b8017fb355c"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "aa81830f-4e27-4e4b-ae2e-daac1f922afe"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Shipping label to expire",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingLabelForExpire"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/expire": {
+      "patch": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Expires HWIDs of a shippingLabel",
+        "operationId": "ShippingLabels_ShippingLabelExpireAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "0082035b-c9a2-449a-a4e4-188e30056f85"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "d967929b-2a12-4988-b6a5-9d08a55854db"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Shipping label to expire",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShippingLabelForExpire"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/cancel": {
+      "put": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Request cancellation of a shippingLabel in Microsoft Approval or Gradual Rollout",
+        "operationId": "ShippingLabels_ShippingLabelCancelAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "bd7d0aae-1452-4789-bb20-6e48b925a9f2"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "91036c56-7e1e-4086-99ca-e6712828b84f"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/{shippingLabelId}/cancel": {
+      "put": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Request cancellation of a shippingLabel in Microsoft Approval or Gradual Rollout",
+        "operationId": "ShippingLabels_ShippingLabelCancelAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "shippingLabelId",
+            "in": "path",
+            "description": "Shipping Label ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "4412e109-bd50-4fc5-a17a-81991c8167b9"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "2e701f0c-805c-4f2b-ac9d-f477ddc7aee4"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/ping": {
+      "get": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Ping endpoint.",
+        "operationId": "ShippingLabels_Ping",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "11030e44-0137-4127-a11e-37274ec3e2b0"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "582cddfd-99da-4795-b7a0-77f539d22909"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/shippingLabels/ping": {
+      "get": {
+        "tags": [
+          "ShippingLabels"
+        ],
+        "summary": "Ping endpoint.",
+        "operationId": "ShippingLabels_Ping",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1fb0ec16-7494-4ebd-a61d-4a6849f53d53"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "41e471a8-3942-4b3d-a248-5dfff110c763"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions": {
+      "post": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Create a submission.",
+        "operationId": "Submission_CreateSubmission",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "4c5fcf2d-eff2-43ce-b65c-6f7c30ed97e7"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "63eed12e-92cd-4af0-be37-082e5a15f935"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForCreationJSON request body for creating a new submission",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmissionForCreation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for creating a new submission for a product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Submission"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Get all submissions for a product.",
+        "operationId": "Submission_GetSubmissionsForProductAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The page size.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "The continuationToken.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "e27b3006-47e7-4a80-b2d9-32a947e63e49"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "71371031-5bf1-4c5c-b329-2d1e37e0fe1a"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for all the submissions of a product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<Submission>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions": {
+      "post": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Create a submission.",
+        "operationId": "Submission_CreateSubmission",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product id.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "cd6c017f-3653-4174-aa7d-2d1fe6133fca"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "77ac81ad-4214-4d2d-8a48-65dce264b432"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForCreationJSON request body for creating a new submission",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmissionForCreation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for creating a new submission for a product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Submission"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Get all submissions for a product.",
+        "operationId": "Submission_GetSubmissionsForProductAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The page size.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "The continuationToken.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "8113cde6-09ef-4d68-9866-5da0693be408"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "d078125d-20ac-4d6b-b622-3f325ffd8f86"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for all the submissions of a product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LinkedCollectionResourceWrapper<Submission>"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}": {
+      "get": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Get submission by submission ID and product ID.",
+        "operationId": "Submission_GetSubmissionByIdAsync",
+        "parameters": [
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "32ccc597-9bd2-4667-a40f-330a8bb528d3"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "25c08284-c1f1-4f00-ae9a-bd75e692a13e"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for a specific submission of a product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Submission"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Update a submission.",
+        "operationId": "Submission_UpdateSubmission",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "99d35809-b160-4dd2-bf67-73ec17c6664c"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "1040997f-cb96-4ac6-a969-c7c99a6ac690"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForUpdationJSON request body for updating a product.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmissionForUpdation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}": {
+      "get": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Get submission by submission ID and product ID.",
+        "operationId": "Submission_GetSubmissionByIdAsync",
+        "parameters": [
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "ded32f5e-5380-492c-afdc-bcafb89a8b4b"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "f6801415-fd32-4bdf-8d31-58d1f3dfc6f5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Outbound.SubmissionJSON response body returned by a successful request for a specific submission of a product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Submission"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Update a submission.",
+        "operationId": "Submission_UpdateSubmission",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "b0e700cf-4e36-403f-973a-e613339e53ab"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "7901676b-21c2-4702-b967-c60f9ef58d44"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Microsoft.MarketplaceServices.Ingestion.Hardware.Api.Contracts.V1.Inbound.SubmissionForUpdationJSON request body for updating a product.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmissionForUpdation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/commit": {
+      "post": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Commit a submission.",
+        "operationId": "Submission_CommitSubmission",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "f4044025-6c58-4e3a-9646-8789bca222d2"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "855f3959-4560-4f48-acf0-8d18bc913b48"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success"
+          },
+          "204": {
+            "description": "System.VoidReturns 204 on success"
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/commit": {
+      "post": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Commit a submission.",
+        "operationId": "Submission_CommitSubmission",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "The product ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "The submission ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "6cfc711f-b6c6-4df2-96c8-7b42c027f99a"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "c206a7bf-93a5-4f8f-be75-1dd63ce9ffac"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success"
+          },
+          "204": {
+            "description": "System.VoidReturns 204 on success"
+          }
+        }
+      }
+    },
+    "/api/v1/hardware/products/{productId}/submissions/{submissionId}/createpublishermetadata": {
+      "post": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Triggers the WF to generate driver metadata for a publisher",
+        "operationId": "Submission_CreatePublisherMetadataAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product Id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission Id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "356cd11b-cdee-4eee-82fa-6cc32c9e96ca"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "cebbd1ab-1981-47ad-8f7c-8792f3c0fccc"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success"
+          },
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    },
+    "/api/v2/hardware/products/{productId}/submissions/{submissionId}/createpublishermetadata": {
+      "post": {
+        "tags": [
+          "Submission"
+        ],
+        "summary": "Triggers the WF to generate driver metadata for a publisher",
+        "operationId": "Submission_CreatePublisherMetadataAsync",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Product Id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Submission Id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "MS-CorrelationId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "de59836c-a03b-478e-bdc4-ad35f8649e71"
+            }
+          },
+          {
+            "name": "MS-RequestId",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "8be426a9-2988-423b-a211-c8043cc917a8"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Success"
+          },
+          "204": {
+            "description": "The response will be empty with a HTTP status of 204."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdditionalAttributes": {
+        "type": "object",
+        "properties": {
+          "StorageController": {
+            "$ref": "#/components/schemas/StorageControllerAttributes"
+          },
+          "RaidController": {
+            "$ref": "#/components/schemas/RaidControllerAttributes"
+          },
+          "Svvp": {
+            "$ref": "#/components/schemas/SvvpAttributes"
+          },
+          "Hdd": {
+            "$ref": "#/components/schemas/HddAttributes"
+          },
+          "Ssd": {
+            "$ref": "#/components/schemas/SsdAttributes"
+          },
+          "Nic": {
+            "$ref": "#/components/schemas/NicAttributes"
+          },
+          "Nvme": {
+            "$ref": "#/components/schemas/NvmeAttributes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The additional attributes for a product."
+      },
+      "AdditionalInfoForMSApproval": {
+        "type": "object",
+        "properties": {
+          "MicrosoftContact": {
+            "type": "string",
+            "description": "Gets or sets Microsoft contact",
+            "nullable": true
+          },
+          "ValidationsPerformed": {
+            "type": "string",
+            "description": "Gets or sets list of validations performed",
+            "nullable": true
+          },
+          "AffectedOems": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets list of affected OEMs",
+            "nullable": true
+          },
+          "IsCoEngineered": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether it is a co-engineered driver"
+          },
+          "IsForUnreleasedHardware": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether it is driver for unreleased hardware"
+          },
+          "HasUiSoftware": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver has a relevant UI"
+          },
+          "BusinessJustification": {
+            "type": "string",
+            "description": "Gets or sets business justification text",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Flighing information"
+      },
+      "Audience": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Gets or sets the ID.",
+            "format": "uuid"
+          },
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets the name.",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "description": "Gets or sets the description.",
+            "nullable": true
+          },
+          "AudienceName": {
+            "type": "string",
+            "description": "Gets or sets the audience name.",
+            "nullable": true
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Audience."
+      },
+      "CoEngPublishRestriction": {
+        "type": "object",
+        "properties": {
+          "CeilingBuildNumber": {
+            "type": "integer",
+            "description": "Gets or sets Build number for ceiling OS",
+            "format": "int32",
+            "nullable": true
+          },
+          "FlooringBuildNumber": {
+            "type": "integer",
+            "description": "Gets or sets Build number for flooring OS",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Driver restriction information for CoEngineered Drivers"
+      },
+      "CommitState": {
+        "enum": [
+          "CommitPending",
+          "CommitReceived",
+          "CommitFailed",
+          "CommitComplete"
+        ],
+        "type": "string",
+        "description": "Commit state",
+        "x-ms-enum": {
+          "name": "CommitState",
+          "modelAsString": false
+        }
+      },
+      "DeviceType": {
+        "enum": [
+          "NotSet",
+          "Internal",
+          "External",
+          "InternalExternal"
+        ],
+        "type": "string",
+        "description": "Device type",
+        "x-ms-enum": {
+          "name": "DeviceType",
+          "modelAsString": false
+        }
+      },
+      "DistributionChid": {
+        "type": "object",
+        "properties": {
+          "Chid": {
+            "type": "string",
+            "description": "Gets or sets the Computer Hardware ID.",
+            "format": "uuid"
+          },
+          "DistributionState": {
+            "$ref": "#/components/schemas/ShippingLabelDistributionState"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a PNP."
+      },
+      "DistributionChidForUpdation": {
+        "type": "object",
+        "properties": {
+          "Chid": {
+            "type": "string",
+            "description": "Gets or sets the Computer Hardware ID.",
+            "format": "uuid"
+          },
+          "Action": {
+            "$ref": "#/components/schemas/ShippingLabelDistributionAction"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Update a distribution chid."
+      },
+      "DownloadEntity": {
+        "type": "object",
+        "properties": {
+          "Type": {
+            "$ref": "#/components/schemas/DownloadEntityType"
+          },
+          "Url": {
+            "type": "string",
+            "description": "Gets or sets url.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Download entity."
+      },
+      "DownloadEntityContainer": {
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DownloadEntity"
+            },
+            "description": "Gets or sets list of items available for download.",
+            "nullable": true
+          },
+          "Messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets error messages.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Download entity container."
+      },
+      "DownloadEntityType": {
+        "enum": [
+          "InitialPackage",
+          "SignedPackage",
+          "CertificationReport",
+          "DerivedPackage",
+          "DriverMetadata",
+          "ExternalNotes",
+          "Unknown"
+        ],
+        "type": "string",
+        "description": "Download entity types.",
+        "x-ms-enum": {
+          "name": "DownloadEntityType",
+          "modelAsString": false
+        }
+      },
+      "DriverType": {
+        "enum": [
+          "Desktop",
+          "Windows",
+          "Unknown"
+        ],
+        "type": "string",
+        "description": "Type of driver",
+        "x-ms-enum": {
+          "name": "DriverType",
+          "modelAsString": false
+        }
+      },
+      "DriverWorkflowStepName": {
+        "enum": [
+          "PackageAcceptance",
+          "Preparation",
+          "Validation",
+          "ManualReview",
+          "CatalogCreation",
+          "Signing",
+          "FinalizeIngestion",
+          "DriverMetadataExtraction",
+          "CabCreation",
+          "FinalizePrePublishing",
+          "SystemValidation",
+          "SystemReleasePublishing",
+          "SystemCompDbCreation",
+          "SystemCabCreation",
+          "SystemSigning",
+          "Scanning",
+          "SystemAudiencePublishing",
+          "SystemExpiration",
+          "DistributionCatalogRecreation",
+          "DriverMetaDataRecreation",
+          "DCatReleaseInfoGeneration",
+          "SystemMicrosoftApproval",
+          "PackageInfoValidation"
+        ],
+        "type": "string",
+        "description": "Possible steps in hardware workflow.",
+        "x-ms-enum": {
+          "name": "DriverWorkflowStepName",
+          "modelAsString": false
+        }
+      },
+      "HardwareId": {
+        "type": "object",
+        "properties": {
+          "BundleId": {
+            "type": "string",
+            "description": "Gets or sets the bundle ID.",
+            "nullable": true
+          },
+          "InfId": {
+            "type": "string",
+            "description": "Gets or sets the inf from which the pnp was chosen.",
+            "nullable": true
+          },
+          "OperatingSystemCode": {
+            "type": "string",
+            "description": "Gets or sets the OS code.",
+            "nullable": true
+          },
+          "PnpString": {
+            "type": "string",
+            "description": "Gets or sets the pnp string.",
+            "nullable": true
+          },
+          "DistributionState": {
+            "$ref": "#/components/schemas/ShippingLabelDistributionState"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a PNP."
+      },
+      "HardwareIdForRecovery": {
+        "type": "object",
+        "properties": {
+          "BundleId": {
+            "type": "string",
+            "description": "Gets or sets the bundle ID.",
+            "nullable": true
+          },
+          "InfId": {
+            "type": "string",
+            "description": "Gets or sets the inf from which the pnp was chosen.",
+            "nullable": true
+          },
+          "OperatingSystemCode": {
+            "type": "string",
+            "description": "Gets or sets the OS code.",
+            "nullable": true
+          },
+          "PnpString": {
+            "type": "string",
+            "description": "Gets or sets the pnp string.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Hardware Id model(non-abstract) for Recovery"
+      },
+      "HardwareIdForUpdation": {
+        "type": "object",
+        "properties": {
+          "BundleId": {
+            "type": "string",
+            "description": "Gets or sets the bundle ID.",
+            "nullable": true
+          },
+          "InfId": {
+            "type": "string",
+            "description": "Gets or sets the inf from which the pnp was chosen.",
+            "nullable": true
+          },
+          "OperatingSystemCode": {
+            "type": "string",
+            "description": "Gets or sets the OS code.",
+            "nullable": true
+          },
+          "PnpString": {
+            "type": "string",
+            "description": "Gets or sets the pnp string.",
+            "nullable": true
+          },
+          "Action": {
+            "$ref": "#/components/schemas/ShippingLabelDistributionAction"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents updates to Hardware ID."
+      },
+      "HddAttributes": {
+        "type": "object",
+        "properties": {
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets firmware version",
+            "nullable": true
+          },
+          "Smart": {
+            "type": "string",
+            "description": "Gets or sets SMART option",
+            "nullable": true
+          },
+          "SCSIReliabilityCounters": {
+            "type": "string",
+            "description": "Gets or sets SCSI reliability counters",
+            "nullable": true
+          },
+          "SATAStatistics": {
+            "type": "string",
+            "description": "Gets or sets SATA statistics option",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "HDD attributes"
+      },
+      "IngestionDataSearchCriteria": {
+        "type": "object",
+        "properties": {
+          "Select": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets select columns",
+            "nullable": true
+          },
+          "SearchAttributes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Gets or sets SearchAttributes",
+            "nullable": true
+          },
+          "SortBy": {
+            "$ref": "#/components/schemas/SortCriteria"
+          },
+          "FreeTextSearchTerms": {
+            "type": "string",
+            "description": "Gets or sets FreeTextSearchTerms",
+            "nullable": true
+          },
+          "Top": {
+            "type": "integer",
+            "description": "Gets or sets top row count criteria",
+            "format": "int32"
+          },
+          "IncludeCount": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether gets or sets IncludeCount to indicate whether result should contain total count of records"
+          },
+          "RowsToSkip": {
+            "type": "integer",
+            "description": "Gets or sets a value specifying the number of rows to skip during pagination implementation",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "SubmissionSearchCriteria"
+      },
+      "InServicePublishRestriction": {
+        "type": "object",
+        "properties": {
+          "Ceiling": {
+            "$ref": "#/components/schemas/RestrictionOS"
+          },
+          "Flooring": {
+            "$ref": "#/components/schemas/RestrictionOS"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Publishing restrictions for in-service drivers"
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "Href": {
+            "type": "string",
+            "description": "Gets url.",
+            "nullable": true,
+            "readOnly": true
+          },
+          "Rel": {
+            "type": "string",
+            "description": "Gets rel.",
+            "nullable": true,
+            "readOnly": true
+          },
+          "Method": {
+            "type": "string",
+            "description": "Gets http method.",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Hateoas link."
+      },
+      "LinkedCollectionResourceWrapper<Audience>": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Audience"
+            },
+            "description": "Gets or sets values in the collection.",
+            "nullable": true
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Linked collection resource wrapper."
+      },
+      "LinkedCollectionResourceWrapper<OperatingSystem>": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OperatingSystem"
+            },
+            "description": "Gets or sets values in the collection.",
+            "nullable": true
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Linked collection resource wrapper."
+      },
+      "LinkedCollectionResourceWrapper<Product>": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
+            "description": "Gets or sets values in the collection.",
+            "nullable": true
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Linked collection resource wrapper."
+      },
+      "LinkedCollectionResourceWrapper<ShippingLabel>": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShippingLabel"
+            },
+            "description": "Gets or sets values in the collection.",
+            "nullable": true
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Linked collection resource wrapper."
+      },
+      "LinkedCollectionResourceWrapper<Submission>": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Submission"
+            },
+            "description": "Gets or sets values in the collection.",
+            "nullable": true
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Linked collection resource wrapper."
+      },
+      "NicAttributes": {
+        "type": "object",
+        "properties": {
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets firmware version",
+            "nullable": true
+          },
+          "DriverVersion": {
+            "type": "string",
+            "description": "Gets or sets driver version",
+            "nullable": true
+          },
+          "DriverDate": {
+            "type": "string",
+            "description": "Gets or sets driver date",
+            "nullable": true
+          },
+          "DriverFileName": {
+            "type": "string",
+            "description": "Gets or sets driver filename",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "NIC attributes"
+      },
+      "NvmeAttributes": {
+        "type": "object",
+        "properties": {
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets firmware version",
+            "nullable": true
+          },
+          "SmartHealth": {
+            "type": "string",
+            "description": "Gets or sets smart health option",
+            "nullable": true
+          },
+          "CryptographicErase": {
+            "type": "string",
+            "description": "Gets or sets cryptographic erase option",
+            "nullable": true
+          },
+          "EnduranceInformation": {
+            "type": "string",
+            "description": "Gets or sets endurance information option",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "NVMe attributes"
+      },
+      "OperatingSystem": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets the friendly name of the operating system.",
+            "nullable": true
+          },
+          "Family": {
+            "type": "string",
+            "description": "Gets or sets OS family.",
+            "nullable": true
+          },
+          "Code": {
+            "type": "string",
+            "description": "Gets or sets the code that uniquely identifies this operating system.",
+            "nullable": true
+          },
+          "Version": {
+            "type": "string",
+            "description": "Gets or sets gets the version of the operating system.",
+            "nullable": true
+          },
+          "Architecture": {
+            "type": "string",
+            "description": "Gets or sets the architecture of the operating system.",
+            "nullable": true
+          },
+          "ProductLine": {
+            "type": "string",
+            "description": "Gets or sets the product line of the operating system.",
+            "nullable": true
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "OperatingSystem"
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "AnnouncementDate": {
+            "type": "string",
+            "description": "Gets or sets announcement date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "DeviceMetadataCategory": {
+            "type": "string",
+            "description": "Gets or sets device metadata category.",
+            "nullable": true
+          },
+          "DeviceMetadataIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Gets or sets device metadata ids.",
+            "nullable": true
+          },
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets firmware version.",
+            "nullable": true
+          },
+          "DeviceType": {
+            "$ref": "#/components/schemas/DeviceType"
+          },
+          "IsTestSign": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the driver must  be test signed."
+          },
+          "IsFlightSign": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether is flight sign, This capability is only available for Co engineering partners"
+          },
+          "MarketingNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets marketing names.",
+            "nullable": true
+          },
+          "ProductName": {
+            "type": "string",
+            "description": "Gets or sets product name.",
+            "nullable": true
+          },
+          "SelectedProductTypes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Gets or sets the selected product types.",
+            "nullable": true
+          },
+          "RequestedSignatures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets requested signatures",
+            "nullable": true
+          },
+          "AdditionalAttributes": {
+            "$ref": "#/components/schemas/AdditionalAttributes"
+          },
+          "TestHarness": {
+            "$ref": "#/components/schemas/TestHarness"
+          },
+          "Id": {
+            "type": "integer",
+            "description": "Gets or sets product ID.",
+            "format": "int64"
+          },
+          "SharedProductId": {
+            "type": "integer",
+            "description": "Gets or sets shared product ID.",
+            "format": "int64"
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets links.",
+            "nullable": true
+          },
+          "IsCommitted": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether product is committed\r\nIf Null Or True - UI can display it.\r\nIf False - UI must hide it."
+          },
+          "IsExtensionInf": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether product is Extension Inf",
+            "deprecated": true
+          },
+          "OriginType": {
+            "$ref": "#/components/schemas/ProductOriginType"
+          },
+          "SourceProductId": {
+            "type": "integer",
+            "description": "Gets or sets Source product ID.",
+            "format": "int64"
+          },
+          "SourcePublisherId": {
+            "type": "integer",
+            "description": "Gets or sets Source publisher ID.",
+            "format": "int64"
+          },
+          "IsRetpolineCompiled": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether IsRetpolineCompiled."
+          },
+          "Message": {
+            "type": "string",
+            "description": "Gets or sets a value Message.",
+            "nullable": true
+          },
+          "DriverType": {
+            "$ref": "#/components/schemas/DriverType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Base Class for other outbound product entities"
+      },
+      "ProductForCreation": {
+        "type": "object",
+        "properties": {
+          "AnnouncementDate": {
+            "type": "string",
+            "description": "Gets or sets announcement date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "DeviceMetadataCategory": {
+            "type": "string",
+            "description": "Gets or sets device metadata category.",
+            "nullable": true
+          },
+          "DeviceMetadataIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Gets or sets device metadata ids.",
+            "nullable": true
+          },
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets firmware version.",
+            "nullable": true
+          },
+          "DeviceType": {
+            "$ref": "#/components/schemas/DeviceType"
+          },
+          "IsTestSign": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the driver must  be test signed."
+          },
+          "IsFlightSign": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether is flight sign, This capability is only available for Co engineering partners"
+          },
+          "MarketingNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets marketing names.",
+            "nullable": true
+          },
+          "ProductName": {
+            "type": "string",
+            "description": "Gets or sets product name.",
+            "nullable": true
+          },
+          "SelectedProductTypes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Gets or sets the selected product types.",
+            "nullable": true
+          },
+          "RequestedSignatures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets requested signatures",
+            "nullable": true
+          },
+          "AdditionalAttributes": {
+            "$ref": "#/components/schemas/AdditionalAttributes"
+          },
+          "TestHarness": {
+            "$ref": "#/components/schemas/TestHarness"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Body of product creation request"
+      },
+      "ProductForUpdation": {
+        "type": "object",
+        "properties": {
+          "AnnouncementDate": {
+            "type": "string",
+            "description": "Gets or sets announcement date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "MarketingNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets marketing names.",
+            "nullable": true
+          },
+          "ProductName": {
+            "type": "string",
+            "description": "Gets or sets product name.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Product Patch"
+      },
+      "ProductOriginType": {
+        "enum": [
+          "NotSet",
+          "Author",
+          "Publisher",
+          "ReadOnly"
+        ],
+        "type": "string",
+        "description": "ProductOriginType",
+        "x-ms-enum": {
+          "name": "ProductOriginType",
+          "modelAsString": false
+        }
+      },
+      "PublishingSpecifications": {
+        "type": "object",
+        "properties": {
+          "GoLiveDate": {
+            "type": "string",
+            "description": "Gets or sets Go Live Date for WU distribution",
+            "format": "date-time",
+            "nullable": true
+          },
+          "VisibleToAccounts": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "description": "Gets or sets list of publisherIDs who can just view this shipping label",
+            "nullable": true
+          },
+          "IsAutoInstallDuringOSUpgrade": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver has to be auto delivered during windows upgrade."
+          },
+          "IsAutoInstallOnApplicableSystems": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver has to be auto installed on all systems."
+          },
+          "IsDisclosureRestricted": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether disclosure of this shipping label is restricted"
+          },
+          "PublishToWindows10s": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether to publish to windows10s (PublishToCloudSku in web input model)"
+          },
+          "AdditionalInfoForMsApproval": {
+            "$ref": "#/components/schemas/AdditionalInfoForMSApproval"
+          },
+          "ManualAcquisition": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether this publication is acquired automatically or manually."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Shipping label WU distribution information"
+      },
+      "RaidControllerAttributes": {
+        "type": "object",
+        "properties": {
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets the raid firmware version.",
+            "nullable": true
+          },
+          "FilterVersion": {
+            "type": "string",
+            "description": "Gets or sets raid filter version.",
+            "nullable": true
+          },
+          "DriverVersion": {
+            "type": "string",
+            "description": "Gets or sets raid driver version.",
+            "nullable": true
+          },
+          "UsedProprietary": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether multi-pathing is supported through proprietary driver"
+          },
+          "ProprietaryName": {
+            "type": "string",
+            "description": "Gets or sets raid proprietary name.",
+            "nullable": true
+          },
+          "ProprietaryVersion": {
+            "type": "string",
+            "description": "Gets or sets raid ProprietaryVersion",
+            "nullable": true
+          },
+          "UsedMicrosoft": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if a\r\nMicrosoft MPIO supported through device specific module"
+          },
+          "MicrosoftName": {
+            "type": "string",
+            "description": "Gets or sets raid microsoft name.",
+            "nullable": true
+          },
+          "MicrosoftVersion": {
+            "type": "string",
+            "description": "Gets or sets raid MicrosoftVersion",
+            "nullable": true
+          },
+          "IsThirdPartyNeeded": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if Third party non-Microsoft driver needed for connectivity"
+          },
+          "IsSES": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if SES (SCSI Enclosure services)"
+          },
+          "IsSAFTE": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if SAF-TE (ANSII Specifications)"
+          },
+          "AdditionalInfo": {
+            "type": "string",
+            "description": "Gets or sets additional Questionnaire information",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Raid questionnaire dto."
+      },
+      "RecipientSpecifications": {
+        "type": "object",
+        "properties": {
+          "ReceiverPublisherId": {
+            "type": "string",
+            "description": "Gets or sets publisher who is going to receive the shared shipping label",
+            "nullable": true
+          },
+          "EnforceChidTargeting": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether to enforce CHID targetting"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Shipping label distribution information"
+      },
+      "RestrictionOS": {
+        "enum": [
+          "None",
+          "TH",
+          "RS1",
+          "RS2",
+          "RS3",
+          "RS4",
+          "RS5",
+          "NineteenH1",
+          "VB",
+          "MN",
+          "FE",
+          "CO",
+          "NI"
+        ],
+        "type": "string",
+        "description": "Ceiling And Flooring Restriction OS list",
+        "x-ms-enum": {
+          "name": "RestrictionOS",
+          "modelAsString": false
+        }
+      },
+      "ShippingLabel": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets Name of shipping label",
+            "nullable": true
+          },
+          "Destination": {
+            "$ref": "#/components/schemas/ShippingLabelDestination"
+          },
+          "Id": {
+            "type": "integer",
+            "description": "Gets or sets the ID.",
+            "format": "int64"
+          },
+          "ProductId": {
+            "type": "integer",
+            "description": "Gets or sets the product ID.",
+            "format": "int64"
+          },
+          "SubmissionId": {
+            "type": "integer",
+            "description": "Gets or sets SubmissionId of shipping label",
+            "format": "int64"
+          },
+          "PublishingSpecifications": {
+            "$ref": "#/components/schemas/PublishingSpecifications"
+          },
+          "RecipientSpecifications": {
+            "$ref": "#/components/schemas/RecipientSpecifications"
+          },
+          "Targeting": {
+            "$ref": "#/components/schemas/ShippingLabelTargetingInfo"
+          },
+          "WorkflowStatus": {
+            "$ref": "#/components/schemas/WorkflowStep<ShippingLabelWorkflowStepName>"
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Shipping Label."
+      },
+      "ShippingLabelDestination": {
+        "enum": [
+          "NotSet",
+          "WindowsUpdate",
+          "AnotherPartner"
+        ],
+        "type": "string",
+        "description": "Shipping label type",
+        "x-ms-enum": {
+          "name": "ShippingLabelDestination",
+          "modelAsString": false
+        }
+      },
+      "ShippingLabelDistributionAction": {
+        "enum": [
+          "None",
+          "Add",
+          "Remove",
+          "Recover"
+        ],
+        "type": "string",
+        "description": "Denotes the distribution of a PNP or a CHID.",
+        "x-ms-enum": {
+          "name": "ShippingLabelDistributionAction",
+          "modelAsString": false
+        }
+      },
+      "ShippingLabelDistributionState": {
+        "enum": [
+          "Unknown",
+          "PendingAdd",
+          "Added",
+          "PendingRemove",
+          "PendingRecovery",
+          "Recovered"
+        ],
+        "type": "string",
+        "description": "Denotes the distribution of a PNP or a CHID.",
+        "x-ms-enum": {
+          "name": "ShippingLabelDistributionState",
+          "modelAsString": false
+        }
+      },
+      "ShippingLabelForCreation": {
+        "type": "object",
+        "properties": {
+          "Destination": {
+            "$ref": "#/components/schemas/ShippingLabelDestination"
+          },
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets Name of the shipping label",
+            "nullable": true
+          },
+          "RecipientSpecifications": {
+            "$ref": "#/components/schemas/RecipientSpecifications"
+          },
+          "PublishingSpecifications": {
+            "$ref": "#/components/schemas/PublishingSpecifications"
+          },
+          "Targeting": {
+            "$ref": "#/components/schemas/ShippingLabelTargetingInfo"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Shipping label creation model"
+      },
+      "ShippingLabelForExpire": {
+        "type": "object",
+        "properties": {
+          "HardwareIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HardwareIdForRecovery"
+            },
+            "description": "Gets or sets list of Hardware IDs to expire",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input model for Shipping Label Expire - /Expire operation."
+      },
+      "ShippingLabelForRecovery": {
+        "type": "object",
+        "properties": {
+          "HardwareIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HardwareIdForRecovery"
+            },
+            "description": "Gets or sets list of Hardware IDs to recover",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Input model for Shipping Label Patch - Recovery operation."
+      },
+      "ShippingLabelForUpdation": {
+        "type": "object",
+        "properties": {
+          "Targeting": {
+            "$ref": "#/components/schemas/ShippingLabelTargetingInfoForUpdation"
+          },
+          "BusinessJustification": {
+            "type": "string",
+            "description": "Gets or sets business justification text",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Shipping Label Patch"
+      },
+      "ShippingLabelTargetingInfo": {
+        "type": "object",
+        "properties": {
+          "InServicePublishInfo": {
+            "$ref": "#/components/schemas/InServicePublishRestriction"
+          },
+          "CoEngDriverPublishInfo": {
+            "$ref": "#/components/schemas/CoEngPublishRestriction"
+          },
+          "HardwareIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HardwareId"
+            },
+            "description": "Gets or sets list of Hardware IDs to target",
+            "nullable": true
+          },
+          "Chids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DistributionChid"
+            },
+            "description": "Gets or sets list of CHIDs to target",
+            "nullable": true
+          },
+          "RestrictedToAudiences": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Gets or sets RestrictedToAudiences",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Shipping label targeting information"
+      },
+      "ShippingLabelTargetingInfoForUpdation": {
+        "type": "object",
+        "properties": {
+          "InServicePublishInfo": {
+            "$ref": "#/components/schemas/InServicePublishRestriction"
+          },
+          "CoEngDriverPublishInfo": {
+            "$ref": "#/components/schemas/CoEngPublishRestriction"
+          },
+          "HardwareIds": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HardwareIdForUpdation"
+            },
+            "description": "Gets or sets list of Hardware IDs to target",
+            "nullable": true
+          },
+          "Chids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DistributionChidForUpdation"
+            },
+            "description": "Gets or sets list of CHIDs to target",
+            "nullable": true
+          },
+          "RestrictedToAudiences": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Gets or sets RestrictedToAudiences",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Targeting Info updation model."
+      },
+      "ShippingLabelWorkflowStepName": {
+        "enum": [
+          "Created",
+          "PreProcessShippingLabel",
+          "FinalizePreProcessing",
+          "PublishJobValidation",
+          "UpdateGeneration",
+          "Publishing",
+          "FinalizePublishing",
+          "FinalizeSharing",
+          "ProcessSharing",
+          "SharingExpiration",
+          "MicrosoftApproval"
+        ],
+        "type": "string",
+        "description": "Possible steps in shipping label workflow.",
+        "x-ms-enum": {
+          "name": "ShippingLabelWorkflowStepName",
+          "modelAsString": false
+        }
+      },
+      "SortCriteria": {
+        "type": "object",
+        "properties": {
+          "SortFieldName": {
+            "type": "string",
+            "description": "Gets or sets SortFieldName",
+            "nullable": true
+          },
+          "SortType": {
+            "$ref": "#/components/schemas/SortingType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "IngestionDataSortCriteria"
+      },
+      "SortingType": {
+        "enum": [
+          "Asc",
+          "Desc"
+        ],
+        "type": "string",
+        "description": "enum for SortingType",
+        "x-ms-enum": {
+          "name": "SortingType",
+          "modelAsString": false
+        }
+      },
+      "SsdAttributes": {
+        "type": "object",
+        "properties": {
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets firmware version",
+            "nullable": true
+          },
+          "Smart": {
+            "type": "string",
+            "description": "Gets or sets SMART option",
+            "nullable": true
+          },
+          "SCSIReliabilityCounters": {
+            "type": "string",
+            "description": "Gets or sets SCSI reliability counters",
+            "nullable": true
+          },
+          "SATAStatistics": {
+            "type": "string",
+            "description": "Gets or sets SATA statistics option",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "SSD attributes"
+      },
+      "StorageControllerAttributes": {
+        "type": "object",
+        "properties": {
+          "BiosVersion": {
+            "type": "string",
+            "description": "Gets or sets storage Controller BiosVersion",
+            "nullable": true
+          },
+          "FirmwareVersion": {
+            "type": "string",
+            "description": "Gets or sets storage Controller FirmwareVersion",
+            "nullable": true
+          },
+          "DriverVersion": {
+            "type": "string",
+            "description": "Gets or sets storage Controller DriverVersion",
+            "nullable": true
+          },
+          "DriverName": {
+            "type": "string",
+            "description": "Gets or sets storage Controller DriverName",
+            "nullable": true
+          },
+          "DeviceVersion": {
+            "type": "string",
+            "description": "Gets or sets storage Controller DeviceVersion",
+            "nullable": true
+          },
+          "ChipsetName": {
+            "type": "string",
+            "description": "Gets or sets storage Controller ChipsetName",
+            "nullable": true
+          },
+          "UsedProprietary": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if Multi-pathing supported through proprietary driver"
+          },
+          "ProprietaryName": {
+            "type": "string",
+            "description": "Gets or sets raid ProprietaryName",
+            "nullable": true
+          },
+          "ProprietaryVersion": {
+            "type": "string",
+            "description": "Gets or sets raid ProprietaryVersion",
+            "nullable": true
+          },
+          "UsedMicrosoft": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if a Microsoft MPIO supported through device specific module"
+          },
+          "MicrosoftName": {
+            "type": "string",
+            "description": "Gets or sets storage Controller MicrosoftName",
+            "nullable": true
+          },
+          "MicrosoftVersion": {
+            "type": "string",
+            "description": "Gets or sets storage Controller MicrosoftVersion",
+            "nullable": true
+          },
+          "UsedBootSupport": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if Boot Support"
+          },
+          "UsedBetterBoot": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether true if Boot >2.2TB support"
+          },
+          "UefiVersion": {
+            "type": "string",
+            "description": "Gets or sets UEFI version supported",
+            "nullable": true
+          },
+          "AcpiVersion": {
+            "type": "string",
+            "description": "Gets or sets ACPI version supported",
+            "nullable": true
+          },
+          "SupportsSector4K512E": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether support sector size of 4K/512e"
+          },
+          "SupportsSector4K4K": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether support sector size of 4K/4K"
+          },
+          "SupportsDifferential": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether differential (High-voltage differential)"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Storage questionnaire."
+      },
+      "Submission": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets submission name.",
+            "nullable": true
+          },
+          "Type": {
+            "$ref": "#/components/schemas/SubmissionTypes"
+          },
+          "Id": {
+            "type": "integer",
+            "description": "Gets or sets submission ID.",
+            "format": "int64"
+          },
+          "ProductId": {
+            "type": "integer",
+            "description": "Gets or sets product ID.",
+            "format": "int64"
+          },
+          "WorkflowStatus": {
+            "$ref": "#/components/schemas/WorkflowStep<DriverWorkflowStepName>"
+          },
+          "Downloads": {
+            "$ref": "#/components/schemas/DownloadEntityContainer"
+          },
+          "Links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "description": "Gets or sets the links.",
+            "nullable": true
+          },
+          "CommitStatus": {
+            "$ref": "#/components/schemas/CommitState"
+          },
+          "IsExtensionInf": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver has Extension Inf"
+          },
+          "IsUniversal": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver is Universal"
+          },
+          "IsDeclarativeInf": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver has declarative inf (if its universal)"
+          },
+          "IsInbox": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver is an inbox driver"
+          },
+          "IsSystem": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether driver is a sytem driver"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Submission."
+      },
+      "SubmissionForCreation": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets submission name.",
+            "nullable": true
+          },
+          "Type": {
+            "$ref": "#/components/schemas/SubmissionTypes"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Submission for creation."
+      },
+      "SubmissionForUpdation": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Gets or sets submission name.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Submission for updation."
+      },
+      "SubmissionTypes": {
+        "enum": [
+          "Initial",
+          "Derived"
+        ],
+        "type": "string",
+        "description": "Sumission types",
+        "x-ms-enum": {
+          "name": "SubmissionTypes",
+          "modelAsString": false
+        }
+      },
+      "SvvpAttributes": {
+        "type": "object",
+        "properties": {
+          "ProductVersion": {
+            "type": "string",
+            "description": "Gets or sets product Version",
+            "nullable": true
+          },
+          "SupportLink": {
+            "type": "string",
+            "description": "Gets or sets support Link",
+            "nullable": true
+          },
+          "GuestOs": {
+            "type": "string",
+            "description": "Gets or sets guest OS",
+            "nullable": true
+          },
+          "ProcessorArchitecture": {
+            "type": "string",
+            "description": "Gets or sets processorArchitecture",
+            "nullable": true
+          },
+          "MaxProcessors": {
+            "type": "integer",
+            "description": "Gets or sets max Processors in VM",
+            "format": "int32"
+          },
+          "MaxMemory": {
+            "type": "integer",
+            "description": "Gets or sets max Memory in VM in GB",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Svvp attributes."
+      },
+      "TestHarness": {
+        "enum": [
+          "NotSet",
+          "Hlk",
+          "Hck",
+          "Attestation",
+          "Wlk"
+        ],
+        "type": "string",
+        "description": "Test Harness Type",
+        "x-ms-enum": {
+          "name": "TestHarness",
+          "modelAsString": false
+        }
+      },
+      "WorkflowStep<DriverWorkflowStepName>": {
+        "type": "object",
+        "properties": {
+          "CurrentStep": {
+            "$ref": "#/components/schemas/DriverWorkflowStepName"
+          },
+          "State": {
+            "$ref": "#/components/schemas/WorkflowStepState"
+          },
+          "Messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets error messages.",
+            "nullable": true
+          },
+          "ErrorReport": {
+            "type": "string",
+            "description": "Gets or sets the error report.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Workflow step."
+      },
+      "WorkflowStep<ShippingLabelWorkflowStepName>": {
+        "type": "object",
+        "properties": {
+          "CurrentStep": {
+            "$ref": "#/components/schemas/ShippingLabelWorkflowStepName"
+          },
+          "State": {
+            "$ref": "#/components/schemas/WorkflowStepState"
+          },
+          "Messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets error messages.",
+            "nullable": true
+          },
+          "ErrorReport": {
+            "type": "string",
+            "description": "Gets or sets the error report.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Workflow step."
+      },
+      "WorkflowStepState": {
+        "enum": [
+          "NotStarted",
+          "Started",
+          "Failed",
+          "Completed"
+        ],
+        "type": "string",
+        "description": "Workflow step states",
+        "x-ms-enum": {
+          "name": "WorkflowStepState",
+          "modelAsString": false
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter JWT Bearer token **_ONLY_**",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

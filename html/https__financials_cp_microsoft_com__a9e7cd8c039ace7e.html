@@ -1,0 +1,1881 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Microsoft.Commerce.Billing.Financial.Service",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://financials.cp.microsoft.com"
+    }
+  ],
+  "paths": {
+    "/admin/{financialRecordId}/{financialRecordVersion}/rejournal": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "financialRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "financialRecordVersion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "journalEntireHistory",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{financialRecordId}/initializeReprocess": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "financialRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipDeferralProcessing",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "useStoredSnapshotsForReprocess",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "makeMaxPriority",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{payloadType}/{billingRecordId}/{externalId}/deleteLedger": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "payloadType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "billingRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{billingRecordId}/sendToCrsLedgerServiceBus": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "billingRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "forceHammerOverride",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{payloadType}/postLedger": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "payloadType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enableUnicodeCharacters",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{payloadType}/putLedger": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "payloadType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enableUnicodeCharacters",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{invoiceId}/replayAll": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{financialRecordId}/initializeReprocessCheckpointSDK": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "financialRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipDeferralProcessing",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "useStoredSnapshotsForReprocess",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "makeMaxPriority",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "overrideExclusionListForHorizonBound",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "accountID",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{partitionKey}/{rowKey}/updatestoredentity": {
+      "post": {
+        "tags": [
+          "AdminController"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/journal/{journalVersion}/{streamName}/{startTime}/{endTime}": {
+      "post": {
+        "tags": [
+          "AdminJournalReaderController"
+        ],
+        "parameters": [
+          {
+            "name": "journalVersion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streamName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "startTime",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "endTime",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/journal/{journalVersion}/{streamName}": {
+      "post": {
+        "tags": [
+          "AdminJournalReaderController"
+        ],
+        "parameters": [
+          {
+            "name": "journalVersion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streamName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "AdminJournalReaderController"
+        ],
+        "parameters": [
+          {
+            "name": "journalVersion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "streamName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/checkpoint/{channelName}": {
+      "post": {
+        "tags": [
+          "CheckpointController"
+        ],
+        "parameters": [
+          {
+            "name": "channelName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCheckpointRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCheckpointRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCheckpointRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCheckpointRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/checkpoint/{partitionKey}/{rowKey}/{channelName}/getCheckpoint": {
+      "get": {
+        "tags": [
+          "CheckpointController"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "channelName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/checkpoint/{partitionKey}/getCheckpoints": {
+      "get": {
+        "tags": [
+          "CheckpointController"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 50
+            }
+          },
+          {
+            "name": "continueAfter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/checkpoint/{channelName}/getErrorCheckpoints": {
+      "get": {
+        "tags": [
+          "CheckpointController"
+        ],
+        "parameters": [
+          {
+            "name": "channelName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "continueAfter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/billingRecordFinancials/{financialRecordId}": {
+      "get": {
+        "tags": [
+          "FinancialController"
+        ],
+        "parameters": [
+          {
+            "name": "financialRecordId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "includeHistory",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "invoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sourceTransactionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/financialInvoice/{financialInvoiceId}": {
+      "get": {
+        "tags": [
+          "FinancialController"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/invoiceCashSettlement/{id}": {
+      "get": {
+        "tags": [
+          "FinancialController"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "invoiceCashSettlementId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/invoicedBillingRecordFinancials/{invoiceId}": {
+      "get": {
+        "tags": [
+          "FinancialController"
+        ],
+        "parameters": [
+          {
+            "name": "invoiceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/journal/journalFinancialInvoice": {
+      "post": {
+        "tags": [
+          "FinancialController"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinancialInvoice"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinancialInvoice"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinancialInvoice"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinancialInvoice"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/journal/journalInvoiceCashSettlement": {
+      "post": {
+        "tags": [
+          "FinancialController"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceCashSettlement"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceCashSettlement"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceCashSettlement"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InvoiceCashSettlement"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/journal/journalLogicalEntryManifest": {
+      "post": {
+        "tags": [
+          "FinancialController"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryManifest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryManifest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryManifest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryManifest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/journal/journalLogicalEntryPage": {
+      "post": {
+        "tags": [
+          "FinancialController"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryPage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryPage"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryPage"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LogicalEntryPage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/watchdog": {
+      "get": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v{version}/ping": {
+      "get": {
+        "tags": [
+          "Ping"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1.0/ping": {
+      "get": {
+        "tags": [
+          "Ping"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/{storePath}/{partitionKey}/{rowKey}/get": {
+      "get": {
+        "tags": [
+          "StorageController"
+        ],
+        "parameters": [
+          {
+            "name": "storePath",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{storePath}/{partitionKey}/getentities": {
+      "get": {
+        "tags": [
+          "StorageController"
+        ],
+        "parameters": [
+          {
+            "name": "storePath",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKeys",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{storePath}/{partitionKey}/getpage": {
+      "get": {
+        "tags": [
+          "StorageController"
+        ],
+        "parameters": [
+          {
+            "name": "storePath",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continueAfter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 100
+            }
+          },
+          {
+            "name": "includeMetadata",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "attemptRepair",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{storePath}/{partitionKey}/{rowKey}/deletestoredentity": {
+      "post": {
+        "tags": [
+          "StorageController"
+        ],
+        "parameters": [
+          {
+            "name": "storePath",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/admin/{storePath}/{partitionKey}/{rowKey}/updatepricingstoredentity": {
+      "post": {
+        "tags": [
+          "StorageController"
+        ],
+        "parameters": [
+          {
+            "name": "storePath",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partitionKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/vip/IsAcceptingTraffic": {
+      "get": {
+        "tags": [
+          "Vip"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BillingGroupIdentifier": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CashSettlementAmount": {
+        "type": "object",
+        "properties": {
+          "unroundedReportingAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "reportingAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "prepaidExpenseAmount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CheckpointIdentifier": {
+        "type": "object",
+        "properties": {
+          "partitionKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "workItemId": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CheckpointState": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "DomainRecord": {
+        "type": "object",
+        "properties": {
+          "companyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "partnerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "sapPlantCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "sapCustomerNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "sapSalesOffice": {
+            "type": "string",
+            "nullable": true
+          },
+          "msSalesSubsidiaryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "msSalesTerritoryCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialInvoice": {
+        "type": "object",
+        "properties": {
+          "undefined": {
+            "type": "boolean"
+          },
+          "propertiesToSerializeWhenUndefined": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "invoiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rebillForFinancialInvoiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "adjustmentForFinancialInvoiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingPeriodStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "billingPeriodEndDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "billingGroupId": {
+            "$ref": "#/components/schemas/BillingGroupIdentifier"
+          },
+          "businessPartnerExternalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "contractAccountExternalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdTimestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedTimestamp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lineItemCorrelationDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialInvoiceLineItemCorrelationDetails"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialInvoiceEvent"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "continuationToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "testHeader": {
+            "$ref": "#/components/schemas/TestHeader"
+          },
+          "adjustmentForInvoice": {
+            "$ref": "#/components/schemas/InvoiceReference"
+          },
+          "type": {
+            "$ref": "#/components/schemas/FinancialInvoiceType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialInvoiceEvent": {
+        "type": "object",
+        "properties": {
+          "undefined": {
+            "type": "boolean"
+          },
+          "propertiesToSerializeWhenUndefined": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/FinancialInvoiceEventType"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialInvoiceEventType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "FinancialInvoiceLineItemCorrelationDetails": {
+        "type": "object",
+        "properties": {
+          "undefined": {
+            "type": "boolean"
+          },
+          "propertiesToSerializeWhenUndefined": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "financialLineItemId": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceTransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "eventGroupingId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingRecordId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialInvoiceType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "HealthDetails": {
+        "type": "object",
+        "properties": {
+          "failureRates": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceCashBillingRecordReference": {
+        "type": "object",
+        "properties": {
+          "billingRecordId": {
+            "type": "string",
+            "nullable": true
+          },
+          "versionAdded": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceCashDetailedAmount": {
+        "type": "object",
+        "properties": {
+          "undefined": {
+            "type": "boolean"
+          },
+          "propertiesToSerializeWhenUndefined": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "invoiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "$ref": "#/components/schemas/CashSettlementAmount"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceCashEvent": {
+        "type": "object",
+        "properties": {
+          "undefined": {
+            "type": "boolean"
+          },
+          "propertiesToSerializeWhenUndefined": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/InvoiceCashEventType"
+          },
+          "eventId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceCashEventType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "InvoiceCashSettlement": {
+        "type": "object",
+        "properties": {
+          "undefined": {
+            "type": "boolean"
+          },
+          "propertiesToSerializeWhenUndefined": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/InvoiceCashSettlementType"
+          },
+          "totalAmount": {
+            "$ref": "#/components/schemas/CashSettlementAmount"
+          },
+          "detailAmounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvoiceCashDetailedAmount"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "chargeablePaymentInstrumentId": {
+            "$ref": "#/components/schemas/PaymentInstrumentIdentifier"
+          },
+          "paymentTransactionReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchantReferenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "domainRecord": {
+            "$ref": "#/components/schemas/DomainRecord"
+          },
+          "createdTimestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedTimestamp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvoiceCashBillingRecordReference"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InvoiceCashEvent"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "continuationToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "testHeader": {
+            "$ref": "#/components/schemas/TestHeader"
+          },
+          "correlationId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InvoiceCashSettlementType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "InvoiceReference": {
+        "type": "object",
+        "properties": {
+          "invoiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LogicalEntryManifest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LogicalEntryPage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageId": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "rawContent": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaymentInstrumentIdentifier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TestHeader": {
+        "type": "object",
+        "properties": {
+          "scenarios": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "contact": {
+            "type": "string",
+            "nullable": true
+          },
+          "retention": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "retentionDate": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCheckpointRequest": {
+        "type": "object",
+        "properties": {
+          "newCheckpointState": {
+            "$ref": "#/components/schemas/CheckpointState"
+          },
+          "newCheckpointOperationState": {
+            "type": "string",
+            "nullable": true
+          },
+          "checkpointIdentifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CheckpointIdentifier"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

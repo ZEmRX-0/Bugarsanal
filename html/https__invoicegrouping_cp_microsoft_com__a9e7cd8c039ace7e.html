@@ -1,0 +1,2865 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Microsoft.Commerce.InvoiceGrouping.Service",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://invoicegrouping.cp.microsoft.com"
+    }
+  ],
+  "paths": {
+    "/admin/entity": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/batch-entities": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "keys",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/page-entities": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continueAtRowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/delete-create-checkpoints": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "billingRecordIds",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/insert-document-entity": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentEntityPrimaryPage"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentEntityPrimaryPage"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentEntityPrimaryPage"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentEntityPrimaryPage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/create-work-item": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/create-collection-checkpoint": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "checkpointType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customerId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "invoiceCashSettlementId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "reportingpath",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "companyCode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/reprocess-financial-invoice": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/enable-checkpoint": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "workItemId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/disable-checkpoint": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "workItemId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/delete-line-item": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "billingRecordId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sourceTransactionIds",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/override-invoice-group": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "billingRecordId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/override-br-ig": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "billingRecordId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/override-insert-or-clear": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/update-stored-entity": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "storeName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Newtonsoft.Json.Linq.JToken"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Newtonsoft.Json.Linq.JToken"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Newtonsoft.Json.Linq.JToken"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/Newtonsoft.Json.Linq.JToken"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/delete-stored-entity": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/fix-payments": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.FixPaymentRequestItem"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.FixPaymentRequestItem"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.FixPaymentRequestItem"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.FixPaymentRequestItem"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/recollect-invoice": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecollectInvoiceRequestItem"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecollectInvoiceRequestItem"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecollectInvoiceRequestItem"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecollectInvoiceRequestItem"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/update-checkpoint": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "partitionKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rowKey",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "newOperationState",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/migrate-to-v2": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "convertVoidFlag",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/cleanup-invoice-groups": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "billingRecordId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/get-outstanding-line-items": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/validate-invoice-completion": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/validate-then-complete-invoice": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/delete-source-transaction-id-and-rejournal": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sourceTransactionId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/delete-source-transaction-ids": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/rejournal-financial-invoice": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/get-missing-rebill-line-items": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/add-missing-rebill-line-items": {
+      "post": {
+        "tags": [
+          "Admin"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cash-settlement-groups": {
+      "post": {
+        "tags": [
+          "CashSettlement"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementGroupCreationRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementGroupCreationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementGroupCreationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementGroupCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoice-cash-settlements/{invoiceCashSettlementId}": {
+      "get": {
+        "tags": [
+          "CashSettlement"
+        ],
+        "parameters": [
+          {
+            "name": "invoiceCashSettlementId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continueAt",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "invoiceCashSettlementId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoice-groups": {
+      "post": {
+        "tags": [
+          "InvoiceGroupings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoice-groups/create": {
+      "post": {
+        "tags": [
+          "InvoiceGroupings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/invoice-groups/compensate": {
+      "post": {
+        "tags": [
+          "InvoiceGroupings"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCompensationRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCompensationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCompensationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCompensationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/financial-invoices/{financialInvoiceId}": {
+      "get": {
+        "tags": [
+          "InvoiceGroupings"
+        ],
+        "parameters": [
+          {
+            "name": "financialInvoiceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continueAt",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "financialInvoiceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/igs-document-summary/{documentId}": {
+      "get": {
+        "tags": [
+          "InvoiceGroupings"
+        ],
+        "parameters": [
+          {
+            "name": "documentId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/System.Net.Http.HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v{version}/ping": {
+      "get": {
+        "tags": [
+          "PingControllerV1"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vip/isAcceptingTraffic": {
+      "get": {
+        "tags": [
+          "Vip"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Microsoft.Commerce.Billing.Web.V1.TestHeader": {
+        "type": "object",
+        "properties": {
+          "scenarios": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "contact": {
+            "type": "string",
+            "nullable": true
+          },
+          "retention": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "retentionDate": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.CommerceRevenueService.Contract.V1.BillingGroupIdentifier": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.CommerceRevenueService.Contract.V1.LineItemVersionReference": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "id": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.MultiLineItemIdentifier"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.CommerceRevenueService.Contract.V1.MultiLineItemIdentifier": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "low": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "high": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.CommerceRevenueService.Contract.V1.PaymentInstrument": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.PaymentInstrumentIdentifier"
+          },
+          "paymentInstrumentType": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.PaymentInstrumentType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.CommerceRevenueService.Contract.V1.PaymentInstrumentIdentifier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.CommerceRevenueService.Contract.V1.PaymentInstrumentType": {
+        "type": "object",
+        "properties": {
+          "family": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementAmount": {
+        "type": "object",
+        "properties": {
+          "unroundedReportingAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "reportingAmount": {
+            "type": "number",
+            "format": "double"
+          },
+          "prepaidExpenseAmount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementGroupCreationRequest": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingRecordId": {
+            "type": "string",
+            "nullable": true
+          },
+          "cashSettlementGroupItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementGroupItem"
+            },
+            "nullable": true
+          },
+          "isCommercial": {
+            "type": "boolean"
+          },
+          "paymentReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentTransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchantReferenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentInstrument": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.PaymentInstrument"
+          },
+          "billingGroupId": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.BillingGroupIdentifier"
+          },
+          "settlementMode": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.SettlementMode"
+          },
+          "correlationId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementGroupItem": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "trackingId": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.CashSettlementAmount"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.FinancialInvoiceInstructions": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.FixPaymentRequestItem": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "merchantReferenceNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentReferenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "paymentTransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceCashSettlementId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCompensationItem": {
+        "type": "object",
+        "properties": {
+          "lineItemVersionReference": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.LineItemVersionReference"
+          },
+          "trackingId": {
+            "type": "string",
+            "nullable": true
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "recognitionType": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecognitionType"
+          },
+          "billingGroupId": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.BillingGroupIdentifier"
+          },
+          "settlementMode": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.SettlementMode"
+          },
+          "rebillForSourceTransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rebillForInvoiceGroupId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCompensationRequest": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingRecordId": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceGroupItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCompensationItem"
+            },
+            "nullable": true
+          },
+          "isCommercial": {
+            "type": "boolean"
+          },
+          "rebillForInvoiceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "compenstationInstruction": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.FinancialInvoiceInstructions"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupCreationRequest": {
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingRecordId": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceGroupItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupItem"
+            },
+            "nullable": true
+          },
+          "isCommercial": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.InvoiceGroupItem": {
+        "type": "object",
+        "properties": {
+          "lineItemVersionReference": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.LineItemVersionReference"
+          },
+          "trackingId": {
+            "type": "string",
+            "nullable": true
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "recognitionType": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecognitionType"
+          },
+          "billingGroupId": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.BillingGroupIdentifier"
+          },
+          "settlementMode": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.SettlementMode"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecognitionType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.RecollectInvoiceRequestItem": {
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "fixInvoiceGroups": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.Contract.V20180731.SettlementMode": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.InvoiceGroupIdentifier": {
+        "type": "object",
+        "properties": {
+          "billingRecordId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingLineItemId": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.MultiLineItemIdentifier"
+          },
+          "sku": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "recognitionType": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.RecognitionType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.RecognitionType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentEntityPrimaryPage": {
+        "type": "object",
+        "properties": {
+          "partitionKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "rowKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "updatedTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "eTag": {
+            "type": "string",
+            "nullable": true
+          },
+          "foundInPartition": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "migrationStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "conversionError": {
+            "type": "boolean"
+          },
+          "converter": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Storage.V2.EntityDownVersionConverter"
+          },
+          "restoreRequired": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextPageRowKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "lineItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentLineItem"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentType": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentType"
+          },
+          "documentSourceType": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentSourceType"
+          },
+          "customerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingGroupId": {
+            "type": "string",
+            "nullable": true
+          },
+          "accountId": {
+            "type": "string",
+            "nullable": true
+          },
+          "profileId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "currencyCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingPeriodStartDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "billingPeriodEndDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "documentCreatedDatetime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "rebillFor": {
+            "type": "string",
+            "nullable": true
+          },
+          "isVoid": {
+            "type": "boolean"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
+          },
+          "paymentDueDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "displayNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "lineItemsCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subChargeGroupId": {
+            "type": "string",
+            "nullable": true
+          },
+          "testHeader": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Billing.Web.V1.TestHeader"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentLineItem": {
+        "type": "object",
+        "properties": {
+          "billingRecordId": {
+            "type": "string",
+            "nullable": true
+          },
+          "lineItemVersionReference": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.LineItemVersionReference"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentSourceType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.DocumentType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping": {
+        "type": "object",
+        "properties": {
+          "invoiceGroupIdentifier": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.InvoiceGroupIdentifier"
+          },
+          "financialLineItemId": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceTransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceGroupId": {
+            "type": "string",
+            "nullable": true
+          },
+          "billingRecordVersions": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "unitMappings": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping+GoldenKeys"
+            },
+            "nullable": true
+          },
+          "internalUnitMappings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[Microsoft.Commerce.CommerceRevenueService.Contract.V1.MultiLineItemIdentifier, Microsoft.Commerce.CommerceRevenueService.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cde7056ef0bcb0fe],[Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping+GoldenKeys, Microsoft.Commerce.InvoiceGrouping.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cde7056ef0bcb0fe]]"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping+GoldenKeys": {
+        "type": "object",
+        "properties": {
+          "financialLineItemId": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceTransactionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "invoiceGroupId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.Storage.V2.EntityDownVersionConverter": {
+        "type": "object",
+        "properties": {
+          "conversionCounters": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Tracing.InstrumentationCounters"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.Tracing.FailureRateCalculator": {
+        "type": "object",
+        "properties": {
+          "current": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.Tracing.InstrumentationCounters": {
+        "type": "object",
+        "properties": {
+          "operationName": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "totalCounter": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Tracing.PerfCounter"
+          },
+          "failedCounter": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Tracing.PerfCounter"
+          },
+          "clientErrorCounter": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Tracing.PerfCounter"
+          },
+          "latencyPercentileCounter": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Tracing.PerfCounter"
+          },
+          "failureRateCounter": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Tracing.PerfCounter"
+          },
+          "failureRateCalculator": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.Tracing.FailureRateCalculator"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.Commerce.Tracing.PerfCounter": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Newtonsoft.Json.Linq.JToken": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Newtonsoft.Json.Linq.JToken"
+        }
+      },
+      "System.Collections.Generic.KeyValuePair`2[[Microsoft.Commerce.CommerceRevenueService.Contract.V1.MultiLineItemIdentifier, Microsoft.Commerce.CommerceRevenueService.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cde7056ef0bcb0fe],[Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping+GoldenKeys, Microsoft.Commerce.InvoiceGrouping.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cde7056ef0bcb0fe]]": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.CommerceRevenueService.Contract.V1.MultiLineItemIdentifier"
+          },
+          "value": {
+            "$ref": "#/components/schemas/Microsoft.Commerce.InvoiceGrouping.Entities.V1.Storage.OverrideInvoiceGroupMapping+GoldenKeys"
+          }
+        },
+        "additionalProperties": false
+      },
+      "System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "System.Net.Http.HttpContent": {
+        "type": "object",
+        "properties": {
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "System.Net.Http.HttpMethod": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "System.Net.Http.HttpRequestMessage": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/System.Version"
+          },
+          "versionPolicy": {
+            "$ref": "#/components/schemas/System.Net.Http.HttpVersionPolicy"
+          },
+          "content": {
+            "$ref": "#/components/schemas/System.Net.Http.HttpContent"
+          },
+          "method": {
+            "$ref": "#/components/schemas/System.Net.Http.HttpMethod"
+          },
+          "requestUri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true,
+            "readOnly": true,
+            "deprecated": true
+          },
+          "options": {
+            "type": "object",
+            "additionalProperties": { },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "System.Net.Http.HttpResponseMessage": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "$ref": "#/components/schemas/System.Version"
+          },
+          "content": {
+            "$ref": "#/components/schemas/System.Net.Http.HttpContent"
+          },
+          "statusCode": {
+            "$ref": "#/components/schemas/System.Net.HttpStatusCode"
+          },
+          "reasonPhrase": {
+            "type": "string",
+            "nullable": true
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "trailingHeaders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "requestMessage": {
+            "$ref": "#/components/schemas/System.Net.Http.HttpRequestMessage"
+          },
+          "isSuccessStatusCode": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "System.Net.Http.HttpVersionPolicy": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "System.Net.HttpStatusCode": {
+        "enum": [
+          100,
+          101,
+          102,
+          103,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          226,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          308,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          421,
+          422,
+          423,
+          424,
+          426,
+          428,
+          429,
+          431,
+          451,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505,
+          506,
+          507,
+          508,
+          510,
+          511
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "System.Version": {
+        "type": "object",
+        "properties": {
+          "major": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "minor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "build": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "majorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

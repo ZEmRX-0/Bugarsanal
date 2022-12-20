@@ -1,0 +1,1562 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Web Content Filtering and Threat Protection API endpoints",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://nonprod.wdatp-threatprotection.microsoft.com"
+    }
+  ],
+  "paths": {
+    "/api/BIP/GetFeatures": {
+      "get": {
+        "tags": [
+          "BIP"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeaturesResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeaturesResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FeaturesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WCF/TopParentCategories": {
+      "get": {
+        "tags": [
+          "WCFValidation"
+        ],
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rbacGroupIds",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30
+            }
+          },
+          {
+            "name": "includeActivityChange",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WCF/CategoryReports": {
+      "get": {
+        "tags": [
+          "WCFValidation"
+        ],
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rbacGroupIds",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "parentCategory",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "activityType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WCF/DomainReports": {
+      "get": {
+        "tags": [
+          "WCFValidation"
+        ],
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rbacGroupIds",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "parentCategory",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "activityType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WCF/MachineList": {
+      "get": {
+        "tags": [
+          "WCFValidation"
+        ],
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rbacGroupIds",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "unassignedRbacId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WebContentFiltering/Reports/TopParentCategories": {
+      "get": {
+        "tags": [
+          "WebContentFiltering"
+        ],
+        "summary": "Returns top 5 parent categories' reports",
+        "parameters": [
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "Look back in days",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30
+            }
+          },
+          {
+            "name": "includeActivityChange",
+            "in": "query",
+            "description": "If false, change in access attemps will not be calculated, it will be set to 0 by default",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParentCategoryReport"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParentCategoryReport"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParentCategoryReport"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WebContentFiltering/Reports/CategoryReports": {
+      "get": {
+        "tags": [
+          "WebContentFiltering"
+        ],
+        "summary": "Returns web content filtering category reports",
+        "parameters": [
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "Look back in days",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "parentCategory",
+            "in": "query",
+            "description": "If specified, filter reports by parent category(-ies)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "activityType",
+            "in": "query",
+            "description": "If specified, filter reports by access count, will return reports with access count > 0 if its value is 'Access', or blocked count > 0 if its value is 'Blocked'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rbacGroupIds",
+            "in": "query",
+            "description": "If specified, filter reports by RBAC group, will return reports for RBAC groups in the list",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoryReport"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoryReport"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CategoryReport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WebContentFiltering/Reports/DomainReports": {
+      "get": {
+        "tags": [
+          "WebContentFiltering"
+        ],
+        "summary": "Returns web content filtering domain reports",
+        "parameters": [
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "Look back in days",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "parentCategory",
+            "in": "query",
+            "description": "When parentCategory is not null, only return reports related to these parent categories",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "activityType",
+            "in": "query",
+            "description": "If specified, only return reports with access count > 0 if its value is 'Access', or blocked count > 0 if its value is 'Blocked'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rbacGroupIds",
+            "in": "query",
+            "description": "If specified, filter reports by RBAC group, will return reports for RBAC groups in the list",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DomainReport"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DomainReport"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DomainReport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WebContentFiltering/Reports/MachineList": {
+      "get": {
+        "tags": [
+          "WebContentFiltering"
+        ],
+        "summary": "Returns web content filtering machine group reports",
+        "parameters": [
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "Look back in days",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "rbacGroupIds",
+            "in": "query",
+            "description": "If specified, filter reports by RBAC group, will return reports for RBAC groups in the list",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "unassignedRbacId",
+            "in": "query",
+            "description": "RBAC id of unassigned machine group. If specified and data for default RBAC 0 exists, data for RBAC 0 will be aggregated to data of this unassigned group",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MachineReport"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MachineReport"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MachineReport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WebContentFiltering/Reports/CategoryLookup": {
+      "post": {
+        "tags": [
+          "WebContentFiltering"
+        ],
+        "summary": "Lookup a category based on an url",
+        "requestBody": {
+          "description": "Lookup category",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryLookup"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryLookup"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryLookup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/WebContentFiltering/Reports/ReportFeedback": {
+      "post": {
+        "tags": [
+          "WebContentFiltering"
+        ],
+        "summary": "Report inaccuracies over web content filter categories",
+        "requestBody": {
+          "description": "Feedback object with information about domain and category miscategorized or unknonw",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportFeedback"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportFeedback"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReportFeedback"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/webThreats/reports/webThreatSummary": {
+      "get": {
+        "tags": [
+          "WebThreats"
+        ],
+        "summary": "Gets the Web Threat data for the summary page for the last 30 days.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatSummary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatSummary"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatSummary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/webThreats/reports/webThreatHealthStatus": {
+      "get": {
+        "tags": [
+          "WebThreats"
+        ],
+        "summary": "Gets the Web Threat Trends data for the details page.",
+        "parameters": [
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "The lookback in days to be passed in to query backend",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30
+            }
+          },
+          {
+            "name": "webThreatType",
+            "in": "query",
+            "description": "Web threat type passed in by user (Ex. 'Phishing')",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatTrendDetailList"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatTrendDetailList"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatTrendDetailList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/webThreats/domains/allDomains": {
+      "get": {
+        "tags": [
+          "WebThreats"
+        ],
+        "summary": "Gets the list of domains",
+        "parameters": [
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "The lookback in days to be passed in to query backend",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "webThreatCategory",
+            "in": "query",
+            "description": "Web threat type passed in by user (Ex. 'Phishing')",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status passed in by user (ex. 'Resolved')",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "severity",
+            "in": "query",
+            "description": "Severity passed in by user (Ex. 'High')",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/webThreats/domain": {
+      "get": {
+        "tags": [
+          "WebThreats"
+        ],
+        "summary": "Gets the general info for particular domain",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The ID of the domain (ex. 'www.Facebook.com')",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatProtectionDomain"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatProtectionDomain"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ThreatProtectionDomain"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/webThreats/domains/urls": {
+      "get": {
+        "tags": [
+          "WebThreats"
+        ],
+        "summary": "Gets the list of urls for particular url",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The domain url passed in by user",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fullList",
+            "in": "query",
+            "description": "If user wants the full list of urls associated with the domain (or simply a preview)",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "How far back user wants to look back",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30
+            }
+          },
+          {
+            "name": "webThreatCategory",
+            "in": "query",
+            "description": "Web threat category passed in (ex. 'Phishing')",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "severity",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/webThreats/domains/exposedMachines": {
+      "get": {
+        "tags": [
+          "WebThreats"
+        ],
+        "summary": "Gets the list of exposed machines for particular url",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The domain url passed in by user",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fullList",
+            "in": "query",
+            "description": "If user wants the full list of urls associated with the domain (or simply a preview)",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "lookBackInDays",
+            "in": "query",
+            "description": "How far back user wants to look back",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 30
+            }
+          },
+          {
+            "name": "webThreatCategory",
+            "in": "query",
+            "description": "Web threat category passed in (ex. 'Phishing')",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "severity",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResultsObject"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccessTrend": {
+        "type": "object",
+        "properties": {
+          "Date": {
+            "type": "string",
+            "description": "Access date",
+            "format": "date-time"
+          },
+          "Count": {
+            "type": "integer",
+            "description": "Access count",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoryLookup": {
+        "type": "object",
+        "properties": {
+          "Url": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoryReport": {
+        "type": "object",
+        "properties": {
+          "AccessCount": {
+            "type": "integer",
+            "description": "Access count over N days for this category/domain",
+            "format": "int32"
+          },
+          "BlockedCount": {
+            "type": "integer",
+            "description": "Total number of blocked activities or access from all accessing devices.",
+            "format": "int32"
+          },
+          "TrendsDeltaPercentage": {
+            "type": "integer",
+            "description": "Trends delta in percentage = Math.round((total access count over recent N days - N days' total access count in the past period) * 100 / N days' total access count in the past period)",
+            "format": "int32"
+          },
+          "IsDeltaPercentageValid": {
+            "type": "boolean",
+            "description": "There is a period of time after customer enables a policy, data collected is not big enough to calculate trends delta percentage, \r\nwe set this property to false to tell UI the percentage is not applicable\r\nE.g. when time range filter is 30 days, but only recent 25 days' data is collected"
+          },
+          "CategoryId": {
+            "type": "integer",
+            "description": "Category id",
+            "format": "int32"
+          },
+          "ParentCategory": {
+            "type": "string",
+            "description": "Parent category name. e.g. leisure, high bandwidth",
+            "nullable": true
+          },
+          "TotalDomains": {
+            "type": "integer",
+            "description": "Number of domains accessed over N days in this category",
+            "format": "int32"
+          },
+          "TopDomains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Domain"
+            },
+            "description": "Top 10 domains ranked by total access attempts over N days",
+            "nullable": true
+          },
+          "TotalDevices": {
+            "type": "integer",
+            "description": "Number of devices accessing this category over N days",
+            "format": "int32"
+          },
+          "TopDevices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Device"
+            },
+            "description": "Top 10 devices ranked by total access attempts over N days",
+            "nullable": true
+          },
+          "AccessTrends": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessTrend"
+            },
+            "description": "Daily access count of this category over N days",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Web category report"
+      },
+      "Device": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Device name",
+            "nullable": true
+          },
+          "DeviceId": {
+            "type": "string",
+            "description": "Device id",
+            "nullable": true
+          },
+          "Count": {
+            "type": "integer",
+            "description": "Number of times this device is requesting this category/domain",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Domain": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Domain name",
+            "nullable": true
+          },
+          "Count": {
+            "type": "integer",
+            "description": "Domain access count",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DomainReport": {
+        "type": "object",
+        "properties": {
+          "AccessCount": {
+            "type": "integer",
+            "description": "Access count over N days for this category/domain",
+            "format": "int32"
+          },
+          "BlockedCount": {
+            "type": "integer",
+            "description": "Total number of blocked activities or access from all accessing devices.",
+            "format": "int32"
+          },
+          "TrendsDeltaPercentage": {
+            "type": "integer",
+            "description": "Trends delta in percentage = Math.round((total access count over recent N days - N days' total access count in the past period) * 100 / N days' total access count in the past period)",
+            "format": "int32"
+          },
+          "IsDeltaPercentageValid": {
+            "type": "boolean",
+            "description": "There is a period of time after customer enables a policy, data collected is not big enough to calculate trends delta percentage, \r\nwe set this property to false to tell UI the percentage is not applicable\r\nE.g. when time range filter is 30 days, but only recent 25 days' data is collected"
+          },
+          "DomainName": {
+            "type": "string",
+            "description": "Domain name",
+            "nullable": true
+          },
+          "CategoryIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "Category ids. Normally, a domain is mapped to one category, but some domains may belong to several categories, like 'instagram' is under category 'Social networking' and 'Image sharing'",
+            "nullable": true
+          },
+          "ParentCategories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Parent category names.",
+            "nullable": true
+          },
+          "TotalDevices": {
+            "type": "integer",
+            "description": "Number of devices accessing this category/domain over N days",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Web content filtering domain report"
+      },
+      "FeaturesResponse": {
+        "type": "object",
+        "properties": {
+          "EnableBuiltInProtection": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "EnableWdavAntiTampering": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "EnableBuiltInProtectionDates": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeedbackPriority": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "IoaAlertDetection": {
+        "enum": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "type": "integer",
+        "description": "Web threat detection type enum values.",
+        "format": "int32"
+      },
+      "MachineReport": {
+        "type": "object",
+        "properties": {
+          "AccessCount": {
+            "type": "integer",
+            "description": "Access count over N days for this category/domain",
+            "format": "int32"
+          },
+          "BlockedCount": {
+            "type": "integer",
+            "description": "Total number of blocked activities or access from all accessing devices.",
+            "format": "int32"
+          },
+          "TrendsDeltaPercentage": {
+            "type": "integer",
+            "description": "Trends delta in percentage = Math.round((total access count over recent N days - N days' total access count in the past period) * 100 / N days' total access count in the past period)",
+            "format": "int32"
+          },
+          "IsDeltaPercentageValid": {
+            "type": "boolean",
+            "description": "There is a period of time after customer enables a policy, data collected is not big enough to calculate trends delta percentage, \r\nwe set this property to false to tell UI the percentage is not applicable\r\nE.g. when time range filter is 30 days, but only recent 25 days' data is collected"
+          },
+          "DeviceGroupId": {
+            "type": "integer",
+            "description": "Machine group id (backend doesn't have id-name mapping, so here returns id, will convert to name in frontend)",
+            "format": "int32"
+          },
+          "CategoryCount": {
+            "type": "integer",
+            "description": "Category count for this machine group",
+            "format": "int32"
+          },
+          "DomainCount": {
+            "type": "integer",
+            "description": "Number of domains detected for the machine group",
+            "format": "int32"
+          },
+          "TopDomains": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Domain"
+            },
+            "description": "Top 10 domains accessed ranked by total access attempts over N days",
+            "nullable": true
+          },
+          "TopDevices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Device"
+            },
+            "description": "Top 10 devices in this machine group ranked by total access attempts over N days",
+            "nullable": true
+          },
+          "TopCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WebCategory"
+            },
+            "description": "Top 10 web categories accessed ranked by total access attempts over N days",
+            "nullable": true
+          },
+          "AccessTrends": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessTrend"
+            },
+            "description": "Daily access attempts over N days",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Web content filtering machine group report"
+      },
+      "ParentCategoryReport": {
+        "type": "object",
+        "properties": {
+          "UpdateTime": {
+            "type": "string",
+            "description": "Time the data is cooked",
+            "format": "date-time"
+          },
+          "TopParentCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParentCategorySummary"
+            },
+            "description": "Top 5 parent categories' report",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Web content filtering parent categories' report"
+      },
+      "ParentCategorySummary": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "Parent category name, e.g. leisure, high bandwidth",
+            "nullable": true
+          },
+          "ActivityDeltaPercentage": {
+            "type": "integer",
+            "description": "Change in access attempts, its value = Math.round((total access count over recent N days - N days' total access count in the past period) * 100 / N days' total access count in the past period)",
+            "format": "int32"
+          },
+          "IsDeltaPercentageValid": {
+            "type": "boolean",
+            "description": "There is a period of time after customer enables a policy, data collected is not big enough to calculate activity delta percentage, \r\nwe set this property to false to tell UI the percentage is not applicable\r\nE.g. if time range filter is 30 days, but only recent 25 days' data is collected"
+          },
+          "TotalAccessRequests": {
+            "type": "integer",
+            "description": "Total number of access requests to web pages under this parent category from all applied devices",
+            "format": "int32"
+          },
+          "TotalBlockedCount": {
+            "type": "integer",
+            "description": "Total number of blocked activities or access to categories under this parent category from all accessing devices.",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReportFeedback": {
+        "type": "object",
+        "properties": {
+          "Domain": {
+            "type": "string",
+            "nullable": true
+          },
+          "CategoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CategoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FeedbackPriority": {
+            "$ref": "#/components/schemas/FeedbackPriority"
+          },
+          "Comments": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultsObject": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "Count of array",
+            "format": "int32"
+          },
+          "results": {
+            "description": "Array of objects",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ThreatProtectionDomain": {
+        "type": "object",
+        "properties": {
+          "DomainId": {
+            "type": "string",
+            "description": "Domain Id",
+            "nullable": true
+          },
+          "Title": {
+            "type": "string",
+            "description": "Title",
+            "nullable": true
+          },
+          "AccessCount": {
+            "type": "integer",
+            "description": "AccessCount",
+            "format": "int32"
+          },
+          "Blocks": {
+            "type": "integer",
+            "description": "Blocks",
+            "format": "int32"
+          },
+          "AccessTrend": {
+            "type": "integer",
+            "description": "AccessTrend",
+            "format": "int32"
+          },
+          "WebThreatCategory": {
+            "$ref": "#/components/schemas/IoaAlertDetection"
+          },
+          "MachinesDetectedOn": {
+            "type": "integer",
+            "description": "MachinesDetectedOn",
+            "format": "int32"
+          },
+          "Severity": {
+            "type": "string",
+            "description": "Severity",
+            "nullable": true
+          },
+          "Status": {
+            "type": "string",
+            "description": "Alert status",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Web threat protection domain object"
+      },
+      "ThreatSummary": {
+        "type": "object",
+        "properties": {
+          "TotalThreats": {
+            "type": "integer",
+            "description": "Total number of threats",
+            "format": "int32",
+            "readOnly": true
+          },
+          "Phishing": {
+            "type": "integer",
+            "description": "Total number of Phishing",
+            "format": "int32",
+            "nullable": true
+          },
+          "Malicious": {
+            "type": "integer",
+            "description": "Total number of Malicious",
+            "format": "int32",
+            "nullable": true
+          },
+          "CustomIndicator": {
+            "type": "integer",
+            "description": "Total number of Custom Indicator",
+            "format": "int32",
+            "nullable": true
+          },
+          "Unknown": {
+            "type": "integer",
+            "description": "Total number of Unknown",
+            "format": "int32",
+            "nullable": true
+          },
+          "CmdCtrl": {
+            "type": "integer",
+            "description": "Total number of Command and Control",
+            "format": "int32",
+            "nullable": true
+          },
+          "TechScam": {
+            "type": "integer",
+            "description": "Total number of tech scams",
+            "format": "int32",
+            "nullable": true
+          },
+          "Untrusted": {
+            "type": "integer",
+            "description": "Total number of untrusted",
+            "format": "int32",
+            "nullable": true
+          },
+          "Exploit": {
+            "type": "integer",
+            "description": "Total number of exploits",
+            "format": "int32",
+            "nullable": true
+          },
+          "UpdateTime": {
+            "type": "string",
+            "description": "Time the data is cooked",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Web category report"
+      },
+      "ThreatTrendDetail": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "values": {
+            "$ref": "#/components/schemas/ThreatSummary"
+          }
+        },
+        "additionalProperties": false,
+        "description": "For a particular point in time, it will include the full summary of threats (ie. # of malicious, phishing, etc)"
+      },
+      "ThreatTrendDetailList": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ThreatTrendDetail"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An array of 'ThreatTrendDetail'. This will represent the history of web threats"
+      },
+      "WebCategory": {
+        "type": "object",
+        "properties": {
+          "CategoryId": {
+            "type": "integer",
+            "description": "Category id",
+            "format": "int32"
+          },
+          "Count": {
+            "type": "integer",
+            "description": "Access count",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

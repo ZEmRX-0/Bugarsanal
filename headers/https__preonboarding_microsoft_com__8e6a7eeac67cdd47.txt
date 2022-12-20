@@ -1,0 +1,12 @@
+200 OK
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=58a135dabb1761655df6bc1eed62d291be8b5144553a4eaa1630d6d114a755b0;Path=/;HttpOnly;Secure;Domain=preonboarding.microsoft.com ARRAffinitySameSite=58a135dabb1761655df6bc1eed62d291be8b5144553a4eaa1630d6d114a755b0;Path=/;HttpOnly;SameSite=None;Secure;Domain=preonboarding.microsoft.com
+X-Powered-By: ASP.NET
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=2592000
+Correlationid: 29f228f1-d5aa-4615-a23b-af710bc475cd
+Vary: Accept-Encoding
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+Date: Mon, 19 Dec 2022 21:01:28 GMT
+X-Html-Minification-Powered-By: WebMarkupMin

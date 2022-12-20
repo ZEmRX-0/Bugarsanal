@@ -1,0 +1,14 @@
+200 OK
+Ms-Correlationid: 1bc800cf-8230-4b96-8fa1-7e97f49b9850
+Server: Kestrel
+Ms-Requestid: 324db284-7831-445a-8470-440006801d75
+X-Server: PROD.EastUS2-wn0ldwk0001NK
+X-Assemblyversion: 0.0.0.0
+Retry-Count: 0
+Vary: Accept-Encoding
+Ms-Cv: hNtEwWq13EaAeCwf.0
+X-Powered-By: ASP.NET
+Content-Type: text/html;charset=utf-8
+Date: Mon, 19 Dec 2022 21:00:38 GMT
+Set-Cookie: TiPMix=17.015167592471492; path=/; HttpOnly; Domain=metadata.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=metadata.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None
+Request-Context: appId=cid-v1:118b39e5-b1ee-4677-8ef8-b15c0cb19c4c

@@ -1,0 +1,14 @@
+200 OK
+Etag: "1d90423211bebbd"
+Ms-Correlationid: 87e9d3d1-02dc-4483-9508-5233c81e783f
+X-Content-Type-Options: nosniff
+Ms-Serverid: t-fd89cd845-k2tns
+Content-Length: 511037
+Content-Type: application/javascript
+Server: Kestrel
+Accept-Ranges: bytes
+Ms-Cv: KSwSaOmrMkOwhdZT.0
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:01:06 GMT
+Last-Modified: Tue, 29 Nov 2022 18:48:11 GMT
+Ms-Requestid: cd5fddf5-f408-426c-aba7-335272d509b1

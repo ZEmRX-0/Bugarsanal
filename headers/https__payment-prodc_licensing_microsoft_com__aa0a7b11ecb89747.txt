@@ -1,0 +1,15 @@
+200 OK
+Date: Mon, 19 Dec 2022 21:01:20 GMT
+Pragma: no-cache
+Vary: Accept-Encoding
+X-Correlationid: 1e969d3d-8689-463a-aa1d-215d5560ddc6
+Set-Cookie: ARRAffinity=fdd6c1f7f430015fdb667e0bace074cf413a96cd004f525bda302d715383697f;Path=/;HttpOnly;Secure;Domain=payment-prodc.licensing.microsoft.com ARRAffinitySameSite=fdd6c1f7f430015fdb667e0bace074cf413a96cd004f525bda302d715383697f;Path=/;HttpOnly;SameSite=None;Secure;Domain=payment-prodc.licensing.microsoft.com
+X-Ms-Correlation-Id: 1e969d3d-8689-463a-aa1d-215d5560ddc6
+Content-Type: text/html
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Cache-Control: no-cache
+Expires: -1
+Correlationid: 1e969d3d-8689-463a-aa1d-215d5560ddc6 996d81dd-b1ed-49da-83d2-e536198eb400
+X-Aspnet-Version: 4.0.30319

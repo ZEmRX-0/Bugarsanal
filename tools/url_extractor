@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Extract the URLs from the output of the Nuclei tool
+grep -oE "http(s?)://[^/]+/?[^ ]*" "$1" > urls.txt
+
+# Store the URLs in the specified file
+mv urls.txt "$2"

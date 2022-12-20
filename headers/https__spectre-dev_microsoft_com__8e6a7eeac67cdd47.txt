@@ -1,0 +1,14 @@
+200 OK
+Set-Cookie: ApplicationGatewayAffinityCORS=54c25ed2ec5328e8d5d44a1a200fb419; Path=/; SameSite=None; Secure ApplicationGatewayAffinity=54c25ed2ec5328e8d5d44a1a200fb419; Path=/ SPRD=3379b9d8-bbf6-4277-b094-c7dd87c04657; max-age=3153600000; path=/; secure; samesite=strict; httponly ARRAffinity=64ae7e64bb96f9c7ef0593a76e69a483daafc28b8d6b1045f6f4527a51579305;Path=/;HttpOnly;Secure;Domain=as-spectre-api-eus2-dev.azurewebsites.net
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+Referrer-Policy: same-origin
+X-Frame-Options: SAMEORIGIN
+Date: Mon, 19 Dec 2022 21:00:59 GMT
+Server: Microsoft-IIS/10.0
+Request-Context: appId=cid-v1:15cafa8c-6e80-4643-8aa0-c2802b169961
+Content-Security-Policy: default-src 'self' https://login.windows.net https://sanotebookoutputeus2dev.blob.core.windows.net https://msit.powerbi.com https://aka.ms/ https://microsofteur.sharepoint.com/ https://*.microsoftonline.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.microsoftonline.com https://*.visualstudio.com https://powerva.microsoft.com https://directline.botframework.com wss://directline.botframework.com; img-src 'self' 'unsafe-inline' data: * blob: 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' https://static2.sharepointonline.com;
+Content-Type: text/html; charset=utf-8
+Retry-Count: 0
+Vary: Accept-Encoding
+X-Powered-By: ASP.NET

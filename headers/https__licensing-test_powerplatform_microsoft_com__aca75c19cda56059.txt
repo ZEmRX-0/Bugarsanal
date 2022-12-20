@@ -1,0 +1,16 @@
+200 OK
+Last-Modified: Fri, 16 Dec 2022 21:55:10 GMT
+X-Ms-Islandgateway: GA0000004
+X-Ms-Correlation-Id: 5c9ffa42-4eb4-4f82-a310-05bf3a0415e1
+Content-Length: 510964
+Accept-Ranges: bytes
+Etag: "1d91199112ab8f4"
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Ms-Service-Request-Id: 3b41e22e-eddc-4f67-adfe-0b4be6f228d8
+Date: Mon, 19 Dec 2022 21:00:33 GMT
+Content-Type: application/javascript
+X-Servicefabric: NoRetry
+X-Ms-Activity-Vector: 00.00.00.00
+Server-Timing: x-ms-igw-upstream-headers;dur=52.3,x-ms-igw-req-overhead;dur=0.2
+X-Content-Type-Options: nosniff
+Retry-Count: 0

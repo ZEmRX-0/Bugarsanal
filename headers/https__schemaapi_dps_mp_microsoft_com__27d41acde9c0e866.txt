@@ -1,0 +1,11 @@
+200 OK
+Retry-Count: 0
+Content-Type: text/yaml;charset=utf-8
+Ms-Correlationid: 1cd64dde-d25a-42ed-bceb-98ea6170bbc9
+Ms-Requestid: 45c19c48-bb10-4275-90b1-da4ca9ee01d5
+Request-Context: appId=cid-v1:6d2a5d2b-d268-4142-95d5-d8e78532ee23
+Server: Kestrel
+Vary: Accept-Encoding X-USER-LOCALE
+Date: Mon, 19 Dec 2022 21:01:11 GMT
+Ms-Cv: R7OWORIT2UyTjIF0.0
+Ms-Serverid: 46000004

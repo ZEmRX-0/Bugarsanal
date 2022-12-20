@@ -1,0 +1,13 @@
+200 OK
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 21:01:15 GMT
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+X-Xss-Protection: 1; mode=block
+Content-Security-Policy: block-all-mixed-content; default-src 'none'; font-src 'self' https://static2.sharepointonline.com data:; connect-src 'self' https://dc.services.visualstudio.com; script-src https://az416426.vo.msecnd.net 'self' 'unsafe-inline'; img-src 'self' data:; style-src 'self' blob: 'unsafe-inline'
+Client-Request-Id: 6a1b7beb-df6b-474b-b414-31a8c5d14e4b
+Client-Session-Id: 
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=31536000

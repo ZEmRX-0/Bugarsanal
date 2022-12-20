@@ -1,0 +1,14 @@
+200 OK
+Set-Cookie: TiPMix=4.254614235436993; path=/; HttpOnly; Domain=dms-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=dms-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None
+X-Server: INT.EastUS2-dw0sdwk000F1T
+Ms-Cv: CQwrlOti6keBksGv.0
+Ms-Correlationid: be120d23-1254-4914-bfe7-60b03a2cf698
+Ms-Requestid: 819368a8-651e-45ff-841b-e4fd2c84d3ef
+Date: Mon, 19 Dec 2022 21:00:03 GMT
+Server: Kestrel
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:0ffacc97-3cae-416b-8d61-24f7e500c95d
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+X-Assemblyversion: 0.0.0.0

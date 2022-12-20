@@ -1,0 +1,3181 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "PIX Variant service API",
+    "contact": {
+      "url": "https://osgwiki.com/wiki/PIX_Variant_service"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/products/{productId}/variants/moduledata/{instanceId}": {
+      "get": {
+        "tags": [
+          "ModuleData"
+        ],
+        "summary": "Gets a single specific module instance of a specific Product; this is typically a detached instance (snapshot), but may also return the draft (HEAD) instance if it is a match",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceId",
+            "in": "path",
+            "description": "Specifies the instance",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IModuleDataContract"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The instance is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/moduledata/lock": {
+      "post": {
+        "tags": [
+          "ModuleData"
+        ],
+        "summary": "Locks the draft (HEAD) instance",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IModuleDataContract"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/moduledata": {
+      "get": {
+        "tags": [
+          "ModuleData"
+        ],
+        "summary": "Queries for module (draft) instances of a specific Product; presently there can be only one",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IModuleDataContract"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The query options are invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/{variantId}/moduledisplaydata": {
+      "get": {
+        "tags": [
+          "ModuleDisplayData"
+        ],
+        "summary": "Gets module display data for a single Variant; this can be targeted to a specific instance, or to the latest draft (HEAD) instance.",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variantId",
+            "in": "path",
+            "description": "Identifies the variant to GET",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceId",
+            "in": "query",
+            "description": "Optional. If specified, returns a snapshot (identified by `instanceId`) of the variant",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModuleDisplayData"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The Variant [instance] is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "The Variant [instance] is found, but there is no display data (i.e. Plan setup is N/A)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/submissionvalidation": {
+      "get": {
+        "tags": [
+          "SubmissionValidation"
+        ],
+        "summary": "Validates that the draft of ALL Variants are valid in isolation (NB no evaluation of 'published' state); if not, returns any validation error(s) as defined by rules in Variant service",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "SubmissionValidation"
+        ],
+        "summary": "Validates that the specified Submission is valid; if not, returns any validation error(s) as defined by rules in Variant service",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Submission (see: Submission service) instance to validate",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (missing Submission in the body?)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/{variantId}/submissionvalidation": {
+      "get": {
+        "tags": [
+          "SubmissionValidation"
+        ],
+        "summary": "Validates that the draft of a single Variant is valid in isolation (NB no evaluation of 'published' state); if not, returns any validation error(s) as defined by rules in Variant service",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variantId",
+            "in": "path",
+            "description": "Identifies the variant to DELETE",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The variant is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/submissionvalidations": {
+      "post": {
+        "tags": [
+          "SubmissionValidation"
+        ],
+        "summary": "Validates that the specified Submission is valid; if not, returns any validation error(s) as defined by rules in Variant service",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The Submission (see: Submission service) instance to validate",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Submission"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (missing Submission in the body?)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/{variantId}": {
+      "delete": {
+        "tags": [
+          "Variants"
+        ],
+        "summary": "Delete a variant of a specific Product",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variantId",
+            "in": "path",
+            "description": "Identifies the variant to DELETE",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "Optional. If specified, indicates a pre-condition on the DELETE operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The variant was deleted"
+          },
+          "404": {
+            "description": "The variant is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A conflict prevented the variant from being deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "The If-Match header pre-condition wasn't met",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Variants"
+        ],
+        "summary": "Gets a single variant of a specific Product",
+        "operationId": "GET Variants/GetAsync",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "variantId",
+            "in": "path",
+            "description": "Identifies the variant to GET",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-None-Match",
+            "in": "header",
+            "description": "Optional. If specified, makes the request conditional the requested resource having an entity-tag that does match any of those listed",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceId",
+            "in": "query",
+            "description": "Optional. If specified, returns a snapshot (identified by `instanceId`) of the variant",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "reevaluate",
+            "in": "query",
+            "description": "Optional. If specified, triggers re-evaluation against the parent Product resource; may result in egress data-transformation",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SubscriptionTier"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ConsumableQuantity"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureSku"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureTestdrive"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The variant is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants": {
+      "post": {
+        "tags": [
+          "Variants"
+        ],
+        "summary": "Creates a new variant for a specific Product",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SubscriptionTier"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ConsumableQuantity"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureSku"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureTestdrive"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request (body) is invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Variants"
+        ],
+        "summary": "Queries for variants of a specific Product",
+        "operationId": "GET Variants/QueryAsync",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "externalId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "$pagesize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceId",
+            "in": "query",
+            "description": "Optional. If specified, returns a snapshot (identified by `instanceId`) of variants",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "reevaluate",
+            "in": "query",
+            "description": "Optional. If specified, triggers re-evaluation against the parent Product resource; may result in egress data-transformation",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VariantCollectionPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The query options are invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/{id}": {
+      "put": {
+        "tags": [
+          "Variants"
+        ],
+        "summary": "Replaces a single variant of a specific Product",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifies the variant to PUT",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "Required. If specified, indicates a pre-condition on the PUT operation",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            },
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SubscriptionTier"
+                  },
+                  {
+                    "$ref": "#/components/schemas/ConsumableQuantity"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureSku"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AzureTestdrive"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SubscriptionTier"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ConsumableQuantity"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureSku"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AzureTestdrive"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request (body) is invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The variant is not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "The If-Match header pre-condition wasn't met",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "428": {
+            "description": "The _required_ If-Match header was missing from the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/products/{productId}/variants/displayrank": {
+      "post": {
+        "tags": [
+          "Variants"
+        ],
+        "summary": "Updates the $.definition.displayRank for Variant resource(s) in bulk",
+        "description": "This API does not support optimistic concurrency: the assumption is that the request conveys a declarative\r\ndesired state, so optimistic concurrency is _probably_ not required. That said, the internal workings of a\r\nbatch request internalize the optimistic concurrency to guard against lost edits, so that the _only_ change\r\nwill be the desired $.definition.displayRank field.",
+        "parameters": [
+          {
+            "name": "Headers.x-ms-aadUserTicket",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-wobo",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-publisherId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-user",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Headers.x-ms-userId",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "Specifies the parent Product resource",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "The operation was successful"
+          },
+          "400": {
+            "description": "The request was invalid - either the request body was invalid, or it referenced an invalid variant (either doesn't exist or is not an azure-sku)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The collection is not found (i.e. the parent Product resource is invalid)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is missing (required) authentication"
+          },
+          "403": {
+            "description": "The authenticated request is forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "WriteAccess",
+              "ReadAccess"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AzureGovernmentCertification": {
+        "required": [
+          "title",
+          "uri"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string"
+          },
+          "uri": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AzureSku": {
+        "required": [
+          "definition"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "type": {
+            "enum": [
+              "azure-sku",
+              "azure-testdrive",
+              "consumable-quantity",
+              "subscription-tier"
+            ],
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "variantId": {
+            "pattern": "^(([0-9a-f]{8}\\-([0-9a-f]{4}\\-){3}[0-9a-f]{12})|[0-9]{1,20}|(testdrive))$",
+            "type": "string",
+            "nullable": true
+          },
+          "definition": {
+            "$ref": "#/components/schemas/AzureSkuDefinition"
+          },
+          "_etag": {
+            "type": "string",
+            "nullable": true
+          },
+          "_ts": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AzureSkuDefinition": {
+        "required": [
+          "alias",
+          "conversionPaths",
+          "externalId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "alias": {
+            "maxLength": 200,
+            "minLength": 0,
+            "type": "string"
+          },
+          "certificationsAzureGovernment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AzureGovernmentCertification"
+            },
+            "nullable": true
+          },
+          "cloudAvailability": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "blackforest",
+                "fairfax",
+                "mooncake",
+                "public-azure"
+              ],
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "conversionPaths": {
+            "minLength": 1,
+            "pattern": "^\\*$",
+            "type": "string"
+          },
+          "deprecationSchedule": {
+            "$ref": "#/components/schemas/DeprecationSchedule"
+          },
+          "displayRank": {
+            "type": "integer",
+            "format": "int32",
+            "default": 2147483647
+          },
+          "externalId": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "^[a-z0-9-_]{1,}$",
+            "type": "string"
+          },
+          "leadgenId": {
+            "type": "string",
+            "nullable": true
+          },
+          "legacyPIRExternalId": {
+            "type": "string",
+            "nullable": true
+          },
+          "livePartNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "previewPartNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceVariantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "serviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "skuId": {
+            "pattern": "^(([0-9a-f]{8}\\-([0-9a-f]{4}\\-){3}[0-9a-f]{12})|[0-9]{1,20})$",
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "enum": [
+              "active",
+              "deleted",
+              "inactive",
+              "restricted",
+              "terminated"
+            ],
+            "type": "string"
+          },
+          "subtype": {
+            "enum": [
+              "managed-application",
+              "solution-template"
+            ],
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "AzureTestdrive": {
+        "required": [
+          "definition"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "type": {
+            "enum": [
+              "azure-sku",
+              "azure-testdrive",
+              "consumable-quantity",
+              "subscription-tier"
+            ],
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "variantId": {
+            "pattern": "^(([0-9a-f]{8}\\-([0-9a-f]{4}\\-){3}[0-9a-f]{12})|[0-9]{1,20}|(testdrive))$",
+            "type": "string",
+            "nullable": true
+          },
+          "definition": {
+            "$ref": "#/components/schemas/AzureTestdriveDefinition"
+          },
+          "_etag": {
+            "type": "string",
+            "nullable": true
+          },
+          "_ts": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AzureTestdriveDefinition": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "active",
+              "deleted",
+              "inactive",
+              "restricted",
+              "terminated"
+            ],
+            "type": "string"
+          },
+          "subType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "BranchType": {
+        "enum": [
+          "Public",
+          "Private",
+          "Flight"
+        ],
+        "type": "string"
+      },
+      "CertJobResult": {
+        "enum": [
+          "Unknown",
+          "None",
+          "Passed",
+          "Failed",
+          "Error",
+          "Skipped",
+          "Canceled",
+          "PassedWithNotes",
+          "NotApplicable"
+        ],
+        "type": "string"
+      },
+      "CertificationReport": {
+        "type": "object",
+        "properties": {
+          "jobId": {
+            "type": "string",
+            "nullable": true
+          },
+          "updatedDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CertificationStatus"
+          },
+          "fileId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertificationStatus": {
+        "enum": [
+          "NotSet",
+          "Pending",
+          "Failed",
+          "Success",
+          "PassedWithNotes"
+        ],
+        "type": "string"
+      },
+      "ConsumableQuantity": {
+        "required": [
+          "definition"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "type": {
+            "enum": [
+              "azure-sku",
+              "azure-testdrive",
+              "consumable-quantity",
+              "subscription-tier"
+            ],
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "variantId": {
+            "pattern": "^(([0-9a-f]{8}\\-([0-9a-f]{4}\\-){3}[0-9a-f]{12})|[0-9]{1,20}|(testdrive))$",
+            "type": "string",
+            "nullable": true
+          },
+          "definition": {
+            "$ref": "#/components/schemas/ConsumableQuantityDefinition"
+          },
+          "_etag": {
+            "type": "string",
+            "nullable": true
+          },
+          "_ts": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsumableQuantityDefinition": {
+        "required": [
+          "quantity"
+        ],
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "maximum": 10000000,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": { }
+      },
+      "DeprecationSchedule": {
+        "type": "object",
+        "properties": {
+          "alternateProductId": {
+            "type": "string",
+            "nullable": true
+          },
+          "alternateVariantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dateOffset": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "string",
+            "nullable": true
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Fault": {
+        "required": [
+          "errorCode",
+          "errorMessage"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/Resource"
+          },
+          "type": {
+            "$ref": "#/components/schemas/FaultType"
+          },
+          "errorCode": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string"
+          },
+          "errorMessage": {
+            "maxLength": 1024,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FaultType": {
+        "enum": [
+          "Unknown",
+          "Info",
+          "Warning",
+          "Error"
+        ],
+        "type": "string"
+      },
+      "Feature": {
+        "type": "object",
+        "properties": {
+          "featureName": {
+            "$ref": "#/components/schemas/FeatureName"
+          },
+          "isEnabled": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FeatureName": {
+        "enum": [
+          "ParallelPublishing",
+          "MigratedFromXbox",
+          "SupportsMultiSkus",
+          "PublishTargetGoLive",
+          "PublishTargetPreview",
+          "PublishLatestCertXblConfigVersion",
+          "PreCertification",
+          "CertificationClone",
+          "SkipXblPublish",
+          "NoValidPackages",
+          "UsesV2WorkflowDisplayData",
+          "InDraft",
+          "WorkflowInProgress",
+          "PublishTargetStopSell",
+          "PublishTargetTerminate",
+          "PendingDelete",
+          "HasPrivateAudienceSku",
+          "PendingStopSell",
+          "MigratedFromCpp",
+          "RepublishInProgress",
+          "MigratedFromOffice",
+          "FastSync",
+          "SubscriptionSync",
+          "FlightPackagePreCert",
+          "Attestation",
+          "Restrictions",
+          "SkipBootstrapEmail",
+          "HideResourceBlade",
+          "SaaSLiveCertEnabled",
+          "PublishTargetDeprecate",
+          "PendingDeprecate",
+          "PackageRollback",
+          "HasVMRI",
+          "HasImageDeprecation",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "IModuleDataContract": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "revisionToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchType": {
+            "$ref": "#/components/schemas/BranchType"
+          },
+          "instanceType": {
+            "$ref": "#/components/schemas/ModuleInstanceType"
+          },
+          "variantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "branchName": {
+            "type": "string",
+            "nullable": true
+          },
+          "resource": {
+            "$ref": "#/components/schemas/Resource"
+          },
+          "isValid": {
+            "type": "boolean"
+          },
+          "friendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "hashCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "certHashCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "certStatus": {
+            "$ref": "#/components/schemas/CertJobResult"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/ModuleSummary"
+          },
+          "link": {
+            "$ref": "#/components/schemas/Link"
+          },
+          "isMainBranch": {
+            "type": "boolean"
+          },
+          "isLocked": {
+            "type": "boolean"
+          },
+          "predicates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KnownPredicates"
+            },
+            "nullable": true
+          },
+          "variantType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "IModuleFieldValue": {
+        "type": "object",
+        "properties": {
+          "_type": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KnownPredicates": {
+        "enum": [
+          "Unknown",
+          "HasPrivateAudience",
+          "HasVMRI",
+          "HasImageDeprecation",
+          "FastSyncNotSupportedDueToNewPrivateAudienceType",
+          "FastSyncNotSupportedDueToPublicPlanChange"
+        ],
+        "type": "string"
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "nullable": true
+          },
+          "rel": {
+            "type": "string",
+            "nullable": true
+          },
+          "method": {
+            "type": "string",
+            "nullable": true
+          },
+          "resourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "hashCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "certHashCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "isExpanded": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModuleDisplayData": {
+        "required": [
+          "id",
+          "moduleFields",
+          "productId",
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "productId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "variantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "resource": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "moduleHref": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "moduleFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModuleField"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModuleField": {
+        "required": [
+          "fieldValues",
+          "key",
+          "moduleFields"
+        ],
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 36,
+            "minLength": 0,
+            "type": "string"
+          },
+          "fieldDisplayName": {
+            "maxLength": 36,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "fieldValues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IModuleFieldValue"
+            }
+          },
+          "compareBy": {
+            "$ref": "#/components/schemas/ModuleFieldCompareBy"
+          },
+          "moduleFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModuleField"
+            }
+          },
+          "fieldHref": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "ignoreField": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModuleFieldCompareBy": {
+        "enum": [
+          "OrderedList",
+          "UnorderedList"
+        ],
+        "type": "string"
+      },
+      "ModuleInstanceType": {
+        "enum": [
+          "Unknown",
+          "Product",
+          "Variant"
+        ],
+        "type": "string"
+      },
+      "ModuleSummary": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ModuleSummaryItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ModuleSummaryItem": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/SummaryInfoType"
+          },
+          "summaryData": {
+            "type": "string",
+            "nullable": true
+          },
+          "multiPartData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MultiPartData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MultiPartData": {
+        "type": "object",
+        "properties": {
+          "fieldName": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PendingUpdateInfo": {
+        "type": "object",
+        "properties": {
+          "updateType": {
+            "$ref": "#/components/schemas/PendingUpdateType"
+          },
+          "shouldRetry": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/PendingUpdateStatus"
+          },
+          "rel": {
+            "type": "string",
+            "nullable": true
+          },
+          "href": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "failedReason": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "statusMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PendingUpdateStatus": {
+        "enum": [
+          "Running",
+          "Failed",
+          "Completed",
+          "Cancelled",
+          "PendingConfirmation",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "PendingUpdateType": {
+        "enum": [
+          "Create",
+          "Submit",
+          "Promote",
+          "Validate"
+        ],
+        "type": "string"
+      },
+      "Resource": {
+        "enum": [
+          "Unknown",
+          "Listing",
+          "Property",
+          "Package",
+          "PackageSet",
+          "Availability",
+          "AgeRating",
+          "Hardware",
+          "IoT",
+          "Submission",
+          "Product",
+          "Trailer",
+          "Workflow",
+          "Sandbox",
+          "Flighting",
+          "Sku",
+          "ProductGroup",
+          "Studio",
+          "Rollout",
+          "Publishing",
+          "ConsumableQuantity",
+          "FeatureGroup",
+          "AssetDownload",
+          "AssetValidation",
+          "Certification",
+          "Xbox",
+          "SupportedTargetPlatforms",
+          "Variant",
+          "SkuSetup",
+          "TestDrive",
+          "Restrictions",
+          "SupplementalContent",
+          "Cosell",
+          "Accounts",
+          "ChannelConfiguration",
+          "Resell",
+          "Attestation",
+          "ValidationWorkflow",
+          "ValidationEndpoint",
+          "XboxMetadata",
+          "PaxListing",
+          "PaxAvailability",
+          "PrivateOffer",
+          "PhysicalGoods",
+          "XboxListing",
+          "XboxPricing",
+          "XboxProperties"
+        ],
+        "type": "string"
+      },
+      "ResourceRevisionToken": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "resource": {
+            "$ref": "#/components/schemas/Resource"
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ServiceError": {
+        "type": "object",
+        "properties": {
+          "faultCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "reasonPhrase": {
+            "type": "string",
+            "nullable": true
+          },
+          "correlationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "operationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Describes an error/fault in processing the request. See Remarks."
+      },
+      "Submission": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "revisionToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "updatedBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "baseId": {
+            "type": "string",
+            "nullable": true
+          },
+          "productType": {
+            "type": "string",
+            "nullable": true
+          },
+          "sandboxId": {
+            "type": "string",
+            "nullable": true
+          },
+          "flightId": {
+            "type": "string",
+            "nullable": true,
+            "deprecated": true
+          },
+          "trainId": {
+            "type": "string",
+            "nullable": true
+          },
+          "isFlight": {
+            "type": "boolean"
+          },
+          "submissionState": {
+            "$ref": "#/components/schemas/SubmissionState"
+          },
+          "workflowStatus": {
+            "$ref": "#/components/schemas/WorkflowStatus"
+          },
+          "submissionType": {
+            "$ref": "#/components/schemas/SubmissionType"
+          },
+          "friendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishedDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isPublished": {
+            "type": "boolean"
+          },
+          "releaseNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "releaseRank": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEditable": {
+            "type": "boolean"
+          },
+          "canDelete": {
+            "type": "boolean"
+          },
+          "updatedDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "canUpdate": {
+            "type": "boolean"
+          },
+          "certificationReports": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CertificationReport"
+            },
+            "nullable": true
+          },
+          "lockedXblServiceConfigVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Feature"
+            },
+            "nullable": true
+          },
+          "pendingUpdate": {
+            "$ref": "#/components/schemas/PendingUpdateInfo"
+          },
+          "areResourcesLinked": {
+            "type": "boolean"
+          },
+          "failureExitCodes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "faults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Fault"
+            },
+            "nullable": true
+          },
+          "isLateBound": {
+            "type": "boolean"
+          },
+          "variantLinkCollection": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VariantLink"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubmissionState": {
+        "enum": [
+          "NotSet",
+          "Created",
+          "Submitted",
+          "Published",
+          "Deleted",
+          "InTheStore"
+        ],
+        "type": "string"
+      },
+      "SubmissionType": {
+        "enum": [
+          "NotSet",
+          "InProgress",
+          "Published",
+          "Archived",
+          "Deleted",
+          "JustInTime",
+          "Cancelled",
+          "RolledBack",
+          "ModularCert",
+          "Shadow",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "SubscriptionTier": {
+        "required": [
+          "definition"
+        ],
+        "type": "object",
+        "properties": {
+          "href": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "type": {
+            "enum": [
+              "azure-sku",
+              "azure-testdrive",
+              "consumable-quantity",
+              "subscription-tier"
+            ],
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "variantId": {
+            "pattern": "^(([0-9a-f]{8}\\-([0-9a-f]{4}\\-){3}[0-9a-f]{12})|[0-9]{1,20}|(testdrive))$",
+            "type": "string",
+            "nullable": true
+          },
+          "definition": {
+            "$ref": "#/components/schemas/SubscriptionTierDefinition"
+          },
+          "_etag": {
+            "type": "string",
+            "nullable": true
+          },
+          "_ts": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubscriptionTierDefinition": {
+        "required": [
+          "period"
+        ],
+        "type": "object",
+        "properties": {
+          "period": {
+            "enum": [
+              "none",
+              "1-month",
+              "1-week",
+              "1-year",
+              "6-hour",
+              "6-month",
+              "3-month",
+              "2-year"
+            ],
+            "type": "string"
+          },
+          "trialPeriod": {
+            "enum": [
+              "none",
+              "1-month",
+              "1-week",
+              "1-year",
+              "6-hour",
+              "6-month",
+              "3-month",
+              "2-year"
+            ],
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "SummaryInfoType": {
+        "enum": [
+          "Text",
+          "Image",
+          "MultiPart"
+        ],
+        "type": "string"
+      },
+      "Validation": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "nullable": true
+          },
+          "submissionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "friendlyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "resource": {
+            "$ref": "#/components/schemas/Resource"
+          },
+          "validationItems": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationItem"
+            },
+            "nullable": true
+          },
+          "resourceRevisionTokens": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceRevisionToken"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationItem": {
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/ValidationType"
+          },
+          "displayOnAnchor": {
+            "type": "boolean"
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationItemScope"
+            },
+            "nullable": true
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "relatedItemValidations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Validation"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationItemScope": {
+        "type": "object",
+        "properties": {
+          "instanceType": {
+            "$ref": "#/components/schemas/ModuleInstanceType"
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationType": {
+        "enum": [
+          "Informational",
+          "Warning",
+          "Error",
+          "WarningRequiresConfirmation",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "VariantCollectionPage": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/SubscriptionTier"
+                },
+                {
+                  "$ref": "#/components/schemas/ConsumableQuantity"
+                },
+                {
+                  "$ref": "#/components/schemas/AzureSku"
+                },
+                {
+                  "$ref": "#/components/schemas/AzureTestdrive"
+                }
+              ]
+            },
+            "nullable": true
+          },
+          "@nextLink": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VariantLink": {
+        "type": "object",
+        "properties": {
+          "variantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WorkflowStatus": {
+        "enum": [
+          "NotStarted",
+          "Started",
+          "Cancelled",
+          "CertificationFailed",
+          "Failed",
+          "Published",
+          "InTheStore",
+          "WaitingForRelease",
+          "PendingCancel",
+          "Unknown"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "apiKey",
+        "description": "Standard \"Authorization\" header using the Bearer scheme, i.e. \"bearer {token}\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  }
+}

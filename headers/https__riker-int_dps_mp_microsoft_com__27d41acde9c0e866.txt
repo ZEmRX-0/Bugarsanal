@@ -1,0 +1,10 @@
+200 OK
+Date: Mon, 19 Dec 2022 21:01:12 GMT
+Set-Cookie: ARRAffinity=b235189dc76b52d1f6232c1396747a8a985eda9a1bf6a33d246a126564f36fe3;Path=/;HttpOnly;Secure;Domain=riker-int.dps.mp.microsoft.com ARRAffinitySameSite=b235189dc76b52d1f6232c1396747a8a985eda9a1bf6a33d246a126564f36fe3;Path=/;HttpOnly;SameSite=None;Secure;Domain=riker-int.dps.mp.microsoft.com
+Ms-Correlationid: 44a8a5b8-d372-44b8-ac25-b162aa7df369
+Content-Type: text/yaml;charset=utf-8
+Server: Kestrel
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:2e56bae5-f480-4eb5-b76a-e0b73cc3faf7
+X-Powered-By: ASP.NET
+Retry-Count: 0

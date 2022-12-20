@@ -1,0 +1,17 @@
+200 OK
+Cache-Control: private, no-store, no-cache, max-age=0, s-maxage=0
+Pragma: no-cache
+Last-Modified: Thu, 15 Dec 2022 06:54:01 GMT
+X-Xss-Protection: 1; mode=block
+Content-Type: application/javascript
+Retry-Count: 0
+Expires: 0
+Vary: Accept-Encoding
+X-End2endlatencyms: 3
+Accept-Ranges: bytes
+Etag: "1d910520326c174"
+Server: Microsoft-HTTPAPI/2.0
+Ms-Cv: WPf5Kkb+qkaoKpQGOXOgbw.0
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Mon, 19 Dec 2022 21:01:00 GMT

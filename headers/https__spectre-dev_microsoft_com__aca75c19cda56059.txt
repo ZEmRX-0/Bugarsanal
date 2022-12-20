@@ -1,0 +1,17 @@
+200 OK
+Server: Microsoft-IIS/10.0
+Content-Security-Policy: default-src 'self' https://login.windows.net https://sanotebookoutputeus2dev.blob.core.windows.net https://msit.powerbi.com https://aka.ms/ https://microsofteur.sharepoint.com/ https://*.microsoftonline.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.microsoftonline.com https://*.visualstudio.com https://powerva.microsoft.com https://directline.botframework.com wss://directline.botframework.com; img-src 'self' 'unsafe-inline' data: * blob: 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' https://static2.sharepointonline.com;
+Date: Mon, 19 Dec 2022 21:00:57 GMT
+Retry-Count: 0
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Referrer-Policy: same-origin
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Content-Type: application/javascript
+Set-Cookie: ApplicationGatewayAffinityCORS=54c25ed2ec5328e8d5d44a1a200fb419; Path=/; SameSite=None; Secure ApplicationGatewayAffinity=54c25ed2ec5328e8d5d44a1a200fb419; Path=/ SPRD=f13b7b82-4387-4667-bd3b-23ede6aa47c8; max-age=3153600000; path=/; secure; samesite=strict; httponly ARRAffinity=185f1ecae27fbc70bf781c38b590e20d1d35e495fdda7ee4804419883d80b9c9;Path=/;HttpOnly;Secure;Domain=as-spectre-api-eus2-dev.azurewebsites.net ARRAffinitySameSite=185f1ecae27fbc70bf781c38b590e20d1d35e495fdda7ee4804419883d80b9c9;Path=/;HttpOnly;SameSite=None;Secure;Domain=as-spectre-api-eus2-dev.azurewebsites.net
+Accept-Ranges: bytes
+Etag: "1d913468d1f3813"
+Last-Modified: Mon, 19 Dec 2022 01:09:32 GMT
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:15cafa8c-6e80-4643-8aa0-c2802b169961
+X-Powered-By: ASP.NET

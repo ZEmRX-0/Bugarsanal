@@ -1,0 +1,300 @@
+openapi: 3.0.1
+info:
+  title: Riker API
+  version: v1
+paths:
+  /api/notification/status:
+    get:
+      tags:
+        - Notification
+      parameters:
+        - name: targetId
+          in: query
+          schema:
+            type: string
+        - name: eventId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/notification/sample:
+    post:
+      tags:
+        - Notification
+      parameters:
+        - name: externalFileType
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/notification:
+    post:
+      tags:
+        - Notification
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.IEvent'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.IEvent'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.IEvent'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.IEvent'
+      responses:
+        '200':
+          description: Success
+  /api/notification/email:
+    post:
+      tags:
+        - Notification
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.V2.EmailNotification'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.V2.EmailNotification'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.V2.EmailNotification'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.V2.EmailNotification'
+      responses:
+        '200':
+          description: Success
+  '/api/notification/certreports/id/{accountId}/productid/{productId}/eventtype/{eventType}':
+    get:
+      tags:
+        - Notification
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: eventType
+          in: path
+          required: true
+          schema:
+            type: string
+            default: ''
+      responses:
+        '200':
+          description: Success
+  '/api/notification/email/{jobId}':
+    get:
+      tags:
+        - Notification
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/notification/certreport/product/{productId}/resource/{id}':
+    get:
+      tags:
+        - Notification
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/notification/certreport/{id}':
+    get:
+      tags:
+        - Notification
+      summary: Get the cert report by either File Id or Job Id
+      parameters:
+        - name: id
+          in: path
+          description: Job id or File id
+          required: true
+          schema:
+            type: string
+        - name: isFileId
+          in: query
+          description: Value indicating whether it's a file id or a job id
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    Microsoft.UniversalStore.Developer.Riker.Enum.EventContext:
+      enum:
+        - Product
+        - Account
+        - Job
+        - Submission
+        - CertificationResult
+      type: string
+    Microsoft.UniversalStore.Developer.Riker.Events.EventType:
+      enum:
+        - RestrictionEvent
+        - OfficeAddinRestrictionEvent
+        - OfficeAddinPoliciesRestrictionEvent
+        - InlineCertificationCompletedEvent
+        - OfflineCertificationCompletedEvent
+        - WarnEvent
+        - AccountStateUpdateEvent
+        - PublishingCompletedEvent
+        - RiskAnalysisCertificationEvent
+        - KillBitAlertEvent
+        - AccountDisabledEvent
+        - AccountEvictedEvent
+        - AccountSuspendedEvent
+        - AccountExceptionRequestEvent
+        - PostPublishFailEvent
+        - PostPublishFailTakeDownEvent
+        - PostPublishFailWarnForAppTakedownEvent
+        - PostPublishPassWithNotesEvent
+        - PrePublishFailEvent
+        - PrePublishPassWithNotesEvent
+        - TopAppCompletePublishEvent
+        - TopAppStartPublishEvent
+        - GuardrailedProductEvent
+        - ModularCertCompleteEvent
+        - OfficeAddinFailEvent
+        - OfficeAddinPassEvent
+        - OfficeAddinPassWithNotesEvent
+        - OfficeAddinPostPublishFailEvent
+        - OfficeAddinAccountRestrictionEvent
+        - OfficeAddinRemoveSupportEvent
+        - AzureOfferStopSellEvent
+        - AzureCommercialOfferRestrictionEvent
+        - AzureOfferSyncPrivateAudienceEvent
+        - AzureOfferPublishToPreviewFailEvent
+        - AzureOfferPublishToProdFailEvent
+        - AzureOfferPublishToPreviewPassEvent
+        - AzureOfferPublishToProdPassEvent
+        - AzureOfferCertPassEvent
+        - AzureOfferCertPassWithNotesEvent
+        - AzureOfferCertFailEvent
+        - AzureOfferCertInformationalEvent
+        - PostPublishInformationalEvent
+        - OfficeAddinPrePublishInformationalEvent
+        - PrePublishInformationalEvent
+        - MsEdgeAddonTakeDownEvent
+        - PrePublishPassEvent
+        - ModularCertCompleteCancelEvent
+        - ModularCertCompleteFailEvent
+        - ModularCertCompleteInformationalEvent
+        - ModularCertCompletePassWithNotesEvent
+        - CertificationDeferredReviewFailEvent
+        - CertificationFailEvent
+        - CertificationPassEvent
+        - CertificationPassWithNotesEvent
+        - LightCertificationEventFail
+        - LightCertificationEventPass
+        - PriceChangeEntitlementsEvent
+      type: string
+    Microsoft.UniversalStore.Developer.Riker.Events.IEvent:
+      type: object
+      properties:
+        EventType:
+          $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.EventType'
+        Target:
+          $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.StoreId.Contracts.ITarget'
+        CorrelationId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Microsoft.UniversalStore.Developer.Riker.Events.V2.EmailNotification:
+      type: object
+      properties:
+        CorrelationId:
+          type: string
+          nullable: true
+        Name:
+          type: string
+          nullable: true
+        Source:
+          type: string
+          nullable: true
+        Parameters:
+          type: object
+          additionalProperties:
+            nullable: true
+          nullable: true
+        EventContext:
+          type: array
+          items:
+            $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Events.V2.IEventContextData'
+          nullable: true
+        Overrides:
+          $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Model.Overrides'
+        CreatedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+      additionalProperties: false
+    Microsoft.UniversalStore.Developer.Riker.Events.V2.IEventContextData:
+      type: object
+      properties:
+        Type:
+          $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.Riker.Enum.EventContext'
+      additionalProperties: false
+    Microsoft.UniversalStore.Developer.Riker.Model.Overrides:
+      type: object
+      properties:
+        ToAddresses:
+          type: array
+          items:
+            type: string
+          nullable: true
+      additionalProperties: false
+    Microsoft.UniversalStore.Developer.StoreId.Contracts.ITarget:
+      type: object
+      properties:
+        TargetType:
+          $ref: '#/components/schemas/Microsoft.UniversalStore.Developer.StoreId.Contracts.TargetType'
+      additionalProperties: false
+    Microsoft.UniversalStore.Developer.StoreId.Contracts.TargetType:
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      type: integer
+      format: int32
+  securitySchemes:
+    oauth2:
+      type: apiKey
+      description: 'Standard "Authorization" header using the Bearer scheme, i.e. "bearer {token}"'
+      name: Authorization
+      in: header

@@ -1,0 +1,8 @@
+200 OK
+Vary: Accept-Encoding
+Date: Mon, 19 Dec 2022 20:59:59 GMT
+Set-Cookie: ARRAffinity=d711311de7fe4827ff36f12724a8278a1b865fb7a038cd49889219877a962037;Path=/;HttpOnly;Secure;Domain=dev-azureava-api.microsoft.com ARRAffinitySameSite=d711311de7fe4827ff36f12724a8278a1b865fb7a038cd49889219877a962037;Path=/;HttpOnly;SameSite=None;Secure;Domain=dev-azureava-api.microsoft.com
+Retry-Count: 0
+Content-Type: text/yaml;charset=utf-8
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000

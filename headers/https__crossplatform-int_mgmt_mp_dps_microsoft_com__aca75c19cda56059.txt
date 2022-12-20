@@ -1,0 +1,15 @@
+200 OK
+Last-Modified: Wed, 21 Sep 2022 07:55:00 GMT
+Etag: "1d8cd8f72f73dd2"
+Server: Microsoft-HTTPAPI/2.0
+Ms-Correlationid: 88cc769c-ca9c-4833-af59-2760adf843f1
+Content-Type: application/javascript
+Accept-Ranges: bytes
+Ms-Cv: 886IIDJVLkuiP9R2.0
+Date: Mon, 19 Dec 2022 21:00:26 GMT
+Ms-Requestid: e71a81e3-8b36-4ed4-a796-b7a91ac6e956
+X-Server: INT-EASTUS000002
+X-Assemblyversion: 1.0.0.0
+Retry-Count: 0
+Content-Length: 286674
+Request-Context: appId=cid-v1:c89c8865-eb46-47d0-8e88-2cdd339c7667

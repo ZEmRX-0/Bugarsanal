@@ -1,0 +1,17 @@
+200 OK
+Date: Mon, 19 Dec 2022 20:59:46 GMT
+Retry-Count: 0
+Accept-Ranges: bytes
+X-Ms-Islandgateway: GA0000001
+Server-Timing: x-ms-igw-upstream-headers;dur=1.7,x-ms-igw-req-overhead;dur=0.2
+X-Content-Type-Options: nosniff
+X-Servicefabric: NoRetry
+X-Ms-Correlation-Id: 684e18b8-2fe5-4cf9-aedd-129e83964d18
+Content-Type: application/javascript
+Etag: "1d909b9e33dae93"
+Location: https://admin.powerplatform.microsoft.com?configUrl=https%3A%2F%2Fm0x0101.github.io%2Flol%2Ftest.json
+Strict-Transport-Security: max-age=15724800; includeSubDomains
+X-Ms-Activity-Vector: 00.00.00.00
+Content-Length: 513555
+Last-Modified: Tue, 06 Dec 2022 21:29:57 GMT
+X-Ms-Service-Request-Id: dbfed955-1c70-41df-a1d2-7bc41d58f00c

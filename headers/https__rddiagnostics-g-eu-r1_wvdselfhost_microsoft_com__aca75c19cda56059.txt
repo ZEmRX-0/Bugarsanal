@@ -1,0 +1,16 @@
+200 OK
+Accept-Ranges: bytes
+Vary: Accept-Encoding
+Arr-Disable-Session-Affinity: true
+X-Content-Type-Options: nosniff
+Content-Type: application/javascript
+X-Ms-Lamport-Ts: 6
+X-Ms-Correlation-Id: a04872a2-777d-403f-a934-582ac4983eb9
+Date: Mon, 19 Dec 2022 21:00:42 GMT
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Last-Modified: Tue, 13 Dec 2022 02:36:04 GMT
+Etag: "1d90e9ba54d0e3d"
+X-Ms-Request-Id: f492e1e9-0da6-4ac0-854a-6a3c31a7ff00
+Server: Microsoft-IIS/10.0
+X-Ms-Wvd-Service-Region: WEU

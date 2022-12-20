@@ -1,0 +1,10 @@
+200 OK
+Content-Type: application/json;charset=utf-8
+Server: Microsoft-IIS/10.0
+Request-Context: appId=cid-v1:44e82f5d-4f1c-4751-b3b0-7d5b4e087318
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:00:31 GMT
+Set-Cookie: ARRAffinity=41678a6b5001a214ebdef98b79e2f6decded8eab8ecbb46f830eb56e3a0e2cde;Path=/;HttpOnly;Secure;Domain=coopfundsvc.dps.microsoft.com ARRAffinitySameSite=41678a6b5001a214ebdef98b79e2f6decded8eab8ecbb46f830eb56e3a0e2cde;Path=/;HttpOnly;SameSite=None;Secure;Domain=coopfundsvc.dps.microsoft.com
+Vary: Accept-Encoding
+Strict-Transport-Security: max-age=5184000; includeSubDomains; preload

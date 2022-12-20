@@ -1,0 +1,12 @@
+200 OK
+Etag: "1d8ea4989a6a574"
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:4160c19a-4203-4d45-89b3-14d6ffc810d1
+Date: Mon, 19 Dec 2022 20:59:50 GMT
+Server: Kestrel
+Retry-Count: 0
+Last-Modified: Thu, 27 Oct 2022 21:17:37 GMT
+X-Content-Type-Options: nosniff
+Timing-Allow-Origin: *
+Content-Type: application/javascript
+Accept-Ranges: bytes

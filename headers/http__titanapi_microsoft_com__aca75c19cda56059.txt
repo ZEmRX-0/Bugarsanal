@@ -1,0 +1,9 @@
+200 OK
+Content-Length: 511037
+Last-Modified: Sat, 16 Oct 2021 12:54:30 GMT
+Accept-Ranges: bytes
+Etag: "1d7c28cf5730b3d"
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 20:59:47 GMT
+Content-Type: application/javascript
+Server: Kestrel

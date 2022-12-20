@@ -1,0 +1,12 @@
+200 OK
+Content-Type: application/javascript
+Etag: "1d6fbadc493c34e"
+Strict-Transport-Security: max-age=2592000
+Server: Microsoft-IIS/10.0
+Last-Modified: Fri, 05 Feb 2021 10:58:00 GMT
+Date: Mon, 19 Dec 2022 21:00:59 GMT
+Accept-Ranges: bytes
+Set-Cookie: ARRAffinity=7883d528e2f2fd79a0b584d02a135ee13688e9825dc3f8bbaea9b4d05eb7eb03;Path=/;HttpOnly;Secure;Domain=nonprod.wdatp-threatprotection.microsoft.com ARRAffinitySameSite=7883d528e2f2fd79a0b584d02a135ee13688e9825dc3f8bbaea9b4d05eb7eb03;Path=/;HttpOnly;SameSite=None;Secure;Domain=nonprod.wdatp-threatprotection.microsoft.com
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Vary: Accept-Encoding

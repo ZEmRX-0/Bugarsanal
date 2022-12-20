@@ -1,0 +1,12 @@
+200 OK
+Accept-Ranges: bytes
+Etag: "1d911a302e39f74"
+X-Serverrequestid: 7ffae5e7-1385-44cf-8d79-c60ec6bb2a9d
+Date: Mon, 19 Dec 2022 21:01:39 GMT
+Content-Type: application/javascript
+Server: Kestrel
+Content-Length: 510964
+Last-Modified: Fri, 16 Dec 2022 23:06:21 GMT
+Correlation-Tags: CorrelationId: 7ffae5e7-1385-44cf-8d79-c60ec6bb2a9d, ClientCorrelationId: , ClientRequestId:
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Retry-Count: 0

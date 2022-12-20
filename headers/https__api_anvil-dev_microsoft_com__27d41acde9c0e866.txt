@@ -1,0 +1,8 @@
+200 OK
+Set-Cookie: ARRAffinity=8cb9eb8a9c8e49bb32964ef5e087477636164e3b1bd119e62b62b2d516d04b33;Path=/;HttpOnly;Secure;Domain=api.anvil-dev.microsoft.com ARRAffinitySameSite=8cb9eb8a9c8e49bb32964ef5e087477636164e3b1bd119e62b62b2d516d04b33;Path=/;HttpOnly;SameSite=None;Secure;Domain=api.anvil-dev.microsoft.com
+Vary: Accept-Encoding
+Date: Mon, 19 Dec 2022 21:00:08 GMT
+Content-Type: text/yaml;charset=utf-8
+Retry-Count: 0
+Server: Microsoft-IIS/10.0
+X-Powered-By: ASP.NET

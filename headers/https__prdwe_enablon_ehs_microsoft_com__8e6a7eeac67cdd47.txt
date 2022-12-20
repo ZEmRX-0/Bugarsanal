@@ -1,0 +1,6 @@
+200 OK
+Strict-Transport-Security: max-age=2592000
+X-Correlation-Id: 0HMMTLC7HU020:00000002
+Date: Mon, 19 Dec 2022 21:01:23 GMT
+Content-Type: text/html;charset=utf-8
+Retry-Count: 0

@@ -1,0 +1,14 @@
+200 OK
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+Ms-Requestid: 2f4994ed-cd4d-46e5-b0e0-7e93fc8618e6
+Set-Cookie: TiPMix=36.59669343826722; path=/; HttpOnly; Domain=authz-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=authz-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None
+Request-Context: appId=cid-v1:610bb4a4-6925-415b-8792-29f1b635fcdc
+Ms-Correlationid: 2f933bda-e264-49eb-81ad-3e88153d6f11
+X-Server: INT-PD1MDWK000IZB
+X-Powered-By: ASP.NET
+Server: Microsoft-IIS/10.0
+Date: Mon, 19 Dec 2022 21:00:19 GMT
+Vary: Accept-Encoding
+Ms-Cv: Fw78PMNHZ0edGY+Q.0
+X-Assemblyversion: 0.0.0.0

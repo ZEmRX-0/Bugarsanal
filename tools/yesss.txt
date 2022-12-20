@@ -1,0 +1,14 @@
+[2022-12-19 14:36:46] [swagger-api] [http] [info] https://checkout2.bcc.nl/swagger/swagger-ui.js
+[2022-12-19 14:36:46] [swagger-api] [http] [info] https://sentinel.matic.network/swagger/swagger-ui.js
+[2022-12-19 14:36:47] [swagger-api] [http] [info] https://mnt.matic.network/swagger/swagger-ui.js
+[2022-12-19 14:36:48] [swagger-api] [http] [info] https://observatory.orionlabs.io/swagger.json
+[2022-12-19 14:36:49] [swagger-api] [http] [info] https://www.api.hpr.kiwai-normandie.fr/swagger-ui.js
+[2022-12-19 14:36:49] [swagger-api] [http] [info] https://open-api.polygon.technology/api-docs/swagger.json
+[2022-12-19 14:36:50] [swagger-api] [http] [info] https://qtestexplorer.reflexisinc.com/api-docs/swagger.yaml
+[2022-12-19 14:36:50] [swagger-api] [http] [info] https://api.orionlabs.io/swagger.json
+[2022-12-19 14:36:51] [swagger-api] [http] [info] https://argocd.upchieve.org/swagger.json
+[2022-12-19 14:36:51] [swagger-api] [http] [info] https://devstaging.pcapcloud.com/swagger-ui.html
+[2022-12-19 14:36:52] [swagger-api] [http] [info] https://operator.casper.tools/api/docs/
+[2022-12-19 14:36:53] [swagger-api] [http] [info] https://api.optimizely.com/swagger.json
+[2022-12-19 14:36:59] [swagger-api] [http] [info] https://qtestpulse.reflexisinc.com/api/swagger
+[2022-12-19 14:37:01] [swagger-api] [http] [info] https://www.cengage.com/api/swagger.json

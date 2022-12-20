@@ -1,0 +1,1449 @@
+openapi: 3.0.1
+info:
+  title: Product Summary API
+  contact:
+    url: https://osgwiki.com/wiki/Product_Summary_Service
+  version: v1
+paths:
+  /dashboard/pss/products:
+    get:
+      tags:
+        - FrontDoorProduct
+      parameters:
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+        - name: searchMode
+          in: query
+          schema:
+            type: string
+            default: all
+        - name: accessOperation
+          in: query
+          schema:
+            type: string
+            default: read
+        - name: multiAccount
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: hasPermission
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  /dashboard/office/pss/products:
+    get:
+      tags:
+        - FrontDoorProduct
+      parameters:
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+        - name: searchMode
+          in: query
+          schema:
+            type: string
+            default: all
+        - name: accessOperation
+          in: query
+          schema:
+            type: string
+            default: read
+        - name: multiAccount
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: hasPermission
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  /dashboard/pss/products/dashboard-view:
+    get:
+      tags:
+        - FrontDoorProduct
+      parameters:
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: accessOperation
+          in: query
+          schema:
+            type: string
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: hasPermission
+          in: query
+          schema:
+            type: boolean
+        - name: multiAccount
+          in: query
+          schema:
+            type: boolean
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchMode
+          in: query
+          schema:
+            type: string
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: flatten
+          in: query
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  /dashboard/office/pss/products/dashboard-view:
+    get:
+      tags:
+        - FrontDoorProduct
+      parameters:
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: accessOperation
+          in: query
+          schema:
+            type: string
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: hasPermission
+          in: query
+          schema:
+            type: boolean
+        - name: multiAccount
+          in: query
+          schema:
+            type: boolean
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchMode
+          in: query
+          schema:
+            type: string
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: flatten
+          in: query
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  /dashboard/pss/products/productsubmissionstate:
+    get:
+      tags:
+        - FrontDoorProduct
+      parameters:
+        - name: productDocumentTypes
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSubmissionState'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSubmissionState'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSubmissionState'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  /dashboard/office/pss/products/productsubmissionstate:
+    get:
+      tags:
+        - FrontDoorProduct
+      parameters:
+        - name: productDocumentTypes
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSubmissionState'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSubmissionState'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSubmissionState'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  /dashboard/pss/variants:
+    get:
+      tags:
+        - FrontDoorVariants
+      parameters:
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: searchMode
+          in: query
+          schema:
+            type: string
+            default: all
+        - name: accessOperation
+          in: query
+          schema:
+            type: string
+            default: read
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  /dashboard/pss/variants/variantpublishedstatus:
+    get:
+      tags:
+        - FrontDoorVariants
+      parameters:
+        - name: variantTypes
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VariantPublishedStatus'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VariantPublishedStatus'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VariantPublishedStatus'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - FrontDoor
+  '/api/productonly/{productId}':
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocument'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocument'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocument'
+        '404':
+          description: Not Found
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      deprecated: true
+      security:
+        - oauth2:
+            - ReadAccess
+  '/api/products/{productId}':
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocument'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocument'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocument'
+        '404':
+          description: Not Found
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/productonly/withpublisher:
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      deprecated: true
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/products/withpublisher:
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/productonly:
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      deprecated: true
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/products:
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/productonly/continue:
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      deprecated: true
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/products/continue:
+    get:
+      tags:
+        - Product
+      parameters:
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProductDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+  '/api/variants/{variantId}':
+    get:
+      tags:
+        - Variants
+      parameters:
+        - name: variantId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VariantDocument'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocument'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocument'
+        '404':
+          description: Not Found
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/variants/withpublisher:
+    get:
+      tags:
+        - Variants
+      parameters:
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: X-AadUserTicket
+          in: header
+          schema:
+            type: string
+        - name: X-DEVELOPERACCOUNTID
+          in: header
+          schema:
+            type: string
+        - name: X-IsWobo
+          in: header
+          schema:
+            type: string
+        - name: x-ms-publisherId
+          in: header
+          schema:
+            type: string
+        - name: X-Seller-Account-Id
+          in: header
+          schema:
+            type: string
+        - name: X-UserId
+          in: header
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/variants:
+    get:
+      tags:
+        - Variants
+      parameters:
+        - name: queryType
+          in: query
+          schema:
+            $ref: '#/components/schemas/AzureQueryType'
+        - name: searchText
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: select
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+  /api/variants/continue:
+    get:
+      tags:
+        - Variants
+      parameters:
+        - name: continuationToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VariantDocumentPage'
+        '401':
+          description: The request is missing (required) authentication
+        '403':
+          description: The authenticated request is forbidden
+      security:
+        - oauth2:
+            - ReadAccess
+components:
+  schemas:
+    AzureQueryType:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    Envelope:
+      type: object
+      properties:
+        serializedContent:
+          type: string
+      additionalProperties: false
+    FeatureType:
+      type: object
+      properties:
+        stringValue:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    ProductDocument:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        bigId:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureType'
+          nullable: true
+        lastPublisherUpdatedDateTime:
+          type: string
+          format: date-time
+        pcsId:
+          type: integer
+          format: int64
+        productDocumentType:
+          $ref: '#/components/schemas/ProductDocumentType'
+        productGroupId:
+          type: string
+          nullable: true
+        publisherId:
+          type: integer
+          format: int64
+        publisherPuid:
+          type: integer
+          format: int64
+        productData:
+          $ref: '#/components/schemas/Envelope'
+        relationships:
+          type: array
+          items:
+            $ref: '#/components/schemas/QueryableRelationship'
+          nullable: true
+        storeProductSubmissionState:
+          $ref: '#/components/schemas/ProductSubmissionState'
+        isPublished:
+          type: boolean
+        logoUrl:
+          type: string
+          nullable: true
+        properties:
+          $ref: '#/components/schemas/ProductProperties'
+      additionalProperties: false
+    ProductDocumentPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductDocument'
+          nullable: true
+        continuationToken:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ProductDocumentType:
+      type: object
+      properties:
+        stringValue:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    ProductProperties:
+      type: object
+      properties:
+        cppOfferId:
+          type: string
+          nullable: true
+        cppPublisherId:
+          type: string
+          nullable: true
+        azureIncentiveTags:
+          type: array
+          items:
+            type: string
+          nullable: true
+        deprecationDate:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    ProductSubmissionState:
+      type: object
+      properties:
+        stringValue:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    QueryableRelationship:
+      type: object
+      properties:
+        relationshipType:
+          $ref: '#/components/schemas/RelationshipType'
+        targetProductId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    RecurringBillingModel:
+      type: object
+      properties:
+        stringValue:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    RelationshipType:
+      type: object
+      properties:
+        stringValue:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    SkuAudienceType:
+      type: object
+      properties:
+        stringValue:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    VariantDocument:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        variantId:
+          type: string
+          nullable: true
+        productId:
+          type: string
+          nullable: true
+        publisherId:
+          type: integer
+          format: int64
+        variantType:
+          type: string
+          nullable: true
+        variantSubtype:
+          type: string
+          nullable: true
+        variantName:
+          type: string
+          nullable: true
+        pricingModel:
+          $ref: '#/components/schemas/RecurringBillingModel'
+        audienceAvailability:
+          $ref: '#/components/schemas/SkuAudienceType'
+        publishedStatus:
+          $ref: '#/components/schemas/VariantPublishedStatus'
+        isPublished:
+          type: boolean
+        properties:
+          $ref: '#/components/schemas/VariantProperties'
+      additionalProperties: false
+    VariantDocumentPage:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariantDocument'
+          nullable: true
+        continuationToken:
+          type: string
+          nullable: true
+      additionalProperties: false
+    VariantProperties:
+      type: object
+      properties:
+        cppPlanId:
+          type: string
+          nullable: true
+        deprecationDate:
+          type: string
+          format: date-time
+          nullable: true
+        isTrialEnabled:
+          type: boolean
+      additionalProperties: false
+    VariantPublishedStatus:
+      type: object
+      properties:
+        stringValue:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: apiKey
+      description: 'Standard "Authorization" header using the Bearer scheme, i.e. "bearer {token}"'
+      name: Authorization
+      in: header

@@ -1,0 +1,9 @@
+200 OK
+Retry-Count: 0
+Content-Type: text/yaml;charset=utf-8
+Date: Mon, 19 Dec 2022 21:01:38 GMT
+Vary: Accept-Encoding
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=34a11421b10b8f6544dbd210eb4451344ffc58fd58c6c25307ae22ecb7ba506c;Path=/;HttpOnly;Secure;Domain=wdatp-threatprotection.microsoft.com ARRAffinitySameSite=34a11421b10b8f6544dbd210eb4451344ffc58fd58c6c25307ae22ecb7ba506c;Path=/;HttpOnly;SameSite=None;Secure;Domain=wdatp-threatprotection.microsoft.com
+Strict-Transport-Security: max-age=2592000
+X-Powered-By: ASP.NET

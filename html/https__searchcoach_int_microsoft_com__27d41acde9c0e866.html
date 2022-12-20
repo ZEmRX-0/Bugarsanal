@@ -1,0 +1,554 @@
+openapi: 3.0.1
+info:
+  title: Microsoft.Education.SearchCoachApplication.Service.SearchCoachWeb
+  version: '1.0'
+paths:
+  /api/Analytics/ResultVisit:
+    post:
+      tags:
+        - Analytics
+      parameters:
+        - name: groupId
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+      responses:
+        '200':
+          description: Success
+  '/api/groups/{groupId}/Analytics/ResultVisit':
+    post:
+      tags:
+        - Analytics
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ResultVisitData'
+      responses:
+        '200':
+          description: Success
+  /api/BingSearch:
+    get:
+      tags:
+        - BingSearch
+      parameters:
+        - name: SearchQuery
+          in: query
+          required: true
+          schema:
+            maxLength: 1000
+            minLength: 1
+            type: string
+        - name: Freshness
+          in: query
+          schema:
+            type: string
+        - name: RecordCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Offset
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Market
+          in: query
+          schema:
+            type: string
+        - name: searchId
+          in: query
+          schema:
+            type: string
+        - name: groupId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+  '/api/groups/{groupId}/BingSearch':
+    get:
+      tags:
+        - BingSearch
+      parameters:
+        - name: SearchQuery
+          in: query
+          required: true
+          schema:
+            maxLength: 1000
+            minLength: 1
+            type: string
+        - name: Freshness
+          in: query
+          schema:
+            type: string
+        - name: RecordCount
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Offset
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: Market
+          in: query
+          schema:
+            type: string
+        - name: searchId
+          in: query
+          schema:
+            type: string
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+  /api/CloudPolicyValidation:
+    get:
+      tags:
+        - CloudPolicyValidation
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ClientConfig'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientConfig'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ClientConfig'
+  /api/Flights:
+    get:
+      tags:
+        - Flights
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+  /api/NewsGuard:
+    get:
+      tags:
+        - NewsGuard
+      parameters:
+        - name: site
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/groups/{groupId}/NewsGuard':
+    get:
+      tags:
+        - NewsGuard
+      parameters:
+        - name: site
+          in: query
+          schema:
+            type: string
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/groups/{groupId}/Settings':
+    get:
+      tags:
+        - Settings
+      parameters:
+        - name: x-create-if-missing
+          in: header
+          schema:
+            type: boolean
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+    post:
+      tags:
+        - Settings
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+    put:
+      tags:
+        - Settings
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ClassroomSettings'
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ClassroomSettings'
+components:
+  schemas:
+    BackgroundSettings:
+      type: object
+      properties:
+        imageType:
+          $ref: '#/components/schemas/ImageType'
+        imageId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ClassroomSettings:
+      type: object
+      properties:
+        itemClass:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        createdDateTime:
+          type: string
+          nullable: true
+        lastModifiedDateTime:
+          type: string
+          nullable: true
+        secondaryKey:
+          type: string
+          nullable: true
+        background:
+          $ref: '#/components/schemas/BackgroundSettings'
+        filterSettings:
+          $ref: '#/components/schemas/FilterSettings'
+      additionalProperties: false
+    ClientConfig:
+      type: object
+      properties:
+        validation:
+          $ref: '#/components/schemas/Validation'
+      additionalProperties: false
+    CustomFilter:
+      type: object
+      properties:
+        listDisplayName:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        visible:
+          type: boolean
+          nullable: true
+        values:
+          type: array
+          items:
+            type: string
+          nullable: true
+        valuesType:
+          type: string
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    ErrorCode:
+      enum:
+        - 0
+      type: integer
+      format: int32
+    FilterSettings:
+      type: object
+      properties:
+        dateRange:
+          $ref: '#/components/schemas/PredefinedFilter'
+        filetype:
+          $ref: '#/components/schemas/PredefinedFilter'
+        operators:
+          $ref: '#/components/schemas/PredefinedFilter'
+        site:
+          $ref: '#/components/schemas/PredefinedFilter'
+        custom:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomFilter'
+          nullable: true
+        factCheck:
+          $ref: '#/components/schemas/CustomFilter'
+      additionalProperties: false
+    ImageType:
+      enum:
+        - 0
+        - 1
+      type: integer
+      format: int32
+    NewsGuardData:
+      type: object
+      properties:
+        uuID:
+          type: string
+          nullable: true
+        domain:
+          type: string
+          nullable: true
+        parentDomain:
+          type: string
+          nullable: true
+        rating:
+          type: string
+          nullable: true
+        score:
+          type: string
+          nullable: true
+        lastUpdated:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+        language:
+          type: string
+          nullable: true
+        noRepeatedPublishedFalseContent:
+          type: boolean
+          nullable: true
+        responsibleGatheringandPresenting:
+          type: boolean
+          nullable: true
+        regualrCorrectionOrClarificationofErrors:
+          type: boolean
+          nullable: true
+        responsibleHandlingDifferenceBtwNewsAndOpinion:
+          type: boolean
+          nullable: true
+        avoidDeceptiveHeadlines:
+          type: boolean
+          nullable: true
+        disclosesOwnershipFinancing:
+          type: boolean
+          nullable: true
+        labelsAdvertising:
+          type: boolean
+          nullable: true
+        revealsInCharge:
+          type: boolean
+          nullable: true
+        revealsContentCreators:
+          type: boolean
+          nullable: true
+        brandName:
+          type: string
+          nullable: true
+        orientation:
+          type: string
+          nullable: true
+        owner:
+          type: string
+          nullable: true
+        hasNutritionInfo:
+          type: boolean
+      additionalProperties: false
+    PredefinedFilter:
+      type: object
+      properties:
+        disabled:
+          type: boolean
+          nullable: true
+      additionalProperties: false
+    ResultVisitData:
+      type: object
+      properties:
+        searchId:
+          type: string
+          nullable: true
+        searchResult:
+          $ref: '#/components/schemas/SearchResult'
+        resultIndex:
+          type: integer
+          format: int32
+      additionalProperties: false
+    SearchResponse:
+      type: object
+      properties:
+        searchResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+          nullable: true
+        isNextPageAvailable:
+          type: boolean
+      additionalProperties: false
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        link:
+          type: string
+          nullable: true
+        dateLastCrawled:
+          type: string
+          format: date-time
+        snippet:
+          type: string
+          nullable: true
+        dateLastPublished:
+          type: string
+          format: date-time
+        isNavigational:
+          type: boolean
+        language:
+          type: string
+          nullable: true
+        domainName:
+          type: string
+          nullable: true
+        topLevelDomain:
+          type: string
+          nullable: true
+        newsGuard:
+          $ref: '#/components/schemas/NewsGuardData'
+      additionalProperties: false
+    Validation:
+      type: object
+      properties:
+        isSuccessful:
+          type: boolean
+        errorCode:
+          $ref: '#/components/schemas/ErrorCode'
+      additionalProperties: false

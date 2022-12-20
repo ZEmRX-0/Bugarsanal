@@ -1,0 +1,17 @@
+200 OK
+Accept-Ranges: bytes
+Etag: "1d89b8342263ed2"
+Vary: Accept-Encoding
+X-Powered-By: ASP.NET
+Server: Microsoft-IIS/10.0
+Content-Type: application/javascript
+Set-Cookie: TiPMix=75.14867584182599; path=/; HttpOnly; Domain=authz-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=authz-int.pi.dps.microsoft.com; Max-Age=3600; Secure; SameSite=None
+Ms-Cv: kjufqF2zEEuCNvFy.0
+X-Server: INT-PD1MDWK000OCP
+X-Assemblyversion: 0.0.0.0
+Request-Context: appId=cid-v1:610bb4a4-6925-415b-8792-29f1b635fcdc
+Ms-Correlationid: c4f91d78-e758-4183-a03c-118197b633db
+Last-Modified: Tue, 19 Jul 2022 15:21:46 GMT
+Retry-Count: 0
+Ms-Requestid: da02f666-4f69-4f74-9dca-7794957e070d
+Date: Mon, 19 Dec 2022 21:00:12 GMT

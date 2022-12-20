@@ -1,0 +1,608 @@
+openapi: 3.0.1
+info:
+  title: MIX AgeRating service API
+  contact:
+    url: https://microsoft.visualstudio.com/Universal%20Store/_git/ICH.Ingestion.AgeRatings
+  version: v1
+paths:
+  '/api/sellers/{sellerId}/products/{productId}/effectiveageratings':
+    get:
+      tags:
+        - EffectiveAgeRatings
+      operationId: GET_EffectiveAgeRatings
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          schema:
+            minimum: 1
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snapshotId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/EffectiveAgeRatings'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EffectiveAgeRatings'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/EffectiveAgeRatings'
+  '/api/sellers/{sellerId}/products/{productId}/effectiveageratings/localize':
+    get:
+      tags:
+        - EffectiveAgeRatings
+      operationId: GET_LocalizedEffectiveAgeRatings
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          schema:
+            minimum: 1
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: snapshotId
+          in: query
+          schema:
+            type: string
+        - name: locale
+          in: query
+          schema:
+            type: string
+            default: en-us
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/EffectiveAgeRatings'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EffectiveAgeRatings'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/EffectiveAgeRatings'
+  '/api/products/{productId}/ageratings/instances':
+    get:
+      tags:
+        - ModuleData
+      parameters:
+        - name: x-ms-publisherId
+          in: header
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IModuleDataContract'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IModuleDataContract'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IModuleDataContract'
+  '/api/products/{productId}/ageratings/instances/{instanceId}':
+    get:
+      tags:
+        - ModuleData
+      parameters:
+        - name: x-ms-publisherId
+          in: header
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IModuleDataContract'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IModuleDataContract'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IModuleDataContract'
+  '/api/products/{productId}/ageratings/instances/{instanceId}/lock':
+    post:
+      tags:
+        - ModuleData
+      parameters:
+        - name: x-ms-publisherId
+          in: header
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: instanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IModuleDataContract'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IModuleDataContract'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IModuleDataContract'
+  '/api/sellers/{sellerId}/products/{productId}/submissions/{submissionId}/validations':
+    get:
+      tags:
+        - Validations
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          schema:
+            minimum: 1
+            type: integer
+            format: int64
+        - name: productId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: submissionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Validation'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Validation'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/Validation'
+components:
+  schemas:
+    AgeRating:
+      type: object
+      properties:
+        RatingSystem:
+          type: string
+          nullable: true
+        Level:
+          type: string
+          nullable: true
+        LevelLogoUrl:
+          type: string
+          nullable: true
+        MinimumAge:
+          type: integer
+          format: int32
+        CertificateFile:
+          $ref: '#/components/schemas/CertificateFile'
+        ContentDescriptors:
+          type: array
+          items:
+            type: string
+          nullable: true
+        Disclaimers:
+          type: array
+          items:
+            type: string
+          nullable: true
+        InteractiveElements:
+          type: array
+          items:
+            type: string
+          nullable: true
+        Origin:
+          type: string
+          nullable: true
+        ValidForPhysicalMedia:
+          type: boolean
+      additionalProperties: false
+    BranchType:
+      enum:
+        - Public
+        - Private
+        - Flight
+      type: string
+    CertificateFile:
+      type: object
+      properties:
+        CertificateUri:
+          type: string
+          format: uri
+          nullable: true
+        FileName:
+          type: string
+          nullable: true
+      additionalProperties: false
+    EffectiveAgeRatings:
+      type: object
+      properties:
+        AgeRatings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgeRating'
+          nullable: true
+        RestrictedMarkets:
+          type: array
+          items:
+            type: string
+          nullable: true
+        Status:
+          type: string
+          nullable: true
+        IARCRecord:
+          $ref: '#/components/schemas/IARCRecordContract'
+        UserLastModifiedAt:
+          type: string
+          format: date-time
+          nullable: true
+        SnapshotId:
+          type: string
+          nullable: true
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          nullable: true
+          readOnly: true
+      additionalProperties: false
+    IARCRecordContract:
+      type: object
+      properties:
+        RequestId:
+          type: string
+          format: uuid
+        CertId:
+          type: string
+          format: uuid
+        QuestionnaireVersion:
+          type: string
+          nullable: true
+        State:
+          type: string
+          nullable: true
+        GeneratedAt:
+          type: string
+          format: date-time
+        LanguageCode:
+          type: string
+          nullable: true
+        OverriddenAt:
+          type: string
+          format: date-time
+          nullable: true
+      additionalProperties: false
+    IModuleDataContract:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        revisionToken:
+          type: string
+          nullable: true
+        branchType:
+          $ref: '#/components/schemas/BranchType'
+        instanceType:
+          $ref: '#/components/schemas/ModuleInstanceType'
+        variantId:
+          type: string
+          nullable: true
+        branchName:
+          type: string
+          nullable: true
+        resource:
+          $ref: '#/components/schemas/Resource'
+        isValid:
+          type: boolean
+        friendlyName:
+          type: string
+          nullable: true
+        hashCode:
+          type: string
+          nullable: true
+        certHashCode:
+          type: string
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+        summary:
+          $ref: '#/components/schemas/ModuleSummary'
+        link:
+          $ref: '#/components/schemas/SubmissionLink'
+        isMainBranch:
+          type: boolean
+        isLocked:
+          type: boolean
+        predicates:
+          type: array
+          items:
+            $ref: '#/components/schemas/KnownPredicates'
+          nullable: true
+        variantType:
+          type: string
+          nullable: true
+      additionalProperties: false
+    KnownPredicates:
+      enum:
+        - Unknown
+        - HasPrivateAudience
+      type: string
+    Link:
+      type: object
+      properties:
+        rel:
+          type: string
+          nullable: true
+        href:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ModuleInstanceType:
+      enum:
+        - Unknown
+        - Product
+        - Variant
+      type: string
+    ModuleSummary:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModuleSummaryItem'
+          nullable: true
+      additionalProperties: false
+    ModuleSummaryItem:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SummaryInfoType'
+        summaryData:
+          type: string
+          nullable: true
+        multiPartData:
+          type: array
+          items:
+            $ref: '#/components/schemas/MultiPartData'
+          nullable: true
+      additionalProperties: false
+    MultiPartData:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          nullable: true
+        currentValue:
+          type: string
+          nullable: true
+        previousValue:
+          type: string
+          nullable: true
+      additionalProperties: false
+    Resource:
+      enum:
+        - Unknown
+        - Listing
+        - Property
+        - Package
+        - PackageSet
+        - Availability
+        - AgeRating
+        - Hardware
+        - IoT
+        - Submission
+        - Product
+        - Trailer
+        - Workflow
+        - Sandbox
+        - Flighting
+        - Sku
+        - ProductGroup
+        - Studio
+        - Rollout
+        - Publishing
+        - ConsumableQuantity
+        - FeatureGroup
+        - AssetDownload
+        - AssetValidation
+        - Certification
+        - Xbox
+        - SupportedTargetPlatforms
+        - Variant
+        - SkuSetup
+        - TestDrive
+        - Restrictions
+        - SupplementalContent
+        - Cosell
+        - Accounts
+        - ChannelConfiguration
+        - Resell
+        - Attestation
+      type: string
+    ResourceRevisionToken:
+      type: object
+      properties:
+        ResourceId:
+          type: string
+          nullable: true
+        Resource:
+          $ref: '#/components/schemas/Resource'
+        Value:
+          type: string
+          nullable: true
+      additionalProperties: false
+    SubmissionLink:
+      type: object
+      properties:
+        Href:
+          type: string
+          nullable: true
+        Rel:
+          type: string
+          nullable: true
+        Method:
+          type: string
+          nullable: true
+        ResourceId:
+          type: string
+          nullable: true
+        HashCode:
+          type: string
+          nullable: true
+        CertHashCode:
+          type: string
+          nullable: true
+        IsExpanded:
+          type: boolean
+          readOnly: true
+        Value:
+          type: string
+      additionalProperties: false
+    SummaryInfoType:
+      enum:
+        - Text
+        - Image
+        - MultiPart
+      type: string
+    Validation:
+      type: object
+      properties:
+        productId:
+          type: string
+          nullable: true
+        submissionId:
+          type: string
+          nullable: true
+        id:
+          type: string
+          nullable: true
+        friendlyName:
+          type: string
+          nullable: true
+        resource:
+          $ref: '#/components/schemas/Resource'
+        validationItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationItem'
+          nullable: true
+        resourceRevisionTokens:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceRevisionToken'
+          nullable: true
+      additionalProperties: false
+    ValidationItem:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          format: int32
+        error:
+          type: string
+          nullable: true
+        errorMessage:
+          type: string
+          nullable: true
+        type:
+          $ref: '#/components/schemas/ValidationType'
+        displayOnAnchor:
+          type: boolean
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationItemScope'
+          nullable: true
+        args:
+          type: array
+          items:
+            type: string
+          nullable: true
+        relatedItemValidations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Validation'
+      additionalProperties: false
+    ValidationItemScope:
+      type: object
+      properties:
+        instanceType:
+          $ref: '#/components/schemas/ModuleInstanceType'
+        instanceId:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ValidationType:
+      enum:
+        - Informational
+        - Warning
+        - Error
+        - WarningRequiresConfirmation
+        - Unknown
+      type: string

@@ -1,0 +1,14 @@
+200 OK
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self' https://login.windows.net https://sanotebookoutputeus2dev.blob.core.windows.net https://msit.powerbi.com https://aka.ms/ https://microsofteur.sharepoint.com/ https://*.microsoftonline.com; script-src 'self' 'unsafe-inline'; connect-src 'self' https://*.microsoftonline.com https://*.visualstudio.com https://powerva.microsoft.com https://directline.botframework.com wss://directline.botframework.com; img-src 'self' 'unsafe-inline' data: * blob: 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' https://static2.sharepointonline.com;
+Set-Cookie: ApplicationGatewayAffinityCORS=54c25ed2ec5328e8d5d44a1a200fb419; Path=/; SameSite=None; Secure ApplicationGatewayAffinity=54c25ed2ec5328e8d5d44a1a200fb419; Path=/ SPRD=fdc590a7-90a1-4f39-8a19-8191d973ee9f; max-age=3153600000; path=/; secure; samesite=strict; httponly ARRAffinity=b9c2c980050b0b7c2c958dd71b1f9bf281b9dc2e698fd00a1704e485f18848c3;Path=/;HttpOnly;Secure;Domain=as-spectre-api-eus2-dev.azurewebsites.net ARRAffinitySameSite=b9c2c980050b0b7c2c958dd71b1f9bf281b9dc2e698fd00a1704e485f18848c3;Path=/;HttpOnly;SameSite=None;Secure;Domain=as-spectre-api-eus2-dev.azurewebsites.net
+X-Powered-By: ASP.NET
+Referrer-Policy: same-origin
+Date: Mon, 19 Dec 2022 21:01:11 GMT
+Server: Microsoft-IIS/10.0
+X-Frame-Options: SAMEORIGIN
+Retry-Count: 0
+Content-Type: application/json; charset=utf-8
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:15cafa8c-6e80-4643-8aa0-c2802b169961

@@ -1,0 +1,19 @@
+200 OK
+X-Aspnet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+X-Content-Type-Options: nosniff
+Retry-Count: 0
+Set-Cookie: ARRAffinity=bd0dfb948b4e67ff60a11cd6e169712e6848609ad034c4789ebdf993fcec41fb;Path=/;HttpOnly;Secure;Domain=spockapi.microsoft.com
+Vary: Accept-Encoding
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+Expires: -1
+Strict-Transport-Security: max-age=31536000
+Correlationid: 80034f3f-0000-f600-b63f-84710c7967bb
+Content-Type: text/html
+Cache-Control: no-cache
+Server: Microsoft-IIS/10.0
+Pragma: no-cache
+Request-Context: appId=cid-v1:91e15e73-8f42-4878-8d07-3107b4ae8cf1
+Content-Security-Policy: default-src 'self';
+Date: Mon, 19 Dec 2022 21:00:58 GMT

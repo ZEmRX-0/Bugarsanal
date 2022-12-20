@@ -1,0 +1,11 @@
+200 OK
+Last-Modified: Tue, 13 Dec 2022 21:55:58 GMT
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 20:59:48 GMT
+Accept-Ranges: bytes
+Retry-Count: 0
+Server: Microsoft-IIS/10.0
+Etag: "1d90f3dae8ba73d"
+Set-Cookie: ARRAffinity=8cb9eb8a9c8e49bb32964ef5e087477636164e3b1bd119e62b62b2d516d04b33;Path=/;HttpOnly;Secure;Domain=api.anvil-dev.microsoft.com ARRAffinitySameSite=8cb9eb8a9c8e49bb32964ef5e087477636164e3b1bd119e62b62b2d516d04b33;Path=/;HttpOnly;SameSite=None;Secure;Domain=api.anvil-dev.microsoft.com
+Vary: Accept-Encoding
+Content-Type: application/javascript

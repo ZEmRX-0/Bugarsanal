@@ -1,0 +1,18 @@
+200 OK
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Arr-Disable-Session-Affinity: true
+X-Cache: CONFIG_NOCACHE
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: text/html
+Request-Context: appId=cid-v1:d0ce7ebd-03b9-44b6-9bc3-bf19762c1035
+Retry-Count: 0
+X-Azure-Ref: 0HdGgYwAAAAAUWJ8qD2SDQpd+s1QDK0F8RlJBMzFFREdFMDkxNgAwOWE4YmMzOS0yNDEwLTQ3ODktOTUwMi1lMjljODRmYzBmMGM=
+Date: Mon, 19 Dec 2022 21:01:16 GMT
+Expires: -1
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Request-Context
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000

@@ -1,0 +1,29 @@
+openapi: 3.0.1
+info:
+  title: MS.Internal.Office.Ocv.Petrol.Service
+  version: '1.0'
+servers:
+  - url: https://petrol-int.office.microsoft.com
+paths:
+  /v1/feedback:
+    post:
+      tags:
+        - Feedback
+      responses:
+        '200':
+          description: Success
+  /v1/feedback/privacyLink:
+    get:
+      tags:
+        - Feedback
+      responses:
+        '200':
+          description: Success
+  /status:
+    get:
+      tags:
+        - Status
+      responses:
+        '200':
+          description: Success
+components: { }

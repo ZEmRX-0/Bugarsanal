@@ -1,0 +1,17 @@
+200 OK
+Access-Control-Allow-Methods: GET,HEAD,OPTIONS
+Request-Context: appId=cid-v1:7384bbb3-5bd9-41cd-98cd-161e2d7b073e
+Vary: Accept-Encoding
+Date: Mon, 19 Dec 2022 21:01:25 GMT
+Access-Control-Allow-Headers: X-PowerBI-User-GroupId
+Pragma: no-cache
+X-Xss-Protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000
+Retry-Count: 0
+Content-Type: text/html
+Cache-Control: no-cache
+Expires: -1
+X-Content-Type-Options: nosniff
+Arr-Disable-Session-Affinity: true
+Server: 
+Access-Control-Expose-Headers: Request-Context

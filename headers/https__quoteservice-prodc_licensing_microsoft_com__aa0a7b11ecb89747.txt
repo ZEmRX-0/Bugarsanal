@@ -1,0 +1,17 @@
+200 OK
+Vary: Accept-Encoding
+X-Correlationid: 31e96df1-097c-4381-a28c-73da04ca2f1b
+Content-Type: text/html
+Cache-Control: no-cache
+Set-Cookie: ARRAffinity=172ecbee8b2314b9523bf3ac4fe5cb7242908e962a02849eb9c41881798c0909;Path=/;HttpOnly;Secure;Domain=quoteservice-prodc.licensing.microsoft.com ARRAffinitySameSite=172ecbee8b2314b9523bf3ac4fe5cb7242908e962a02849eb9c41881798c0909;Path=/;HttpOnly;SameSite=None;Secure;Domain=quoteservice-prodc.licensing.microsoft.com
+X-Aspnet-Version: 4.0.30319
+Retry-Count: 0
+Server: Microsoft-IIS/10.0
+Pragma: no-cache
+Correlationid: 31e96df1-097c-4381-a28c-73da04ca2f1b c2da4422-6678-464d-ab62-7719105304bd
+Request-Context: appId=cid-v1:7a70d4d7-21f8-407d-b1af-8a4f6b302107
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 21:00:36 GMT
+Access-Control-Expose-Headers: Request-Context
+Expires: -1
+X-Ms-Correlation-Id: 31e96df1-097c-4381-a28c-73da04ca2f1b

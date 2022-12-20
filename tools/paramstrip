@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Read the list of URLs from the input file
+while read -r url; do
+  # Strip the parameters from the URL
+  stripped_url=$(echo "$url" | sed 's/\?.*//')
+  # Print the stripped URL to the output file
+  echo "$stripped_url" >> "$2"
+done < "$1"
+

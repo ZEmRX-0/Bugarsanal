@@ -1,0 +1,273 @@
+openapi: 3.0.1
+info:
+  title: TAGS API
+  version: v1
+paths:
+  '/api/v{version}/devices/export':
+    get:
+      tags:
+        - DeviceExport
+      parameters:
+        - name: filterJson
+          in: query
+          schema:
+            type: string
+            default: ''
+        - name: version
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1/devices/export:
+    get:
+      tags:
+        - DeviceExport
+      parameters:
+        - name: deviceCategory
+          in: query
+          schema:
+            type: string
+        - name: filters
+          in: query
+          schema:
+            type: string
+            default: ''
+      responses:
+        '200':
+          description: Success
+  '/api/v{version}/dm/workspaces/export':
+    get:
+      tags:
+        - DMExport
+      parameters:
+        - name: filterJson
+          in: query
+          schema:
+            type: string
+            default: ''
+        - name: version
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/health:
+    get:
+      tags:
+        - Health
+      responses:
+        '200':
+          description: Success
+  /api/v1/jobs:
+    get:
+      tags:
+        - Jobs
+      responses:
+        '200':
+          description: Success
+  '/api/v1/jobs/{jobId}/status':
+    get:
+      tags:
+        - Jobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/v1/jobs/{jobId}/geturl':
+    get:
+      tags:
+        - Jobs
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1/liveeventservice:
+    post:
+      tags:
+        - LiveEvent
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/GetLiveEventServiceDataRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLiveEventServiceDataRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/GetLiveEventServiceDataRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/GetLiveEventServiceDataRequest'
+      responses:
+        '200':
+          description: Success
+    get:
+      tags:
+        - LiveEvent
+      parameters:
+        - name: AccessToken
+          in: query
+          schema:
+            type: string
+        - name: LiveEventServiceUrl
+          in: query
+          schema:
+            type: string
+        - name: LiveEventTypeOfService
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: startTime
+          in: query
+          schema:
+            type: string
+        - name: endTime
+          in: query
+          schema:
+            type: string
+        - name: organizerId
+          in: query
+          schema:
+            type: string
+        - name: attendeeUrl
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  '/api/v2/reports/{reportName}/startExport':
+    get:
+      tags:
+        - ReportExport
+      parameters:
+        - name: reportName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: Timeperiod
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: AppId
+          in: query
+          schema:
+            type: string
+        - name: StartTime
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: EndTime
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: DlpType
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: StartDate
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: IsInfoProtectionV2Report
+          in: query
+          schema:
+            type: boolean
+        - name: RegionalEndpoint
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1/admin/export:
+    get:
+      tags:
+        - TeamsAndUsersExport
+      parameters:
+        - name: exportParams
+          in: query
+          schema:
+            type: string
+        - name: exportType
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+  /api/v1/TenantNetworkSites/export:
+    get:
+      tags:
+        - TenantNetworkSiteExport
+      parameters:
+        - name: exportParams
+          in: query
+          schema:
+            type: string
+        - name: exportType
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+components:
+  schemas:
+    GetLiveEventServiceDataRequest:
+      required:
+        - liveEventTypeOfService
+      type: object
+      properties:
+        accessToken:
+          type: string
+          nullable: true
+        liveEventServiceUrl:
+          type: string
+          nullable: true
+        liveEventTypeOfService:
+          type: string
+        startTime:
+          type: string
+          nullable: true
+        endTime:
+          type: string
+          nullable: true
+        organizerId:
+          type: string
+          nullable: true
+        attendeeUrl:
+          type: string
+          nullable: true
+      additionalProperties: false
+  securitySchemes:
+    Bearer:
+      type: http
+      description: JWT Authorization header using the Bearer scheme.
+      scheme: bearer
+security:
+  - Bearer: [ ]

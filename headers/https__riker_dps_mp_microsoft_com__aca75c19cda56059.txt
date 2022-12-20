@@ -1,0 +1,12 @@
+200 OK
+Etag: "1d89b8342263ed2"
+Last-Modified: Tue, 19 Jul 2022 15:21:46 GMT
+Content-Type: application/javascript
+Date: Mon, 19 Dec 2022 21:00:48 GMT
+Server: Kestrel
+Accept-Ranges: bytes
+Ms-Correlationid: c526e2c2-9c71-4055-8441-805e7000abe5
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Vary: Accept-Encoding
+Request-Context: appId=cid-v1:b48200a8-5acf-437a-8eef-410f325351c3

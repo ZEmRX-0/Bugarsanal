@@ -1,0 +1,10 @@
+200 OK
+Retry-Count: 0
+Content-Type: text/html;charset=utf-8
+Date: Mon, 19 Dec 2022 21:00:03 GMT
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=1ced106d837bf8e4345e6c458dbe803cf0bf2ce74666443093f2f2323bf2de97;Path=/;HttpOnly;Secure;Domain=domaindataservice.dps.mp.microsoft.com ARRAffinitySameSite=1ced106d837bf8e4345e6c458dbe803cf0bf2ce74666443093f2f2323bf2de97;Path=/;HttpOnly;SameSite=None;Secure;Domain=domaindataservice.dps.mp.microsoft.com
+Request-Context: appId=cid-v1:f1e9ece6-da6f-4245-87bd-0b70d6e93c94
+X-Powered-By: ASP.NET
+Vary: Accept-Encoding
+Correlationid: 351afde9-7271-4879-8082-4e9ac34241d9

@@ -1,0 +1,13 @@
+200 OK
+X-Content-Type-Options: nosniff
+Vary: Accept-Encoding
+Content-Type: text/html;charset=utf-8
+Cache-Control: no-store
+Strict-Transport-Security: max-age=2592000
+X-Powered-By: ASP.NET
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 21:00:19 GMT
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=30e33c1fd6045aee37ef50a5f26a231b54d1a1378afcfc7c824eae81a976a177;Path=/;HttpOnly;Secure;Domain=employeeservicehubapi.microsoft.com ARRAffinitySameSite=30e33c1fd6045aee37ef50a5f26a231b54d1a1378afcfc7c824eae81a976a177;Path=/;HttpOnly;SameSite=None;Secure;Domain=employeeservicehubapi.microsoft.com
+Request-Context: appId=cid-v1:7361245f-9d49-406f-ac78-d15f095518a5
+Correlationid: f862591b-ac4a-408e-9c09-c536b3e027ec

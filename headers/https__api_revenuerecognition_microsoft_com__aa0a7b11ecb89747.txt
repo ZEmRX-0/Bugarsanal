@@ -1,0 +1,15 @@
+200 OK
+Date: Mon, 19 Dec 2022 21:00:04 GMT
+Vary: Accept-Encoding
+X-Locale: en-US
+Content-Type: text/html
+Retry-Count: 0
+Ms-Requestid: 3715f826-8b0e-4a65-a6d2-82474a487b75
+X-Aspnet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Server: Microsoft-IIS/10.0
+Set-Cookie: ARRAffinity=cc0cdee807956c558dbe76dffd17e78e23b0582e6b67741d1aff58560073a931;Path=/;HttpOnly;Secure;Domain=api.revenuerecognition.microsoft.com ARRAffinitySameSite=cc0cdee807956c558dbe76dffd17e78e23b0582e6b67741d1aff58560073a931;Path=/;HttpOnly;SameSite=None;Secure;Domain=api.revenuerecognition.microsoft.com
+Ms-Correlationid: c4cc3cba-f08c-438d-be41-fd9c996cf545
+X-Content-Type-Options: nosniff
+Cache-Control: private

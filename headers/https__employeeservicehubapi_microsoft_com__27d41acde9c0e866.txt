@@ -1,0 +1,13 @@
+200 OK
+Content-Type: text/yaml;charset=utf-8
+Request-Context: appId=cid-v1:7361245f-9d49-406f-ac78-d15f095518a5
+Set-Cookie: ARRAffinity=bb61f056ec90fd131372fcfbb3fc0be22ad2edcdf1820d9c82634fc66517f5f9;Path=/;HttpOnly;Secure;Domain=employeeservicehubapi.microsoft.com ARRAffinitySameSite=bb61f056ec90fd131372fcfbb3fc0be22ad2edcdf1820d9c82634fc66517f5f9;Path=/;HttpOnly;SameSite=None;Secure;Domain=employeeservicehubapi.microsoft.com
+X-Content-Type-Options: nosniff
+Correlationid: 0449f3f1-383a-42b7-9c7f-7c90d5e0d5c8
+Retry-Count: 0
+Server: Microsoft-IIS/10.0
+Strict-Transport-Security: max-age=2592000
+X-Powered-By: ASP.NET
+Date: Mon, 19 Dec 2022 21:00:27 GMT
+Cache-Control: no-store
+Vary: Accept-Encoding

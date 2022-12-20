@@ -1,0 +1,14 @@
+200 OK
+X-Powered-By: ASP.NET
+X-Content-Type-Options: nosniff
+X-Cache: CONFIG_NOCACHE
+Retry-Count: 0
+Set-Cookie: TiPMix=86.1616204893969; path=/; HttpOnly; Domain=RDGateway-NEU-R1.wvdselfhost.microsoft.com; Max-Age=3600; Secure; SameSite=None x-ms-routing-name=self; path=/; HttpOnly; Domain=RDGateway-NEU-R1.wvdselfhost.microsoft.com; Max-Age=3600; Secure; SameSite=None ARRAffinity=7a1db6e34919d328a6b342958b148ee6050587aa891006760e2f1856efac5f26;Path=/;HttpOnly;Secure;Domain=RDGateway-NEU-R1.wvdselfhost.microsoft.com ARRAffinitySameSite=7a1db6e34919d328a6b342958b148ee6050587aa891006760e2f1856efac5f26;Path=/;HttpOnly;SameSite=None;Secure;Domain=RDGateway-NEU-R1.wvdselfhost.microsoft.com
+X-Ms-Wvd-Service-Region: NEU
+X-Ms-Correlation-Id: dd0bc00b-d3ed-4aa8-924d-8a55ee31f3c3
+X-Ms-Request-Id: 25ce8a08-490d-42fd-8e1d-d402a9867898
+Vary: Accept-Encoding
+X-Ms-Lamport-Ts: 89766495
+X-Azure-Ref: 0x9CgYwAAAAAIE7WYejzdQKypEY3qdC4GRlJBMjMxMDUwNDE3MDI1AGZiOWUwOTkzLWI1ZjYtNGNkYy1iOGU1LTVhODhlYmE5NzNkOQ==
+Content-Type: application/json;charset=utf-8
+Date: Mon, 19 Dec 2022 20:59:50 GMT

@@ -1,0 +1,13 @@
+200 OK
+Arr-Disable-Session-Affinity: true
+Date: Mon, 19 Dec 2022 21:00:58 GMT
+Vary: Accept-Encoding
+Server: Microsoft-IIS/10.0
+Content-Type: text/yaml;charset=utf-8
+X-Ms-Correlation-Id: 19b4b5f6-0a17-46f3-95a6-6cfb3b96763f
+X-Ms-Request-Id: fbac1f5d-039f-4710-b8d4-0664bc17a695
+X-Powered-By: ASP.NET
+Retry-Count: 0
+X-Ms-Wvd-Service-Region: CIN
+X-Ms-Lamport-Ts: 0
+X-Content-Type-Options: nosniff

@@ -1,0 +1,12 @@
+200 OK
+Cache-Control: no-cache
+Expires: -1
+Set-Cookie: ARRAffinity=88f3cddbfc5f5d5e21808695089a4099f774af143eaf7481ed3e836dcceaa201;Path=/;HttpOnly;Secure;Domain=refsspservices.microsoft.com ARRAffinitySameSite=88f3cddbfc5f5d5e21808695089a4099f774af143eaf7481ed3e836dcceaa201;Path=/;HttpOnly;SameSite=None;Secure;Domain=refsspservices.microsoft.com
+Vary: Accept-Encoding
+Content-Type: text/html
+Server: Microsoft-IIS/10.0
+Pragma: no-cache
+Date: Mon, 19 Dec 2022 21:00:48 GMT
+X-Aspnet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Retry-Count: 0

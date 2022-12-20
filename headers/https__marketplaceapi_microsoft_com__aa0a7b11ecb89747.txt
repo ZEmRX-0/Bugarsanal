@@ -1,0 +1,11 @@
+200 OK
+Content-Type: text/html
+Vary: Accept-Encoding
+Set-Cookie: ARRAffinity=952a8da6320cf456e2fd8fa5feb46f3b70e44e8e09d7da0cc633f5576ce84e1b;Path=/;HttpOnly;Secure;Domain=main.prod.marketplaceapi.azure.com ARRAffinitySameSite=952a8da6320cf456e2fd8fa5feb46f3b70e44e8e09d7da0cc633f5576ce84e1b;Path=/;HttpOnly;SameSite=None;Secure;Domain=main.prod.marketplaceapi.azure.com
+X-Aspnet-Version: 4.0.30319
+X-Cache: CONFIG_NOCACHE
+Date: Mon, 19 Dec 2022 21:00:41 GMT
+Cache-Control: private
+Retry-Count: 0
+X-Azure-Ref: 0+tCgYwAAAAB0K7NMfUwqTICsX70i49vRRlJBMjMxMDUwNDE3MDUxADMxMDRiMDliLTk0YWUtNDZmYy05MDA2LTFlYTIwN2JhN2MxOA==
+X-Powered-By: ASP.NET

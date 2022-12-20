@@ -1,0 +1,3680 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NCS Endpoints",
+    "version": "v1"
+  },
+  "paths": {
+    "/mgmt/v1/AutoSuggest": {
+      "get": {
+        "tags": [
+          "AutoSuggest"
+        ],
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/civicAddresses": {
+      "get": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/civicAddresses/filters": {
+      "get": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "parameters": [
+          {
+            "name": "civicAddressId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "partnerId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "validationStatus",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ValidationStatus"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "populateNumberOfVoiceUsers",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "populateNumberOfTelephoneNumbers",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/civicAddresses/{id}": {
+      "get": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/civicAddresses/validate": {
+      "post": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CivicAddress"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/civicAddresses/validate/{id}": {
+      "post": {
+        "tags": [
+          "CivicAddress"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/EmergencyDisclaimer/Country={keyCountry}/{keyVersion}": {
+      "get": {
+        "tags": [
+          "EmergencyDisclaimer"
+        ],
+        "parameters": [
+          {
+            "name": "keyCountry",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "keyVersion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/EmergencyDisclaimer/response/Country={keyCountry}/{keyVersion}": {
+      "get": {
+        "tags": [
+          "EmergencyDisclaimer"
+        ],
+        "parameters": [
+          {
+            "name": "keyCountry",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "keyVersion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/EmergencyDisclaimer": {
+      "post": {
+        "tags": [
+          "EmergencyDisclaimer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "EmergencyDisclaimer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerReturnType"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/EmergencyDisclaimer/response": {
+      "post": {
+        "tags": [
+          "EmergencyDisclaimer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmergencyDisclaimerUserResponseInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json;odata.metadata=minimal;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=minimal;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=minimal": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=full;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=full": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=none;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.metadata=none": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.streaming=true": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json;odata.streaming=false": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "application/prs.odatatestxx-odata": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HttpResponseMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mgmt/v1/locations": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Location"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Location"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/locations/filters": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "civicAddressId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            }
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "country",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "validationStatus",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/ValidationStatus"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "populateNumberOfVoiceUsers",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "populateNumberOfTelephoneNumbers",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/locations/{id}": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/locations/civicAddressId/{id}": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/locations/{locationId}/phoneNumbers/{phoneNumber}": {
+      "post": {
+        "tags": [
+          "LocationPhoneNumber"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "LocationPhoneNumber"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/ports": {
+      "get": {
+        "tags": [
+          "Port"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Port"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPort"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/ports/filters": {
+      "get": {
+        "tags": [
+          "Port"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/ports/{query}": {
+      "get": {
+        "tags": [
+          "Port"
+        ],
+        "parameters": [
+          {
+            "name": "chassisId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Port"
+        ],
+        "parameters": [
+          {
+            "name": "chassisId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "portId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/ports/{chassisId}/{port}": {
+      "get": {
+        "tags": [
+          "Port"
+        ],
+        "parameters": [
+          {
+            "name": "chassisId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "port",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Port"
+        ],
+        "parameters": [
+          {
+            "name": "chassisId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "port",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Port"
+        ],
+        "parameters": [
+          {
+            "name": "chassisId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "port",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadOperation/Jobs": {
+      "get": {
+        "tags": [
+          "ProcessBulkUpload"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadOperation/Jobs/{type}": {
+      "get": {
+        "tags": [
+          "ProcessBulkUpload"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadNetworkSubnetOperation": {
+      "post": {
+        "tags": [
+          "ProcessBulkUploadNetworkSubnet"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkSubnetCmdInputCollection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadNetworkSubnetOperation/{jobId}": {
+      "get": {
+        "tags": [
+          "ProcessBulkUploadNetworkSubnet"
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadPortOperation": {
+      "post": {
+        "tags": [
+          "ProcessBulkUploadPort"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PortCmdInputCollection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadPortOperation/{jobId}": {
+      "get": {
+        "tags": [
+          "ProcessBulkUploadPort"
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadSubnetOperation": {
+      "post": {
+        "tags": [
+          "ProcessBulkUploadSubnet"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubnetCmdInputCollection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadSubnetOperation/{jobId}": {
+      "get": {
+        "tags": [
+          "ProcessBulkUploadSubnet"
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadSwitchOperation": {
+      "post": {
+        "tags": [
+          "ProcessBulkUploadSwitch"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwitchCmdInputCollection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadSwitchOperation/{jobId}": {
+      "get": {
+        "tags": [
+          "ProcessBulkUploadSwitch"
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadWAPOperation": {
+      "post": {
+        "tags": [
+          "ProcessBulkUploadWAP"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json;odata.metadata=minimal;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=minimal": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=full": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.metadata=none": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=true": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json;odata.streaming=false": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/prs.odatatestxx-odata": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WAPCmdInputCollection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/BulkUploadWAPOperation/{jobId}": {
+      "get": {
+        "tags": [
+          "ProcessBulkUploadWAP"
+        ],
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/subnets": {
+      "get": {
+        "tags": [
+          "Subnet"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/subnets/filters": {
+      "get": {
+        "tags": [
+          "Subnet"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/subnets/{subnetId}": {
+      "get": {
+        "tags": [
+          "Subnet"
+        ],
+        "parameters": [
+          {
+            "name": "subnetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Subnet"
+        ],
+        "parameters": [
+          {
+            "name": "subnetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Subnet"
+        ],
+        "parameters": [
+          {
+            "name": "subnetId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/switches": {
+      "get": {
+        "tags": [
+          "Switch"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/switches/filters": {
+      "get": {
+        "tags": [
+          "Switch"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/switches/{ChassisId}": {
+      "get": {
+        "tags": [
+          "Switch"
+        ],
+        "parameters": [
+          {
+            "name": "ChassisId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Switch"
+        ],
+        "parameters": [
+          {
+            "name": "ChassisId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Switch"
+        ],
+        "parameters": [
+          {
+            "name": "ChassisId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/wirelessAccessPoints": {
+      "get": {
+        "tags": [
+          "Wap"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/wirelessAccessPoints/filters": {
+      "get": {
+        "tags": [
+          "Wap"
+        ],
+        "parameters": [
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/mgmt/v1/wirelessAccessPoints/{BSSID}": {
+      "get": {
+        "tags": [
+          "Wap"
+        ],
+        "parameters": [
+          {
+            "name": "BSSID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Wap"
+        ],
+        "parameters": [
+          {
+            "name": "BSSID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Wap"
+        ],
+        "parameters": [
+          {
+            "name": "BSSID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TenantType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ValidationStatus": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "CivicAddress": {
+        "required": [
+          "CompanyName",
+          "Country"
+        ],
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "TenantId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "Country": {
+            "type": "string"
+          },
+          "HouseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "HouseNumberSuffix": {
+            "type": "string",
+            "nullable": true
+          },
+          "PreDirectional": {
+            "type": "string",
+            "nullable": true
+          },
+          "StreetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "StreetSuffix": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostDirectional": {
+            "type": "string",
+            "nullable": true
+          },
+          "StateOrProvince": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountyOrDistrict": {
+            "type": "string",
+            "nullable": true
+          },
+          "CityOrTown": {
+            "type": "string",
+            "nullable": true
+          },
+          "CityOrTownAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalOrZipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CompanyName": {
+            "type": "string"
+          },
+          "CompanyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartnerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefaultLocationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "Elin": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationStatus": {
+            "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "AdditionalLocationInfo": {
+            "type": "string",
+            "nullable": true
+          },
+          "Latitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "Longitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "Confidence": {
+            "type": "string",
+            "nullable": true
+          },
+          "NumberOfVoiceUsers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NumberOfTelephoneNumbers": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Diagnostics": {
+        "type": "object",
+        "properties": {
+          "correlationID": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "subCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "debugContent": {
+            "type": "string",
+            "nullable": true
+          },
+          "reason": {
+            "type": "string",
+            "nullable": true
+          },
+          "genevaLogsUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataSource": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "EmergencyDisclaimerReturnType": {
+        "type": "object",
+        "properties": {
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "type": "string",
+            "nullable": true
+          },
+          "Content": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsCurrent": {
+            "type": "boolean"
+          },
+          "Locale": {
+            "type": "string",
+            "nullable": true
+          },
+          "diagnostics": {
+            "$ref": "#/components/schemas/Diagnostics"
+          },
+          "TenantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "CorrelationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDebug": {
+            "type": "boolean"
+          },
+          "TargetStore": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "OriginalUserAgent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmergencyDisclaimerResponseTypeOData": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "EmergencyDisclaimerUserResponseInput": {
+        "type": "object",
+        "properties": {
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "type": "string",
+            "nullable": true
+          },
+          "Response": {
+            "$ref": "#/components/schemas/EmergencyDisclaimerResponseTypeOData"
+          },
+          "RespondedByObjectId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "ResponseTimestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Locale": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "CorrelationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDebug": {
+            "type": "boolean"
+          },
+          "TargetStore": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "OriginalUserAgent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Version": {
+        "type": "object",
+        "properties": {
+          "Major": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "Minor": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "Build": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "Revision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "MajorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "MinorRevision": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringStringIEnumerableKeyValuePair": {
+        "type": "object",
+        "properties": {
+          "Key": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "Value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpContent": {
+        "type": "object",
+        "properties": {
+          "Headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpStatusCode": {
+        "enum": [
+          100,
+          101,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          300,
+          301,
+          302,
+          303,
+          304,
+          305,
+          306,
+          307,
+          400,
+          401,
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410,
+          411,
+          412,
+          413,
+          414,
+          415,
+          416,
+          417,
+          426,
+          500,
+          501,
+          502,
+          503,
+          504,
+          505
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "HttpMethod": {
+        "type": "object",
+        "properties": {
+          "Method": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpRequestMessage": {
+        "type": "object",
+        "properties": {
+          "Version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "Content": {
+            "$ref": "#/components/schemas/HttpContent"
+          },
+          "Method": {
+            "$ref": "#/components/schemas/HttpMethod"
+          },
+          "RequestUri": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "Headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "Properties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HttpResponseMessage": {
+        "type": "object",
+        "properties": {
+          "Version": {
+            "$ref": "#/components/schemas/Version"
+          },
+          "Content": {
+            "$ref": "#/components/schemas/HttpContent"
+          },
+          "StatusCode": {
+            "$ref": "#/components/schemas/HttpStatusCode"
+          },
+          "ReasonPhrase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Headers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StringStringIEnumerableKeyValuePair"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "RequestMessage": {
+            "$ref": "#/components/schemas/HttpRequestMessage"
+          },
+          "IsSuccessStatusCode": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Location": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "CivicAddressId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "TenantId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "HouseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "HouseNumberSuffix": {
+            "type": "string",
+            "nullable": true
+          },
+          "PreDirectional": {
+            "type": "string",
+            "nullable": true
+          },
+          "StreetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "StreetSuffix": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostDirectional": {
+            "type": "string",
+            "nullable": true
+          },
+          "StateOrProvince": {
+            "type": "string",
+            "nullable": true
+          },
+          "CountyOrDistrict": {
+            "type": "string",
+            "nullable": true
+          },
+          "CityOrTown": {
+            "type": "string",
+            "nullable": true
+          },
+          "CityOrTownAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalOrZipCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "CompanyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "CompanyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "PartnerId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "AdditionalInfo": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValidationStatus": {
+            "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "IsDefault": {
+            "type": "boolean"
+          },
+          "Elin": {
+            "type": "string",
+            "nullable": true
+          },
+          "Latitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "Longitude": {
+            "type": "string",
+            "nullable": true
+          },
+          "Confidence": {
+            "type": "string",
+            "nullable": true
+          },
+          "NumberOfVoiceUsers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "NumberOfTelephoneNumbers": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NetworkPort": {
+        "type": "object",
+        "properties": {
+          "PortID": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChassisID": {
+            "type": "string",
+            "nullable": true
+          },
+          "Identity": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NetworkSubnetCmdInput": {
+        "type": "object",
+        "properties": {
+          "Identity": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "NetworkSiteID": {
+            "type": "string",
+            "nullable": true
+          },
+          "MaskBits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SubnetID": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "CorrelationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDebug": {
+            "type": "boolean"
+          },
+          "TargetStore": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "OriginalUserAgent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NetworkSubnetCmdInputCollection": {
+        "type": "object",
+        "properties": {
+          "NetworkSubnetCmdInputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NetworkSubnetCmdInput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PortCmdInput": {
+        "type": "object",
+        "properties": {
+          "Port": {
+            "type": "string",
+            "nullable": true
+          },
+          "ChassisId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "LocationValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "CorrelationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDebug": {
+            "type": "boolean"
+          },
+          "TargetStore": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "OriginalUserAgent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PortCmdInputCollection": {
+        "type": "object",
+        "properties": {
+          "PortCmdInputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PortCmdInput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubnetCmdInput": {
+        "type": "object",
+        "properties": {
+          "Subnet": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "LocationValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "CorrelationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDebug": {
+            "type": "boolean"
+          },
+          "TargetStore": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "OriginalUserAgent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubnetCmdInputCollection": {
+        "type": "object",
+        "properties": {
+          "SubnetCmdInputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubnetCmdInput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SwitchCmdInput": {
+        "type": "object",
+        "properties": {
+          "ChassisId": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "LocationValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "CorrelationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDebug": {
+            "type": "boolean"
+          },
+          "TargetStore": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "OriginalUserAgent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SwitchCmdInputCollection": {
+        "type": "object",
+        "properties": {
+          "SwitchCmdInputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SwitchCmdInput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WAPCmdInput": {
+        "type": "object",
+        "properties": {
+          "BSSID": {
+            "type": "string",
+            "nullable": true
+          },
+          "LocationId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "LocationValue": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantId": {
+            "type": "string",
+            "nullable": true
+          },
+          "TenantType": {
+            "$ref": "#/components/schemas/TenantType"
+          },
+          "CorrelationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "UserAgent": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsDebug": {
+            "type": "boolean"
+          },
+          "TargetStore": {
+            "$ref": "#/components/schemas/DataSource"
+          },
+          "OriginalUserAgent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WAPCmdInputCollection": {
+        "type": "object",
+        "properties": {
+          "WAPCmdInputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/WAPCmdInput"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

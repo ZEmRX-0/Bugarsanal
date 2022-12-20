@@ -1,0 +1,14 @@
+200 OK
+Server: Kestrel
+Content-Length: 531276
+Last-Modified: Wed, 14 Dec 2022 20:47:06 GMT
+Etag: "1d90ffd3a111a4c"
+Ms-Correlationid: 15a9b348-5fb2-4c87-9f1f-4366cceeaf60
+Ms-Requestid: 4cad713a-6779-4371-a4c1-c4e8840f9a7f
+Content-Type: application/javascript
+X-Content-Type-Options: nosniff
+Ms-Cv: NqttIaoL5UGxecBu.0
+Ms-Serverid: 5
+Retry-Count: 0
+Date: Mon, 19 Dec 2022 20:59:57 GMT
+Accept-Ranges: bytes
